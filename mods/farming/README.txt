@@ -1,4 +1,4 @@
-MThis mod is part of Minetest NeXt
+MThis mod is part of Minetest TNG
 =================================
 
 License of source code:

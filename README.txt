@@ -1,5 +1,5 @@
-An improved game for the Minetest game engine [minetest_next]
-=================================================================
+An improved game for the Minetest game engine [minetest_tng]
+============================================================
 
 To use this game with Minetest, insert this repository as
   /games/minetest_next
@@ -7,6 +7,19 @@ in the Minetest Engine.
 
 The Minetest engine can be found in:
 	https://github.com/minetest/minetest/
+
+Introduction
+------------
+Since I (LNJ / LNJplus) read that BlockMen leaves us, I decided to fork and continue BlockMen's really nice work!
+Of course I would really like to hear your ideas and suggestions!
+I changed the title of the game to Minetest: The NeXt Gameration. :D
+
+My plans:
+    - many new plants and trees
+    - CME (Creatures Mob Engine) that means some mobs
+    - some nice decorations like pictures, furniture
+    - many new cooking recipes
+    - hunger
 
 
 License of source code
@@ -32,7 +45,7 @@ License of media (textures and sounds)
 See README.txt in each mod directory for information about other authors.
 
 License of menu/header.png
-Copyright (C) 2015 BlockMen CC BY-SA 3.0
+Copyright (C) 2016 LNJ CC BY-SA 3.0 (based on header by BlockMen CC BY-SA 3.0)
 
 License of menu/icon.png
 Copyright (C) 2014 BlockMen CC BY-SA 3.0 (based on icon by erlehmann CC BY-SA 3.0)

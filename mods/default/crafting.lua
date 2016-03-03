@@ -713,3 +713,12 @@ minetest.register_craft({
 	output = "default:charcoal",
 	recipe = "group:tree",
 })
+
+minetest.register_craft({
+	output = "default:itemframe",
+	recipe = {
+		{"default:stick", "default:stick", "default:stick"},
+		{"default:stick", "default:paper", "default:stick"},
+		{"default:stick", "default:stick", "default:stick"},
+	}
+})

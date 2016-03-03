@@ -1,10 +1,11 @@
-This mod is part of Minetest NeXt
-==================================
+This mod is part of Minetest TNG
+================================
 
 License of source code:
 -----------------------
 Copyright (C) 2011-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 Copyright (C) 2014-2015 BlockMen <blockmen2015@gmail.com>
+Copyright (C) 2016 LNJ <lnj@gmx.de>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -23,6 +24,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 License of media (textures, sounds, meshes):
 --------------------------------------------
 (by Authors)
+
+JBB (CC BY-SA 3.0):
+  default_itemframe.png
+  default_jungleleaves.png, based on texture of BlockMen (CC BY-SA 3.0)
 
 Cisoun (WTFPL):
   default_lava.png
@@ -129,7 +134,6 @@ BlockMen (CC BY-SA 3.0):
   default_grass_side.png
   default_grass_*.png, based on texture of Gambit (WTFPL)
   default_iron_ingot.png
-  default_jungleleaves.png
   default_jungletree.png
   default_jungletree_top.png
   default_lava_flowing_animated.png

@@ -105,7 +105,7 @@ end
 
 local function can_replace(pos)
 	local n = minetest.get_node_or_nil(pos)
-	local ndef = minetest.registered_nodes[n.name]
+	local ndef = minetest.registered_nodes[n.name] or nil
 	if (ndef and not ndef.walkable) or not n then
 		return true
 	else

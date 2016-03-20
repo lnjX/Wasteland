@@ -1,9 +1,11 @@
 WASTELAND - a game for the Minetest game engine
 ===============================================
 Version 0.5 BETA
-(c) Copyright BlockMen (2013-2015)
 
+Copyright (C) 2013-2015 BlockMen
+Copyright (C) 2016 LNJ
 
+THIS IS NOT THE ORIGINAL VERSION BY BLOCKMEN IT'S A FORK BY LNJ.
 
 Story:
 ~~~~~~
@@ -28,7 +30,8 @@ Keep in mind, you must eat or you will starve. And hunger comes faster than you 
 
 License:
 ~~~~~~~~
-(c) Copyright BlockMen (2013-2015)
+Copyright (C) 2013-2015 BlockMen
+Copyright (C) 2016 LNJ
 
 Code:
 If not stated differently in a mod directory the code is licensed under
@@ -55,7 +58,7 @@ See <https://creativecommons.org/licenses/by/3.0/> for more informations.
 
 Github:
 ~~~~~~~
-https://github.com/BlockMen/Wasteland
+https://github.com/gamerbude/Wasteland
 
 
 

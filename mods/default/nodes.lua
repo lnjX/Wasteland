@@ -111,6 +111,7 @@ minetest.register_node("default:grass", {
 	stack_max = 40,
 	}),
 })
+minetest.register_alias("default:dirt_with_grass", "default:grass")
 
 minetest.register_node("default:dirt_with_snow", {
 	description = "Dirt with Snow",

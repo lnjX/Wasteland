@@ -65,7 +65,7 @@ local def = {
   },
 
   combat = {
-    attack_damage = 2,
+    attack_damage = 4,
     attack_speed = 1.1,
     attack_radius = 0.9,
 

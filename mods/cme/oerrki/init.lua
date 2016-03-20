@@ -70,8 +70,8 @@ local def = {
   },
 
   combat = {
-    attack_damage = 2,
-    attack_speed = 0.6,
+    attack_damage = 4,
+    attack_speed = 0.7,
     attack_radius = 1.2,
 
     search_enemy = true,
@@ -105,6 +105,11 @@ local def = {
       light = {min = 0, max = 8},
     }
   },
+  
+  drops = {
+    {"farming:cotton_seed", {min = 0, max = 2}, chance = 0.03},
+    {"default:coal_lump", {min = 0, max = 3}, chance = 0.02}
+  }
 }
 
 creatures.register_mob(def)

@@ -63,6 +63,8 @@ VanessaE (WTFPL):
 Calinou (CC BY-SA):
   default_papyrus.png
   default_mineral_copper.png
+  default_glass_detail.png
+  default_glass.png
 
 MirceaKitsune (WTFPL):
   character.x
@@ -72,6 +74,7 @@ PilzAdam (WTFPL):
   default_junglesapling.png
   default_junglewood.png
   default_obsidian_glass.png
+  default_obsidian_glass_detail.png
   default_obsidian_shard.png
   default_mineral_gold.png
   default_snowball.png

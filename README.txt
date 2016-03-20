@@ -1,18 +1,20 @@
 WASTELAND - a game for the Minetest game engine
 ===============================================
-Version 0.5 BETA
+Version 0.6.1, Status: BETA
 
 Copyright (C) 2013-2015 BlockMen
 Copyright (C) 2016 LNJ
 
-THIS IS NOT THE ORIGINAL VERSION BY BLOCKMEN IT'S A FORK BY LNJ.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~ THIS IS NOT THE ORIGINAL VERSION BY BLOCKMEN IT'S A FORK BY LNJ. ~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 Story:
 ~~~~~~
 A long time ago there where trees, grass and the ocean. But that is all gone, everything that is left is a WASTELAND and
 
 YOU.
-
 
 
 How to play:

@@ -1,7 +1,16 @@
 minetest.override_item("default:dirt", {
 	groups = {crumbly = 3, soil = 1},
 	soil = {
-		base = "default:dirt",
+		base = "default:dry_dirt",
+		dry = "farming:soil",
+		wet = "farming:soil_wet"
+	}
+})
+
+minetest.override_item("default:dry_dirt", {
+	groups = {crumbly = 3, soil = 1},
+	soil = {
+		base = "default:dry_dirt",
 		dry = "farming:soil",
 		wet = "farming:soil_wet"
 	}

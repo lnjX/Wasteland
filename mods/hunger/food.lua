@@ -6,6 +6,7 @@ register_food("default:old_bread", 4, "", 3)
 
 if minetest.get_modpath("farming") ~= nil then
 	register_food("farming:bread", 3)
+	register_food("farming:potato", 2)
 end
 
 if minetest.get_modpath("creatures") ~= nil then

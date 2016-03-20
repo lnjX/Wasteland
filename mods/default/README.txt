@@ -1,5 +1,5 @@
-Minetest 0.4 mod: default
-==========================
+This Mod is part of Minetest Wasteland
+======================================
 
 License of source code:
 -----------------------

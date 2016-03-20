@@ -1,5 +1,9 @@
 -- mods/default/nodes.lua
 
+local modpath = core.get_modpath("default")
+
+dofile(modpath .. "/nodes/fences.lua")
+
 minetest.register_node("default:stone", {
 	description = "Stone",
 	tiles = {"default_stone.png"},
@@ -414,29 +418,6 @@ minetest.register_node("default:glass", {
 	groups = {dig=default.dig.glass},
 	sounds = default.node_sound_glass_defaults(),
 	stack_max = 40,
-})
-
-minetest.register_node("default:fence_wood", {
-	description = "Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_wood.png"},
-	--is_ground_content = false,
-	inventory_image = "default_fence.png",
-	wield_image = "default_fence.png",
-	paramtype = "light",
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
-		},
-	},
-	groups = {choppy=default.dig.fence,flammable=2},
-	sounds = default.node_sound_wood_defaults(),
-	stack_max = 60,
 })
 
 minetest.register_node("default:rail", {

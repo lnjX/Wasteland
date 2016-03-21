@@ -1,42 +1,44 @@
+-- mods/default/lua/mapgen.lua
+
 --
 -- Aliases for map generator outputs
 --
 
-minetest.register_alias("mapgen_air", "air")
-minetest.register_alias("mapgen_stone", "default:stone")
-minetest.register_alias("mapgen_dirt", "default:dirt")
-minetest.register_alias("mapgen_dirt_with_grass", "default:dirt_with_grass")
-minetest.register_alias("mapgen_sand", "default:sand")
-minetest.register_alias("mapgen_water_source", "default:water_source")
-minetest.register_alias("mapgen_river_water_source", "air")
-minetest.register_alias("mapgen_lava_source", "default:lava_source")
-minetest.register_alias("mapgen_gravel", "default:gravel")
-minetest.register_alias("mapgen_desert_stone", "default:desert_stone")
-minetest.register_alias("mapgen_desert_sand", "default:desert_sand")
-minetest.register_alias("mapgen_dirt_with_snow", "default:dirt_with_snow")
-minetest.register_alias("mapgen_snowblock", "default:snowblock")
-minetest.register_alias("mapgen_snow", "default:snow")
-minetest.register_alias("mapgen_ice", "default:ice")
-minetest.register_alias("mapgen_sandstone", "default:sandstone")
+core.register_alias("mapgen_air", "air")
+core.register_alias("mapgen_stone", "default:stone")
+core.register_alias("mapgen_dirt", "default:dirt")
+core.register_alias("mapgen_dirt_with_grass", "default:dirt_with_grass")
+core.register_alias("mapgen_sand", "default:sand")
+core.register_alias("mapgen_water_source", "default:water_source")
+core.register_alias("mapgen_river_water_source", "default:water_source")
+core.register_alias("mapgen_lava_source", "default:lava_source")
+core.register_alias("mapgen_gravel", "default:gravel")
+core.register_alias("mapgen_desert_stone", "default:desert_stone")
+core.register_alias("mapgen_desert_sand", "default:desert_sand")
+core.register_alias("mapgen_dirt_with_snow", "default:dirt_with_snow")
+core.register_alias("mapgen_snowblock", "default:snowblock")
+core.register_alias("mapgen_snow", "default:snow")
+core.register_alias("mapgen_ice", "default:ice")
+core.register_alias("mapgen_sandstone", "default:sandstone")
 
 -- Flora
 
-minetest.register_alias("mapgen_tree", "default:tree")
-minetest.register_alias("mapgen_leaves", "default:leaves")
-minetest.register_alias("mapgen_apple", "default:leaves_with_apple")
-minetest.register_alias("mapgen_jungletree", "default:jungletree")
-minetest.register_alias("mapgen_jungleleaves", "default:jungleleaves")
-minetest.register_alias("mapgen_junglegrass", "default:junglegrass")
-minetest.register_alias("mapgen_pine_tree", "default:pine_tree")
-minetest.register_alias("mapgen_pine_needles", "default:pine_needles")
+core.register_alias("mapgen_tree", "default:tree")
+core.register_alias("mapgen_leaves", "default:leaves")
+core.register_alias("mapgen_apple", "default:leaves_with_apple")
+core.register_alias("mapgen_jungletree", "default:jungletree")
+core.register_alias("mapgen_jungleleaves", "default:jungleleaves")
+core.register_alias("mapgen_junglegrass", "default:junglegrass")
+core.register_alias("mapgen_pine_tree", "default:pine_tree")
+core.register_alias("mapgen_pine_needles", "default:pine_needles")
 
 -- Dungeons
 
-minetest.register_alias("mapgen_cobble", "default:cobble")
-minetest.register_alias("mapgen_stair_cobble", "stairs:stair_cobble")
-minetest.register_alias("mapgen_mossycobble", "default:mossycobble")
-minetest.register_alias("mapgen_sandstonebrick", "default:sandstonebrick")
-minetest.register_alias("mapgen_stair_sandstonebrick", "stairs:stair_sandstonebrick")
+core.register_alias("mapgen_cobble", "default:cobble")
+core.register_alias("mapgen_stair_cobble", "stairs:stair_cobble")
+core.register_alias("mapgen_mossycobble", "default:mossycobble")
+core.register_alias("mapgen_sandstonebrick", "default:sandstonebrick")
+core.register_alias("mapgen_stair_sandstonebrick", "stairs:stair_sandstonebrick")
 
 
 --
@@ -46,7 +48,7 @@ minetest.register_alias("mapgen_stair_sandstonebrick", "stairs:stair_sandstonebr
 -- Blob ore first to avoid other ores inside blobs
 
 -- Clay
-minetest.register_ore({ 
+core.register_ore({ 
 	ore_type         = "blob",
 	ore              = "default:clay",
 	wherein          = {"default:sand"},
@@ -66,7 +68,7 @@ minetest.register_ore({
 })
 
 -- Sand
-minetest.register_ore({ 
+core.register_ore({ 
 	ore_type         = "blob",
 	ore              = "default:sand",
 	wherein          = {"default:stone"},
@@ -86,7 +88,7 @@ minetest.register_ore({
 })
 
 -- Dirt
-minetest.register_ore({
+core.register_ore({
 	ore_type         = "blob",
 	ore              = "default:dirt",
 	wherein          = {"default:stone"},
@@ -106,7 +108,7 @@ minetest.register_ore({
 })
 
 -- Gravel
-minetest.register_ore({
+core.register_ore({
 	ore_type         = "blob",
 	ore              = "default:gravel",
 	wherein          = {"default:stone"},
@@ -126,7 +128,7 @@ minetest.register_ore({
 })
 
 -- Coal
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_coal",
 	wherein        = "default:stone",
@@ -136,7 +138,7 @@ minetest.register_ore({
 	y_min          = -31000,
 	y_max          = 64,
 })
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_coal",
 	wherein        = "default:stone",
@@ -148,7 +150,7 @@ minetest.register_ore({
 })
 
 -- Iron
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_iron",
 	wherein        = "default:stone",
@@ -158,7 +160,7 @@ minetest.register_ore({
 	y_min          = -15,
 	y_max          = 2,
 })
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_iron",
 	wherein        = "default:stone",
@@ -168,7 +170,7 @@ minetest.register_ore({
 	y_min          = -63,
 	y_max          = -16,
 })
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_iron",
 	wherein        = "default:stone",
@@ -178,7 +180,7 @@ minetest.register_ore({
 	y_min          = -31000,
 	y_max          = -64,
 })
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_iron",
 	wherein        = "default:stone",
@@ -190,7 +192,7 @@ minetest.register_ore({
 })
 
 --Mese
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_mese",
 	wherein        = "default:stone",
@@ -200,7 +202,7 @@ minetest.register_ore({
 	y_min          = -255,
 	y_max          = -64,
 })
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_mese",
 	wherein        = "default:stone",
@@ -210,7 +212,7 @@ minetest.register_ore({
 	y_min          = -31000,
 	y_max          = -256,
 })
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:mese",
 	wherein        = "default:stone",
@@ -222,7 +224,7 @@ minetest.register_ore({
 })
 
 -- Gold
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_gold",
 	wherein        = "default:stone",
@@ -232,7 +234,7 @@ minetest.register_ore({
 	y_min          = -255,
 	y_max          = -64,
 })
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_gold",
 	wherein        = "default:stone",
@@ -244,7 +246,7 @@ minetest.register_ore({
 })
 
 -- Diamond
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_diamond",
 	wherein        = "default:stone",
@@ -254,7 +256,7 @@ minetest.register_ore({
 	y_min          = -255,
 	y_max          = -128,
 })
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_diamond",
 	wherein        = "default:stone",
@@ -266,7 +268,7 @@ minetest.register_ore({
 })
 
 -- Copper
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_copper",
 	wherein        = "default:stone",
@@ -276,7 +278,7 @@ minetest.register_ore({
 	y_min          = -63,
 	y_max          = -16,
 })
-minetest.register_ore({
+core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:stone_with_copper",
 	wherein        = "default:stone",
@@ -303,11 +305,11 @@ function default.make_nyancat(pos, facedir, length)
 		tailvec.z = 1
 	end
 	local p = {x = pos.x, y = pos.y, z = pos.z}
-	minetest.set_node(p, {name = "default:nyancat", param2 = facedir})
+	core.set_node(p, {name = "default:nyancat", param2 = facedir})
 	for i = 1, length do
 		p.x = p.x + tailvec.x
 		p.z = p.z + tailvec.z
-		minetest.set_node(p, {name = "default:nyancat_rainbow", param2 = facedir})
+		core.set_node(p, {name = "default:nyancat_rainbow", param2 = facedir})
 	end
 end
 

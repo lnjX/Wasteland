@@ -1,4 +1,6 @@
-local itempath = minetest.get_modpath("default") .. "/items/"
+-- mods/default/lua/items.lua
+
+local itempath = core.get_modpath("default") .. "/lua/items/"
 
 dofile(itempath .. "tools.lua")
 dofile(itempath .. "weapons.lua")

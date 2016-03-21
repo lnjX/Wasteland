@@ -1,4 +1,6 @@
-local nodepath = minetest.get_modpath("default") .. "/nodes/"
+-- mods/default/lua/nodes.lua
+
+local nodepath = core.get_modpath("default") .. "/lua/nodes/"
 
 dofile(nodepath .. "sounds.lua")
 

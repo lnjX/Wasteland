@@ -1,5 +1,4 @@
--- Minetest 0.4 mod: player
--- See README.txt for licensing and other information.
+-- mods/default/lua/player.lua
 
 -- Player animation blending
 -- Note: This is currently broken due to a bug in Irrlicht, leave at 0
@@ -87,7 +86,7 @@ function default.player_set_textures(player, textures)
 	local name = player:get_player_name()
 	if textures[2] == nil or textures[3] == nil then
 		textures = {textures[1], "default_armor_blank.png", "16x_blank.png"}
-		minetest.log("error", "Deprecated use of 'default.player_set_textures()'. Use 'default.player_set_skin()' instead.")
+		core.log("error", "Deprecated use of 'default.player_set_textures()'. Use 'default.player_set_skin()' instead.")
 	end
 	player_textures[name] = textures
 	player:set_properties({textures = textures})
@@ -108,20 +107,20 @@ function default.player_set_animation(player, anim_name, speed)
 end
 
 -- Update appearance when the player joins
-minetest.register_on_joinplayer(function(player)
+core.register_on_joinplayer(function(player)
 	default.player_attached[player:get_player_name()] = false
 	default.player_set_model(player, "character.b3d")
 	player:set_local_animation({x=0, y=79}, {x=168, y=187}, {x=189, y=198}, {x=200, y=219}, 30)
 
 	-- set GUI
-	if not minetest.setting_getbool("creative_mode") then
+	if not core.setting_getbool("creative_mode") then
 		player:set_inventory_formspec(default.gui_survival_form)
 	end
 	player:hud_set_hotbar_image("gui_hotbar.png")
 	player:hud_set_hotbar_selected_image("gui_hotbar_selected.png")
 end)
 
-minetest.register_on_leaveplayer(function(player)
+core.register_on_leaveplayer(function(player)
 	local name = player:get_player_name()
 	player_model[name] = nil
 	player_anim[name] = nil
@@ -133,8 +132,8 @@ local player_set_animation = default.player_set_animation
 local player_attached = default.player_attached
 
 -- Check each player and apply animations
-minetest.register_globalstep(function(dtime)
-	for _, player in pairs(minetest.get_connected_players()) do
+core.register_globalstep(function(dtime)
+	for _, player in pairs(core.get_connected_players()) do
 		local name = player:get_player_name()
 		local model_name = player_model[name]
 		local model = model_name and models[model_name]

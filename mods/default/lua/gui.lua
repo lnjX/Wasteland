@@ -1,3 +1,5 @@
+-- mods/default/lua/gui.lua
+
 -- Default formspec appearance
 default.gui_bg = "bgcolor[#080808BB;true]"
 default.gui_bg_img = "background[5,5;1,1;gui_formbg.png;true]"

@@ -1,3 +1,5 @@
+-- mods/default/lua/trees.lua
+
 --
 -- Grow trees from saplings
 --
@@ -7,16 +9,16 @@
 local random = math.random
 
 function default.can_grow(pos)
-	local node_under = minetest.get_node_or_nil({x = pos.x, y = pos.y - 1, z = pos.z})
+	local node_under = core.get_node_or_nil({x = pos.x, y = pos.y - 1, z = pos.z})
 	if not node_under then
 		return false
 	end
 	local name_under = node_under.name
-	local is_soil = minetest.get_item_group(name_under, "soil")
+	local is_soil = core.get_item_group(name_under, "soil")
 	if is_soil == 0 then
 		return false
 	end
-	local light_level = minetest.get_node_light(pos)
+	local light_level = core.get_node_light(pos)
 	if not light_level or light_level < 13 then
 		return false
 	end
@@ -28,38 +30,38 @@ function default.grow_sapling(pos, node)
 		return
 	end
 
-	local mapgen = minetest.get_mapgen_params().mgname
+	local mapgen = core.get_mapgen_params().mgname
 	if node.name == "default:sapling" then
-		minetest.log("action", "A sapling grows into a tree at "..
-			minetest.pos_to_string(pos))
+		core.log("action", "A sapling grows into a tree at "..
+			core.pos_to_string(pos))
 		if mapgen == "v6" then
 			default.grow_tree(pos, random(1, 4) == 1)
 		else
 			default.grow_new_apple_tree(pos)
 		end
 	elseif node.name == "default:junglesapling" then
-		minetest.log("action", "A jungle sapling grows into a tree at "..
-			minetest.pos_to_string(pos))
+		core.log("action", "A jungle sapling grows into a tree at "..
+			core.pos_to_string(pos))
 		if mapgen == "v6" then
 			default.grow_jungle_tree(pos)
 		else
 			default.grow_new_jungle_tree(pos)
 		end
 	elseif node.name == "default:pine_sapling" then
-		minetest.log("action", "A pine sapling grows into a tree at "..
-			minetest.pos_to_string(pos))
+		core.log("action", "A pine sapling grows into a tree at "..
+			core.pos_to_string(pos))
 		if mapgen == "v6" then
 			default.grow_pine_tree(pos)
 		else
 			default.grow_new_pine_tree(pos)
 		end
 	elseif node.name == "default:acacia_sapling" then
-		minetest.log("action", "An acacia sapling grows into a tree at "..
-			minetest.pos_to_string(pos))
+		core.log("action", "An acacia sapling grows into a tree at "..
+			core.pos_to_string(pos))
 		default.grow_new_acacia_tree(pos)
 	elseif node.name == "default:birch_sapling" then
-		minetest.log("action", "An birch sapling grows into a tree at "..
-			minetest.pos_to_string(pos))
+		core.log("action", "An birch sapling grows into a tree at "..
+			core.pos_to_string(pos))
 			default.grow_new_birch_tree(pos)
 	end
 end
@@ -67,7 +69,7 @@ end
 
 -- Sapling ABM
 
-minetest.register_abm({
+core.register_abm({
 	nodenames = {"default:sapling", "default:junglesapling",
 		"default:pine_sapling", "default:acacia_sapling",
 		"default:birch_sapling"},
@@ -88,9 +90,9 @@ minetest.register_abm({
 local function add_trunk_and_leaves(data, a, pos, tree_cid, leaves_cid,
 		height, size, iters, is_apple_tree)
 	local x, y, z = pos.x, pos.y, pos.z
-	local c_air = minetest.get_content_id("air")
-	local c_ignore = minetest.get_content_id("ignore")
-	local c_apple = minetest.get_content_id("default:apple")
+	local c_air = core.get_content_id("air")
+	local c_ignore = core.get_content_id("ignore")
+	local c_apple = core.get_content_id("default:apple")
 
 	-- Trunk
 	data[a:index(x, y, z)] = tree_cid -- Force-place lowest trunk node to replace sapling
@@ -157,10 +159,10 @@ function default.grow_tree(pos, is_apple_tree, bad)
 
 	local x, y, z = pos.x, pos.y, pos.z
 	local height = random(4, 5)
-	local c_tree = minetest.get_content_id("default:tree")
-	local c_leaves = minetest.get_content_id("default:leaves")
+	local c_tree = core.get_content_id("default:tree")
+	local c_leaves = core.get_content_id("default:leaves")
 
-	local vm = minetest.get_voxel_manip()
+	local vm = core.get_voxel_manip()
 	local minp, maxp = vm:read_from_map(
 		{x = pos.x - 2, y = pos.y, z = pos.z - 2},
 		{x = pos.x + 2, y = pos.y + height + 1, z = pos.z + 2}
@@ -190,12 +192,12 @@ function default.grow_jungle_tree(pos, bad)
 
 	local x, y, z = pos.x, pos.y, pos.z
 	local height = random(8, 12)
-	local c_air = minetest.get_content_id("air")
-	local c_ignore = minetest.get_content_id("ignore")
-	local c_jungletree = minetest.get_content_id("default:jungletree")
-	local c_jungleleaves = minetest.get_content_id("default:jungleleaves")
+	local c_air = core.get_content_id("air")
+	local c_ignore = core.get_content_id("ignore")
+	local c_jungletree = core.get_content_id("default:jungletree")
+	local c_jungleleaves = core.get_content_id("default:jungleleaves")
 
-	local vm = minetest.get_voxel_manip()
+	local vm = core.get_voxel_manip()
 	local minp, maxp = vm:read_from_map(
 		{x = pos.x - 3, y = pos.y - 1, z = pos.z - 3},
 		{x = pos.x + 3, y = pos.y + height + 1, z = pos.z + 3}
@@ -248,15 +250,15 @@ function default.grow_pine_tree(pos)
 	local x, y, z = pos.x, pos.y, pos.z
 	local maxy = y + random(9, 13) -- Trunk top
 
-	local c_air = minetest.get_content_id("air")
-	local c_ignore = minetest.get_content_id("ignore")
-	local c_pine_tree = minetest.get_content_id("default:pine_tree")
-	local c_pine_needles  = minetest.get_content_id("default:pine_needles")
-	local c_snow = minetest.get_content_id("default:snow")
-	local c_snowblock = minetest.get_content_id("default:snowblock")
-	local c_dirtsnow = minetest.get_content_id("default:dirt_with_snow")
+	local c_air = core.get_content_id("air")
+	local c_ignore = core.get_content_id("ignore")
+	local c_pine_tree = core.get_content_id("default:pine_tree")
+	local c_pine_needles  = core.get_content_id("default:pine_needles")
+	local c_snow = core.get_content_id("default:snow")
+	local c_snowblock = core.get_content_id("default:snowblock")
+	local c_dirtsnow = core.get_content_id("default:dirt_with_snow")
 
-	local vm = minetest.get_voxel_manip()
+	local vm = core.get_voxel_manip()
 	local minp, maxp = vm:read_from_map(
 		{x = x - 3, y = y - 1, z = z - 3},
 		{x = x + 3, y = maxy + 3, z = z + 3}
@@ -373,8 +375,8 @@ end
 -- New apple tree
 
 function default.grow_new_apple_tree(pos)
-	local path = minetest.get_modpath("default") .. "/schematics/apple_tree_from_sapling.mts"
-	minetest.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
+	local path = core.get_modpath("default") .. "/schematics/apple_tree_from_sapling.mts"
+	core.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
 		path, 0, nil, false)
 end
 
@@ -382,8 +384,8 @@ end
 -- New jungle tree
 
 function default.grow_new_jungle_tree(pos)
-	local path = minetest.get_modpath("default") .. "/schematics/jungle_tree_from_sapling.mts"
-	minetest.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
+	local path = core.get_modpath("default") .. "/schematics/jungle_tree_from_sapling.mts"
+	core.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
 		path, 0, nil, false)
 end
 
@@ -391,8 +393,8 @@ end
 -- New pine tree
 
 function default.grow_new_pine_tree(pos)
-	local path = minetest.get_modpath("default") .. "/schematics/pine_tree_from_sapling.mts"
-	minetest.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
+	local path = core.get_modpath("default") .. "/schematics/pine_tree_from_sapling.mts"
+	core.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
 		path, 0, nil, false)
 end
 
@@ -400,15 +402,15 @@ end
 -- New acacia tree
 
 function default.grow_new_acacia_tree(pos)
-	local path = minetest.get_modpath("default") .. "/schematics/acacia_tree_from_sapling.mts"
-	minetest.place_schematic({x = pos.x - 4, y = pos.y - 1, z = pos.z - 4},
+	local path = core.get_modpath("default") .. "/schematics/acacia_tree_from_sapling.mts"
+	core.place_schematic({x = pos.x - 4, y = pos.y - 1, z = pos.z - 4},
 		path, random, nil, false)
 end
 
  -- New birch tree
 
  function default.grow_new_birch_tree(pos)
-	 local path = minetest.get_modpath("default") .. "/schematics/birch_tree_from_sapling.mts"
-	 minetest.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
+	 local path = core.get_modpath("default") .. "/schematics/birch_tree_from_sapling.mts"
+	 core.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
 	 	path, 0, nil, false)
  end

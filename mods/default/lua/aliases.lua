@@ -1,4 +1,4 @@
--- mods/default/aliases.lua
+-- mods/default/lua/aliases.lua
 
 -- Aliases to support loading worlds using nodes following the old naming convention
 -- These can also be helpful when using chat commands, for example /giveme

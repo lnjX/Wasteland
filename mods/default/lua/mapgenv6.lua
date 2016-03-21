@@ -1,12 +1,14 @@
+-- mods/default/lua/mapgenv6.lua
+
 --
 -- Register decorations
 --
 
 -- y?
-minetest.clear_registered_decorations()
+core.clear_registered_decorations()
 
 -- Papyrus
-minetest.register_decoration({
+core.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_with_grass"},
 	sidelen = 8,
@@ -28,7 +30,7 @@ minetest.register_decoration({
 })
 
 -- Cacti
-minetest.register_decoration({
+core.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:desert_sand"},
 	sidelen = 16,
@@ -49,7 +51,7 @@ minetest.register_decoration({
 
 -- Long grasses
 for length = 1, 5 do
-	minetest.register_decoration({
+	core.register_decoration({
 		deco_type = "simple",
 		place_on = {"default:dirt_with_grass"},
 		sidelen = 16,
@@ -68,7 +70,7 @@ for length = 1, 5 do
 end
 
 -- Dry shrubs
-	minetest.register_decoration({
+	core.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:desert_sand", "default:dirt_with_snow"},
 	sidelen = 16,
@@ -86,7 +88,7 @@ end
 })
 
 -- Birch trees
-minetest.register_decoration({
+core.register_decoration({
 		deco_type = "schematic",
 		place_on = {"default:dirt_with_grass"},
 		sidelen = 16,
@@ -100,8 +102,8 @@ minetest.register_decoration({
 		},
 		y_min = 0,
 		y_max = 30,
-		schematic = minetest.get_modpath("default").."/schematics/birch_tree.mts",
+		schematic = core.get_modpath("default").."/schematics/birch_tree.mts",
 		flags = "place_center_x, place_center_z",
 	})
 
-minetest.register_on_generated(default.generate_nyancats)
+core.register_on_generated(default.generate_nyancats)

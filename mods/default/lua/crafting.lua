@@ -658,6 +658,23 @@ core.register_craft({
 	}
 })
 
+core.register_craft({
+	output = "default:papyrus_block 2",
+	recipe = {
+		{"default:papyrus", "default:papyrus", "default:papyrus"},
+		{"default:papyrus", "default:papyrus", "default:papyrus"},
+		{"default:papyrus", "default:papyrus", "default:papyrus"}
+	}
+})
+
+core.register_craft({
+	output = "default:fence_papyrus 2",
+	recipe = {
+		{"default:papyrus", "default:papyrus", "default:papyrus"},
+		{"default:papyrus", "default:papyrus", "default:papyrus"}
+	}
+})
+
 --
 -- Crafting (tool repair)
 --

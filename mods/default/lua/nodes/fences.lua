@@ -9,7 +9,9 @@ function default.register_fence(itemstring, def)
 		def.sounds = default.node_sound_wood_defaults()
 	end
 
-	minetest.register_node(itemstring, {
+	def.groups.fence = 1
+
+	core.register_node(itemstring, {
 		description = def.description,
 		drawtype = "fencelike",
 		tiles = {def.texture},
@@ -26,14 +28,15 @@ function default.register_fence(itemstring, def)
 		sounds = def.sounds,
 	})
 
-
-	minetest.register_craft({
-		output = itemstring .. ' 4',
-		recipe = {
-			{'group:stick', def.material, 'group:stick'},
-			{'group:stick', def.material, 'group:stick'},
-		}
-	})
+	if not def.no_craft then
+		core.register_craft({
+			output = itemstring .. " 4",
+			recipe = {
+				{"group:stick", def.material, "group:stick"},
+				{"group:stick", def.material, "group:stick"},
+			}
+		})
+	end
 end
 
 default.register_fence("default:fence_wood", {
@@ -65,3 +68,12 @@ default.register_fence("default:fence_birchwood", {
 	texture = "default_birch_wood.png",
 	material = "default:birch_wood"
 })
+
+default.register_fence("default:fence_papyrus", {
+	description = "Papyrus Fence",
+	texture = "default_papyrus_block_top.png",
+	no_craft = true,
+	groups = {choppy = 3, oddly_breakable_by_hand = 3, flammable = 2, fuel = 16, fence = 1},
+	sounds = default.node_sound_leaves_defaults()
+})
+

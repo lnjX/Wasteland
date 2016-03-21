@@ -25,6 +25,10 @@ License of media (textures, sounds, meshes):
 --------------------------------------------
 (by Authors)
 
+Fridolin (CC BY-SA 4.0):
+  default_papyrus_block_side.png
+  default_papyrus_block_top.png
+
 JBB (CC BY-SA 4.0):
   default_itemframe.png
   default_bonemeal.png

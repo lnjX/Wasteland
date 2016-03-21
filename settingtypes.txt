@@ -1,3 +1,7 @@
+#   Enables new nodes, items and functions that are only useable with the latest Minetest-dev version
+#   Don't enable this with a non-dev version.
+enable_dev_content (Enable content for Minetest-dev only) bool false
+
 #   Whether players inventory is placed into a node on death (bones node)
 enable_bones (Enable bones) bool true
 

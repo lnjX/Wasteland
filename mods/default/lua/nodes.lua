@@ -50,10 +50,12 @@ dofile(nodepath .. "bookshelf.lua")
 
 -- nodes with special functions
 dofile(nodepath .. "signs.lua")
-dofile(nodepath .. "fences.lua")
 dofile(nodepath .. "latter.lua")
 dofile(nodepath .. "rails.lua")
 dofile(nodepath .. "itemframes.lua")
+
+-- APIs
+dofile(nodepath .. "fences.lua")
 dofile(nodepath .. "tables.lua")
 
 -- special
@@ -61,3 +63,8 @@ dofile(nodepath .. "food.lua")
 dofile(nodepath .. "nyancat.lua")
 
 dofile(nodepath .. "unused.lua")
+
+-- Minetest-dev version content
+if core.setting_getbool("enable_dev_content") then
+	dofile(nodepath .. "walls.lua")
+end

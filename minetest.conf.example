@@ -35,3 +35,11 @@
 # Whether players can skip night by sleeping
 # Default value is true
 #enable_bed_night_skip = true
+
+# The to live in seconds for dropped items
+# Default value is 300
+#item_ttl = 300
+
+# Drop items after digging a node and don't add them directly to the inventory
+# Default value is true
+#enable_item_drop = true

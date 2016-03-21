@@ -14,7 +14,7 @@ core.register_globalstep(function(dtime)
 					if inv and inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) and controls.aux1 then
 						inv:add_item("main", ItemStack(object:get_luaentity().itemstring))
 						if object:get_luaentity().itemstring ~= "" then
-							core.sound_play("item_drop_pickup", {
+							core.sound_play("default_item_pickup", {
 								to_player = player:get_player_name(),
 								gain = 0.4*(1/#objcts1 or 1),
 							})
@@ -50,7 +50,7 @@ core.register_globalstep(function(dtime)
 								if inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
 									inv:add_item("main", ItemStack(object:get_luaentity().itemstring))
 									if object:get_luaentity().itemstring ~= "" then
-										core.sound_play("item_drop_pickup", {
+										core.sound_play("default_item_pickup", {
 											to_player = player:get_player_name(),
 											gain = 0.4*(1/#objcts2 or 1),
 										})
@@ -74,47 +74,46 @@ core.register_globalstep(function(dtime)
 	end
 end)
 
-function core.handle_node_drops(pos, drops, digger)
-	local inv
-	if core.setting_getbool("creative_mode") and digger and digger:is_player() then
-		inv = digger:get_inventory()
-	end
-	for _,item in ipairs(drops) do
-		local count, name
-		if type(item) == "string" then
-			count = 1
-			name = item
-		else
-			count = item:get_count()
-			name = item:get_name()
+local item_drop = core.setting_getbool("enable_item_drop") or true
+if item_drop then
+	function core.handle_node_drops(pos, drops, digger)
+		local inv
+		if core.setting_getbool("creative_mode") and digger and digger:is_player() then
+			inv = digger:get_inventory()
 		end
-		if not inv or not inv:contains_item("main", ItemStack(name)) then
-			for i=1,count do
-				local obj = core.add_item(pos, name)
-				if obj ~= nil then
-					obj:get_luaentity().collect = true
-					local x = math.random(1, 5)
-					if math.random(1,2) == 1 then
-						x = -x
-					end
-					local z = math.random(1, 5)
-					if math.random(1,2) == 1 then
-						z = -z
-					end
-					obj:setvelocity({x=1/x, y=obj:getvelocity().y, z=1/z})
-					
-					-- FIXME this doesnt work for deactiveted objects
-					if core.setting_get("remove_items") and tonumber(core.setting_get("remove_items")) then
-						core.after(tonumber(core.setting_get("remove_items")), function(obj)
-							obj:remove()
-						end, obj)
+		for _,item in ipairs(drops) do
+			local count, name
+			if type(item) == "string" then
+				count = 1
+				name = item
+			else
+				count = item:get_count()
+				name = item:get_name()
+			end
+			if not inv or not inv:contains_item("main", ItemStack(name)) then
+				for i=1,count do
+					local obj = core.add_item(pos, name)
+					if obj ~= nil then
+						obj:get_luaentity().collect = true
+						local x = math.random(1, 5)
+						if math.random(1,2) == 1 then
+							x = -x
+						end
+						local z = math.random(1, 5)
+						if math.random(1,2) == 1 then
+							z = -z
+						end
+						obj:setvelocity({x=1/x, y=obj:getvelocity().y, z=1/z})
+
+						-- FIXME this doesnt work for deactiveted objects
+						if core.setting_get("remove_items") and tonumber(core.setting_get("remove_items")) then
+							core.after(tonumber(core.setting_get("remove_items")), function(obj)
+								obj:remove()
+							end, obj)
+						end
 					end
 				end
 			end
 		end
 	end
-end
-
-if core.setting_get("log_mods") then
-	core.log("action", "item_drop loaded")
 end

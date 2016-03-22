@@ -43,6 +43,14 @@ core.register_craft({
 })
 
 core.register_craft({
+	output = "default:workbench",
+	recipe = {
+		{"group:wood", "group:wood"},
+		{"group:wood", "group:wood"}
+	}
+})
+
+core.register_craft({
 	output = "default:fence_wood 2",
 	recipe = {
 		{"group:stick", "group:stick", "group:stick"},

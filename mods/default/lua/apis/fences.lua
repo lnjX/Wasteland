@@ -30,10 +30,10 @@ function default.register_fence(itemstring, def)
 
 	if not def.no_craft then
 		core.register_craft({
-			output = itemstring .. " 4",
+			output = itemstring .. " 6",
 			recipe = {
-				{"group:stick", def.material, "group:stick"},
-				{"group:stick", def.material, "group:stick"},
+				{def.material, "group:stick", def.material},
+				{def.material, "group:stick", def.material},
 			}
 		})
 	end
@@ -51,19 +51,19 @@ default.register_fence("default:fence_junglewood", {
 	material = "default:junglewood"
 })
 
-default.register_fence("default:fence_pinewood", {
+default.register_fence("default:fence_pine_wood", {
 	description = "Pine Wood Fence",
 	texture = "default_pine_wood.png",
 	material = "default:pinewood"
 })
 
-default.register_fence("default:fence_acaciawood", {
+default.register_fence("default:fence_acacia_wood", {
 	description = "Acacia Wood Fence",
 	texture = "default_acacia_wood.png",
 	material = "default:acacia_wood"
 })
 
-default.register_fence("default:fence_birchwood", {
+default.register_fence("default:fence_birch_wood", {
 	description = "Birch Wood Fence",
 	texture = "default_birch_wood.png",
 	material = "default:birch_wood"
@@ -73,7 +73,16 @@ default.register_fence("default:fence_papyrus", {
 	description = "Papyrus Fence",
 	texture = "default_papyrus_block_top.png",
 	no_craft = true,
+        -- the crafting recipe is in mods/default/lua/crafting.lua
 	groups = {choppy = 3, oddly_breakable_by_hand = 3, flammable = 2, fuel = 16, fence = 1},
 	sounds = default.node_sound_leaves_defaults()
 })
 
+
+local compatible = core.setting_getbool("enable_support_old_versions") or true
+if compatible then
+	-- these nodes were named wrong first
+	core.register_alias("default:fence_pinewood", "default:fence_pine_wood")
+	core.register_alias("default:fence_acaciawood", "default:fence_acacia_wood")
+	core.register_alias("default:fence_birchwood", "default:fence_birch_wood")
+end

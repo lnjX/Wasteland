@@ -36,8 +36,14 @@ local mg_name = core.get_mapgen_params().mgname or ""
 dofile(luapath .. "gui.lua")
 dofile(luapath .. "functions.lua")
 dofile(luapath .. "environment.lua")
-dofile(luapath .. "nodes.lua") -- loads files in ./lua/nodes/
-dofile(luapath .. "items.lua") -- loads files in ./lua/items/
+dofile(luapath .. "sounds.lua")
+-- APIs
+dofile(luapath .. "apis/fences.lua")
+dofile(luapath .. "apis/fencegates.lua")
+dofile(luapath .. "apis/tables.lua")
+
+dofile(luapath .. "nodes.lua") -- loads files in ./nodes/
+dofile(luapath .. "items.lua") -- loads files in ./items/
 dofile(luapath .. "crafting.lua")
 dofile(luapath .. "mapgen.lua")
 

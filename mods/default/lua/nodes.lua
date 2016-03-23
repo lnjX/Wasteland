@@ -2,8 +2,6 @@
 
 local nodepath = core.get_modpath("default") .. "/lua/nodes/"
 
-dofile(nodepath .. "sounds.lua")
-
 -- full/natural/mapgen
 dofile(nodepath .. "ores.lua")
 dofile(nodepath .. "leaves.lua")
@@ -54,10 +52,6 @@ dofile(nodepath .. "signs.lua")
 dofile(nodepath .. "latter.lua")
 dofile(nodepath .. "rails.lua")
 dofile(nodepath .. "itemframes.lua")
-
--- APIs
-dofile(nodepath .. "fences.lua")
-dofile(nodepath .. "tables.lua")
 
 -- special
 dofile(nodepath .. "food.lua")

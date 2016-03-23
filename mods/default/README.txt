@@ -171,6 +171,11 @@ BlockMen (CC BY-SA 3.0):
 sofar (CC BY-SA 3.0):
   default_birch_sapling.png
   default_birch_wood.png
+  default_fencegate_open.obj
+  default_fencegate_closed.obj
+  default_fencegate_close.ogg, remix of:
+        http://www.freesound.org/people/BarkersPinhead/sounds/274807/ (CC BY-SA 3.0) and
+        http://www.freesound.org/people/rivernile7/sounds/249573/ (CC BY-SA 3.0)
 
 Neuromancer (CC BY-SA 2.0):
   default_cobble.png, based on texture by Brane praefect
@@ -242,3 +247,6 @@ ingar (CC BY-SA 3.0):
   default_snow_footstep.2.ogg
   default_snow_footstep.3.ogg
   default_snow_footstep.4.ogg
+
+mhtaylor67 (CC 0):
+  default_fencegate_open.ogg [http://www.freesound.org/people/mhtaylor67/sounds/126041/]

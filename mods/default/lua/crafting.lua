@@ -683,6 +683,14 @@ core.register_craft({
 	}
 })
 
+core.register_craft({
+	output = "default:fencegate_papyrus",
+	recipe = {
+		{"default:papyrus", "default:papyrus_block", "default:papyrus"},
+		{"default:papyrus", "default:papyrus_block", "default:papyrus"}
+	}
+})
+
 --
 -- Crafting (tool repair)
 --

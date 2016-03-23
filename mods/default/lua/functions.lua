@@ -19,3 +19,28 @@ function default.is_day()
 
 	return false
 end
+
+
+function default.register_node(name, def)
+	if not name then return end
+	if not def then return end
+	
+	-- if no special max. stack size is specified then its 96 (not 99)
+	if not def.stack_max then
+		def.stack_max = 96
+	end
+	
+	core.register_node(name, def)
+end
+
+function default.register_craftitem(name, def)
+	if not name then return end
+	if not def then return end
+	
+	-- if no special max. stack size is specified then its 96 (not 99)
+	if not def.stack_max then
+		def.stack_max = 96
+	end
+	
+	core.register_craftitem(name, def)
+end

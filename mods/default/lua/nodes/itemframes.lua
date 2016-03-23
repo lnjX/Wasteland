@@ -89,7 +89,7 @@ local drop_item = function(pos, node)
 	remove_item(pos, node)
 end
 
-minetest.register_node("default:itemframe",{
+default.register_node("default:itemframe",{
 	description = "Item frame",
 	drawtype = "nodebox",
 	node_box = { type = "fixed", fixed = {-0.5, -0.5, 7/16, 0.5, 0.5, 0.5} },

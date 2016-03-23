@@ -1,4 +1,4 @@
-minetest.register_node("default:ice", {
+default.register_node("default:ice", {
 	description = "Ice",
 	tiles = {"default_ice.png"},
 	is_ground_content = false,

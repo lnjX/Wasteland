@@ -1,4 +1,4 @@
-minetest.register_node("default:meselamp", {
+default.register_node("default:meselamp", {
 	description = "Mese Lamp",
 	drawtype = "glasslike",
 	tiles = {"default_meselamp.png"},

@@ -21,13 +21,13 @@ function default.open_workbench(player)
 	core.show_formspec(player:get_player_name(), "main", default.workbench_formspec)
 end
 
-core.register_node("default:workbench", {
+default.register_node("default:workbench", {
 	description = "Workbench",
 	tiles = {"default_workbench_top.png", "default_wood.png", "default_workbench_side.png",
 		"default_workbench_side.png", "default_workbench_front.png", "default_workbench_front.png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
-	groups = {choppy = 2, oddly_breakable_by_hand, flammable = 2},
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
 	on_rightclick = function(pos, node, clicker)
 		default.open_workbench(clicker)
 	end

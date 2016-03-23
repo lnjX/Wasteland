@@ -1,6 +1,6 @@
 -- Wet
 
-minetest.register_node("default:clay", {
+default.register_node("default:clay", {
 	description = "Clay",
 	tiles = {"default_clay.png"},
 	groups = {crumbly = 3},
@@ -11,7 +11,7 @@ minetest.register_node("default:clay", {
 
 -- Dry
 
-minetest.register_node("default:dirt", {
+default.register_node("default:dirt", {
 	description = "Dirt",
 	tiles = {"default_dirt.png"},
 	groups = {crumbly = 3, soil = 1},
@@ -21,7 +21,7 @@ minetest.register_node("default:dirt", {
 
 -- Covered
 
-minetest.register_node("default:dirt_with_grass", {
+default.register_node("default:dirt_with_grass", {
 	description = "Dirt with Grass",
 	tiles = {"default_grass.png", "default_dirt.png",
 		{name = "default_dirt.png^default_grass_side.png",
@@ -34,7 +34,7 @@ minetest.register_node("default:dirt_with_grass", {
 	}),
 })
 
-minetest.register_node("default:dirt_with_grass_footsteps", {
+default.register_node("default:dirt_with_grass_footsteps", {
 	description = "Dirt with Grass and Footsteps",
 	tiles = {"default_grass.png^default_footprint.png", "default_dirt.png",
 		{name = "default_dirt.png^default_grass_side.png",
@@ -46,7 +46,7 @@ minetest.register_node("default:dirt_with_grass_footsteps", {
 	}),
 })
 
-minetest.register_node("default:dirt_with_dry_grass", {
+default.register_node("default:dirt_with_dry_grass", {
 	description = "Dirt with Dry Grass",
 	tiles = {"default_dry_grass.png",
 		"default_dirt.png",
@@ -59,7 +59,7 @@ minetest.register_node("default:dirt_with_dry_grass", {
 	}),
 })
 
-minetest.register_node("default:dirt_with_snow", {
+default.register_node("default:dirt_with_snow", {
 	description = "Dirt with Snow",
 	tiles = {"default_snow.png", "default_dirt.png",
 		{name = "default_dirt.png^default_snow_side.png",

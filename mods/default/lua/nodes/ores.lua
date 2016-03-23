@@ -1,6 +1,6 @@
 -- Minerals
 
-minetest.register_node("default:stone_with_coal", {
+default.register_node("default:stone_with_coal", {
 	description = "Coal Ore",
 	tiles = {"default_stone.png^default_mineral_coal.png"},
 	groups = {cracky = 3},
@@ -8,7 +8,7 @@ minetest.register_node("default:stone_with_coal", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:stone_with_iron", {
+default.register_node("default:stone_with_iron", {
 	description = "Iron Ore",
 	tiles = {"default_stone.png^default_mineral_iron.png"},
 	groups = {cracky = 2},
@@ -16,7 +16,7 @@ minetest.register_node("default:stone_with_iron", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:stone_with_copper", {
+default.register_node("default:stone_with_copper", {
 	description = "Copper Ore",
 	tiles = {"default_stone.png^default_mineral_copper.png"},
 	groups = {cracky = 2},
@@ -24,7 +24,7 @@ minetest.register_node("default:stone_with_copper", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:stone_with_mese", {
+default.register_node("default:stone_with_mese", {
 	description = "Mese Ore",
 	tiles = {"default_stone.png^default_mineral_mese.png"},
 	paramtype = "light",
@@ -34,7 +34,7 @@ minetest.register_node("default:stone_with_mese", {
 	light_source = 1,
 })
 
-minetest.register_node("default:mese", {
+default.register_node("default:mese", {
 	description = "Mese Block",
 	tiles = {"default_mese_block.png"},
 	paramtype = "light",
@@ -43,7 +43,7 @@ minetest.register_node("default:mese", {
 	light_source = 3,
 })
 
-minetest.register_node("default:stone_with_diamond", {
+default.register_node("default:stone_with_diamond", {
 	description = "Diamond Ore",
 	tiles = {"default_stone.png^default_mineral_diamond.png"},
 	groups = {cracky = 1},
@@ -51,7 +51,7 @@ minetest.register_node("default:stone_with_diamond", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:stone_with_gold", {
+default.register_node("default:stone_with_gold", {
 	description = "Gold Ore",
 	tiles = {"default_stone.png^default_mineral_gold.png"},
 	groups = {cracky = 2},
@@ -63,7 +63,8 @@ minetest.register_node("default:stone_with_gold", {
 
 -- Blocks
 
-minetest.register_node("default:coalblock", {
+default.register_node("default:coalblock", {
+	register = {stair = true, slab = true},
 	description = "Coal Block",
 	tiles = {"default_coal_block.png"},
 	is_ground_content = false,
@@ -71,42 +72,57 @@ minetest.register_node("default:coalblock", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:steelblock", {
+default.register_node("default:steelblock", {
+	register = {stair = true, slab = true},
 	description = "Steel Block",
 	tiles = {"default_steel_block.png"},
 	is_ground_content = false,
 	groups = {cracky = 1, level = 2},
 	sounds = default.node_sound_stone_defaults(),
+	stair = {legacy_alias = "stairs:stair_steelblock"},
+	slab = {legacy_alias = "stairs:slab_steelblock"},
 })
 
-minetest.register_node("default:copperblock", {
+default.register_node("default:copperblock", {
+	register = {stair = true, slab = true},
 	description = "Copper Block",
 	tiles = {"default_copper_block.png"},
 	is_ground_content = false,
 	groups = {cracky = 1, level = 2},
 	sounds = default.node_sound_stone_defaults(),
+	stair = {legacy_alias = "stairs:stair_copperblock"},
+	slab = {legacy_alias = "stairs:slab_copperblock"},
 })
 
-minetest.register_node("default:bronzeblock", {
+default.register_node("default:bronzeblock", {
+	register = {stair = true, slab = true},
 	description = "Bronze Block",
 	tiles = {"default_bronze_block.png"},
 	is_ground_content = false,
 	groups = {cracky = 1, level = 2},
 	sounds = default.node_sound_stone_defaults(),
+	stair = {legacy_alias = "stairs:stair_bronzeblock"},
+	slab = {legacy_alias = "stairs:slab_bronzeblock"},
 })
 
-minetest.register_node("default:goldblock", {
+default.register_node("default:goldblock", {
+	register = {stair = true, slab = true},
 	description = "Gold Block",
 	tiles = {"default_gold_block.png"},
 	is_ground_content = false,
 	groups = {cracky = 1},
 	sounds = default.node_sound_stone_defaults(),
+	stair = {legacy_alias = "stairs:stair_goldblock"},
+	slab = {legacy_alias = "stairs:slab_goldblock"},
 })
 
-minetest.register_node("default:diamondblock", {
+default.register_node("default:diamondblock", {
+	register = {stair = true, slab = true},
 	description = "Diamond Block",
 	tiles = {"default_diamond_block.png"},
 	is_ground_content = false,
 	groups = {cracky = 1, level = 3},
 	sounds = default.node_sound_stone_defaults(),
+	stair = {legacy_alias = "stairs:stair_diamondblock"},
+	slab = {legacy_alias = "stairs:slab_diamondblock"},
 })

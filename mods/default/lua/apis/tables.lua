@@ -10,6 +10,7 @@ function default.register_table(itemstring, def)
 	end
 
 	-- set table properties
+        def.stack_max = default.STACK_MAX
 	def.paramtype = "light"
 	def.drawtype = "nodebox"
 	def.node_box = {
@@ -38,48 +39,10 @@ function default.register_table(itemstring, def)
 
 end
 
-default.register_table("default:table_wood", {
-	description = "Wooden Table",
-	tiles = {"default_wood.png"},
-	material = "default:wood"
-})
-
-default.register_table("default:table_junglewood", {
-	description = "Junglewood Table",
-	tiles = {"default_junglewood.png"},
-	material = "default:junglewood"
-})
-
-default.register_table("default:table_pinewood", {
-	description = "Pine Wood Table",
-	tiles = {"default_pine_wood.png"},
-	material = "default:pinewood"
-})
-
-default.register_table("default:table_acaciawood", {
-	description = "Acacia Wood Table",
-	tiles = {"default_acacia_wood.png"},
-	material = "default:acacia_wood"
-})
-
-default.register_table("default:table_birchwood", {
-	description = "Birch Wood Table",
-	tiles = {"default_birch_wood.png"},
-	material = "default:birch_wood"
-})
-
-default.register_table("default:table_stone", {
-	description = "Stone Table",
-	tiles = {"default_stone.png"},
-	material = "default:stone",
-	groups = {cracky = 2},
-	sounds = default.node_sound_stone_defaults()
-})
-
-default.register_table("default:table_cobble", {
-	description = "Cobblestone Table",
-	tiles = {"default_cobble.png"},
-	material = "default:cobble",
-	groups = {cracky = 2},
-	sounds = default.node_sound_stone_defaults()
-})
+local legacy = core.setting_getbool("enable_legacy_support") or true
+if legacy then
+	-- these nodes were named wrong first
+	core.register_alias("default:table_pinewood", "default:table_pine_wood")
+	core.register_alias("default:table_acaciawood", "default:table_acacia_wood")
+	core.register_alias("default:table_birchwood", "default:table_birch_wood")
+end

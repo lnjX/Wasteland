@@ -1,4 +1,4 @@
-minetest.register_node("default:lava_source", {
+default.register_node("default:lava_source", {
 	description = "Lava Source",
 	inventory_image = minetest.inventorycube("default_lava.png"),
 	drawtype = "liquid",
@@ -45,7 +45,7 @@ minetest.register_node("default:lava_source", {
 	groups = {lava = 3, liquid = 2, hot = 3, igniter = 1},
 })
 
-minetest.register_node("default:lava_flowing", {
+default.register_node("default:lava_flowing", {
 	description = "Flowing Lava",
 	inventory_image = minetest.inventorycube("default_lava.png"),
 	drawtype = "flowingliquid",

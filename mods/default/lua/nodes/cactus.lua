@@ -1,4 +1,4 @@
-minetest.register_node("default:cactus", {
+default.register_node("default:cactus", {
 	description = "Cactus",
 	tiles = {"default_cactus_top.png", "default_cactus_top.png",
 		"default_cactus_side.png"},

@@ -1,4 +1,4 @@
-minetest.register_node("default:gravel", {
+default.register_node("default:gravel", {
 	description = "Gravel",
 	tiles = {"default_gravel.png"},
 	groups = {crumbly = 2, falling_node = 1},

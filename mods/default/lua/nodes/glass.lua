@@ -1,4 +1,4 @@
-minetest.register_node("default:glass", {
+default.register_node("default:glass", {
 	description = "Glass",
 	drawtype = "glasslike_framed_optional",
 	tiles = {"default_glass.png", "default_glass_detail.png"},
@@ -10,7 +10,7 @@ minetest.register_node("default:glass", {
 	sounds = default.node_sound_glass_defaults(),
 })
 
-minetest.register_node("default:obsidian_glass", {
+default.register_node("default:obsidian_glass", {
 	description = "Obsidian Glass",
 	drawtype = "glasslike_framed_optional",
 	tiles = {"default_obsidian_glass.png", "default_obsidian_glass_detail.png"},

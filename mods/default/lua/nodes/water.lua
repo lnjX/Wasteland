@@ -1,4 +1,4 @@
-minetest.register_node("default:water_source", {
+default.register_node("default:water_source", {
 	description = "Water Source",
 	inventory_image = minetest.inventorycube("default_water.png"),
 	drawtype = "liquid",
@@ -43,7 +43,7 @@ minetest.register_node("default:water_source", {
 	groups = {water = 3, liquid = 3, puts_out_fire = 1},
 })
 
-minetest.register_node("default:water_flowing", {
+default.register_node("default:water_flowing", {
 	description = "Flowing Water",
 	inventory_image = minetest.inventorycube("default_water.png"),
 	drawtype = "flowingliquid",

@@ -58,8 +58,3 @@ dofile(nodepath .. "food.lua")
 dofile(nodepath .. "nyancat.lua")
 
 dofile(nodepath .. "unused.lua")
-
--- Minetest-dev version content
-if core.setting_getbool("enable_dev_content") then
-	dofile(nodepath .. "walls.lua")
-end

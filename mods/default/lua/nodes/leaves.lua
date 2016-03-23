@@ -95,7 +95,7 @@ if core.setting_getbool("enable_shaders") and core.setting_getbool("enable_wavin
 		end,
 	})
 else
-	minetest.register_node("default:leaves_with_apple", {
+	default.register_node("default:leaves_with_apple", {
 		description = "Leaves with Apple",
 		drawtype = "mesh",
 		mesh = "leaves_with_apple.obj",

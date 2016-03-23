@@ -121,7 +121,7 @@ function xpanes.register_pane(name, def)
 		if cnt == 1 then
 			texture = def.textures[1] .. "^" .. def.textures[2]
 		end
-		minetest.register_node(":xpanes:" .. name .. "_" .. i, {
+		default.register_node(":xpanes:" .. name .. "_" .. i, {
 			drawtype = "nodebox",
 			tiles = {def.textures[3], def.textures[3], texture},
 			paramtype = "light",
@@ -147,7 +147,7 @@ function xpanes.register_pane(name, def)
 		update_pane(pos, name)
 	end
 
-	minetest.register_node(":xpanes:" .. name, def)
+	default.register_node(":xpanes:" .. name, def)
 
 	minetest.register_craft({
 		output = "xpanes:" .. name .. " 16",

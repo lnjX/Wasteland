@@ -109,7 +109,7 @@ end
 
 -- Node definitions
 
-minetest.register_node("default:furnace", {
+default.register_node("default:furnace", {
 	description = "Furnace",
 	tiles = {
 		"default_furnace_top.png", "default_furnace_bottom.png",
@@ -129,7 +129,7 @@ minetest.register_node("default:furnace", {
 	allow_metadata_inventory_take = allow_metadata_inventory_take,
 })
 
-minetest.register_node("default:furnace_active", {
+default.register_node("default:furnace_active", {
 	description = "Furnace",
 	tiles = {
 		"default_furnace_top.png", "default_furnace_bottom.png",

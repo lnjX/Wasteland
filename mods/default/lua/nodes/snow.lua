@@ -1,4 +1,4 @@
-minetest.register_node("default:snow", {
+default.register_node("default:snow", {
 	description = "Snow",
 	tiles = {"default_snow.png"},
 	inventory_image = "default_snowball.png",
@@ -23,7 +23,7 @@ minetest.register_node("default:snow", {
 	end,
 })
 
-minetest.register_node("default:snowblock", {
+default.register_node("default:snowblock", {
 	description = "Snow Block",
 	tiles = {"default_snow.png"},
 	groups = {crumbly = 3, puts_out_fire = 1},

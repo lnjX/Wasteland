@@ -59,7 +59,7 @@ end
 
 -- Nodes
 
-minetest.register_node("default:chest", {
+default.register_node("default:chest", {
 	description = "Chest",
 	tiles = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
 		"default_chest_side.png", "default_chest_side.png", "default_chest_front.png"},
@@ -92,7 +92,7 @@ minetest.register_node("default:chest", {
 	end,
 })
 
-minetest.register_node("default:chest_locked", {
+default.register_node("default:chest_locked", {
 	description = "Locked Chest",
 	tiles = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
 		"default_chest_side.png", "default_chest_side.png", "default_chest_lock.png"},

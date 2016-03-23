@@ -1,4 +1,4 @@
-minetest.register_node("default:sign_wall", {
+default.register_node("default:sign_wall", {
 	description = "Sign",
 	drawtype = "nodebox",
 	tiles = {"default_sign.png"},

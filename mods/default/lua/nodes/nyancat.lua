@@ -1,5 +1,4 @@
-
-minetest.register_node("default:nyancat", {
+default.register_node("default:nyancat", {
 	description = "Nyan Cat",
 	tiles = {"default_nc_side.png", "default_nc_side.png", "default_nc_side.png",
 		"default_nc_side.png", "default_nc_back.png", "default_nc_front.png"},
@@ -10,7 +9,7 @@ minetest.register_node("default:nyancat", {
 	sounds = default.node_sound_defaults(),
 })
 
-minetest.register_node("default:nyancat_rainbow", {
+default.register_node("default:nyancat_rainbow", {
 	description = "Nyan Cat Rainbow",
 	tiles = {
 		"default_nc_rb.png^[transformR90", "default_nc_rb.png^[transformR90",

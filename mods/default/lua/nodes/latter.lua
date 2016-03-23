@@ -1,4 +1,4 @@
-minetest.register_node("default:ladder", {
+default.register_node("default:ladder", {
 	description = "Ladder",
 	drawtype = "signlike",
 	tiles = {"default_ladder.png"},

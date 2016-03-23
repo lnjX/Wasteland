@@ -1,4 +1,4 @@
-minetest.register_node ("plants:vine", {
+default.register_node ("plants:vine", {
 	description = "Vine",
 	drawtype = "signlike",
 	tiles = {"plants_vine.png"},

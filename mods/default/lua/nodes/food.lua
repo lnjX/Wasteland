@@ -1,4 +1,4 @@
-minetest.register_node("default:apple", {
+default.register_node("default:apple", {
 	description = "Apple",
 	drawtype = "plantlike",
 	visual_scale = 1.0,

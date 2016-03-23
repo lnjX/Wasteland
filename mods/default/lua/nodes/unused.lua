@@ -1,4 +1,4 @@
-minetest.register_node("default:cloud", {
+default.register_node("default:cloud", {
 	description = "Cloud",
 	tiles = {"default_cloud.png"},
 	is_ground_content = false,

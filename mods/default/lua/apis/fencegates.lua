@@ -5,6 +5,7 @@ function default.register_fencegate(name, def)
 	def.paramtype2 = "facedir"
 	def.sunlight_propagates = true
 	def.is_ground_content = false
+        def.stack_max = default.STACK_MAX
 	def.drop = name .. "_closed"
 	def.connect_sides = {"left", "right"}
 	def.on_rightclick = function(pos)
@@ -77,42 +78,3 @@ function default.register_fencegate(name, def)
 		})
 	end
 end
-
-default.register_fencegate("default:fencegate_wood", {
-	description = "Wooden Fence Gate",
-	texture = "default_wood.png",
-	material = "default:wood"
-})
-
-default.register_fencegate("default:fencegate_acacia_wood", {
-	description = "Acacia Wood Fence Gate",
-	texture = "default_acacia_wood.png",
-	material = "default:acacia_wood"
-})
-
-default.register_fencegate("default:fencegate_junglewood", {
-	description = "Junglewood Fence Gate",
-	texture = "default_junglewood.png",
-	material = "default:junglewood"
-})
-
-default.register_fencegate("default:fencegate_pine_wood", {
-	description = "Pine Wood Fence Gate",
-	texture = "default_pine_wood.png",
-	material = "default:pine_wood"
-})
-
-default.register_fencegate("default:fencegate_birch_wood", {
-	description = "Birch Wood Fence Gate",
-	texture = "default_birch_wood.png",
-	material = "default:birch_wood"
-})
-
-default.register_fencegate("default:fencegate_papyrus", {
-	description = "Papyrus Fence Gate",
-	texture = "default_papyrus_block_top.png",
-	no_craft = true,
-	-- the crafting recipe is in mods/default/lua/crafting.lua
-	groups = {choppy = 3, oddly_breakable_by_hand = 3, flammable = 2, fuel = 16, fence = 1, fencegate = 1},
-	sounds = default.node_sound_leaves_defaults()
-})

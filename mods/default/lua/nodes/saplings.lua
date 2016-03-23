@@ -1,4 +1,4 @@
-minetest.register_node("default:sapling", {
+default.register_node("default:sapling", {
 	description = "Sapling",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
@@ -17,7 +17,7 @@ minetest.register_node("default:sapling", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_node("default:junglesapling", {
+default.register_node("default:junglesapling", {
 	description = "Jungle Sapling",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
@@ -36,7 +36,7 @@ minetest.register_node("default:junglesapling", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_node("default:pine_sapling", {
+default.register_node("default:pine_sapling", {
 	description = "Pine Sapling",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
@@ -55,7 +55,7 @@ minetest.register_node("default:pine_sapling", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_node("default:acacia_sapling", {
+default.register_node("default:acacia_sapling", {
 	description = "Acacia Tree Sapling",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
@@ -74,7 +74,7 @@ minetest.register_node("default:acacia_sapling", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_node("default:birch_sapling", {
+default.register_node("default:birch_sapling", {
 	description = "Birch Tree Sapling",
 	drawtype = "plantlike",
 	visual_scale = 1.0,

@@ -1,4 +1,4 @@
-minetest.register_node("default:tree", {
+default.register_node("default:tree", {
 	description = "Tree",
 	tiles = {"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
 	paramtype2 = "facedir",
@@ -9,7 +9,7 @@ minetest.register_node("default:tree", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("default:jungletree", {
+default.register_node("default:jungletree", {
 	description = "Jungle Tree",
 	tiles = {"default_jungletree_top.png", "default_jungletree_top.png",
 		"default_jungletree.png"},
@@ -21,7 +21,7 @@ minetest.register_node("default:jungletree", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("default:pine_tree", {
+default.register_node("default:pine_tree", {
 	description = "Pine Tree",
 	tiles = {"default_pine_tree_top.png", "default_pine_tree_top.png",
 		"default_pine_tree.png"},
@@ -33,7 +33,7 @@ minetest.register_node("default:pine_tree", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("default:acacia_tree", {
+default.register_node("default:acacia_tree", {
 	description = "Acacia Tree",
 	tiles = {"default_acacia_tree_top.png", "default_acacia_tree_top.png",
 		"default_acacia_tree.png"},
@@ -45,7 +45,7 @@ minetest.register_node("default:acacia_tree", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("default:birch_tree", {
+default.register_node("default:birch_tree", {
 	description = "Birch Tree",
 	tiles = {"default_birch_tree_top.png", "default_birch_tree_top.png",
 		"default_birch_tree.png"},

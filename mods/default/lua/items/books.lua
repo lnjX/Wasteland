@@ -59,14 +59,14 @@ minetest.register_on_player_receive_fields(function(player, form_name, fields)
 	player:set_wielded_item(stack)
 end)
 
-minetest.register_craftitem("default:book", {
+default.register_craftitem("default:book", {
 	description = "Book",
 	inventory_image = "default_book.png",
 	groups = {book=1,fuel=2},
 	on_use = book_on_use,
 })
 
-minetest.register_craftitem("default:book_written", {
+default.register_craftitem("default:book_written", {
 	description = "Book with Text",
 	inventory_image = "default_book_written.png",
 	groups = {book=1, not_in_creative_inventory=1, fuel=2},

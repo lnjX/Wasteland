@@ -34,19 +34,19 @@ for _, row in ipairs(dyelocal.dyes) do
 	local groups = row[3]
 	local item_name = "dye:"..name
 	local item_image = "dye_"..name..".png"
-	minetest.register_craftitem(item_name, {
+	default.register_craftitem(item_name, {
 		inventory_image = item_image,
 		description = description,
 		groups = groups
 	})
-	minetest.register_craft({
+	core.register_craft({
 		type = "shapeless",
 		output = item_name.." 4",
 		recipe = {"group:flower,color_"..name},
 	})
 end
 -- manually add coal->black dye
-minetest.register_craft({
+core.register_craft({
 	type = "shapeless",
 	output = "dye:black 4",
 	recipe = {"group:coal"},

@@ -1,4 +1,4 @@
-minetest.register_node("default:junglegrass", {
+default.register_node("default:junglegrass", {
 	description = "Jungle Grass",
 	drawtype = "plantlike",
 	waving = 1,
@@ -18,7 +18,7 @@ minetest.register_node("default:junglegrass", {
 	},
 })
 
-minetest.register_node("default:dry_shrub", {
+default.register_node("default:dry_shrub", {
 	description = "Dry Shrub",
 	drawtype = "plantlike",
 	waving = 1,
@@ -38,7 +38,7 @@ minetest.register_node("default:dry_shrub", {
 	},
 })
 
-minetest.register_node("default:grass_5", {
+default.register_node("default:grass_5", {
 	description = "Grass",
 	drawtype = "plantlike",
 	waving = 1,
@@ -65,7 +65,7 @@ minetest.register_node("default:grass_5", {
 	end,
 })
 
-minetest.register_node("default:dry_grass_5", {
+default.register_node("default:dry_grass_5", {
 	description = "Dry Grass",
 	drawtype = "plantlike",
 	waving = 1,
@@ -93,7 +93,7 @@ minetest.register_node("default:dry_grass_5", {
 })
 
 for i = 1, 4 do
-	minetest.register_node("default:grass_" .. i, {
+	default.register_node("default:grass_" .. i, {
 		description = "Grass",
 		drawtype = "plantlike",
 		waving = 1,
@@ -112,7 +112,7 @@ for i = 1, 4 do
 		},
 	})
 
-	minetest.register_node("default:dry_grass_" .. i, {
+	default.register_node("default:dry_grass_" .. i, {
 		description = "Dry Grass",
 		drawtype = "plantlike",
 		waving = 1,

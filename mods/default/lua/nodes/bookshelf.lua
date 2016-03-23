@@ -15,7 +15,7 @@ local bookshelf_formspec =
 
 -- Node registration
 
-minetest.register_node("default:bookshelf", {
+default.register_node("default:bookshelf", {
 	description = "Bookshelf",
 	tiles = {"default_wood.png", "default_wood.png", "default_bookshelf.png"},
 	is_ground_content = false,

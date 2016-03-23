@@ -1,4 +1,4 @@
-minetest.register_node("default:rail", {
+default.register_node("default:rail", {
 	description = "Rail",
 	drawtype = "raillike",
 	tiles = {"default_rail.png", "default_rail_curved.png",

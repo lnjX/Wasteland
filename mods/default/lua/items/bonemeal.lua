@@ -104,7 +104,7 @@ local function bonemeal_on_use(itemstack, player, pointed_thing)
 	end
 end
 
-core.register_craftitem("default:bonemeal", {
+default.register_craftitem("default:bonemeal", {
 	description = "Bone Meal",
 	inventory_image = "default_bonemeal.png",
 	groups = {dye = 1, basecolor_white = 1, excolor_white = 1, unicolor_white = 1},

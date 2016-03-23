@@ -1,4 +1,4 @@
-minetest.register_craftitem("default:torch", {
+default.register_craftitem("default:torch", {
 	description = "Torch",
 	inventory_image = "default_torch.png",
 	wield_image = "default_torch.png",
@@ -29,7 +29,7 @@ minetest.register_craftitem("default:torch", {
 	end
 })
 
-minetest.register_node("default:torch_floor", {
+default.register_node("default:torch_floor", {
 	description = "Torch",
 	inventory_image = "default_torch.png",
 	wield_image = "default_torch.png",
@@ -56,7 +56,7 @@ minetest.register_node("default:torch_floor", {
 	},
 })
 
-minetest.register_node("default:torch_wall", {
+default.register_node("default:torch_wall", {
 	inventory_image = "default_torch.png",
 	wield_image = "default_torch.png",
 	wield_scale = {x = 1, y = 1, z = 1 + 1/16},

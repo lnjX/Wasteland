@@ -6,7 +6,7 @@ function default.register_wall(itemstring, def)
 		def.sounds = default.node_sound_stone_defaults()
 	end
 	
-	core.register_node(itemstring, {
+	default.register_node(itemstring, {
 		description = def.description,
 		tiles = def.tiles,
 		drawtype = "nodebox",
@@ -35,33 +35,3 @@ function default.register_wall(itemstring, def)
 		})
 	end
 end
-
-default.register_wall("default:wall_cobble", {
-	description = "Cobblestone Wall",
-	tiles = {"default_cobble.png"},
-	material = "default:cobble"
-})
-
-default.register_wall("default:wall_stone", {
-	description = "Stone Wall",
-	tiles = {"default_stone.png"},
-	material = "default:stone"
-})
-
-default.register_wall("default:wall_desert_stone", {
-	description = "Desert Stone Wall",
-	tiles = {"default_desert_stone.png"},
-	material = "default:desert_stone"
-})
-
-default.register_wall("default:wall_sandstone", {
-	description = "Sandstone Wall",
-	tiles = {"default_sandstone.png"},
-	material = "default:sandstone"
-})
-
-default.register_wall("default:wall_obsidian", {
-	description = "Obsidian Wall",
-	tiles = {"default_obsidian.png"},
-	material = "default:obsidian"
-})

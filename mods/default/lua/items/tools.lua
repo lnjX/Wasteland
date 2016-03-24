@@ -1,6 +1,6 @@
 -- Picks
 
-minetest.register_tool("default:pick_wood", {
+core.register_tool("default:pick_wood", {
 	description = "Wooden Pickaxe",
 	inventory_image = "default_tool_woodpick.png",
 	wield_scale = {x = 1.32, y = 1.55, z = 1.1},
@@ -14,7 +14,7 @@ minetest.register_tool("default:pick_wood", {
 	},
 })
 
-minetest.register_tool("default:pick_stone", {
+core.register_tool("default:pick_stone", {
 	description = "Stone Pickaxe",
 	inventory_image = "default_tool_stonepick.png",
 	wield_scale = {x = 1.32, y = 1.55, z = 1.1},
@@ -28,7 +28,7 @@ minetest.register_tool("default:pick_stone", {
 	},
 })
 
-minetest.register_tool("default:pick_steel", {
+core.register_tool("default:pick_steel", {
 	description = "Steel Pickaxe",
 	inventory_image = "default_tool_steelpick.png",
 	wield_scale = {x = 1.32, y = 1.55, z = 1.1},
@@ -42,7 +42,7 @@ minetest.register_tool("default:pick_steel", {
 	},
 })
 
-minetest.register_tool("default:pick_bronze", {
+core.register_tool("default:pick_bronze", {
 	description = "Bronze Pickaxe",
 	inventory_image = "default_tool_bronzepick.png",
 	wield_scale = {x = 1.32, y = 1.55, z = 1.1},
@@ -56,7 +56,7 @@ minetest.register_tool("default:pick_bronze", {
 	},
 })
 
-minetest.register_tool("default:pick_mese", {
+core.register_tool("default:pick_mese", {
 	description = "Mese Pickaxe",
 	inventory_image = "default_tool_mesepick.png",
 	wield_scale = {x = 1.32, y = 1.55, z = 1.1},
@@ -70,7 +70,7 @@ minetest.register_tool("default:pick_mese", {
 	},
 })
 
-minetest.register_tool("default:pick_diamond", {
+core.register_tool("default:pick_diamond", {
 	description = "Diamond Pickaxe",
 	inventory_image = "default_tool_diamondpick.png",
 	wield_scale = {x = 1.32, y = 1.55, z = 1.1},
@@ -87,7 +87,7 @@ minetest.register_tool("default:pick_diamond", {
 
 -- Shovels
 
-minetest.register_tool("default:shovel_wood", {
+core.register_tool("default:shovel_wood", {
 	description = "Wooden Shovel",
 	inventory_image = "default_tool_woodshovel.png",
 	wield_image = "default_tool_woodshovel.png^[transformR90",
@@ -101,7 +101,7 @@ minetest.register_tool("default:shovel_wood", {
 	},
 })
 
-minetest.register_tool("default:shovel_stone", {
+core.register_tool("default:shovel_stone", {
 	description = "Stone Shovel",
 	inventory_image = "default_tool_stoneshovel.png",
 	wield_image = "default_tool_stoneshovel.png^[transformR90",
@@ -116,7 +116,7 @@ minetest.register_tool("default:shovel_stone", {
 	},
 })
 
-minetest.register_tool("default:shovel_steel", {
+core.register_tool("default:shovel_steel", {
 	description = "Steel Shovel",
 	inventory_image = "default_tool_steelshovel.png",
 	wield_image = "default_tool_steelshovel.png^[transformR90",
@@ -131,7 +131,7 @@ minetest.register_tool("default:shovel_steel", {
 	},
 })
 
-minetest.register_tool("default:shovel_bronze", {
+core.register_tool("default:shovel_bronze", {
 	description = "Bronze Shovel",
 	inventory_image = "default_tool_bronzeshovel.png",
 	wield_image = "default_tool_bronzeshovel.png^[transformR90",
@@ -146,7 +146,7 @@ minetest.register_tool("default:shovel_bronze", {
 	},
 })
 
-minetest.register_tool("default:shovel_mese", {
+core.register_tool("default:shovel_mese", {
 	description = "Mese Shovel",
 	inventory_image = "default_tool_meseshovel.png",
 	wield_image = "default_tool_meseshovel.png^[transformR90",
@@ -161,7 +161,7 @@ minetest.register_tool("default:shovel_mese", {
 	},
 })
 
-minetest.register_tool("default:shovel_diamond", {
+core.register_tool("default:shovel_diamond", {
 	description = "Diamond Shovel",
 	inventory_image = "default_tool_diamondshovel.png",
 	wield_image = "default_tool_diamondshovel.png^[transformR90",
@@ -179,7 +179,7 @@ minetest.register_tool("default:shovel_diamond", {
 
 -- Axes
 
-minetest.register_tool("default:axe_wood", {
+core.register_tool("default:axe_wood", {
 	description = "Wooden Axe",
 	inventory_image = "default_tool_woodaxe.png",
 	wield_scale = {x = 1.5, y = 1.5, z = 1},
@@ -193,7 +193,7 @@ minetest.register_tool("default:axe_wood", {
 	},
 })
 
-minetest.register_tool("default:axe_stone", {
+core.register_tool("default:axe_stone", {
 	description = "Stone Axe",
 	inventory_image = "default_tool_stoneaxe.png",
 	wield_scale = {x = 1.5, y = 1.5, z = 1},
@@ -207,7 +207,7 @@ minetest.register_tool("default:axe_stone", {
 	},
 })
 
-minetest.register_tool("default:axe_steel", {
+core.register_tool("default:axe_steel", {
 	description = "Steel Axe",
 	inventory_image = "default_tool_steelaxe.png",
 	wield_scale = {x = 1.5, y = 1.5, z = 1},
@@ -221,7 +221,7 @@ minetest.register_tool("default:axe_steel", {
 	},
 })
 
-minetest.register_tool("default:axe_bronze", {
+core.register_tool("default:axe_bronze", {
 	description = "Bronze Axe",
 	inventory_image = "default_tool_bronzeaxe.png",
 	wield_scale = {x = 1.5, y = 1.5, z = 1},
@@ -235,7 +235,7 @@ minetest.register_tool("default:axe_bronze", {
 	},
 })
 
-minetest.register_tool("default:axe_mese", {
+core.register_tool("default:axe_mese", {
 	description = "Mese Axe",
 	inventory_image = "default_tool_meseaxe.png",
 	wield_scale = {x = 1.5, y = 1.5, z = 1},
@@ -249,7 +249,7 @@ minetest.register_tool("default:axe_mese", {
 	},
 })
 
-minetest.register_tool("default:axe_diamond", {
+core.register_tool("default:axe_diamond", {
 	description = "Diamond Axe",
 	inventory_image = "default_tool_diamondaxe.png",
 	wield_scale = {x = 1.5, y = 1.5, z = 1},
@@ -260,5 +260,19 @@ minetest.register_tool("default:axe_diamond", {
 			choppy={times={[1]=2.10, [2]=0.90, [3]=0.50}, uses=30, maxlevel=2},
 		},
 		damage_groups = {fleshy=7},
+	},
+})
+
+-- shears
+core.register_tool("default:shears", {
+	description = "Shears",
+	inventory_image = "default_shears.png",
+	wield_scale = {x = 1.5, y = 1.5, z = 1},
+	tool_capabilities = {
+		full_punch_interval = 0.9,
+		max_drop_level = 1,
+		groupcaps = {
+			snappy = {times = {[1] = 0.4, [2] = 0.2, [3] = 0.1}, uses = 25, maxlevel = 2}
+		},
 	},
 })

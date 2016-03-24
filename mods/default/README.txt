@@ -162,6 +162,7 @@ BlockMen (CC BY-SA 3.0):
   default_snow_side.png
   default_snowball.png
   default_stick.png
+  default_shears.png
   default_tool_*.png
   default_wood.png
   default_workbench_front.png

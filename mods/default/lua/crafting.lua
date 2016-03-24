@@ -691,6 +691,14 @@ core.register_craft({
 	}
 })
 
+core.register_craft({
+	output = "default:shears",
+	recipe = {
+		{""                   , "default:steel_ingot"},
+		{"default:steel_ingot", "group:stick"},
+	}
+})
+
 --
 -- Crafting (tool repair)
 --

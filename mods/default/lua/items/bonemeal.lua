@@ -108,7 +108,7 @@ default.register_craftitem("default:bonemeal", {
 	description = "Bone Meal",
 	inventory_image = "default_bonemeal.png",
 	groups = {dye = 1, basecolor_white = 1, excolor_white = 1, unicolor_white = 1},
-	on_use = function(itemstack, player, pointed_thing)
-		bonemeal_on_use(itemstack, player, pointed_thing)
+	on_place = function(itemstack, placer, pointed_thing)
+		bonemeal_on_use(itemstack, placer, pointed_thing)
 	end
 })

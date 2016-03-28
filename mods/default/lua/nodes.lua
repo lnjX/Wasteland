@@ -23,7 +23,7 @@ dofile(nodepath .. "papyrus.lua")
 dofile(nodepath .. "saplings.lua")
 
 dofile(nodepath .. "cactus.lua")
-
+dofile(nodepath .. "vines.lua")
 
 -- liquids
 dofile(nodepath .. "water.lua")

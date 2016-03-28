@@ -74,3 +74,6 @@ minetest.register_alias("default:mese_block", "default:mese")
 -- Aliases for corrected pine node names
 minetest.register_alias("default:pinetree", "default:pine_tree")
 minetest.register_alias("default:pinewood", "default:pine_wood")
+
+core.register_alias("plants:vine", "default:vine")
+core.register_alias("plants:pear", "default:pear")

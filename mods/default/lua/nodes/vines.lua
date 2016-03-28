@@ -1,9 +1,9 @@
-default.register_node ("plants:vine", {
+default.register_node ("default:vine", {
 	description = "Vine",
 	drawtype = "signlike",
-	tiles = {"plants_vine.png"},
-	inventory_image = "plants_vine.png",
-	wield_image = "plants_vine.png",
+	tiles = {"default_vine.png"},
+	inventory_image = "default_vine.png",
+	wield_image = "default_vine.png",
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	sunlight_propagates = true,

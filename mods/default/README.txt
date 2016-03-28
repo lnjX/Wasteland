@@ -41,7 +41,6 @@ LNJ (CC BY-SA 4.0):
 Cisoun (WTFPL):
   default_lava.png
   default_sapling.png
-  default_sign_wall.png
   default_stone.png
   default_tree.png
   default_tree_top.png
@@ -194,6 +193,10 @@ Gambit (WTFPL):
   default_clay_lump.png
   default_coal.png
   default_paper.png
+  default_sign_wall_wood.png
+  default_sign_wall_steel.png
+  default_sign_wood.png
+  default_sign_steel.png
 
 asl97 (WTFPL):
   default_ice.png

@@ -59,10 +59,19 @@ core.register_craft({
 })
 
 core.register_craft({
-	output = "default:sign_wall",
+	output = "default:sign_wall_wood",
 	recipe = {
 		{"group:wood", "group:wood", "group:wood"},
 		{"group:wood", "group:wood", "group:wood"},
+		{"", "group:stick", ""},
+	}
+})
+
+core.register_craft({
+	output = "default:sign_wall_steel",
+	recipe = {
+		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
+		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
 		{"", "group:stick", ""},
 	}
 })

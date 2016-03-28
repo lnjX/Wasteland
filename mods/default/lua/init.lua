@@ -8,7 +8,7 @@
 -- Global variables
 default = {}
 default.LIGHT_MAX = 14
-default.STACK_MAX = 96
+default.STACK_MAX = 100
 
 -- The hand
 core.register_item(":", {

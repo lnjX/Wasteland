@@ -770,3 +770,9 @@ core.register_craft({
 	output = "default:charcoal",
 	recipe = "group:tree",
 })
+
+core.register_craft({
+	type = "cooking",
+	output = "default:dry_dirt",
+	recipe = "default:dirt",
+})

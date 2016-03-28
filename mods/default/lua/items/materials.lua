@@ -1,3 +1,8 @@
+default.register_craftitem("default:flint", {
+	description = "Flint",
+	inventory_image = "default_flint.png"
+})
+
 -- Mese
 
 default.register_craftitem("default:mese_crystal", {

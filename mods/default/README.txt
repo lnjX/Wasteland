@@ -197,6 +197,7 @@ Gambit (WTFPL):
   default_sign_wall_steel.png
   default_sign_wood.png
   default_sign_steel.png
+  default_flint.png
 
 asl97 (WTFPL):
   default_ice.png

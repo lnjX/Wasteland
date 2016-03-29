@@ -708,6 +708,12 @@ core.register_craft({
 	}
 })
 
+core.register_craft({
+	type = "shapeless",
+	output = "default:dirt_with_snow",
+	recipe = {"default:dirt", "default:snow"}
+})
+
 --
 -- Crafting (tool repair)
 --

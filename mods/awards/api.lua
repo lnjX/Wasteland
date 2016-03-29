@@ -264,7 +264,7 @@ function awards.give_achievement(name, award)
 				offset = {x = -81.5, y = 126},
 				alignment = {x = 0, y = -1}
 			})
-			core.after(core.setting_getint("awards_display_time") or 10, function()
+			core.after(core.setting_get("awards_display_time") or 10, function()
 				player:hud_remove(one)
 				player:hud_remove(two)
 				player:hud_remove(three)

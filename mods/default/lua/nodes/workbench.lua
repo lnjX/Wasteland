@@ -11,7 +11,10 @@ default.workbench_formspec =
 	-- crafting preview / output
 	"list[current_player;craftpreview;5.75,1.5;1,1;]" ..
 	-- label (Workbench)
-	"label[0,0;Workbench]"
+	"label[1,0;Workbench]" ..
+	-- Workbench image
+	"image[0,0;1,1;" .. core.inventorycube("default_workbench_top.png", "default_workbench_front.png", "default_workbench_side.png") .. "]"
+	
 
 
 function default.open_workbench(player)

@@ -5,6 +5,8 @@ local function active_formspec(fuel_percent, item_percent)
 		default.gui_bg..
 		default.gui_bg_img..
 		default.gui_slots..
+		"label[1,0;Furnace]" ..
+		"image[0,0;1,1;" .. core.inventorycube("default_furnace_top.png", "default_furnace_front.png", "default_furnace_side.png") .. "]" ..
 		"list[current_name;src;2.75,0.5;1,1;]"..
 		"list[current_name;fuel;2.75,2.5;1,1;]"..
 		"image[2.75,1.5;1,1;default_furnace_fire_bg.png^[lowpart:"..
@@ -27,6 +29,8 @@ local inactive_formspec =
 	default.gui_bg..
 	default.gui_bg_img..
 	default.gui_slots..
+	"label[1,0;Furnace]" ..
+	"image[0,0;1,1;" .. core.inventorycube("default_furnace_top.png", "default_furnace_front.png", "default_furnace_side.png") .. "]" ..
 	"list[current_name;src;2.75,0.5;1,1;]"..
 	"list[current_name;fuel;2.75,2.5;1,1;]"..
 	"image[2.75,1.5;1,1;default_furnace_fire_bg.png]"..

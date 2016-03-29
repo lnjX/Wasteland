@@ -263,3 +263,6 @@ ingar (CC BY-SA 3.0):
 
 mhtaylor67 (CC 0):
   default_fencegate_open.ogg [http://www.freesound.org/people/mhtaylor67/sounds/126041/]
+
+Tonyka (New BSD License):
+  default_inventory_icon.png

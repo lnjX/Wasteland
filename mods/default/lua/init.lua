@@ -7,7 +7,12 @@
 -- Global variables
 default = {}
 default.LIGHT_MAX = 14
-default.STACK_MAX = 100
+default.STACK_MAX = core.setting_get("default_stack_max") or 100
+
+-- default settings (for nodes, items)
+core.craftitemdef_default.stack_max = default.STACK_MAX
+core.nodedef_default.stack_max = default.STACK_MAX
+core.noneitemdef_default.stack_max = default.STACK_MAX
 
 -- Load files
 local modpath = core.get_modpath("default")

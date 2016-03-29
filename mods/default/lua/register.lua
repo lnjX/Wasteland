@@ -135,14 +135,6 @@ end
 
 function default.register_node(name, def)
 	--
-	-- Set default propeties
-	--
-	-- if no special max. stack size is specified then its 96 (not 99)
-	if not def.stack_max then
-		def.stack_max = default.STACK_MAX
-	end
-
-	--
 	-- Register other types of the node (stair, slab, fence, ...)
 	--
 	if def.register then
@@ -182,10 +174,5 @@ function default.register_node(name, def)
 end
 
 function default.register_craftitem(name, def)
-	-- if no special max. stack size is specified then its 96 (not 99)
-	if not def.stack_max then
-		def.stack_max = default.STACK_MAX
-	end
-	
 	core.register_craftitem(name, def)
 end

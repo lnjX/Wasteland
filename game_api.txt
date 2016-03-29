@@ -26,6 +26,7 @@ Overview:
 	- Fence Gate API, #Fence Gate definition
 	- Table API, #Table definition
 	- Player API, #Model definition
+	- Achievement API, #Achievement definition
 	- Raillike definitions
 	- Default sounds
 	- Default constants
@@ -422,6 +423,44 @@ default.player_get_animation(player)
 		-- ...
 	},
 }
+
+Achievement API
+---------------
+With the Achievement API you can easily register achievements that are shown the player.
+
+awards.register_achievement(name, def)
+^ Registers an achivement.
+ -> name: the name of the achievement
+ -> def: See [#Achivement definition]
+
+awards.give_achievement(name, award)
+^ Gives a player an achivement.
+ -> name: the name of the player
+ -> award: the name of the achievement
+
+#Achivement definition
+----------------------
+{
+	name = "Light It Up",
+	^ The shown name of the achievement
+	description = "Place 100 torches."
+	^ A description for the achievement (that the user knows what to do).
+	sound = "",
+	^ A sound to play, optional.
+	icon = "awards_novicebuilder.png",
+	^ A texture that is shown.
+	trigger = {
+		type = "place",
+		^ The type of the achievement. (available are: place, dig, death, chat, join)
+		node = "default:torch",
+		^ The node which should be placed / digged. (Only needed for type = "place" or "dig")
+		target = "100",
+		^ How often the player have to to this.
+	},
+	secret = false
+	^ If true the player has to unlock it to find out what it is.
+}
+
 
 Raillike definitions
 --------------------

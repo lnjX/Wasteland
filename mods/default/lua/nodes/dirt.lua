@@ -20,7 +20,7 @@ default.register_node("default:dirt", {
 
 default.register_node("default:dry_dirt", {
 	description = "Dry Dirt",
-	tiles = {"default_dirt.png"},
+	tiles = {"default_dry_dirt.png"},
 	groups = {crumbly = 3, dirt = 4},
 	default.node_sound_dirt_defaults(),
 })

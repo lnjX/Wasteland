@@ -67,7 +67,7 @@ local function register_node_fence(name, def)
 end
 
 local function register_node_fencegate(name, def)
-	local gate_def
+	local fencegate_def
 	if not def.fencegate then
 		fencegate_def = {}
 	else

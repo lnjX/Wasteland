@@ -28,6 +28,7 @@ License of media (textures, sounds, meshes):
 Fridolin (CC BY-SA 4.0):
   default_papyrus_block_side.png
   default_papyrus_block_top.png
+  gui_furnace_arrow_fg.png
 
 JBB (CC BY-SA 4.0):
   default_itemframe.png
@@ -121,7 +122,11 @@ brunob.santos (CC BY-SA 4.0):
 
 BlockMen (CC BY-SA 3.0):
   bubble.png
-  gui_*.png
+  gui_formbg.png
+  gui_furnace_arrow_bg.png
+  gui_hb_bg.png
+  gui_hotbar.png
+  gui_hotbar_selected.png
   heart.png
   leaves_with_apple.obj
   torch_*.obj

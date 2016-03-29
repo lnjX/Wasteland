@@ -4,29 +4,10 @@
 -- 
 -- See README.txt for licensing and other information.
 
-
 -- Global variables
 default = {}
 default.LIGHT_MAX = 14
 default.STACK_MAX = 100
-
--- The hand
-core.register_item(":", {
-	type = "none",
-	wield_image = "wieldhand.png",
-	wield_scale = {x = 1, y = 1, z = 2.5},
-	tool_capabilities = {
-		full_punch_interval = 0.9,
-		max_drop_level = 0,
-		groupcaps = {
-			crumbly = {times = {[2] = 3.00, [3] = 0.70}, uses = 0, maxlevel = 1},
-			snappy = {times = {[3] = 0.40}, uses = 0, maxlevel = 1},
-			oddly_breakable_by_hand = {times = {[1] = 3.50, [2] = 2.00, [3] = 0.70}, uses = 0}
-		},
-		damage_groups = {fleshy = 1}
-	}
-})
-
 
 -- Load files
 local modpath = core.get_modpath("default")
@@ -45,6 +26,7 @@ dofile(luapath .. "apis/fencegates.lua")
 dofile(luapath .. "apis/tables.lua")
 dofile(luapath .. "apis/slabs.lua")
 dofile(luapath .. "apis/stairs.lua")
+
 -- Minetest-dev version content
 if core.setting_getbool("enable_dev_content") then
 	dofile(luapath .. "apis/walls.lua")
@@ -64,6 +46,7 @@ dofile(luapath .. "item_pickup.lua")
 dofile(luapath .. "item_physics.lua")
 dofile(luapath .. "trees.lua")
 dofile(luapath .. "player.lua")
+dofile(luapath .. "spectator_mode.lua")
 
 dofile(luapath .. "aliases.lua")
 dofile(luapath .. "legacy.lua")

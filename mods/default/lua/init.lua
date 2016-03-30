@@ -43,7 +43,7 @@ dofile(luapath .. "crafting.lua")
 dofile(luapath .. "mapgen.lua")
 if mg_name == "v6" then
 	dofile(luapath .. "mapgenv6.lua")
-elseif mg_name == "v5" or mg_name == "v7" then
+elseif mg_name == "v5" or mg_name == "v7" or mg_name == "valleys" then
 	dofile(luapath .. "mapgenv57.lua")
 end
 dofile(luapath .. "chat_cmds.lua")

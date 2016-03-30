@@ -41,6 +41,7 @@ LNJ (CC BY-SA 4.0):
   default_bone.png
   default_pear.png
   default_vine.png
+  default_trash_icon.png
 
 Cisoun (WTFPL):
   default_lava.png
@@ -266,3 +267,4 @@ mhtaylor67 (CC 0):
 
 Tonyka (New BSD License):
   default_inventory_icon.png
+  

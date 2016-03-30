@@ -3,17 +3,22 @@ default.workbench_formspec =
 	default.gui_bg ..
 	default.gui_bg_img ..
 	default.gui_slots ..
+	-- Inventory icon
+	"image[0,3.75;1,1;default_inventory_icon.png]" ..
+	-- label (Inventory)
+	"label[1,4;Inventory]" ..
 	-- main inventory
 	"list[current_player;main;0,4.85;8,1;]" ..
 	"list[current_player;main;0,6.08;8,3;8]" ..
 	-- crafting field
-	"list[current_player;craft;1.75,0.5;3,3;]" ..
+	"list[current_player;craft;1.75,1;3,3;]" ..
 	-- crafting preview / output
-	"list[current_player;craftpreview;5.75,1.5;1,1;]" ..
+	"list[current_player;craftpreview;5.75,2;1,1;]" ..
+	"image[4.75,2;1,1;gui_furnace_arrow_bg.png^[transformR270]" ..
 	-- label (Workbench)
-	"label[1,0;Workbench]" ..
+	"label[2.75,0.25;Workbench]" ..
 	-- Workbench image
-	"image[0,0;1,1;" .. core.inventorycube("default_workbench_top.png", "default_workbench_front.png", "default_workbench_side.png") .. "]"
+	"image[1.75,0;1,1;" .. core.inventorycube("default_workbench_top.png", "default_workbench_front.png", "default_workbench_side.png") .. "]"
 	
 
 

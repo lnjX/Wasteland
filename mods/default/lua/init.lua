@@ -52,6 +52,7 @@ dofile(luapath .. "item_physics.lua")
 dofile(luapath .. "trees.lua")
 dofile(luapath .. "player.lua")
 dofile(luapath .. "spectator_mode.lua")
+dofile(luapath .. "creative.lua")
 
 dofile(luapath .. "aliases.lua")
 dofile(luapath .. "legacy.lua")

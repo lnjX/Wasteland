@@ -1,19 +1,41 @@
 -- The hand
-core.register_item(":", {
-	type = "none",
-	wield_image = "16x_blank.png^[combine:16x16:2,2=16x_blank.png:-52,-23=character.png^[transformfy",
-	wield_scale = {x = 1, y = 1, z = 2.5},
-	tool_capabilities = {
-		full_punch_interval = 0.9,
-		max_drop_level = 0,
-		groupcaps = {
-			crumbly = {times = {[2] = 3.00, [3] = 0.70}, uses = 0, maxlevel = 1},
-			snappy = {times = {[3] = 0.40}, uses = 0, maxlevel = 1},
-			oddly_breakable_by_hand = {times = {[1] = 3.50, [2] = 2.00, [3] = 0.70}, uses = 0}
-		},
-		damage_groups = {fleshy = 1}
-	}
-})
+if not core.setting_getbool("creative_mode") then
+	core.register_item(":", {
+		type = "none",
+		wield_image = "16x_blank.png^[combine:16x16:2,2=16x_blank.png:-52,-23=character.png^[transformfy",
+		wield_scale = {x = 1, y = 1, z = 2.5},
+		tool_capabilities = {
+			full_punch_interval = 0.9,
+			max_drop_level = 0,
+			groupcaps = {
+				crumbly = {times = {[2] = 3.00, [3] = 0.70}, uses = 0, maxlevel = 1},
+				snappy = {times = {[3] = 0.40}, uses = 0, maxlevel = 1},
+				oddly_breakable_by_hand = {times = {[1] = 3.50, [2] = 2.00, [3] = 0.70}, uses = 0}
+			},
+			damage_groups = {fleshy = 1}
+		}
+	})
+else
+	local digtime = 0.5
+	core.register_item(":", {
+		type = "none",
+		wield_image = "16x_blank.png^[combine:16x16:2,2=16x_blank.png:-52,-23=character.png^[transformfy",
+		wield_scale = {x = 1, y = 1, z = 2.5},
+		range = 10,
+		tool_capabilities = {
+			full_punch_interval = 0.5,
+			max_drop_level = 3,
+			groupcaps = {
+				crumbly = {times={[1] = digtime, [2] = digtime, [3] = digtime}, uses = 0, maxlevel = 3},
+				cracky = {times={[1] = digtime, [2] = digtime, [3] = digtime}, uses = 0, maxlevel = 3},
+				snappy = {times={[1] = digtime, [2] = digtime, [3] = digtime}, uses = 0, maxlevel = 3},
+				choppy = {times={[1] = digtime, [2] = digtime, [3] = digtime}, uses = 0, maxlevel = 3},
+				oddly_breakable_by_hand = {times={[1] = digtime, [2] = digtime, [3] = digtime}, uses = 0, maxlevel=3},
+			},
+			damage_groups = {fleshy = 10},
+		}
+	})
+end
 
 -- Picks
 

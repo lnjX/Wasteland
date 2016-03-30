@@ -583,7 +583,7 @@ core.register_decoration({
 		octaves = 3,
 		persist = 0.66
 	},
-	biomes = {"deciduous_forest"},
+	biomes = {"sandstone_grassland",  "deciduous_forest"},
 	y_min = 1,
 	y_max = 31000,
 	schematic = core.get_modpath("default").."/schematics/birch_tree.mts",

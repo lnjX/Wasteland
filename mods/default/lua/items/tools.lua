@@ -1,7 +1,7 @@
 -- The hand
 core.register_item(":", {
 	type = "none",
-	wield_image = "wieldhand.png",
+	wield_image = "16x_blank.png^[combine:16x16:2,2=16x_blank.png:-52,-23=character.png^[transformfy",
 	wield_scale = {x = 1, y = 1, z = 2.5},
 	tool_capabilities = {
 		full_punch_interval = 0.9,

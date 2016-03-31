@@ -1,5 +1,6 @@
 The NeXt Game for the Minetest Game Engine [minetest_tng]
 =========================================================
+Version 16.04-1
 
 To use this game with Minetest, insert this repository as
   /games/minetest_tng
@@ -10,15 +11,15 @@ The Minetest engine can be found in:
 
 Introduction
 ------------
-Since I (LNJ / LNJ2) read that BlockMen leaves us, so I decided to fork and continue BlockMen's really nice work!
-Of course I would really like to hear your ideas and suggestions!
-I changed the title of the game to Minetest TNG - The NeXt Game.
+I decided to fork Minetest NeXt by BlockMen, because BlockMen no longer does anything about Minetest :(. I changed the title of the game to Minetest TNG - The NeXt Game.
+This game should be like Minetest NeXt a lightweight, but powerful survival game. Hunger and mobs are already added!
 
-My plans:
-    - many new plants and trees
-    - some nice decorations like pictures, furniture
-    - many new cooking recipes
-    - hunger
+Of course I would really like to hear your ideas and suggestions!
+
+Current Contributors:
+- LNJ [lnj2] (Code)
+- JBB [jbbgameich] (Code + Textures)
+- fridolin [fridolin2] (Textures)
 
 
 License of source code

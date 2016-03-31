@@ -2,6 +2,9 @@
 #   Don't enable this with a non-dev version.
 enable_dev_content (Enable content for Minetest-dev only) bool false
 
+#   Enable this, if you don't want to fight against mobs
+only_peaceful_mobs (Only Peaceful Mobs) bool false
+
 #   Whether players inventory is placed into a node on death (bones node)
 enable_bones (Enable bones) bool true
 

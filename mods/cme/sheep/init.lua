@@ -92,7 +92,7 @@ local def = {
 		walk = {chance = 0.14, duration = 4.5, moving_speed = 1.3},
 		walk_long = {chance = 0.11, duration = 8, moving_speed = 1.3, update_yaw = 5},
 		-- special modes
-		follow = {chance = 0, duration = 20, radius = 4, timer = 5, moving_speed = 1, items = {"farming:wheat"}},
+		follow = {chance = 0, duration = 20, radius = 5, timer = 4, moving_speed = 1, items = {"farming:wheat"}},
 		eat = {	chance = 0.25,
 			duration = 4,
 			nodes = {
@@ -171,7 +171,10 @@ local def = {
 						self.fed_cnt = (self.fed_cnt or 0) + 1
 					end
 
-					-- play eat sound?
+					-- play eat sound
+					local pos = self.object:getpos()
+					core.sound_play("hunger_eat", {pos = pos, gain = 1, max_hear_distance = 10})
+
 					item:take_item()
 				elseif name == "creatures:shears" and self.has_wool then
 					shear(self, math.random(2, 3), true)

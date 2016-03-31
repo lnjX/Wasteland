@@ -653,25 +653,25 @@ core.register_decoration({
 })
 
 -- Grasses
-register_grass_decoration(-0.03,  0.09,  5)
-register_grass_decoration(-0.015, 0.075, 4)
-register_grass_decoration(0,      0.06,  3)
-register_grass_decoration(0.015,  0.045, 2)
+register_grass_decoration(-0.03,  0.4,  5)
+register_grass_decoration(-0.015, 0.2, 4)
+register_grass_decoration(0,      0.1,  3)
+register_grass_decoration(0.015,  0.05, 2)
 register_grass_decoration(0.03,   0.03,  1)
 
 -- Dry grasses
-register_grass_decoration(0.01, 0.05,  5, true)
-register_grass_decoration(0.03, 0.03,  4, true)
-register_grass_decoration(0.05, 0.01,  3, true)
-register_grass_decoration(0.07, -0.01, 2, true)
-register_grass_decoration(0.09, -0.03, 1, true)
+register_grass_decoration(0.01, 0.4,  5, true)
+register_grass_decoration(0.03, 0.1,  4, true)
+register_grass_decoration(0.05, 0.08,  3, true)
+register_grass_decoration(0.07, -0.04, 2, true)
+register_grass_decoration(0.09, -0.06, 1, true)
 
 -- Junglegrass
 core.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_with_grass"},
 	sidelen = 80,
-	fill_ratio = 0.1,
+	fill_ratio = 0.6,
 	biomes = {"rainforest"},
 	y_min = 1,
 	y_max = 31000,

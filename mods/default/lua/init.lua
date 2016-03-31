@@ -40,12 +40,13 @@ end
 dofile(luapath .. "nodes.lua") -- loads files in ./nodes/
 dofile(luapath .. "items.lua") -- loads files in ./items/
 dofile(luapath .. "crafting.lua")
-dofile(luapath .. "mapgen.lua")
+dofile(luapath .. "mapgen/mapgen.lua")
 if mg_name == "v6" then
-	dofile(luapath .. "mapgenv6.lua")
+	dofile(luapath .. "mapgen/mapgenv6.lua")
 elseif mg_name == "v5" or mg_name == "v7" or mg_name == "valleys" then
-	dofile(luapath .. "mapgenv57.lua")
+	dofile(luapath .. "mapgen/mapgenv57.lua")
 end
+dofile(luapath .. "mapgen/ruins.lua")
 dofile(luapath .. "chat_cmds.lua")
 dofile(luapath .. "item_pickup.lua")
 dofile(luapath .. "item_physics.lua")

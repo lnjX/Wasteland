@@ -51,7 +51,7 @@ end
 
 -- Helper functions
 
-local function drop_chest_stuff()
+function default.drop_node_inventory()
 	return function(pos, oldnode, oldmetadata, digger)
 		local meta = core.get_meta(pos)
 		meta:from_table(oldmetadata)
@@ -87,9 +87,11 @@ default.register_node("default:chest", {
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, fuel = 8},
 	legacy_facedir_simple = true,
 	is_ground_content = false,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = default.node_sound_wood_defaults({
+		dug = {name = "default_chest_break", gain = 0.8},
+	}),
 
-	after_dig_node = drop_chest_stuff(),
+	after_dig_node = default.drop_node_inventory(),
 	on_construct = function(pos)
 		local meta = core.get_meta(pos)
 		meta:set_string("formspec", chest_formspec)
@@ -120,9 +122,11 @@ default.register_node("default:chest_locked", {
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, fuel = 8},
 	legacy_facedir_simple = true,
 	is_ground_content = false,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = default.node_sound_wood_defaults({
+		dug = {name = "default_chest_break", gain = 0.8},
+	}),
 
-	after_dig_node = drop_chest_stuff(),
+	after_dig_node = default.drop_node_inventory(),
 	after_place_node = function(pos, placer)
 		local meta = core.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name() or "")
@@ -180,4 +184,23 @@ default.register_node("default:chest_locked", {
 		end
 	end,
 	on_blast = function() end,
+})
+
+core.register_node("default:chest_old", {
+	description = "Old Chest",
+	tiles = {"default_chest_old_top.png", "default_chest_old_top.png", "default_chest_old_side.png",
+		 "default_chest_old_side.png", "default_chest_old_side.png", "default_chest_old_front.png"},
+	paramtype2 = "facedir",
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, fuel = 8},
+	legacy_facedir_simple = true,
+	sounds = default.node_sound_wood_defaults({
+		dug = {name = "default_chest_break", gain = 0.8},
+	}),
+	drop = "default:stick 2",
+	on_construct = function(pos)
+		local meta = core.get_meta(pos)
+		local inv = meta:get_inventory()
+		inv:set_size("main", 8*4)
+	end,
+	after_dig_node = default.drop_node_inventory(),
 })

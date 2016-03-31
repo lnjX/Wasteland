@@ -141,6 +141,10 @@ BlockMen (CC BY-SA 3.0):
   default_book.png
   default_book_written.png
   default_charcoal.png
+  default_chest_break.*.ogg
+  default_chest_old_front.png
+  default_chest_old_side.png
+  default_chest_old_top.png
   default_chest_front.png
   default_chest_lock.png
   default_chest_side.png

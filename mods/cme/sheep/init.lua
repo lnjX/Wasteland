@@ -170,12 +170,18 @@ local def = {
 					if not self.tamed then
 						self.fed_cnt = (self.fed_cnt or 0) + 1
 					end
+					-- heal sheep
+					if self.hp < self.stats.hp then
+						self.hp = self.hp + 1
+					end
 
 					-- play eat sound
 					local pos = self.object:getpos()
 					core.sound_play("hunger_eat", {pos = pos, gain = 1, max_hear_distance = 10})
 
 					item:take_item()
+					
+					core.log("action", clicker:get_player_name() .. " fed a chicken at " .. core.pos_to_string(pos))
 				elseif name == "creatures:shears" and self.has_wool then
 					shear(self, math.random(2, 3), true)
 					item:add_wear(65535/100)

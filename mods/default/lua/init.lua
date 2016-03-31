@@ -31,11 +31,7 @@ dofile(luapath .. "apis/fencegates.lua")
 dofile(luapath .. "apis/tables.lua")
 dofile(luapath .. "apis/slabs.lua")
 dofile(luapath .. "apis/stairs.lua")
-
--- Minetest-dev version content
-if core.setting_getbool("enable_dev_content") then
-	dofile(luapath .. "apis/walls.lua")
-end
+dofile(luapath .. "apis/walls.lua")
 
 dofile(luapath .. "nodes.lua") -- loads files in ./nodes/
 dofile(luapath .. "items.lua") -- loads files in ./items/

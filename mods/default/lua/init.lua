@@ -52,7 +52,10 @@ dofile(luapath .. "item_physics.lua")
 dofile(luapath .. "trees.lua")
 dofile(luapath .. "player.lua")
 dofile(luapath .. "spectator_mode.lua")
-dofile(luapath .. "creative.lua")
+
+if core.setting_getbool("creative_mode") then
+	dofile(luapath .. "creative.lua")
+end
 
 dofile(luapath .. "aliases.lua")
 dofile(luapath .. "legacy.lua")

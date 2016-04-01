@@ -1,6 +1,6 @@
 function default.register_fencegate(name, def)
 	def.drawtype = "mesh"
-	def.tiles = def.tiles or {def.texture}
+	def.tiles = def.tiles or {def.texture .. "^[transformR90]"}
 	def.paramtype = "light"
 	def.paramtype2 = "facedir"
 	def.sunlight_propagates = true
@@ -38,7 +38,7 @@ function default.register_fencegate(name, def)
 	gate_closed.sound = def.sound_open or "default_fencegate_open"
 	gate_closed.collision_box = {
 		type = "fixed",
-		fixed = {-1/2, -1/2, -1/4, 1/2, 1/2, 1/4},
+		fixed = {-0.5, -0.5, -0.125, 0.5, 1, 0.125},
 	}
 
 	gate_open.mesh = "default_fencegate_open.obj"

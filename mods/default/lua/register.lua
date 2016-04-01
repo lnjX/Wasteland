@@ -80,7 +80,7 @@ local function register_node_fencegate(name, def)
 	fencegate_def.description =	fencegate_def.description	or def.description .. " Fence Gate"
 	fencegate_def.sounds = 		fencegate_def.sounds		or def.sounds
 	fencegate_def.material = 	fencegate_def.material		or name
-	fencegate_def.tiles =		fencegate_def.tiles		or def.tiles
+	fencegate_def.texture =		fencegate_def.texture		or def.tiles[1]
 	
 	-- clean up
 	fencegate_def.name = nil

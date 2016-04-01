@@ -153,12 +153,8 @@ function default.register_node(name, def)
 		if def.register.table then
 			register_node_table(name, def)
 		end
-		
-		-- this is dev only content
-		if core.setting_getbool("enable_dev_content") then
-			if def.register.wall then
-				register_node_wall(name, def)
-			end
+		if def.register.wall then
+			register_node_wall(name, def)
 		end
 	end
 

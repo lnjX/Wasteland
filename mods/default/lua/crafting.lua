@@ -714,6 +714,15 @@ core.register_craft({
 	recipe = {"default:dirt", "default:snow"}
 })
 
+core.register_craft({
+	output = "default:chest_teleport",
+	recipe = {
+		{"default:mese_crystal", "default:obsidian", "default:mese_crystal"},
+		{   "default:obsidian",    "default:chest",    "default:obsidian"  },
+		{"default:mese_crystal", "default:obsidian", "default:mese_crystal"}
+	}
+})
+
 --
 -- Crafting (tool repair)
 --

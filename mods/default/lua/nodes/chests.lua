@@ -1,7 +1,6 @@
 -- Formspecs
 
-local chest_formspec =
-	"size[8,10.6]" ..
+default.gui_chest_formspec = "size[8,10.6]" ..
 	default.gui_bg ..
 	default.gui_bg_img ..
 	default.gui_slots ..
@@ -9,8 +8,10 @@ local chest_formspec =
 	"label[1,0.25;Chest]" ..
 	-- Chest image
 	"image[0,0;1,1;" .. core.inventorycube("default_chest_top.png", "default_chest_front.png", "default_chest_side.png") .. "]" ..
-	-- chest inventory
+	-- Chest inventory
 	"list[current_name;main;0,1.2;8,4;]" ..
+	"listring[current_name;main]" ..
+	
 	-- Inventory icon
 	"image[0,5.4;1,1;default_inventory_icon.png]" ..
 	-- label (Inventory)
@@ -18,9 +19,29 @@ local chest_formspec =
 	-- inventory 
 	"list[current_player;main;0,6.5;8,1;]" ..
 	"list[current_player;main;0,7.7;8,3;8]" ..
-	"listring[current_name;main]" ..
 	"listring[current_player;main]" ..
 	default.get_hotbar_bg(0, 4.85)
+
+default.gui_chest_teleport_formspec = "size[8,10.6]" ..
+	default.gui_bg ..
+	default.gui_bg_img ..
+	default.gui_slots ..
+	-- label (Chest)
+	"label[1,0.25;Teleporter Chest]" ..
+	-- Chest image
+	"image[0,0;1,1;" .. core.inventorycube("default_chest_teleport_top.png", "default_chest_teleport_front.png", "default_chest_teleport_side.png") .. "]" ..
+	-- Chest inventory
+	"list[current_player;teleport;0,1.2;8,4;]" ..
+	
+	-- Inventory icon
+	"image[0,5.4;1,1;default_inventory_icon.png]" ..
+	-- label (Inventory)
+	"label[1,5.65;Inventory]" ..
+	-- inventory 
+	"list[current_player;main;0,6.5;8,1;]" ..
+	"list[current_player;main;0,7.7;8,3;8]" ..
+	default.get_hotbar_bg(0, 4.85)
+
 
 local function get_locked_chest_formspec(pos, player)
 	local spos = pos.x .. "," .. pos.y .. "," .. pos.z
@@ -84,7 +105,7 @@ default.register_node("default:chest", {
 	tiles = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
 		"default_chest_side.png", "default_chest_side.png", "default_chest_front.png"},
 	paramtype2 = "facedir",
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, fuel = 8},
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, fuel = 8, chest = 1},
 	legacy_facedir_simple = true,
 	is_ground_content = false,
 	sounds = default.node_sound_wood_defaults({
@@ -94,7 +115,7 @@ default.register_node("default:chest", {
 	after_dig_node = default.drop_node_inventory(),
 	on_construct = function(pos)
 		local meta = core.get_meta(pos)
-		meta:set_string("formspec", chest_formspec)
+		meta:set_string("formspec", default.gui_chest_formspec)
 		meta:set_string("infotext", "Chest")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8 * 4)
@@ -119,7 +140,7 @@ default.register_node("default:chest_locked", {
 	tiles = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
 		"default_chest_side.png", "default_chest_side.png", "default_chest_lock.png"},
 	paramtype2 = "facedir",
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, fuel = 8},
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, fuel = 8, chest = 2},
 	legacy_facedir_simple = true,
 	is_ground_content = false,
 	sounds = default.node_sound_wood_defaults({
@@ -191,7 +212,7 @@ core.register_node("default:chest_old", {
 	tiles = {"default_chest_old_top.png", "default_chest_old_top.png", "default_chest_old_side.png",
 		 "default_chest_old_side.png", "default_chest_old_side.png", "default_chest_old_front.png"},
 	paramtype2 = "facedir",
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, fuel = 8},
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, fuel = 8, chest = 3},
 	legacy_facedir_simple = true,
 	sounds = default.node_sound_wood_defaults({
 		dug = {name = "default_chest_break", gain = 0.8},
@@ -203,4 +224,19 @@ core.register_node("default:chest_old", {
 		inv:set_size("main", 8*4)
 	end,
 	after_dig_node = default.drop_node_inventory(),
+})
+
+core.register_node("default:chest_teleport", {
+	description = "Teleporter Chest",
+	tiles = {"default_chest_teleport_top.png", "default_chest_teleport_top.png", "default_chest_teleport_side.png",
+		 "default_chest_teleport_side.png", "default_chest_teleport_side.png", "default_chest_teleport_front.png"},
+	paramtype2 = "facedir",
+	groups = {cracky = 1, chest = 4},
+	legacy_facedir_simple = true,
+	sounds = default.node_sound_stone_defaults(),
+	on_rightclick = function(pos, node, player)
+		player:get_inventory():set_size("teleport", 8*4)
+		player:get_inventory():set_size("main", 8*4)
+		core.show_formspec(player:get_player_name(), "main", default.gui_chest_teleport_formspec)
+	end
 })

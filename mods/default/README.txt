@@ -211,6 +211,9 @@ Gambit (WTFPL):
   default_sign_wood.png
   default_sign_steel.png
   default_flint.png
+  default_chest_teleport_front.png
+  default_chest_teleport_side.png
+  default_chest_teleport_top.png
 
 asl97 (WTFPL):
   default_ice.png

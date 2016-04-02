@@ -1,8 +1,8 @@
 This mod is part of Minetest TNG
 ================================
 
-License of source code:
------------------------
+License of source code (if not stated differently in lua files):
+----------------------------------------------------------------
 Copyright (C) 2011-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 Copyright (C) 2014-2015 BlockMen <blockmen2015@gmail.com>
 Copyright (C) 2016 LNJ <lnj.git@gmail.com>
@@ -41,6 +41,8 @@ LNJ (CC BY-SA 4.0):
   default_bone.png
   default_pear.png
   default_vine.png
+
+kilbith (WTFPL):
   default_trash_icon.png
 
 Cisoun (WTFPL):

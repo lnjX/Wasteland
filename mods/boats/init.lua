@@ -36,7 +36,7 @@ local boat = {
 	physical = true,
 	collisionbox = {-0.5, -0.35, -0.5, 0.5, 0.3, 0.5},
 	visual = "mesh",
-	mesh = "boat.obj",
+	mesh = "boats_boat.obj",
 	textures = {"default_wood.png"},
 
 	driver = nil,
@@ -61,7 +61,15 @@ function boat.on_rightclick(self, clicker)
 		minetest.after(0.1, function()
 			clicker:setpos(pos)
 		end)
-	elseif not self.driver and default.player_attached[name] ~= true then
+	elseif not self.driver then
+		local attach = clicker:get_attach()
+		if attach and attach:get_luaentity() then
+			local luaentity = attach:get_luaentity()
+			if luaentity.driver then
+				luaentity.driver = nil
+			end
+			clicker:set_detach()
+		end
 		self.driver = clicker
 		clicker:set_attach(self.object, "",
 			{x = 0, y = 11, z = -3}, {x = 0, y = 0, z = 0})
@@ -88,8 +96,7 @@ function boat.get_staticdata(self)
 end
 
 
-function boat.on_punch(self, puncher, time_from_last_punch,
-		tool_capabilities, direction)
+function boat.on_punch(self, puncher)
 	if not puncher or not puncher:is_player() or self.removed then
 		return
 	end
@@ -206,10 +213,10 @@ end
 minetest.register_entity("boats:boat", boat)
 
 
-default.register_craftitem("boats:boat", {
+minetest.register_craftitem("boats:boat", {
 	description = "Boat",
-	inventory_image = "boat_inventory.png",
-	wield_image = "boat_wield.png",
+	inventory_image = "boats_inventory.png",
+	wield_image = "boats_wield.png",
 	wield_scale = {x = 2, y = 2, z = 1},
 	liquids_pointable = true,
 

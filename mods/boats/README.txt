@@ -1,32 +1,16 @@
-This mod is part of Minetest TNG
-================================
+Minetest Game mod: boats
+========================
+by PilzAdam
 
 License of source code:
 -----------------------
-Copyright (c) 2012 PilzAdam
-Copyright (c) 2014 BlockMen
-Copyright (c) 2014 paramat
+WTFPL
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-at your option) any later version.
+License of media (textures and sounds):
+---------------------------------------
+WTFPL
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
-License of media (textures, sounds, meshes):
---------------------------------------------
-(by Authors)
-
-Zeg9 (WTFPL):
-  boat_*.png
-
-thetoon, Zeg9, PavelS (WTFPL):
-  boat.obj
+Authors of media files:
+-----------------------
+textures: Zeg9
+model: thetoon and Zeg9, modified by PavelS(SokolovPavel)

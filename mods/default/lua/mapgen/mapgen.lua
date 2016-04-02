@@ -127,91 +127,168 @@ core.register_ore({
 	},
 })
 
--- Coal
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_coal",
-	wherein        = "default:stone",
-	clust_scarcity = 8 * 8 * 8,
-	clust_num_ores = 8,
-	clust_size     = 3,
-	y_min          = -31000,
-	y_max          = 64,
-})
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_coal",
-	wherein        = "default:stone",
-	clust_scarcity = 24 * 24 * 24,
-	clust_num_ores = 27,
-	clust_size     = 6,
-	y_min          = -31000,
-	y_max          = 0,
-})
+local stones = {
+	{"stone"},
+	{"sandstone"},
+	{"desert_stone"}
+}
 
--- Iron
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_iron",
-	wherein        = "default:stone",
-	clust_scarcity = 12 * 12 * 12,
-	clust_num_ores = 3,
-	clust_size     = 2,
-	y_min          = -15,
-	y_max          = 2,
-})
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_iron",
-	wherein        = "default:stone",
-	clust_scarcity = 9 * 9 * 9,
-	clust_num_ores = 5,
-	clust_size     = 3,
-	y_min          = -63,
-	y_max          = -16,
-})
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_iron",
-	wherein        = "default:stone",
-	clust_scarcity = 7 * 7 * 7,
-	clust_num_ores = 5,
-	clust_size     = 3,
-	y_min          = -31000,
-	y_max          = -64,
-})
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_iron",
-	wherein        = "default:stone",
-	clust_scarcity = 24 * 24 * 24,
-	clust_num_ores = 27,
-	clust_size     = 6,
-	y_min          = -31000,
-	y_max          = -64,
-})
+for _,stone in pairs(stones) do
+	stone = unpack(stone)
+	-- Coal
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_coal",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 8 * 8 * 8,
+		clust_num_ores = 8,
+		clust_size     = 3,
+		y_min          = -31000,
+		y_max          = 64,
+	})
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_coal",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 24 * 24 * 24,
+		clust_num_ores = 27,
+		clust_size     = 6,
+		y_min          = -31000,
+		y_max          = 0,
+	})
 
---Mese
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_mese",
-	wherein        = "default:stone",
-	clust_scarcity = 18 * 18 * 18,
-	clust_num_ores = 3,
-	clust_size     = 2,
-	y_min          = -255,
-	y_max          = -64,
-})
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_mese",
-	wherein        = "default:stone",
-	clust_scarcity = 14 * 14 * 14,
-	clust_num_ores = 5,
-	clust_size     = 3,
-	y_min          = -31000,
-	y_max          = -256,
-})
+	-- Iron
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_iron",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 12 * 12 * 12,
+		clust_num_ores = 3,
+		clust_size     = 2,
+		y_min          = -15,
+		y_max          = 2,
+	})
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_iron",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 9 * 9 * 9,
+		clust_num_ores = 5,
+		clust_size     = 3,
+		y_min          = -63,
+		y_max          = -16,
+	})
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_iron",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 7 * 7 * 7,
+		clust_num_ores = 5,
+		clust_size     = 3,
+		y_min          = -31000,
+		y_max          = -64,
+	})
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_iron",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 24 * 24 * 24,
+		clust_num_ores = 27,
+		clust_size     = 6,
+		y_min          = -31000,
+		y_max          = -64,
+	})
+
+	--Mese
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_mese",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 18 * 18 * 18,
+		clust_num_ores = 3,
+		clust_size     = 2,
+		y_min          = -255,
+		y_max          = -64,
+	})
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_mese",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 14 * 14 * 14,
+		clust_num_ores = 5,
+		clust_size     = 3,
+		y_min          = -31000,
+		y_max          = -256,
+	})
+
+	-- Gold
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_gold",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 15 * 15 * 15,
+		clust_num_ores = 3,
+		clust_size     = 2,
+		y_min          = -255,
+		y_max          = -64,
+	})
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_gold",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 13 * 13 * 13,
+		clust_num_ores = 5,
+		clust_size     = 3,
+		y_min          = -31000,
+		y_max          = -256,
+	})
+
+	-- Diamond
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_diamond",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 17 * 17 * 17,
+		clust_num_ores = 4,
+		clust_size     = 3,
+		y_min          = -255,
+		y_max          = -128,
+	})
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_diamond",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 15 * 15 * 15,
+		clust_num_ores = 4,
+		clust_size     = 3,
+		y_min          = -31000,
+		y_max          = -256,
+	})
+	
+	-- Copper
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_copper",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 12 * 12 * 12,
+		clust_num_ores = 4,
+		clust_size     = 3,
+		y_min          = -63,
+		y_max          = -16,
+	})
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:" .. stone .. "_with_copper",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 9 * 9 * 9,
+		clust_num_ores = 5,
+		clust_size     = 3,
+		y_min          = -31000,
+		y_max          = -64,
+	})
+end
+
+-- Mese block
 core.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:mese",
@@ -222,73 +299,6 @@ core.register_ore({
 	y_min          = -31000,
 	y_max          = -1024,
 })
-
--- Gold
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_gold",
-	wherein        = "default:stone",
-	clust_scarcity = 15 * 15 * 15,
-	clust_num_ores = 3,
-	clust_size     = 2,
-	y_min          = -255,
-	y_max          = -64,
-})
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_gold",
-	wherein        = "default:stone",
-	clust_scarcity = 13 * 13 * 13,
-	clust_num_ores = 5,
-	clust_size     = 3,
-	y_min          = -31000,
-	y_max          = -256,
-})
-
--- Diamond
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_diamond",
-	wherein        = "default:stone",
-	clust_scarcity = 17 * 17 * 17,
-	clust_num_ores = 4,
-	clust_size     = 3,
-	y_min          = -255,
-	y_max          = -128,
-})
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_diamond",
-	wherein        = "default:stone",
-	clust_scarcity = 15 * 15 * 15,
-	clust_num_ores = 4,
-	clust_size     = 3,
-	y_min          = -31000,
-	y_max          = -256,
-})
-
--- Copper
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_copper",
-	wherein        = "default:stone",
-	clust_scarcity = 12 * 12 * 12,
-	clust_num_ores = 4,
-	clust_size     = 3,
-	y_min          = -63,
-	y_max          = -16,
-})
-core.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_copper",
-	wherein        = "default:stone",
-	clust_scarcity = 9 * 9 * 9,
-	clust_num_ores = 5,
-	clust_size     = 3,
-	y_min          = -31000,
-	y_max          = -64,
-})
-
 
 function default.make_nyancat(pos, facedir, length)
 	local tailvec = {x = 0, y = 0, z = 0}

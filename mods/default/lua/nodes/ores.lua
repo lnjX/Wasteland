@@ -1,38 +1,67 @@
 -- Minerals
 
-default.register_node("default:stone_with_coal", {
-	description = "Coal Ore",
-	tiles = {"default_stone.png^default_mineral_coal.png"},
-	groups = {cracky = 3},
-	drop = 'default:coal_lump',
-	sounds = default.node_sound_stone_defaults(),
-})
+local stones = {
+	{"stone"},
+	{"sandstone"},
+	{"desert_stone"}
+}
 
-default.register_node("default:stone_with_iron", {
-	description = "Iron Ore",
-	tiles = {"default_stone.png^default_mineral_iron.png"},
-	groups = {cracky = 2},
-	drop = 'default:iron_lump',
-	sounds = default.node_sound_stone_defaults(),
-})
+for _,stone in pairs(stones) do
+	stone = unpack(stone)
+	default.register_node("default:" .. stone .. "_with_coal", {
+		description = "Coal Ore",
+		tiles = {"default_" .. stone .. ".png^default_mineral_coal.png"},
+		groups = {cracky = 3, not_in_creative_inventory = 1},
+		drop = 'default:coal_lump',
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+	default.register_node("default:" .. stone .. "_with_iron", {
+		description = "Iron Ore",
+		tiles = {"default_" .. stone .. ".png^default_mineral_iron.png"},
+		groups = {cracky = 2, not_in_creative_inventory = 1},
+		drop = 'default:iron_lump',
+		sounds = default.node_sound_stone_defaults(),
+	})
 
-default.register_node("default:stone_with_copper", {
-	description = "Copper Ore",
-	tiles = {"default_stone.png^default_mineral_copper.png"},
-	groups = {cracky = 2},
-	drop = 'default:copper_lump',
-	sounds = default.node_sound_stone_defaults(),
-})
+	default.register_node("default:" .. stone .. "_with_copper", {
+		description = "Copper Ore",
+		tiles = {"default_" .. stone .. ".png^default_mineral_copper.png"},
+		groups = {cracky = 2, not_in_creative_inventory = 1},
+		drop = 'default:copper_lump',
+		sounds = default.node_sound_stone_defaults(),
+	})
 
-default.register_node("default:stone_with_mese", {
-	description = "Mese Ore",
-	tiles = {"default_stone.png^default_mineral_mese.png"},
-	paramtype = "light",
-	groups = {cracky = 1},
-	drop = "default:mese_crystal",
-	sounds = default.node_sound_stone_defaults(),
-	light_source = 1,
-})
+	default.register_node("default:" .. stone .. "_with_mese", {
+		description = "Mese Ore",
+		tiles = {"default_" .. stone .. ".png^default_mineral_mese.png"},
+		paramtype = "light",
+		groups = {cracky = 1, not_in_creative_inventory = 1},
+		drop = "default:mese_crystal",
+		sounds = default.node_sound_stone_defaults(),
+		light_source = 1,
+	})
+
+	default.register_node("default:" .. stone .. "_with_diamond", {
+		description = "Diamond Ore",
+		tiles = {"default_" .. stone .. ".png^default_mineral_diamond.png"},
+		groups = {cracky = 1, not_in_creative_inventory = 1},
+		drop = "default:diamond",
+		sounds = default.node_sound_stone_defaults(),
+	})
+
+	default.register_node("default:" .. stone .. "_with_gold", {
+		description = "Gold Ore",
+		tiles = {"default_" .. stone .. ".png^default_mineral_gold.png"},
+		groups = {cracky = 2, not_in_creative_inventory = 1},
+		drop = "default:gold_lump",
+		sounds = default.node_sound_stone_defaults(),
+	})
+end
+
+
+
+-- Blocks
 
 default.register_node("default:mese", {
 	description = "Mese Block",
@@ -42,26 +71,6 @@ default.register_node("default:mese", {
 	sounds = default.node_sound_stone_defaults(),
 	light_source = 3,
 })
-
-default.register_node("default:stone_with_diamond", {
-	description = "Diamond Ore",
-	tiles = {"default_stone.png^default_mineral_diamond.png"},
-	groups = {cracky = 1},
-	drop = "default:diamond",
-	sounds = default.node_sound_stone_defaults(),
-})
-
-default.register_node("default:stone_with_gold", {
-	description = "Gold Ore",
-	tiles = {"default_stone.png^default_mineral_gold.png"},
-	groups = {cracky = 2},
-	drop = "default:gold_lump",
-	sounds = default.node_sound_stone_defaults(),
-})
-
-
-
--- Blocks
 
 default.register_node("default:coalblock", {
 	register = {stair = true, slab = true},

@@ -85,7 +85,8 @@ local def = {
   spawning = {
     abm_nodes = {
       spawn_on = {"default:stone", "default:dirt_with_grass", "default:dirt",
-        "default:cobblestone", "default:mossycobble", "group:sand"},
+        "default:cobblestone", "default:mossycobble", "group:sand",
+	"default:sandstonebrick", "default:stonebrick", "default:desert_stonebrick", "default:desert_stone"},
     },
     abm_interval = 36,
     abm_chance = 7600,
@@ -121,7 +122,7 @@ creatures.register_mob(def)
 -- Place spawners in dungeons
 
 local function place_spawner(tab)
-	local pos = tab[math.random(1, (#tab or 4))]
+	local pos = tab[math.random(1, (#tab or 3))]
 	pos.y = pos.y - 1
 	local n = core.get_node_or_nil(pos)
 	if n and n.name ~= "air" then
@@ -132,7 +133,7 @@ end
 core.set_gen_notify("dungeon")
 core.register_on_generated(function(minp, maxp, blockseed)
 	local ntf = core.get_mapgen_object("gennotify")
-	if ntf and ntf.dungeon and #ntf.dungeon > 3 then
+	if ntf and ntf.dungeon and #ntf.dungeon > 2 then
 		core.after(3, place_spawner, table.copy(ntf.dungeon))
 	end
 end)

@@ -12,7 +12,7 @@ default.register_node("default:snow", {
 			{-0.5, -0.5, -0.5, 0.5, -0.25, 0.5},
 		},
 	},
-	groups = {crumbly = 3, falling_node = 1, puts_out_fire = 1},
+	groups = {crumbly = 3, falling_node = 1, puts_out_fire = 1, snowy = 1},
 	sounds = default.node_sound_snow_defaults(),
 
 	on_construct = function(pos)
@@ -26,6 +26,6 @@ default.register_node("default:snow", {
 default.register_node("default:snowblock", {
 	description = "Snow Block",
 	tiles = {"default_snow.png"},
-	groups = {crumbly = 3, puts_out_fire = 1},
+	groups = {crumbly = 3, puts_out_fire = 1, snowy = 1},
 	sounds = default.node_sound_snow_defaults(),
 })

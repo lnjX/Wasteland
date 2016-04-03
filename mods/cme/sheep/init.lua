@@ -1,5 +1,6 @@
 --= Sheep for Creatures MOB-Engine (cme) =--
--- Copyright (c) 2015-2016 BlockMen <blockmen2015@gmail.com>
+-- Copyright (C) 2015-2016 BlockMen <blockmen2015@gmail.com>
+-- Copyright (C) 2016 LNJ <lnj.git@gmail.com>
 --
 -- init.lua
 --

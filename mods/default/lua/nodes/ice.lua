@@ -3,6 +3,6 @@ default.register_node("default:ice", {
 	tiles = {"default_ice.png"},
 	is_ground_content = false,
 	paramtype = "light",
-	groups = {cracky = 3, puts_out_fire = 1},
+	groups = {cracky = 3, puts_out_fire = 1, snowy = 2},
 	sounds = default.node_sound_glass_defaults(),
 })

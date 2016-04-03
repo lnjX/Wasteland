@@ -1,6 +1,6 @@
 --= Zombie for Creatures MOB-Engine (cme) =--
 -- Copyright (c) 2015-2016 BlockMen <blockmen2015@gmail.com>
--- Copyright (c) 2016 LNJ <lnj@gmx.de>
+-- Copyright (c) 2016 LNJ <lnj.git@gmail.com>
 --
 -- init.lua
 --
@@ -26,6 +26,14 @@ default.register_craftitem(":creatures:rotten_flesh", {
 	inventory_image = "creatures_rotten_flesh.png",
 	on_use = core.item_eat(1),
 })
+
+local snowSkins = {"jacket", "frozen"}
+
+local function setSkin(self)
+  if self.skin and self.skin ~= "" then
+    self.object:set_properties({textures = {"creatures_zombie_" .. self.skin .. ".png"}})
+  end
+end
 
 local def = {
   -- general
@@ -86,7 +94,9 @@ local def = {
     abm_nodes = {
       spawn_on = {"default:stone", "default:dirt_with_grass", "default:dirt",
         "default:cobblestone", "default:mossycobble", "group:sand",
-	"default:sandstonebrick", "default:stonebrick", "default:desert_stonebrick", "default:desert_stone"},
+        "default:sandstonebrick", "default:stonebrick", "default:desert_stonebrick",
+        "default:desert_stone", "default:ice", "default:snowblock",
+        "default:dirt_with_snow", "default:snow"},
     },
     abm_interval = 36,
     abm_chance = 7600,
@@ -107,6 +117,27 @@ local def = {
       light = {min = 0, max = 8},
     }
   },
+  
+  get_staticdata = function(self)
+    return {
+      skin = self.skin
+    }
+  end,
+  
+  on_activate = function(self, staticdata)
+    if self.skin == nil then
+      local pos = self.object:getpos()
+      pos = {x = pos.x, y = pos.y - 1, z = pos.z}
+      
+      if core.get_item_group(core.get_node(pos).name, "snowy") then
+        self.skin = snowSkins[math.random(1, #snowSkins)]
+      else
+        self.skin = ""
+      end
+    end
+    
+    setSkin(self)
+  end,
 
   drops = {
     {"creatures:rotten_flesh", {min = 1, max = 2}, chance = 0.7},

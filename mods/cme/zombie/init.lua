@@ -30,8 +30,10 @@ default.register_craftitem(":creatures:rotten_flesh", {
 local snowSkins = {"jacket", "frozen"}
 
 local function setSkin(self)
-  if self.skin and self.skin ~= "" then
+  if self.skin ~= "normal" then
     self.object:set_properties({textures = {"creatures_zombie_" .. self.skin .. ".png"}})
+  else
+    self.object:set_properties({textures = {"creatures_zombie.png"}})
   end
 end
 
@@ -127,12 +129,14 @@ local def = {
   on_activate = function(self, staticdata)
     if self.skin == nil then
       local pos = self.object:getpos()
-      pos = {x = pos.x, y = pos.y - 1, z = pos.z}
+      pos = {x = pos.x, y = pos.y - 2, z = pos.z}
+      local nodename = core.get_node(pos).name
       
-      if core.get_item_group(core.get_node(pos).name, "snowy") then
+      -- snowy = 1 are nodes with snow, snowy = 2 is ice
+      if core.get_item_group(nodename, "snowy") == 1 or core.get_item_group(nodename, "snowy") == 2 then
         self.skin = snowSkins[math.random(1, #snowSkins)]
       else
-        self.skin = ""
+        self.skin = "normal"
       end
     end
     

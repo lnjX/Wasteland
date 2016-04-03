@@ -203,6 +203,7 @@ Gambit (WTFPL):
   default_bronze_ingot.png
   default_copper_ingot.png
   default_copper_lump.png
+  default_craft_guide.png
   default_iron_lump.png
   default_gold_lump.png
   default_clay_lump.png

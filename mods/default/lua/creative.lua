@@ -1,9 +1,4 @@
 --[[
-This file wass written by kilbith, 2016!
-I'm sorry that I credited this wrong!
-
-   LNJ
-
 License of this file:
 ---------------------
 Copyright (C) 2012 celeron55, Perttu Ahola <celeron55@gmail.com>

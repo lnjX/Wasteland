@@ -723,6 +723,12 @@ core.register_craft({
 	}
 })
 
+core.register_craft({ 
+	output = "default:craft_guide",
+	type = "shapeless",
+	recipe = {"default:book"}
+})
+
 --
 -- Crafting (tool repair)
 --

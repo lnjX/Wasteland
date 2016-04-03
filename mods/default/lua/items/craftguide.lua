@@ -178,10 +178,3 @@ core.register_craftitem("default:craft_guide", {
 		end
 	end
 })
-
-core.register_craft({ 
-	output = "default:craft_guide",
-	type = "shapeless",
-	recipe = {"default:book"}
-})
-

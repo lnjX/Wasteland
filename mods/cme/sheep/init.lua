@@ -182,7 +182,7 @@ local def = {
 					item:take_item()
 					
 					core.log("action", clicker:get_player_name() .. " fed a sheep at " .. core.pos_to_string(pos))
-				elseif name == "creatures:shears" and self.has_wool then
+				elseif name == "default:shears" and self.has_wool then
 					shear(self, math.random(2, 3), true)
 					item:add_wear(65535/100)
 				end

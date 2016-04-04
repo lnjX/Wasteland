@@ -7,7 +7,7 @@ local stones = {
 }
 
 for _,stone in pairs(stones) do
-	stone = unpack(stone)
+	stone = stone[1]
 	default.register_node("default:" .. stone .. "_with_coal", {
 		description = "Coal Ore",
 		tiles = {"default_" .. stone .. ".png^default_mineral_coal.png"},
@@ -54,7 +54,22 @@ for _,stone in pairs(stones) do
 		description = "Gold Ore",
 		tiles = {"default_" .. stone .. ".png^default_mineral_gold.png"},
 		groups = {cracky = 2, not_in_creative_inventory = 1},
-		drop = "default:gold_lump",
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+	default.register_node("default:" .. stone .. "_with_salt", {
+		description = "Salt Ore",
+		tiles = {"default_" .. stone .. ".png^default_mineral_salt.png"},
+		groups = {cracky = 2, not_in_creative_inventory = 1},
+		drop = {
+			max_items = 5,
+			items = {
+				{items = {"default:salt 2"}},
+				{items = {"default:salt"}, rarity = 2},
+				{items = {"default:salt"}, rarity = 3},
+				{items = {"default:salt"}, rarity = 5}
+			}
+		},
 		sounds = default.node_sound_stone_defaults(),
 	})
 end
@@ -134,4 +149,13 @@ default.register_node("default:diamondblock", {
 	sounds = default.node_sound_stone_defaults(),
 	stair = {legacy_alias = "stairs:stair_diamondblock"},
 	slab = {legacy_alias = "stairs:slab_diamondblock"},
+})
+
+default.register_node("default:saltblock", {
+	register = {stair = true, slab = true},
+	description = "Salt Block",
+	tiles = {"default_salt_block.png"},
+	is_ground_content = false,
+	groups = {cracky = 2},
+	sounds = default.node_sound_stone_defaults(),
 })

@@ -27,6 +27,9 @@ License of media (textures, sounds, meshes):
 
 Fridolin (CC BY-SA 4.0):
   default_dry_dirt.png
+  default_mineral_salt.png
+  default_salt.png
+  default_salt_block.png
   default_papyrus_block_side.png
   default_papyrus_block_top.png
   gui_furnace_arrow_fg.png

@@ -44,6 +44,11 @@ default.register_craftitem("default:diamond", {
 	inventory_image = "default_diamond.png",
 })
 
+default.register_craftitem("default:salt", {
+	description = "Salt",
+	inventory_image = "default_salt.png"
+})
+
 
 -- Ingots
 

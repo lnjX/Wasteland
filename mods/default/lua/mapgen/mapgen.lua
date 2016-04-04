@@ -286,6 +286,27 @@ for _,stone in pairs(stones) do
 		y_min          = -31000,
 		y_max          = -64,
 	})
+	
+	-- Salt
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            =  "default:" .. stone .. "_with_salt",
+		clust_scarcity = 18 * 18 * 18,
+		clust_num_ores = 7,
+		clust_size     = 3,
+		y_min          = -79,
+		y_max          = -32,
+	})
+	core.register_ore({
+		ore_type       = "scatter",
+		ore            =  "default:" .. stone .. "_with_salt",
+		wherein        = "default:" .. stone,
+		clust_scarcity = 16 * 16 * 16,
+		clust_num_ores = 9,
+		clust_size     = 3,
+		y_min          = -31000,
+		y_max          = -80,
+	})
 end
 
 -- Mese block

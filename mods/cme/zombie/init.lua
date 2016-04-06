@@ -111,7 +111,7 @@ local def = {
     {"creatures:rotten_flesh", {min = 1, max = 2}, chance = 0.7},
     {"farming:potato", {min = 0, max = 2}, chance = 0.03},
     {"default:coal_lump", {min = 0, max = 3}, chance = 0.02},
-    {"default:cotton", {min = 0, max = 3}, chance = 0.03}
+    {"farming:cotton", {min = 0, max = 3}, chance = 0.03}
   }
 }
 

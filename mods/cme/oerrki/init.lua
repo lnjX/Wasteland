@@ -107,7 +107,7 @@ local def = {
   },
   
   drops = {
-    {"farming:cotton_seed", {min = 0, max = 2}, chance = 0.03},
+    {"farming:seed_cotton", {min = 0, max = 2}, chance = 0.03},
     {"default:coal_lump", {min = 0, max = 3}, chance = 0.02}
   }
 }

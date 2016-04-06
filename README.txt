@@ -1,6 +1,6 @@
 WASTELAND - a game for the Minetest game engine
 ===============================================
-Version 0.6.1, Status: BETA
+Version 0.6.3, Status: BETA
 
 Copyright (C) 2013-2015 BlockMen
 Copyright (C) 2016 LNJ

@@ -1,9 +1,9 @@
-MThis mod is part of Minetest TNG
-=================================
+This mod is part of Minetest TNG
+================================
 
 License of source code:
 -----------------------
-Copyright (C) 2014 webdesigner97
+Copyright (C) 2016 LNJ <lnj.git@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -23,30 +23,14 @@ License of media (textures, sounds, meshes):
 --------------------------------------------
 (by Authors)
 
-PilzAdam (WTFPL):
-  farming_soil.png
-  farming_soil_wet.png
-  farming_soil_wet_side.png
-  farming_string.png
+LNJ (CC BY-SA 4.0):
+  food_roll_with_fried_egg.png
 
 BlockMen (CC BY-SA 3.0):
-  farming_tool_diamondhoe.png
-  farming_tool_mesehoe.png
-  farming_tool_bronzehoe.png
-  farming_tool_steelhoe.png
-  farming_tool_stonehoe.png
-  farming_tool_woodhoe.png
+  food_fried_egg.png
 
-MasterGollum (WTFPL):
-  farming_straw.png
+PilzAdam (WTFPL):
+  food_roll.png
 
 Gambit (WTFPL):
-  farming_wheat.png
-  farming_wheat_*.png
-  farming_cotton_*.png
-  farming_cotton_seed.png
-  farming_wheat_seed.png
-
-LNJ (CC BY-SA 3.0):
-  farming_potato.png
-  farming_potato_*.png
+  food_flour.png

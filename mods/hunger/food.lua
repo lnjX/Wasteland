@@ -3,8 +3,13 @@
 hunger.register_food("default:apple", 2)
 hunger.register_food("default:pear", 2)
 
+if core.get_modpath("food") then
+	hunger.register_food("food:roll", 3)
+	hunger.register_food("food:roll_with_fried_egg", 5, nil, 0, 1) -- heals one heart
+	hunger.register_food("food:fried_egg", 2)
+end
+
 if core.get_modpath("farming") then
-	hunger.register_food("farming:bread", 4)
 	hunger.register_food("farming:potato", 1)
 end
 

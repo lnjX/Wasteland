@@ -134,6 +134,10 @@ end
 
 
 function default.register_node(name, def)
+	if def.alias then
+		core.register_alias(def.alias, name)
+	end
+	
 	--
 	-- Register other types of the node (stair, slab, fence, ...)
 	--
@@ -170,5 +174,9 @@ function default.register_node(name, def)
 end
 
 function default.register_craftitem(name, def)
+	if def.alias then
+		core.register_alias(def.alias, name)
+	end
+	
 	core.register_craftitem(name, def)
 end

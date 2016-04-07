@@ -10,15 +10,15 @@ farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 		return
 	end
 
-	local under = minetest.get_node(pt.under)
+	local under = core.get_node(pt.under)
 	local p = {x=pt.under.x, y=pt.under.y+1, z=pt.under.z}
-	local above = minetest.get_node(p)
+	local above = core.get_node(p)
 
 	-- return if any of the nodes is not registered
-	if not minetest.registered_nodes[under.name] then
+	if not core.registered_nodes[under.name] then
 		return
 	end
-	if not minetest.registered_nodes[above.name] then
+	if not core.registered_nodes[above.name] then
 		return
 	end
 
@@ -28,34 +28,34 @@ farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 	end
 
 	-- check if pointing at soil
-	if minetest.get_item_group(under.name, "soil") ~= 1 then
+	if core.get_item_group(under.name, "soil") ~= 1 then
 		return
 	end
 
 	-- check if (wet) soil defined
-	local regN = minetest.registered_nodes
+	local regN = core.registered_nodes
 	if regN[under.name].soil == nil or regN[under.name].soil.wet == nil or regN[under.name].soil.dry == nil then
 		return
 	end
 
-	if minetest.is_protected(pt.under, user:get_player_name()) then
-		minetest.record_protection_violation(pt.under, user:get_player_name())
+	if core.is_protected(pt.under, user:get_player_name()) then
+		core.record_protection_violation(pt.under, user:get_player_name())
 		return
 	end
-	if minetest.is_protected(pt.above, user:get_player_name()) then
-		minetest.record_protection_violation(pt.above, user:get_player_name())
+	if core.is_protected(pt.above, user:get_player_name()) then
+		core.record_protection_violation(pt.above, user:get_player_name())
 		return
 	end
 
 
 	-- turn the node into soil, wear out item and play sound
-	minetest.set_node(pt.under, {name = regN[under.name].soil.dry})
-	minetest.sound_play("default_dig_crumbly", {
+	core.set_node(pt.under, {name = regN[under.name].soil.dry})
+	core.sound_play("default_dig_crumbly", {
 		pos = pt.under,
 		gain = 0.5,
 	})
 
-	if not minetest.setting_getbool("creative_mode") then
+	if not core.setting_getbool("creative_mode") then
 		itemstack:add_wear(65535/(uses-1))
 	end
 	return itemstack
@@ -85,7 +85,7 @@ farming.register_hoe = function(name, def)
 		def.max_uses = 30
 	end
 	-- Register the tool
-	minetest.register_tool(name, {
+	core.register_tool(name, {
 		description = def.description,
 		inventory_image = def.inventory_image,
 		on_use = function(itemstack, user, pointed_thing)
@@ -94,12 +94,12 @@ farming.register_hoe = function(name, def)
 	})
 	-- Register its recipe
 	if def.material == nil then
-		minetest.register_craft({
+		core.register_craft({
 			output = name:sub(2),
 			recipe = def.recipe
 		})
 	else
-		minetest.register_craft({
+		core.register_craft({
 			output = name:sub(2),
 			recipe = {
 				{def.material, def.material, ""},
@@ -108,7 +108,7 @@ farming.register_hoe = function(name, def)
 			}
 		})
 		-- Reverse Recipe
-		minetest.register_craft({
+		core.register_craft({
 			output = name:sub(2),
 			recipe = {
 				{"", def.material, def.material},
@@ -130,24 +130,24 @@ farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 		return
 	end
 
-	local under = minetest.get_node(pt.under)
-	local above = minetest.get_node(pt.above)
+	local under = core.get_node(pt.under)
+	local above = core.get_node(pt.above)
 
-	if minetest.is_protected(pt.under, placer:get_player_name()) then
-		minetest.record_protection_violation(pt.under, placer:get_player_name())
+	if core.is_protected(pt.under, placer:get_player_name()) then
+		core.record_protection_violation(pt.under, placer:get_player_name())
 		return
 	end
-	if minetest.is_protected(pt.above, placer:get_player_name()) then
-		minetest.record_protection_violation(pt.above, placer:get_player_name())
+	if core.is_protected(pt.above, placer:get_player_name()) then
+		core.record_protection_violation(pt.above, placer:get_player_name())
 		return
 	end
 
 
 	-- return if any of the nodes is not registered
-	if not minetest.registered_nodes[under.name] then
+	if not core.registered_nodes[under.name] then
 		return
 	end
-	if not minetest.registered_nodes[above.name] then
+	if not core.registered_nodes[above.name] then
 		return
 	end
 
@@ -157,12 +157,12 @@ farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	end
 
 	-- check if you can replace the node above the pointed node
-	if not minetest.registered_nodes[above.name].buildable_to then
+	if not core.registered_nodes[above.name].buildable_to then
 		return
 	end
 
 	-- check if pointing at soil
-	if minetest.get_item_group(under.name, "soil") < 2 then
+	if core.get_item_group(under.name, "soil") < 2 then
 		return
 	end
 
@@ -171,17 +171,17 @@ farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	if ndef and not ndef.drawtype then
 		plantname = plantname .. "_1"
 	end
-	minetest.set_node(pt.above, {name = plantname, param2 = 1})
-	if not minetest.setting_getbool("creative_mode") then
+	core.set_node(pt.above, {name = plantname, param2 = 1})
+	if not core.setting_getbool("creative_mode") then
 		itemstack:take_item()
 	end
 	return itemstack
 end
 
 -- Register plants
-farming.register_plant = function(name, def)
-	local mname = name:split(":")[1]
-	local pname = name:split(":")[2]
+farming.register_plant = function(def)
+	local mname = "farming" or def.modname
+	local pname = def.plantname
 
 	-- Check def table
 	if not def.description then
@@ -205,22 +205,28 @@ farming.register_plant = function(name, def)
 	if def.has_seed ~= false then
 		def.has_seed = true
 	end
+	if not def.seed then
+		def.seed = {}
+	end
+	if not def.harvest then
+		def.harvest = {}
+	end
 
 
-	local g = {seed = 1, snappy = 3, attached_node = 1}
+	local groups = {seed = 1, snappy = 3, attached_node = 1}
 	for k, v in pairs(def.fertility) do
-		g[v] = 1
+		groups[v] = 1
 	end
 
 	if def.has_seed then
 		-- Register seed
-		minetest.register_node(":" .. mname .. ":seed_" .. pname, {
-			description = def.description,
-			tiles = {def.inventory_image},
-			inventory_image = def.inventory_image,
-			wield_image = def.inventory_image,
+		core.register_node(":" .. mname .. ":seed_" .. pname, {
+			description = def.seed.description,
+			tiles = {def.seed.inventory_image},
+			inventory_image = def.seed.inventory_image,
+			wield_image = def.seed.inventory_image,
 			drawtype = "signlike",
-			groups = g,
+			groups = groups,
 			paramtype = "light",
 			paramtype2 = "wallmounted",
 			walkable = false,
@@ -237,17 +243,17 @@ farming.register_plant = function(name, def)
 		})
 
 		-- Register harvest
-		minetest.register_craftitem(":" .. mname .. ":" .. pname, {
-			description = pname:gsub("^%l", string.upper),
-			inventory_image = mname .. "_" .. pname .. ".png",
+		core.register_craftitem(":" .. mname .. ":" .. pname, {
+			description = def.harvest.description,
+			inventory_image = def.harvest.inventory_image,
 		})
 	else
-		minetest.register_craftitem(":" .. mname .. ":" .. pname, {
+		core.register_craftitem(":" .. mname .. ":" .. pname, {
 			description = def.description,
 			tiles = {def.inventory_image},
 			inventory_image = def.inventory_image,
 			wield_image = def.inventory_image,
-			groups = g,
+			groups = groups,
 			fertility = def.fertility,
 			on_place = function(itemstack, placer, pointed_thing)
 				return farming.place_seed(itemstack, placer, pointed_thing, mname .. ":" .. pname)
@@ -258,24 +264,24 @@ farming.register_plant = function(name, def)
 
 	-- Register growing steps
 	local max_step = def.steps + 1
-	for i = 1,def.steps do
-			local drop = def.drop or {
-				items = {
-					{items = {mname .. ":" .. pname}, rarity = max_step - i},
-					{items = {mname .. ":" .. pname}, rarity = (max_step - i) * 2},
-					{items = {mname .. ":seed_" .. pname}, rarity = max_step - i},
-					{items = {mname .. ":seed_" .. pname}, rarity = (max_step - i) * 2},
-				}
+	for i = 1, def.steps do
+		local drop = def.drop or {
+			items = {
+				{items = {mname .. ":" .. pname}, rarity = max_step - i},
+				{items = {mname .. ":" .. pname}, rarity = (max_step - i) * 2},
+				{items = {mname .. ":seed_" .. pname}, rarity = max_step - i},
+				{items = {mname .. ":seed_" .. pname}, rarity = (max_step - i) * 2},
 			}
-			if def.has_seed == false then
-				drop.items[3] = {items = {mname .. ":" .. pname}, rarity = (max_step - i) * 4}
-				drop.items[4] = {items = {mname .. ":" .. pname}, rarity = (max_step - i) * 6}
-			end
+		}
+		if def.has_seed == false then
+			drop.items[3] = {items = {mname .. ":" .. pname}, rarity = (max_step - i) * 4}
+			drop.items[4] = {items = {mname .. ":" .. pname}, rarity = (max_step - i) * 6}
+		end
 
 
 		local nodegroups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1}
 		nodegroups[pname] = i
-		minetest.register_node(":" .. mname .. ":" .. pname .. "_" .. i, {
+		core.register_node(":" .. mname .. ":" .. pname .. "_" .. i, {
 			drawtype = "plantlike",
 			waving = 1,
 			tiles = {mname .. "_" .. pname .. "_" .. i .. ".png"},
@@ -293,56 +299,56 @@ farming.register_plant = function(name, def)
 	end
 
 	-- Growing ABM
-	minetest.register_abm({
+	core.register_abm({
 		nodenames = {"group:" .. pname, "group:seed"},
 		neighbors = {"group:soil"},
 		interval = 90,
 		chance = 2,
 		action = function(pos, node)
-			local plant_height = minetest.get_item_group(node.name, pname)
+			local plant_height = core.get_item_group(node.name, pname)
 
 			-- return if already full grown
 			if plant_height == def.steps then
 				return
 			end
 
-			local node_def = minetest.registered_items[node.name] or nil
+			local node_def = core.registered_items[node.name] or nil
 
 			-- grow seed
-			if def.has_seed and minetest.get_item_group(node.name, "seed") and node_def.fertility then
+			if def.has_seed and core.get_item_group(node.name, "seed") and node_def.fertility then
 				local can_grow = false
-				local soil_node = minetest.get_node_or_nil({x = pos.x, y = pos.y - 1, z = pos.z})
+				local soil_node = core.get_node_or_nil({x = pos.x, y = pos.y - 1, z = pos.z})
 				if not soil_node then
 					return
 				end
 				for _, v in pairs(node_def.fertility) do
-					if minetest.get_item_group(soil_node.name, v) ~= 0 then
+					if core.get_item_group(soil_node.name, v) ~= 0 then
 						can_grow = true
 					end
 				end
 				if can_grow then
-					minetest.set_node(pos, {name = node.name:gsub("seed_", "") .. "_1"})
+					core.set_node(pos, {name = node.name:gsub("seed_", "") .. "_1"})
 				end
 				return
 			end
 
 			-- check if on wet soil
 			pos.y = pos.y - 1
-			local n = minetest.get_node(pos)
-			if minetest.get_item_group(n.name, "soil") < 3 then
+			local n = core.get_node(pos)
+			if core.get_item_group(n.name, "soil") < 3 then
 				return
 			end
 			pos.y = pos.y + 1
 
 			-- check light
-			local light_level = minetest.get_node_light(pos)
+			local light_level = core.get_node_light(pos)
 
 			if not light_level or light_level < def.minlight or light_level > def.maxlight then
 				return
 			end
 
 			-- grow
-			minetest.set_node(pos, {name = mname .. ":" .. pname .. "_" .. plant_height + 1})
+			core.set_node(pos, {name = mname .. ":" .. pname .. "_" .. plant_height + 1})
 		end
 	})
 

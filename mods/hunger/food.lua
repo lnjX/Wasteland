@@ -19,12 +19,12 @@ if core.get_modpath("flowers") then
 end
 
 if core.get_modpath("creatures") then
-	hunger.register_food("creatures:meat", 6)
-	hunger.register_food("creatures:flesh", 3)
-	hunger.register_food("creatures:rotten_flesh", 2, "", 3)
+	hunger.register_food("creatures:meat", 6, "default:bone")
+	hunger.register_food("creatures:flesh", 3, "default:bone")
+	hunger.register_food("creatures:rotten_flesh", 2, "default:bone", 4)
 	
 	if core.get_modpath("chicken") then
-		hunger.register_food("creatures:chicken_flesh", 1)
-		hunger.register_food("creatures:chicken_meat", 3)
+		hunger.register_food("creatures:chicken_flesh", 1, "default:bone")
+		hunger.register_food("creatures:chicken_meat", 3, "default:bone")
 	end
 end

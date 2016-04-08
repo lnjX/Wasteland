@@ -103,7 +103,7 @@ local def = {
   },
 
   drops = {
-    {"tnt:gunpowder", {min = 0, max = 2}, chance = 0.25}
+    {"tnt:gunpowder", {min = 1, max = 3}, chance = 0.3}
   },
 
 }

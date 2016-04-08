@@ -212,6 +212,7 @@ Gambit (WTFPL):
   default_clay_lump.png
   default_coal.png
   default_paper.png
+  default_screwdriver.png
   default_sign_wall_wood.png
   default_sign_wall_steel.png
   default_sign_wood.png

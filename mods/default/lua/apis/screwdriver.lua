@@ -1,3 +1,23 @@
+--[[
+License of this file:
+---------------------
+Copyright (C) 2013 RealBadAngel, Maciej Kasatkin <mk@realbadangel.pl>
+Copyright (C) 2016 LNJ <lnj.git@gmail.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+--]]
+
 screwdriver = {}
 
 local function nextrange(x, max)
@@ -21,20 +41,20 @@ end
 local USES = 200
 
 -- Handles rotation
-local function screwdriver_handler(itemstack, user, pointed_thing, mode)
+function screwdriver.screwdriver_handler(itemstack, user, pointed_thing, mode)
 	if pointed_thing.type ~= "node" then
 		return
 	end
 
 	local pos = pointed_thing.under
 
-	if minetest.is_protected(pos, user:get_player_name()) then
-		minetest.record_protection_violation(pos, user:get_player_name())
+	if core.is_protected(pos, user:get_player_name()) then
+		core.record_protection_violation(pos, user:get_player_name())
 		return
 	end
 
-	local node = minetest.get_node(pos)
-	local ndef = minetest.registered_nodes[node.name]
+	local node = core.get_node(pos)
+	local ndef = core.registered_nodes[node.name]
 	-- verify node is facedir (expected to be rotatable)
 	if not ndef or ndef.paramtype2 ~= "facedir" then
 		return
@@ -78,40 +98,12 @@ local function screwdriver_handler(itemstack, user, pointed_thing, mode)
 
 	if should_rotate then
 		node.param2 = new_param2
-		minetest.swap_node(pos, node)
+		core.swap_node(pos, node)
 	end
 
-	if not minetest.setting_getbool("creative_mode") then
+	if not core.setting_getbool("creative_mode") then
 		itemstack:add_wear(65535 / (USES - 1))
 	end
 
 	return itemstack
 end
-
--- Screwdriver
-minetest.register_tool("screwdriver:screwdriver", {
-	description = "Screwdriver (left-click rotates face, right-click rotates axis)",
-	inventory_image = "screwdriver.png",
-	on_use = function(itemstack, user, pointed_thing)
-		screwdriver_handler(itemstack, user, pointed_thing, screwdriver.ROTATE_FACE)
-		return itemstack
-	end,
-	on_place = function(itemstack, user, pointed_thing)
-		screwdriver_handler(itemstack, user, pointed_thing, screwdriver.ROTATE_AXIS)
-		return itemstack
-	end,
-})
-
-
-minetest.register_craft({
-	output = "screwdriver:screwdriver",
-	recipe = {
-		{"default:steel_ingot"},
-		{"group:stick"}
-	}
-})
-
-minetest.register_alias("screwdriver:screwdriver1", "screwdriver:screwdriver")
-minetest.register_alias("screwdriver:screwdriver2", "screwdriver:screwdriver")
-minetest.register_alias("screwdriver:screwdriver3", "screwdriver:screwdriver")
-minetest.register_alias("screwdriver:screwdriver4", "screwdriver:screwdriver")

@@ -302,7 +302,7 @@ core.register_tool("default:axe_diamond", {
 	},
 })
 
--- shears
+-- Shears
 core.register_tool("default:shears", {
 	description = "Shears",
 	inventory_image = "default_shears.png",
@@ -314,4 +314,18 @@ core.register_tool("default:shears", {
 			snappy = {times = {[1] = 0.4, [2] = 0.2, [3] = 0.1}, uses = 25, maxlevel = 2}
 		},
 	},
+})
+
+-- Screwdriver
+core.register_tool("default:screwdriver", {
+	description = "Screwdriver (left-click rotates face, right-click rotates axis)",
+	inventory_image = "default_screwdriver.png",
+	on_use = function(itemstack, user, pointed_thing)
+		screwdriver.screwdriver_handler(itemstack, user, pointed_thing, screwdriver.ROTATE_FACE)
+		return itemstack
+	end,
+	on_place = function(itemstack, user, pointed_thing)
+		screwdriver.screwdriver_handler(itemstack, user, pointed_thing, screwdriver.ROTATE_AXIS)
+		return itemstack
+	end,
 })

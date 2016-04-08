@@ -729,6 +729,14 @@ core.register_craft({
 	recipe = {"default:book"}
 })
 
+core.register_craft({
+	output = "default:screwdriver",
+	recipe = {
+		{"default:steel_ingot"},
+		{"group:stick"}
+	}
+})
+
 --
 -- Crafting (tool repair)
 --

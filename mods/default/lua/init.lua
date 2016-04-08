@@ -32,6 +32,7 @@ dofile(luapath .. "apis/tables.lua")
 dofile(luapath .. "apis/slabs.lua")
 dofile(luapath .. "apis/stairs.lua")
 dofile(luapath .. "apis/walls.lua")
+dofile(luapath .. "apis/screwdriver.lua")
 
 dofile(luapath .. "nodes.lua") -- loads files in ./nodes/
 dofile(luapath .. "items.lua") -- loads files in ./items/

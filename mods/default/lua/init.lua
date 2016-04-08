@@ -49,6 +49,7 @@ dofile(luapath .. "item_pickup.lua")
 dofile(luapath .. "item_physics.lua")
 dofile(luapath .. "trees.lua")
 dofile(luapath .. "player.lua")
+dofile(luapath .. "sethome.lua")
 dofile(luapath .. "spectator_mode.lua")
 
 if core.setting_getbool("creative_mode") then

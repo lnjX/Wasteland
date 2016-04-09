@@ -24,6 +24,7 @@ dofile(luapath .. "apis/walls.lua")
 dofile(luapath .. "apis/screwdriver.lua")
 dofile(luapath .. "apis/trees.lua")
 dofile(luapath .. "apis/saplings.lua")
+dofile(luapath .. "apis/player.lua")
 dofile(luapath .. "nodes.lua") -- loads files in ./nodes/
 dofile(luapath .. "items.lua") -- loads files in ./items/
 dofile(luapath .. "crafting.lua")
@@ -37,7 +38,6 @@ dofile(luapath .. "mapgen/ruins.lua")
 dofile(luapath .. "chat_cmds.lua")
 dofile(luapath .. "item_pickup.lua")
 dofile(luapath .. "item_physics.lua")
-dofile(luapath .. "player.lua")
 dofile(luapath .. "sethome.lua")
 dofile(luapath .. "spectator_mode.lua")
 

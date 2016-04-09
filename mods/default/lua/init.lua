@@ -4,16 +4,6 @@
 -- 
 -- See README.txt for licensing and other information.
 
--- Global variables
-default = {}
-default.LIGHT_MAX = 14
-default.STACK_MAX = core.setting_get("default_stack_max") or 100
-
--- default settings (for nodes, items)
-core.craftitemdef_default.stack_max = default.STACK_MAX
-core.nodedef_default.stack_max = default.STACK_MAX
-core.noneitemdef_default.stack_max = default.STACK_MAX
-
 -- Load files
 local modpath = core.get_modpath("default")
 local luapath = modpath .. "/lua/"
@@ -25,7 +15,6 @@ dofile(luapath .. "functions.lua")
 dofile(luapath .. "register.lua")
 dofile(luapath .. "environment.lua")
 dofile(luapath .. "sounds.lua")
--- APIs
 dofile(luapath .. "apis/fences.lua")
 dofile(luapath .. "apis/fencegates.lua")
 dofile(luapath .. "apis/tables.lua")
@@ -33,7 +22,8 @@ dofile(luapath .. "apis/slabs.lua")
 dofile(luapath .. "apis/stairs.lua")
 dofile(luapath .. "apis/walls.lua")
 dofile(luapath .. "apis/screwdriver.lua")
-
+dofile(luapath .. "apis/trees.lua")
+dofile(luapath .. "apis/saplings.lua")
 dofile(luapath .. "nodes.lua") -- loads files in ./nodes/
 dofile(luapath .. "items.lua") -- loads files in ./items/
 dofile(luapath .. "crafting.lua")
@@ -47,7 +37,6 @@ dofile(luapath .. "mapgen/ruins.lua")
 dofile(luapath .. "chat_cmds.lua")
 dofile(luapath .. "item_pickup.lua")
 dofile(luapath .. "item_physics.lua")
-dofile(luapath .. "trees.lua")
 dofile(luapath .. "player.lua")
 dofile(luapath .. "sethome.lua")
 dofile(luapath .. "spectator_mode.lua")

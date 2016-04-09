@@ -1,13 +1,9 @@
 -- mods/default/lua/trees.lua
 
---
--- Grow trees from saplings
---
-
--- 'Can grow' function
-
 local random = math.random
 
+
+-- 'Can grow' function
 function default.can_grow(pos)
 	local node_under = core.get_node_or_nil({x = pos.x, y = pos.y - 1, z = pos.z})
 	if not node_under then
@@ -27,7 +23,7 @@ end
 
 function default.grow_sapling(pos, node)
 	if not default.can_grow(pos) then
-		return
+		return false
 	end
 
 	local mapgen = core.get_mapgen_params().mgname
@@ -39,6 +35,7 @@ function default.grow_sapling(pos, node)
 		else
 			default.grow_new_apple_tree(pos)
 		end
+		return true
 	elseif node.name == "default:junglesapling" then
 		core.log("action", "A jungle sapling grows into a tree at "..
 			core.pos_to_string(pos))
@@ -47,6 +44,7 @@ function default.grow_sapling(pos, node)
 		else
 			default.grow_new_jungle_tree(pos)
 		end
+		return true
 	elseif node.name == "default:pine_sapling" then
 		core.log("action", "A pine sapling grows into a tree at "..
 			core.pos_to_string(pos))
@@ -55,6 +53,7 @@ function default.grow_sapling(pos, node)
 		else
 			default.grow_new_pine_tree(pos)
 		end
+		return true
 	elseif node.name == "default:acacia_sapling" then
 		core.log("action", "An acacia sapling grows into a tree at "..
 			core.pos_to_string(pos))
@@ -62,23 +61,10 @@ function default.grow_sapling(pos, node)
 	elseif node.name == "default:birch_sapling" then
 		core.log("action", "An birch sapling grows into a tree at "..
 			core.pos_to_string(pos))
-			default.grow_new_birch_tree(pos)
+		default.grow_new_birch_tree(pos)
+		return true
 	end
 end
-
-
--- Sapling ABM
-
-core.register_abm({
-	nodenames = {"default:sapling", "default:junglesapling",
-		"default:pine_sapling", "default:acacia_sapling",
-		"default:birch_sapling"},
-	interval = 10,
-	chance = 50,
-	action = function(pos, node)
-		default.grow_sapling(pos, node)
-	end
-})
 
 
 --

@@ -84,3 +84,16 @@ core.register_alias("screwdriver:screwdriver1", "default:screwdriver")
 core.register_alias("screwdriver:screwdriver2", "default:screwdriver")
 core.register_alias("screwdriver:screwdriver3", "default:screwdriver")
 core.register_alias("screwdriver:screwdriver4", "default:screwdriver")
+
+-- old stairs
+core.register_alias("stairs:stair_wood", "default:stair_wood")
+core.register_alias("stairs:slab_wood", "default:slab_wood")
+core.register_alias("stairs:stair_junglewood", "default:stair_junglewood")
+core.register_alias("stairs:slab_junglewood", "default:slab_pine_wood")
+core.register_alias("stairs:stair_pine_wood", "default:stair_pine_wood")
+core.register_alias("stairs:slab_pine_wood", "default:slab_pine_wood")
+core.register_alias("stairs:stair_acacia_wood", "default:stair_acacia_wood")
+core.register_alias("stairs:slab_acacia_wood", "default:slab_acacia_wood")
+core.register_alias("stairs:stair_birch_wood", "default:stair_birch_wood")
+core.register_alias("stairs:slab_birch_wood", "default:slab_birch_wood")
+

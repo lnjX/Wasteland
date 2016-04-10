@@ -1,402 +1,118 @@
--- mods/default/lua/trees.lua
+function default.register_planks(name, def)
+	def.register = def.register or {stair = true, slab = true, table = true, fence = true, fencegate = true}
+	def.groups = def.groups or {choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, wood = 1, fuel = 8}
+	def.sounds = def.sounds or default.node_sound_wood_defaults()
+	def.tiles = def.tiles or {def.texture}
+	def.is_ground_content = false
+	def.stair = def.stair or {description = def.description_prefix .. " Stair"}
+	def.slab = def.slab or {description = def.description_prefix .. " Slab"}
+	def.table = def.table or {description = def.description_prefix .. " Table"}
+	def.fence = def.fence or {description = def.description_prefix .. " Fence"}
+	def.fencegate = def.fencegate or {description = def.description_prefix .. " Stair"}
 
-local random = math.random
+	-- clean up vars
+	def.description_prefix = nil
+	def.name = nil
+	def.texture = nil
 
-
--- 'Can grow' function
-function default.can_grow(pos)
-	local node_under = core.get_node_or_nil({x = pos.x, y = pos.y - 1, z = pos.z})
-	if not node_under then
-		return false
-	end
-	local name_under = node_under.name
-	local is_soil = core.get_item_group(name_under, "soil")
-	if is_soil == 0 then
-		return false
-	end
-	local light_level = core.get_node_light(pos)
-	if not light_level or light_level < 13 then
-		return false
-	end
-	return true
+	default.register_node(name, def)
 end
 
-function default.grow_sapling(pos, node)
-	if not default.can_grow(pos) then
-		return false
-	end
+function default.register_leaves(name, def)
+	def.drawtype = "allfaces_optional"
+	def.waving = 1
+	def.visual_scale = 1.3
+	def.tiles = def.tiles or {def.texture}
+	def.special_tiles = def.special_tiles or {def.special_texture}
+	def.paramtype = "light"
+	def.is_ground_content = false
+	def.after_place_node = default.after_place_leaves
+	def.groups = def.groups or {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, fuel = 2}
+	def.sounds = def.sounds or default.node_sound_leaves_defaults()
+	def.drop = def.drop or {
+		max_items = 1,
+		items = {
+			{items = {def.sapling_name}, rarity = def.sapling_rarity or 20},
+			{items = {name}}
+		}
+	}
 
-	local mapgen = core.get_mapgen_params().mgname
-	if node.name == "default:sapling" then
-		core.log("action", "A sapling grows into a tree at "..
-			core.pos_to_string(pos))
-		if mapgen == "v6" then
-			default.grow_tree(pos, random(1, 4) == 1)
-		else
-			default.grow_new_apple_tree(pos)
-		end
-		return true
-	elseif node.name == "default:junglesapling" then
-		core.log("action", "A jungle sapling grows into a tree at "..
-			core.pos_to_string(pos))
-		if mapgen == "v6" then
-			default.grow_jungle_tree(pos)
-		else
-			default.grow_new_jungle_tree(pos)
-		end
-		return true
-	elseif node.name == "default:pine_sapling" then
-		core.log("action", "A pine sapling grows into a tree at "..
-			core.pos_to_string(pos))
-		if mapgen == "v6" then
-			default.grow_pine_tree(pos)
-		else
-			default.grow_new_pine_tree(pos)
-		end
-		return true
-	elseif node.name == "default:acacia_sapling" then
-		core.log("action", "An acacia sapling grows into a tree at "..
-			core.pos_to_string(pos))
-		default.grow_new_acacia_tree(pos)
-	elseif node.name == "default:birch_sapling" then
-		core.log("action", "An birch sapling grows into a tree at "..
-			core.pos_to_string(pos))
-		default.grow_new_birch_tree(pos)
-		return true
-	end
+	-- clean up vars
+	def.sapling_name = nil
+	def.sapling_rarity = nil
+	def.name = nil
+	def.texture = nil
+	def.special_texture = nil
+
+	default.register_node(name, def)
 end
 
+function default.register_log(name, def)
+	def.paramtype2 = "facedir"
+	def.is_ground_content = false
+	def.groups = def.groups or {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, fuel = 32}
+	def.sounds = def.sounds or default.node_sound_wood_defaults()
+	def.on_place = core.rotate_node
 
---
--- Tree generation
---
+	-- clean up vars
+	def.name = nil
+	def.texture = nil
 
--- Apple tree and jungle tree trunk and leaves function
-
-local function add_trunk_and_leaves(data, a, pos, tree_cid, leaves_cid,
-		height, size, iters, is_apple_tree)
-	local x, y, z = pos.x, pos.y, pos.z
-	local c_air = core.get_content_id("air")
-	local c_ignore = core.get_content_id("ignore")
-	local c_apple = core.get_content_id("default:apple")
-
-	-- Trunk
-	data[a:index(x, y, z)] = tree_cid -- Force-place lowest trunk node to replace sapling
-	for yy = y + 1, y + height - 1 do
-		local vi = a:index(x, yy, z)
-		local node_id = data[vi]
-		if node_id == c_air or node_id == c_ignore or node_id == leaves_cid then
-			data[vi] = tree_cid
-		end
-	end
-
-	-- Force leaves near the trunk
-	for z_dist = -1, 1 do
-	for y_dist = -size, 1 do
-		local vi = a:index(x - 1, y + height + y_dist, z + z_dist)
-		for x_dist = -1, 1 do
-			if data[vi] == c_air or data[vi] == c_ignore then
-				if is_apple_tree and random(1, 8) == 1 then
-					data[vi] = c_apple
-				else
-					data[vi] = leaves_cid
-				end
-			end
-			vi = vi + 1
-		end
-	end
-	end
-
-	-- Randomly add leaves in 2x2x2 clusters.
-	for i = 1, iters do
-		local clust_x = x + random(-size, size - 1)
-		local clust_y = y + height + random(-size, 0)
-		local clust_z = z + random(-size, size - 1)
-
-		for xi = 0, 1 do
-		for yi = 0, 1 do
-		for zi = 0, 1 do
-			local vi = a:index(clust_x + xi, clust_y + yi, clust_z + zi)
-			if data[vi] == c_air or data[vi] == c_ignore then
-				if is_apple_tree and random(1, 8) == 1 then
-					data[vi] = c_apple
-				else
-					data[vi] = leaves_cid
-				end
-			end
-		end
-		end
-		end
-	end
+	default.register_node(name, def)
 end
 
-
--- Apple tree
-
-function default.grow_tree(pos, is_apple_tree, bad)
-	--[[
-		NOTE: Tree-placing code is currently duplicated in the engine
-		and in games that have saplings; both are deprecated but not
-		replaced yet
-	--]]
-	if bad then
-		error("Deprecated use of default.grow_tree")
+function default.register_sapling(name, def)
+	local growtime = def.growtime or 300
+	growtime = growtime * default.GROW_TIME_FACTOR
+	local on_grow = def.on_grow or default.grow_sapling
+	
+	def.drawtype = "plantlike"
+	def.tiles = def.tiles or {def.texture}
+	def.inventory_image = def.texture or def.tiles[1]
+	def.wield_image = def.texture or def.tiles[1]
+	def.paramtype = "light"
+	def.sunlight_propagates = true
+	def.walkable = false
+	def.groups = def.groups or {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1}
+	def.sounds = def.sounds or default.node_sound_leaves_defaults()
+	def.on_construct = function(pos)
+		local timer = core.get_node_timer(pos)
+		timer:start(math.random(growtime * 0.6, growtime * 1.8))
 	end
-
-	local x, y, z = pos.x, pos.y, pos.z
-	local height = random(4, 5)
-	local c_tree = core.get_content_id("default:tree")
-	local c_leaves = core.get_content_id("default:leaves")
-
-	local vm = core.get_voxel_manip()
-	local minp, maxp = vm:read_from_map(
-		{x = pos.x - 2, y = pos.y, z = pos.z - 2},
-		{x = pos.x + 2, y = pos.y + height + 1, z = pos.z + 2}
-	)
-	local a = VoxelArea:new({MinEdge = minp, MaxEdge = maxp})
-	local data = vm:get_data()
-
-	add_trunk_and_leaves(data, a, pos, c_tree, c_leaves, height, 2, 8, is_apple_tree)
-
-	vm:set_data(data)
-	vm:write_to_map()
-	vm:update_map()
-end
-
-
--- Jungle tree
-
-function default.grow_jungle_tree(pos, bad)
-	--[[
-		NOTE: Jungletree-placing code is currently duplicated in the engine
-		and in games that have saplings; both are deprecated but not
-		replaced yet
-	--]]
-	if bad then
-		error("Deprecated use of default.grow_jungle_tree")
-	end
-
-	local x, y, z = pos.x, pos.y, pos.z
-	local height = random(8, 12)
-	local c_air = core.get_content_id("air")
-	local c_ignore = core.get_content_id("ignore")
-	local c_jungletree = core.get_content_id("default:jungletree")
-	local c_jungleleaves = core.get_content_id("default:jungleleaves")
-
-	local vm = core.get_voxel_manip()
-	local minp, maxp = vm:read_from_map(
-		{x = pos.x - 3, y = pos.y - 1, z = pos.z - 3},
-		{x = pos.x + 3, y = pos.y + height + 1, z = pos.z + 3}
-	)
-	local a = VoxelArea:new({MinEdge = minp, MaxEdge = maxp})
-	local data = vm:get_data()
-
-	add_trunk_and_leaves(data, a, pos, c_jungletree, c_jungleleaves, height, 3, 30, false)
-
-	-- Roots
-	for z_dist = -1, 1 do
-		local vi_1 = a:index(x - 1, y - 1, z + z_dist)
-		local vi_2 = a:index(x - 1, y, z + z_dist)
-		for x_dist = -1, 1 do
-			if random(1, 3) >= 2 then
-				if data[vi_1] == c_air or data[vi_1] == c_ignore then
-					data[vi_1] = c_jungletree
-				elseif data[vi_2] == c_air or data[vi_2] == c_ignore then
-					data[vi_2] = c_jungletree
-				end
-			end
-			vi_1 = vi_1 + 1
-			vi_2 = vi_2 + 1
+	def.on_timer = function(pos, elapsed)
+		if on_grow(pos, core.get_node(pos)) == false then
+			-- if the grow failed then retry after shorter time
+			core.get_node_timer(pos):start(math.random(growtime * 0.3, growtime * 0.5))
 		end
 	end
-
-	vm:set_data(data)
-	vm:write_to_map()
-	vm:update_map()
+	def.selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	}
+	
+	def.growtime = nil
+	def.texture = nil
+	def.on_grow = nil
+	
+	default.register_node(name, def)
 end
 
+function default.register_tree(name, def)
+	-- log / tree
+	def.log.description = def.log.description or def.description .. " Log"
+	default.register_log(def.log.name or name .. "_tree", def.log)
 
--- Pine tree from mg mapgen mod, design by sfan5, pointy top added by paramat
+	-- planks / wood
+	def.planks.description = def.planks.description or def.description .. " Wood Planks"
+	def.planks.description_prefix = def.planks.description_prefix or def.description .. " Wood"
+	default.register_planks(def.planks.name or name .. "_wood", def.planks)
 
-local function add_pine_needles(data, vi, c_air, c_ignore, c_snow, c_pine_needles)
-	local node_id = data[vi]
-	if node_id == c_air or node_id == c_ignore or node_id == c_snow then
-		data[vi] = c_pine_needles
-	end
+	-- leaves
+	def.leaves.sapling_name = def.sapling.name or name .. "_sapling"
+	def.leaves.description = def.leaves.description or def.description .. " Leaves"
+	default.register_leaves(def.leaves.name or name .. "_leaves", def.leaves)
+
+	-- sapling
+	def.sapling.description = def.sapling.description or def.description .. " Tree Sapling"
+	default.register_sapling(def.sapling.name or name .. "_sapling", def.sapling)
 end
-
-local function add_snow(data, vi, c_air, c_ignore, c_snow)
-	local node_id = data[vi]
-	if node_id == c_air or node_id == c_ignore then
-		data[vi] = c_snow
-	end
-end
-
-function default.grow_pine_tree(pos)
-	local x, y, z = pos.x, pos.y, pos.z
-	local maxy = y + random(9, 13) -- Trunk top
-
-	local c_air = core.get_content_id("air")
-	local c_ignore = core.get_content_id("ignore")
-	local c_pine_tree = core.get_content_id("default:pine_tree")
-	local c_pine_needles  = core.get_content_id("default:pine_needles")
-	local c_snow = core.get_content_id("default:snow")
-	local c_snowblock = core.get_content_id("default:snowblock")
-	local c_dirtsnow = core.get_content_id("default:dirt_with_snow")
-
-	local vm = core.get_voxel_manip()
-	local minp, maxp = vm:read_from_map(
-		{x = x - 3, y = y - 1, z = z - 3},
-		{x = x + 3, y = maxy + 3, z = z + 3}
-	)
-	local a = VoxelArea:new({MinEdge = minp, MaxEdge = maxp})
-	local data = vm:get_data()
-
-	-- Scan for snow nodes near sapling to enable snow on branches
-	local snow = false
-	for yy = y - 1, y + 1 do
-	for zz = z - 1, z + 1 do
-		local vi  = a:index(x - 1, yy, zz)
-		for xx = x - 1, x + 1 do
-			local nodid = data[vi]
-			if nodid == c_snow or nodid == c_snowblock or nodid == c_dirtsnow then
-				snow = true
-			end
-			vi  = vi + 1
-		end
-	end
-	end
-
-	-- Upper branches layer
-	local dev = 3
-	for yy = maxy - 1, maxy + 1 do
-		for zz = z - dev, z + dev do
-			local vi = a:index(x - dev, yy, zz)
-			local via = a:index(x - dev, yy + 1, zz)
-			for xx = x - dev, x + dev do
-				if random() < 0.95 - dev * 0.05 then
-					add_pine_needles(data, vi, c_air, c_ignore, c_snow,
-						c_pine_needles)
-					if snow then
-						add_snow(data, via, c_air, c_ignore, c_snow)
-					end
-				end
-				vi  = vi + 1
-				via = via + 1
-			end
-		end
-		dev = dev - 1
-	end
-
-	-- Centre top nodes
-	add_pine_needles(data, a:index(x, maxy + 1, z), c_air, c_ignore, c_snow,
-		c_pine_needles)
-	add_pine_needles(data, a:index(x, maxy + 2, z), c_air, c_ignore, c_snow,
-		c_pine_needles) -- Paramat added a pointy top node
-	if snow then
-		add_snow(data, a:index(x, maxy + 3, z), c_air, c_ignore, c_snow)
-	end
-
-	-- Lower branches layer
-	local my = 0
-	for i = 1, 20 do -- Random 2x2 squares of needles
-		local xi = x + random(-3, 2)
-		local yy = maxy + random(-6, -5)
-		local zi = z + random(-3, 2)
-		if yy > my then
-			my = yy
-		end
-		for zz = zi, zi+1 do
-			local vi = a:index(xi, yy, zz)
-			local via = a:index(xi, yy + 1, zz)
-			for xx = xi, xi + 1 do
-				add_pine_needles(data, vi, c_air, c_ignore, c_snow,
-					c_pine_needles)
-				if snow then
-					add_snow(data, via, c_air, c_ignore, c_snow)
-				end
-				vi  = vi + 1
-				via = via + 1
-			end
-		end
-	end
-
-	local dev = 2
-	for yy = my + 1, my + 2 do
-		for zz = z - dev, z + dev do
-			local vi = a:index(x - dev, yy, zz)
-			local via = a:index(x - dev, yy + 1, zz)
-			for xx = x - dev, x + dev do
-				if random() < 0.95 - dev * 0.05 then
-					add_pine_needles(data, vi, c_air, c_ignore, c_snow,
-						c_pine_needles)
-					if snow then
-						add_snow(data, via, c_air, c_ignore, c_snow)
-					end
-				end
-				vi  = vi + 1
-				via = via + 1
-			end
-		end
-		dev = dev - 1
-	end
-
-	-- Trunk
-	data[a:index(x, y, z)] = c_pine_tree -- Force-place lowest trunk node to replace sapling
-	for yy = y + 1, maxy do
-		local vi = a:index(x, yy, z)
-		local node_id = data[vi]
-		if node_id == c_air or node_id == c_ignore or
-				node_id == c_pine_needles or node_id == c_snow then
-			data[vi] = c_pine_tree
-		end
-	end
-
-	vm:set_data(data)
-	vm:write_to_map()
-	vm:update_map()
-end
-
-
--- New apple tree
-
-function default.grow_new_apple_tree(pos)
-	local path = core.get_modpath("default") .. "/schematics/apple_tree_from_sapling.mts"
-	core.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
-		path, 0, nil, false)
-end
-
-
--- New jungle tree
-
-function default.grow_new_jungle_tree(pos)
-	local path = core.get_modpath("default") .. "/schematics/jungle_tree_from_sapling.mts"
-	core.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
-		path, 0, nil, false)
-end
-
-
--- New pine tree
-
-function default.grow_new_pine_tree(pos)
-	local path = core.get_modpath("default") .. "/schematics/pine_tree_from_sapling.mts"
-	core.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
-		path, 0, nil, false)
-end
-
-
--- New acacia tree
-
-function default.grow_new_acacia_tree(pos)
-	local path = core.get_modpath("default") .. "/schematics/acacia_tree_from_sapling.mts"
-	core.place_schematic({x = pos.x - 4, y = pos.y - 1, z = pos.z - 4},
-		path, random, nil, false)
-end
-
- -- New birch tree
-
- function default.grow_new_birch_tree(pos)
-	 local path = core.get_modpath("default") .. "/schematics/birch_tree_from_sapling.mts"
-	 core.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
-	 	path, 0, nil, false)
- end

@@ -8,7 +8,7 @@ function default.register_planks(name, def)
 	def.slab = def.slab or {description = def.description_prefix .. " Slab"}
 	def.table = def.table or {description = def.description_prefix .. " Table"}
 	def.fence = def.fence or {description = def.description_prefix .. " Fence"}
-	def.fencegate = def.fencegate or {description = def.description_prefix .. " Stair"}
+	def.fencegate = def.fencegate or {description = def.description_prefix .. " Fence Gate"}
 
 	-- clean up vars
 	def.description_prefix = nil

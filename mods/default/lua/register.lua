@@ -171,6 +171,14 @@ function default.register_node(name, def)
         def.wall = nil
 	
 	core.register_node(name, def)
+	
+	if def.recipe then
+		core.register_craft({
+			type = def.recipe_type or nil,
+			output = def.recipe_out or name,
+			recipe = def.recipe
+		})
+	end
 end
 
 function default.register_craftitem(name, def)

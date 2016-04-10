@@ -176,8 +176,8 @@ xpanes.register_pane("pane_obsidian", {
 	sounds = default.node_sound_glass_defaults(),
 	groups = {snappy = 2, cracky = 3, oddly_breakable_by_hand = 3, pane = 1},
 	recipe = {
-		{"default:obsidian_glass", "obsidian_glass:glass", "obsidian_glass:glass"},
-		{"default:obsidian_glass", "obsidian_glass:glass", "obsidian_glass:glass"}
+		{"default:obsidian_glass", "default:obsidian_glass", "default:obsidian_glass"},
+		{"default:obsidian_glass", "default:obsidian_glass", "default:obsidian_glass"}
 	}
 })
 

@@ -21,7 +21,9 @@ function default.can_grow(pos)
 	return true
 end
 
-function default.grow_sapling(pos, node)
+function default.grow_sapling(pos)
+	local node = core.get_node(pos)
+	
 	if not default.can_grow(pos) then
 		return false
 	end

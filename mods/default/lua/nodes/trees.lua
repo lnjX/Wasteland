@@ -51,9 +51,7 @@ default.register_tree(nil, {
 
 default.register_tree("default:pine", {
 	description = "Pine",
-	log = {
-		tiles = {"default_pine_tree_top.png", "default_pine_tree_top.png", "default_pine_tree.png"}
-	},
+	texture_prefix = "default_pine",
 	leaves = {
 		name = "default:pine_needles",
 		description = "Pine Needles",
@@ -61,46 +59,20 @@ default.register_tree("default:pine", {
 		texture_special = "default_pine_needles_simple.png",
 		sapling_rarity = 24
 	},
-	sapling = {
-		texture = "default_pine_sapling.png"
-	},
-	planks = {
-		texture = "default_pine_wood.png"
-	},
 })
 
 default.register_tree("default:acacia", {
 	description = "Acacia",
-	log = {
-		tiles = {"default_acacia_tree_top.png", "default_acacia_tree_top.png", "default_acacia_tree.png"}
-	},
-	leaves = {
-		texture = "default_acacia_leaves.png",
-		texture_special = "default_acacia_leaves_simple.png"
-	},
+	texture_prefix = "default_acacia",
 	sapling = {
-		texture = "default_acacia_sapling.png",
 		growtime = 420 -- 7 min -> in average 8.4 min
-	},
-	planks = {
-		texture = "default_pine_wood.png"
 	},
 })
 
 default.register_tree("default:birch", {
 	description = "Birch",
-	log = {
-		tiles = {"default_birch_tree_top.png", "default_birch_tree_top.png", "default_birch_tree.png"}
-	},
-	leaves = {
-		texture = "default_birch_leaves.png",
-		texture_special = "default_birch_leaves_simple.png"
-	},
+	texture_prefix = "default_birch",
 	sapling = {
-		texture = "default_birch_sapling.png",
 		growtime = 420 -- 7 min -> in average 8.4 min
-	},
-	planks = {
-		texture = "default_birch_wood.png"
 	},
 })

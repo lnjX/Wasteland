@@ -79,7 +79,7 @@ function default.register_sapling(name, def)
 		timer:start(math.random(growtime * 0.6, growtime * 1.8))
 	end
 	def.on_timer = function(pos, elapsed)
-		if on_grow(pos, core.get_node(pos)) == false then
+		if on_grow(pos) == false then
 			-- if the grow failed then retry after shorter time
 			core.get_node_timer(pos):start(math.random(growtime * 0.3, growtime * 0.5))
 		end
@@ -97,35 +97,57 @@ function default.register_sapling(name, def)
 end
 
 function default.register_tree(name, def)
-	def.register  = def.register or {}
-	def.register.log = def.register.log or true
-	def.register.leaves = def.register.leaves or true
-	def.register.sapling = def.register.sapling or true
-	def.register.planks = def.register.planks or true
-	
+	-- everything should be registered if no info. is given
+	def.register = def.register			or {}
+	def.register.log = def.register.log		or true
+	def.register.leaves = def.register.leaves	or true
+	def.register.sapling = def.register.sapling	or true
+	def.register.planks = def.register.planks	or true
+
+
+	-- check that everything is defined
+	def.log = def.log				or {}
+	def.leaves = def.leaves				or {}
+	def.sapling = def.sapling			or {}
+	def.planks = def.planks				or {}
+
+	def.texture_prefix = def.texture_prefix		or ""
+
+
+	-- get correct texture names
+	-- textures will be as set, but if they're not set they'll be created with the texture_prefix
+	def.log.tiles = def.log.tiles				or {def.texture_prefix .. "_tree_top.png", def.texture_prefix .. "_tree_top.png", def.texture_prefix .. "_tree.png"}
+	def.leaves.texture = def.leaves.texture			or def.texture_prefix .. "_leaves.png"
+	def.leaves.texture_simple = def.leaves.texture_simple	or def.texture_prefix .. "_leaves_simple.png"
+	def.sapling.texture = def.sapling.texture		or def.texture_prefix .. "_sapling.png"
+	def.planks.texture = def.planks.texture			or def.texture_prefix .. "_wood.png"
+
+
+	-- if the descriptions aren't set they'll be created from the "main" description of the tree
+	def.log.description = def.log.description			or def.description .. " Log"
+	def.leaves.description = def.leaves.description			or def.description .. " Leaves"
+	def.sapling.description = def.sapling.description		or def.description .. " Tree Sapling"
+	def.planks.description = def.planks.description			or def.description .. " Wood Planks"
+	def.planks.description_prefix = def.planks.description_prefix	or def.description .. " Wood"
+
+	-- other values
+	def.leaves.sapling_name = def.sapling.name	or name .. "_sapling"
+
+
 	-- log / tree
 	if def.register.log then
-		def.log.description = def.log.description or def.description .. " Log"
 		default.register_log(def.log.name or name .. "_tree", def.log)
 	end
-
-	-- planks / wood
-	if def.register.planks then
-		def.planks.description = def.planks.description or def.description .. " Wood Planks"
-		def.planks.description_prefix = def.planks.description_prefix or def.description .. " Wood"
-		default.register_planks(def.planks.name or name .. "_wood", def.planks)
-	end
-
 	-- leaves
 	if def.register.leaves then
-		def.leaves.sapling_name = def.sapling.name or name .. "_sapling"
-		def.leaves.description = def.leaves.description or def.description .. " Leaves"
 		default.register_leaves(def.leaves.name or name .. "_leaves", def.leaves)
 	end
-
 	-- sapling
 	if def.register.sapling then
-		def.sapling.description = def.sapling.description or def.description .. " Tree Sapling"
 		default.register_sapling(def.sapling.name or name .. "_sapling", def.sapling)
+	end
+	-- planks / wood
+	if def.register.planks then
+		default.register_planks(def.planks.name or name .. "_wood", def.planks)
 	end
 end

@@ -69,7 +69,6 @@ default.register_tree("default:pine", {
 	},
 })
 
-
 default.register_tree("default:acacia", {
 	description = "Acacia",
 	log = {

@@ -56,7 +56,6 @@ function default.register_log(name, def)
 
 	-- clean up vars
 	def.name = nil
-	def.texture = nil
 
 	default.register_node(name, def)
 end
@@ -98,21 +97,35 @@ function default.register_sapling(name, def)
 end
 
 function default.register_tree(name, def)
+	def.register  = def.register or {}
+	def.register.log = def.register.log or true
+	def.register.leaves = def.register.leaves or true
+	def.register.sapling = def.register.sapling or true
+	def.register.planks = def.register.planks or true
+	
 	-- log / tree
-	def.log.description = def.log.description or def.description .. " Log"
-	default.register_log(def.log.name or name .. "_tree", def.log)
+	if def.register.log then
+		def.log.description = def.log.description or def.description .. " Log"
+		default.register_log(def.log.name or name .. "_tree", def.log)
+	end
 
 	-- planks / wood
-	def.planks.description = def.planks.description or def.description .. " Wood Planks"
-	def.planks.description_prefix = def.planks.description_prefix or def.description .. " Wood"
-	default.register_planks(def.planks.name or name .. "_wood", def.planks)
+	if def.register.planks then
+		def.planks.description = def.planks.description or def.description .. " Wood Planks"
+		def.planks.description_prefix = def.planks.description_prefix or def.description .. " Wood"
+		default.register_planks(def.planks.name or name .. "_wood", def.planks)
+	end
 
 	-- leaves
-	def.leaves.sapling_name = def.sapling.name or name .. "_sapling"
-	def.leaves.description = def.leaves.description or def.description .. " Leaves"
-	default.register_leaves(def.leaves.name or name .. "_leaves", def.leaves)
+	if def.register.leaves then
+		def.leaves.sapling_name = def.sapling.name or name .. "_sapling"
+		def.leaves.description = def.leaves.description or def.description .. " Leaves"
+		default.register_leaves(def.leaves.name or name .. "_leaves", def.leaves)
+	end
 
 	-- sapling
-	def.sapling.description = def.sapling.description or def.description .. " Tree Sapling"
-	default.register_sapling(def.sapling.name or name .. "_sapling", def.sapling)
+	if def.register.sapling then
+		def.sapling.description = def.sapling.description or def.description .. " Tree Sapling"
+		default.register_sapling(def.sapling.name or name .. "_sapling", def.sapling)
+	end
 end

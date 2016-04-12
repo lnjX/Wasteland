@@ -34,7 +34,8 @@ default.dig = {
 	netherbrick = 17,
 	redstone_ore = 18,
 	brick = 19,
-	pressure_plate_stone = 20,--+stonebrick
+	pressure_plate_stone = 20,
+	stonebrick = 20,
 
 	-- Crumbly (shovel)
 	dirt_with_grass = 1,

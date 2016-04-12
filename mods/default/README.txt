@@ -22,12 +22,17 @@ Authors of media files
 Everything not listed in here:
 Copyright (C) 2010-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 
+Gambit (WTFPL):
+  default_paper.png
+  default_gold_lump.png
+  default_copper_lump.png
+  default_coal_lump.png
+  default_clay_lump.png
+
 Cisoun's WTFPL texture pack:
   default_dirt.png
   default_grass.png
   default_grass_side.png
-  default_jungletree.png
-  default_jungletree_top.png
   default_lava.png
   default_leaves.png
   default_sapling.png
@@ -70,7 +75,6 @@ MirceaKitsune (WTFPL):
   character.x
 
 PilzAdam (WTFPL):
-  default_jungleleaves.png
   default_junglesapling.png
   default_junglewood.png
   default_obsidian_glass.png
@@ -111,7 +115,6 @@ BlockMen (CC-BY 3.0):
   default_mossycobble.png
   default_bronze_ingot.png
   default_copper_ingot.png
-  default_copper_lump.png
   default_brick.png
   default_sandstone_brick.png
   default_cobble.png
@@ -122,9 +125,12 @@ BlockMen (CC-BY 3.0):
   default_stone_brick.png
   default_clay_brick.png
   default_gold_ingot.png
-  default_gold_lump.png
   gui_furnace_*.png
-  guui_hb_bg.png
+  gui_hb_bg.png
+  default_jungleleaves.png
+  default_jungletree_top.png
+  default_jungletree.png
+  default_jungleleaves.png
 
 Glass breaking sounds (CC BY 3.0):
   1: http://www.freesound.org/people/cmusounddesign/sounds/71947/

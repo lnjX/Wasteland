@@ -26,7 +26,6 @@ License of media (textures, sounds, meshes):
 (by Authors)
 
 Fridolin (CC BY-SA 4.0):
-  default_dry_dirt.png
   default_mineral_salt.png
   default_salt.png
   default_salt_block.png
@@ -157,6 +156,7 @@ BlockMen (CC BY-SA 3.0):
   default_clay_brick.png
   default_diamond.png
   default_diamond_block.png
+  default_dry_dirt.png
   default_gold_ingot.png
   default_grass.png
   default_grass_side.png

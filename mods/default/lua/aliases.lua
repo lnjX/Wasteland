@@ -68,6 +68,10 @@ core.register_alias("steel_ingot", "default:steel_ingot")
 core.register_alias("clay_brick", "default:clay_brick")
 core.register_alias("snow", "default:snow")
 
+-- MTG river water
+core.register_alias("default:river_water_source", "default:water_source")
+core.register_alias("default:river_water_flowing", "default:water_flowing")
+
 -- 'mese_block' was used for a while for the block form of mese
 core.register_alias("default:mese_block", "default:mese")
 

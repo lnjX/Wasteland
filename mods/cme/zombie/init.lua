@@ -41,8 +41,8 @@ local def = {
   -- general
   name = "creatures:zombie",
   stats = {
-    hp = 20,
-    lifetime = 300, -- 5 Minutes
+    hp = default.get_difficult_and_set(16, 22, 30), -- 16 hp (easy), 22 hp (normal), 30 hp (hard)
+    lifetime = default.get_difficult_and_set(240, 300, 480), -- 4 min (easy), 5 min (normal), 8 min (hard)
     can_jump = 1,
     can_swim = true,
     can_burn = true,
@@ -56,7 +56,7 @@ local def = {
     idle = {chance = 0.7, duration = 3, update_yaw = 6},
     walk = {chance = 0.3, duration = 5.5, moving_speed = 1.5},
     -- special modes
-    attack = {chance = 0, moving_speed = 2.5},
+    attack = {chance = 0, moving_speed = default.get_difficult_and_set(2.2, 2.5, 2.9)},
   },
 
   model = {
@@ -82,13 +82,13 @@ local def = {
   },
 
   combat = {
-    attack_damage = 1,
-    attack_speed = 0.6,
+    attack_damage = default.get_difficult_and_set(1, 2, 4),
+    attack_speed = default.get_difficult_and_set(0.5, 0.6, 0.8),
     attack_radius = 1.1,
 
     search_enemy = true,
-    search_timer = 2,
-    search_radius = 12,
+    search_timer = default.get_difficult_and_set(2.5, 2, 1.2),
+    search_radius = default.get_difficult_and_set(10, 12, 15),
     search_type = "player",
   },
 
@@ -105,7 +105,7 @@ local def = {
     max_number = 1,
     number = 2,
     light = {min = 0, max = 8},
-    height_limit = {min = -200, max = 50},
+    height_limit = {min = default.get_difficult_and_set(-160, -200, -350), max = 50},
 
     spawn_egg = {
       description = "Zombie Spawn-Egg",

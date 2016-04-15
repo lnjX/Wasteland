@@ -1,8 +1,8 @@
-minetest.register_alias("farming:string", "farming:cotton")
+core.register_alias("farming:string", "farming:cotton")
 
 -- Wool
-minetest.register_craft({
-	output = "wool:white",
+core.register_craft({
+	output = "default:wool_white",
 	recipe = {
 		{"farming:cotton", "farming:cotton"},
 		{"farming:cotton", "farming:cotton"},
@@ -10,7 +10,7 @@ minetest.register_craft({
 })
 
 -- Straw
-minetest.register_craft({
+core.register_craft({
 	output = "farming:straw 3",
 	recipe = {
 		{"farming:wheat", "farming:wheat", "farming:wheat"},
@@ -19,7 +19,7 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = "farming:wheat 3",
 	recipe = {
 		{"farming:straw"},

@@ -28,16 +28,17 @@ dofile(luapath .. "sounds.lua")
 -- APIs
 --
 
+dofile(luapath .. "apis/carpets.lua")
 dofile(luapath .. "apis/fences.lua")
 dofile(luapath .. "apis/fencegates.lua")
-dofile(luapath .. "apis/tables.lua")
+dofile(luapath .. "apis/player.lua")
+dofile(luapath .. "apis/screwdriver.lua")
 dofile(luapath .. "apis/slabs.lua")
 dofile(luapath .. "apis/stairs.lua")
-dofile(luapath .. "apis/walls.lua")
-dofile(luapath .. "apis/screwdriver.lua")
+dofile(luapath .. "apis/tables.lua")
 dofile(luapath .. "apis/tree_growing.lua")
 dofile(luapath .. "apis/trees.lua")
-dofile(luapath .. "apis/player.lua")
+dofile(luapath .. "apis/walls.lua")
 
 --
 -- Nodes
@@ -45,7 +46,7 @@ dofile(luapath .. "apis/player.lua")
 
 -- full/natural/mapgen
 dofile(nodepath .. "ores.lua")
-dofile(nodepath .. "trees.lua")
+dofile(nodepath .. "trees.lua") -- registers logs, leaves, saplings, planks (stair, salb, fences, ...)
 
 dofile(nodepath .. "dirt.lua")
 dofile(nodepath .. "sand.lua")
@@ -55,6 +56,9 @@ dofile(nodepath .. "cobble.lua")
 
 dofile(nodepath .. "ice.lua")
 dofile(nodepath .. "snow.lua")
+
+-- half-natural
+dofile(nodepath .. "wool.lua") -- also registers carpets
 
 -- Plants
 dofile(nodepath .. "grass.lua")

@@ -101,3 +101,6 @@ core.register_alias("stairs:slab_acacia_wood", "default:slab_acacia_wood")
 core.register_alias("stairs:stair_birch_wood", "default:stair_birch_wood")
 core.register_alias("stairs:slab_birch_wood", "default:slab_birch_wood")
 
+-- Backwards compatibility with jordach's 16-color wool mod
+core.register_alias("wool:dark_blue", "default:wool_blue")
+core.register_alias("wool:gold", "default:wool_yellow")

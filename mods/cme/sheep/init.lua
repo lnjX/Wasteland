@@ -43,7 +43,7 @@ local function shear(self, drop_count, sound)
 		end
 
 		setColor(self)
-		creatures.dropItems(pos, {{"wool:" .. self.wool_color, drop_count}})
+		creatures.dropItems(pos, {{"default:wool_" .. self.wool_color, drop_count}})
 	end
 end
 
@@ -106,7 +106,7 @@ local def = {
 	drops = function(self)
 		local items = {{"creatures:flesh"}}
 		if self.has_wool then
-			table.insert(items, {"wool:" .. self.wool_color, {min = 1, max = 2}})
+			table.insert(items, {"default:wool_" .. self.wool_color, {min = 1, max = 2}})
 		end
 		creatures.dropItems(self.object:getpos(), items)
 	end,

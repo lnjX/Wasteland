@@ -132,6 +132,27 @@ local function register_node_wall(name, def)
 	default.register_wall(wall_name, wall_def)
 end
 
+local function register_node_carpet(name, def)
+	local carpet_def
+	if not def.carpet then
+		carpet_def = {}
+	else
+		carpet_def = table.copy(def.carpet)
+	end
+	
+	local carpet_name = carpet_def.name or name:split(":")[1] .. ":carpet_" .. name:split(":")[2]
+	
+	carpet_def.description =	carpet_def.description	or def.description .. " Carpet"
+	carpet_def.sounds =		carpet_def.sounds	or default.node_sound_defaults()
+	carpet_def.material =		carpet_def.material	or name
+	carpet_def.texture =		carpet_def.texture	or def.tiles[1]
+	
+	-- clean up
+	carpet_def.name = nil
+	
+	default.register_carpet(carpet_name, carpet_def)
+end
+
 
 function default.register_node(name, def)
 	if def.alias then
@@ -160,6 +181,9 @@ function default.register_node(name, def)
 		if def.register.wall then
 			register_node_wall(name, def)
 		end
+		if def.register.carpet then
+			register_node_carpet(name, def)
+		end
 	end
 
 	def.register = nil
@@ -169,6 +193,7 @@ function default.register_node(name, def)
 	def.fencegate = nil
 	def.table = nil
         def.wall = nil
+	def.carpet = nil
 	
 	core.register_node(name, def)
 	

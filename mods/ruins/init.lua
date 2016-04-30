@@ -27,8 +27,14 @@ local chest_stuff = {
 	{name="bucket:bucket_water", max = 1, rarity=9},
 	{name="default:sword_wood", max = 1, rarity=9},
 	{name="default:sapling", max = 1, rarity=10}
-
 }
+
+if core.get_modpath("chicken") then
+	chest_stuff = {
+		unpack(chest_stuff),
+		{name = "creatures:egg", max = 6, rarity = 2},
+	}
+end
 
 minetest.register_node("ruins:chest", {
 	description = "Old Chest",

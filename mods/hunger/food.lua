@@ -13,4 +13,9 @@ if minetest.get_modpath("creatures") ~= nil then
 	register_food("creatures:meat", 5)
 	register_food("creatures:flesh", 2)
 	register_food("creatures:rotten_flesh", 3, "", 3)
+	if minetest.get_modpath("chicken") ~= nil then
+		register_food("creatures:chicken_meat", 5)
+		register_food("creatures:chicken_flesh", 2)
+		register_food("creatures:fried_egg", 4)
+	end
 end

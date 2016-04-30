@@ -107,7 +107,7 @@ local def = {
 
   spawning = {
     abm_nodes = {
-      spawn_on = {"default:dirt_with_grass", "default:dirt"},
+      --spawn_on = {"default:dirt_with_grass", "default:dirt"},
     },
     abm_interval = 65000,--65,
     abm_chance = 0,--7800,

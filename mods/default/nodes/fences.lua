@@ -22,6 +22,12 @@ function default.register_fence(itemstring, def)
 			type = "fixed",
 			fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
 		},
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
+			},
+		},
 		groups = def.groups,
 		sounds = def.sounds,
 		stack_max = 60,

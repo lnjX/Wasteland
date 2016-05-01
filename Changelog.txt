@@ -1,5 +1,5 @@
-Version 0.3:
-------------
+Version 0.3, ALPHA:
+~~~~~~~~~~~~~~~~~~~
 - Fix dead tree generation
 - Digged nodes are dropped and need to be collected by pressing "USE"-Key (default E)
 - Fix some mapgen bugs and crashes
@@ -12,8 +12,8 @@ Version 0.3:
 - Many, many smaller fixes and tweaks
 
 
-Version 0.5 BETA:
------------------
+Version 0.5, BETA:
+~~~~~~~~~~~~~~~~~~~
 - Added mineralsand back (an restored original wasteland's sand texture)
 - Made torches 3D
 - Reduced water range
@@ -21,3 +21,36 @@ Version 0.5 BETA:
 - Removed remains of bronze (by andersje)
 - A lot of cleanup (code, textures)
 - Relicensed to GPL 3.0
+
+
+Version 0.6.1, BETA (20.03.2016):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Update CME
+- Add ghost and oerrki
+- It's harder to kill mobs
+- Update Farming (from TNG / NeXt)
+- Add Potato
+- Fixed minor bug in ruins mod
+- Food gives you fewer hunger points
+- Update Glass drawtypes
+- Add Fence API (from TNG / NeXt)
+
+
+Version 0.6.2, BETA (29.03.2016):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Fix that you can't dig plants of the farming mod (WL uses the old way for that)
+- Remove builtin_item mod, because there had been much trouble with it
+
+Version 0.6.3, BETA (06.04.2016):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Fix wrong named drops of mobs (Reported by JiCeyCraft)
+
+Version 0.6.4, BETA (30.04.2016):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Update some textures (from TNG)
+- Fix some minor bugs
+- Add sheep and chickens (on request by cHyper)
+
+La-Test Version:
+~~~~~~~~~~~~~~~~
+- Improve Fences (compatible with MT 0.4.13 and earlier)

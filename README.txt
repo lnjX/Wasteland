@@ -2,12 +2,12 @@ WASTELAND - a game for the Minetest game engine
 ===============================================
 Version 0.6.4, Status: BETA
 
-Copyright (C) 2013-2015 BlockMen
-Copyright (C) 2016 LNJ
+Copyright (C) 2013-2015 BlockMen <blockmen2015@gmail.com>
+Copyright (C) 2016 LNJ <lnj.git@gmail.com>
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~ THIS IS NOT THE ORIGINAL VERSION BY BLOCKMEN IT'S A FORK BY LNJ. ~
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++–––––––––––––––––––––––––––––––––––––––––––––––––––––––+
+| THIS IS A CONTINUED VERSION OF THE GAME BY LNJ (LNJ2) |
++–––––––––––––––––––––––––––––––––––––––––––––––––––––––+
 
 
 Story:
@@ -32,8 +32,8 @@ Keep in mind, you must eat or you will starve. And hunger comes faster than you 
 
 License:
 ~~~~~~~~
-Copyright (C) 2013-2015 BlockMen
-Copyright (C) 2016 LNJ
+Copyright (C) 2013-2015 BlockMen <blockmen2015@gmail.com>
+Copyright (C) 2016 LNJ <lnj.git@gmail.com>
 
 Code:
 If not stated differently in a mod directory the code is licensed under
@@ -52,6 +52,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
 Textures/Sounds/Models aka (Media):
 If not stated differently in a mod directory everything is licensed under CC-BY 3.0.
 See <https://creativecommons.org/licenses/by/3.0/> for more informations.
@@ -60,14 +61,12 @@ See <https://creativecommons.org/licenses/by/3.0/> for more informations.
 
 Github:
 ~~~~~~~
-https://github.com/gamerbude/Wasteland
-
+https://github.com/Gamerbude/Wasteland
 
 
 Forum:
 ~~~~~~
-https://forum.minetest.net/viewtopic.php?id=7243
-
+https://forum.minetest.net/viewtopic.php?id=14240
 
 
 Changelog:

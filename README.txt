@@ -1,6 +1,6 @@
 The NeXt Game for the Minetest Game Engine [minetest_tng]
 =========================================================
-Version 16.04-2
+Version 16.05
 
 To use this game with Minetest, insert this repository as
   /games/minetest_tng

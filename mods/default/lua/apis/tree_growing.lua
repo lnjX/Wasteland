@@ -21,9 +21,11 @@ function default.can_grow(pos)
 	return true
 end
 
+
 -- for global tree growing functions (will be filled with default.register_tree)
 default.grow_mgv6_tree = {}
 default.grow_tree = {}
+
 
 --
 -- Tree generation

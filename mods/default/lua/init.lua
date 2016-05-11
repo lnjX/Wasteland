@@ -131,6 +131,8 @@ dofile(itempath .. "misc.lua")
 dofile(itempath .. "bonemeal.lua")
 dofile(itempath .. "craftguide.lua")
 
+dofile(itempath .. "dyes.lua")
+
 
 --
 -- Crafting

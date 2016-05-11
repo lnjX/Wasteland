@@ -56,6 +56,9 @@ LNJ (CC BY-SA 4.0):
   default_vine.png
   default_cherry_wood.png
 
+celeron55 (WTFPL):
+  dye_*.png
+
 kilbith (WTFPL):
   default_trash_icon.png
 

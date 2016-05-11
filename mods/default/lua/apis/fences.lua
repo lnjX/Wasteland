@@ -74,11 +74,3 @@ function default.register_fence(itemstring, def)
 		})
 	end
 end
-
-local compatible = core.setting_getbool("enable_legacy_support") or true
-if compatible then
-	-- these nodes were named wrong first
-	core.register_alias("default:fence_pinewood", "default:fence_pine_wood")
-	core.register_alias("default:fence_acaciawood", "default:fence_acacia_wood")
-	core.register_alias("default:fence_birchwood", "default:fence_birch_wood")
-end

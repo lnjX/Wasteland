@@ -104,3 +104,8 @@ core.register_alias("stairs:slab_birch_wood", "default:slab_birch_wood")
 -- Backwards compatibility with jordach's 16-color wool mod
 core.register_alias("wool:dark_blue", "default:wool_blue")
 core.register_alias("wool:gold", "default:wool_yellow")
+
+-- Wrong named fences
+core.register_alias("default:fence_pinewood", "default:fence_pine_wood")
+core.register_alias("default:fence_acaciawood", "default:fence_acacia_wood")
+core.register_alias("default:fence_birchwood", "default:fence_birch_wood")

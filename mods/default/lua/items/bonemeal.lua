@@ -31,7 +31,7 @@ local function grow_plants(pointed_thing)
 			local node2 = core.get_node({x=pos.x, y=pos.y-1, z=pos.z})
 
 			if node.name == "air" then
-				if node2.name == "default:dirt_with_grass" then
+				if node2.name == "default:dirt_with_grass" or node2.name == "default:dirt" then
 					if math.random(0, 10) > 8 then
 						core.set_node(pos, {name = flowers[math.random(0, 5)]})
 						growed = true

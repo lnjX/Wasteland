@@ -53,6 +53,7 @@ for _,stone in pairs(stones) do
 	default.register_node("default:" .. stone .. "_with_gold", {
 		description = "Gold Ore",
 		tiles = {"default_" .. stone .. ".png^default_mineral_gold.png"},
+		drop = "default:gold_lump",
 		groups = {cracky = 2, not_in_creative_inventory = 1},
 		sounds = default.node_sound_stone_defaults(),
 	})

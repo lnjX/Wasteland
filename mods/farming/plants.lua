@@ -34,3 +34,17 @@ farming.register_crop("potato", {
 		on_use = core.item_eat(1),
 	},
 })
+
+farming.register_crop("strawberry", {
+	description = "Strawberries",
+	steps = 7,
+	growtime = 480,
+	has_seed = false,
+	cond = {
+		fertility = {"grassland"},
+		light = {min = 13, max = default.LIGHT_MAX},
+	},
+	harvest = {
+		on_use = core.item_eat(1),
+	},
+})

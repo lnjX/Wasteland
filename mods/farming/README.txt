@@ -55,3 +55,8 @@ LNJ <lnj.git@gmail.com> (CC BY-SA 3.0):
 
 cd2 <cdqwertz@gmail.com> (CC BY-SA 3.0):
   farming_garden_soil.png
+
+fridolin (CC BY-SA 3.0):
+  farming_strawberry.png
+  farming_strawberry_*.png
+

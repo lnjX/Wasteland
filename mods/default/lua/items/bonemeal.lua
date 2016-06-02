@@ -90,16 +90,11 @@ local function bonemeal_on_use(itemstack, player, pointed_thing)
 		growed = grow_plants(pointed_thing)
 		
 		-- if nothing growed or in creative_mode dont take the item away
-		if core.setting_getbool("creative_mode") then
-			take_item = false
-		elseif not growed then
-			take_item = false
+		if not core.setting_getbool("creative_mode") and growed == true then
+			itemstack:take_item()
 		end
 		
-		-- if item should be taken then do that
-		if take_item then itemstack:take_item() end
-		
-		-- give minetest the changed itemstack
+		-- give the changed itemstack back
 		return itemstack
 	end
 end
@@ -109,6 +104,6 @@ default.register_craftitem("default:bonemeal", {
 	inventory_image = "default_bonemeal.png",
 	groups = {dye = 1, basecolor_white = 1, excolor_white = 1, unicolor_white = 1},
 	on_place = function(itemstack, placer, pointed_thing)
-		bonemeal_on_use(itemstack, placer, pointed_thing)
+		return bonemeal_on_use(itemstack, placer, pointed_thing)
 	end
 })

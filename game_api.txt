@@ -206,6 +206,9 @@ farming.register_crop(name, def)
 	craft_seed_by_harvest = true,
 	 ^ Should the harvest be craftable into a seed (default value: false)
 
+	harvest_implantable = false,
+	 ^ If true, you can directly implant the harvest. (default value: false)
+
 	plant = {
 		-- Here you can add special properties for all steps of the plant
 		-- See [Node definition]

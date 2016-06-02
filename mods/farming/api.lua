@@ -58,7 +58,7 @@ function farming.can_grow_crop(pos, cond)
 	if not pos or not cond then return false end
 	
 	-- Soil
-	soilnode = core.get_node_or_nil({x = pos.x, y = pos.y - 1, z = pos.z})
+	local soilnode = core.get_node_or_nil({x = pos.x, y = pos.y - 1, z = pos.z})
 	if not soilnode then return false end
 	
 	-- Check soil fertility
@@ -133,6 +133,15 @@ function farming.register_crop(name, def)
 	
 	if def.has_seed ~= false then def.has_seed = true end
 	
+	local harvestname = def.harvest.name or "farming:" .. name
+	local seedname
+	
+	if def.has_seed == true then
+		seedname = def.seed.name or "farming:" .. name .. "_seed"
+	else
+		seedname = def.harvest.name or "farming:" .. name
+	end
+	
 	-- +-----------------------------------------------------------------------------+
 	-- |                                Plant Steps                                  |
 	-- +-----------------------------------------------------------------------------+
@@ -188,31 +197,23 @@ function farming.register_crop(name, def)
 		-- Drop
 		--
 		
-		-- seed and harvest name
-		local seedname_ = def.seed.name or "farming:" .. name .. "_seed"
-		if def.has_seed == false then
-			seedname_ = def.harvest.name or "farming:" .. name
-		end
-		
-		local harvestname_ = def.harvest.name or "farming:" .. name
-		
-		plantdef[i].drop = {items = {}}
+		plantdef[i].drop = {max_items = 4, items = {}}
 		
 		
 		-- ever drop a seed
-		table.insert(plantdef[i].drop.items, {items = {seedname_}, rarity = 1})
+		table.insert(plantdef[i].drop.items, {items = {seedname}, rarity = 1})
 		-- if fully grown
 		if def.steps == i then
 			-- random a second seed
-			table.insert(plantdef[i].drop.items, {items = {seedname_}, rarity = 2})
+			table.insert(plantdef[i].drop.items, {items = {seedname}, rarity = 2})
 			
 			-- harvest
-			table.insert(plantdef[i].drop.items, {items = {harvestname_}, rarity = 1})
-			table.insert(plantdef[i].drop.items, {items = {harvestname_}, rarity = 2})
+			table.insert(plantdef[i].drop.items, {items = {harvestname}, rarity = 1})
+			table.insert(plantdef[i].drop.items, {items = {harvestname}, rarity = 2})
 		end
 		
 		
-		core.register_node(":farming:" .. name .. "_" .. i, plantdef[i])
+		core.register_node("farming:" .. name .. "_" .. i, plantdef[i])
 	end
 	
 	
@@ -226,7 +227,6 @@ function farming.register_crop(name, def)
 	
 	if def.has_seed then
 		local seeddef = def.seed
-		local seedname = def.seed.name or ":farming:" .. name .. "_seed"
 		seeddef.name = nil
 		
 		-- properties
@@ -245,7 +245,6 @@ function farming.register_crop(name, def)
 	--
 	
 	local harvestdef = def.harvest
-	local harvestname = def.harvest.name or ":farming:" .. name
 
 	harvestdef.name = nil
 
@@ -266,9 +265,9 @@ function farming.register_crop(name, def)
 	
 	if def.craft_seed_by_harvest == true then
 		core.register_craft({
-			output = def.seed.name or "farming:" .. name .. "_seed",
+			output = seedname,
 			recipe = {
-				{def.harvest.name or "farming:" .. name}
+				{harvestname}
 			}
 		})
 	end

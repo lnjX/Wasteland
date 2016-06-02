@@ -49,7 +49,7 @@ default.register_node("default:grass_5", {
 	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
-	groups = {snappy = 3, flammable = 3, flora = 1, attached_node = 1},
+	groups = {snappy = 3, flammable = 3, flora = 1, attached_node = 1, fuel = 2},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -103,7 +103,7 @@ for i = 1, 4 do
 		walkable = false,
 		buildable_to = true,
 		drop = "default:grass_5",
-		groups = {snappy = 3, flammable = 3, flora = 1,
+		groups = {snappy = 3, flammable = 3, flora = 1, fuel = 1,
 			attached_node = 1, not_in_creative_inventory = 1},
 		sounds = default.node_sound_leaves_defaults(),
 		selection_box = {
@@ -121,7 +121,7 @@ for i = 1, 4 do
 		sunlight_propagates = true,
 		walkable = false,
 		buildable_to = true,
-		groups = {snappy = 3, flammable = 3, flora = 1,
+		groups = {snappy = 3, flammable = 3, flora = 1, fuel = 1,
 			attached_node = 1, not_in_creative_inventory = 1, fuel = 2},
 		drop = "default:dry_grass_5",
 		sounds = default.node_sound_leaves_defaults(),

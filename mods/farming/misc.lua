@@ -3,7 +3,7 @@ default.register_node("farming:straw", {
 	description = "Straw",
 	tiles = {"farming_straw.png"},
 	is_ground_content = false,
-	groups = {snappy = 3, flammable = 4},
+	groups = {snappy = 3, flammable = 4, fuel = 10},
 	sounds = default.node_sound_leaves_defaults(),
 	stair = {legacy_alias = "stairs:stair_straw"},
 	slab = {legacy_alias = "stairs:slab_straw"},

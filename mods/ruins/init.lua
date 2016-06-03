@@ -30,10 +30,7 @@ local chest_stuff = {
 }
 
 if core.get_modpath("chicken") then
-	chest_stuff = {
-		unpack(chest_stuff),
-		{name = "creatures:egg", max = 6, rarity = 2},
-	}
+	table.insert(chest_stuff, {name = "creatures:egg", max = 6, rarity = 2})
 end
 
 minetest.register_node("ruins:chest", {

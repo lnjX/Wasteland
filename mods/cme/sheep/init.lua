@@ -109,7 +109,7 @@ local def = {
 			duration = 4,
 			nodes = {
 				"default:grass_1", "default:grass_2", "default:grass_3",
-				"default:grass_4", "default:grass_5", "default:dirt_with_grass"
+				"default:grass_4", "default:grass_5", "default:dirt_with_grass", "default:grass"
 			}
 		},
 	},

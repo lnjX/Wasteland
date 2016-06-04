@@ -47,7 +47,11 @@ function creatures.rnd(table, errval)
 end
 
 function throw_error(msg)
+<<<<<<< HEAD
   core.log("error", "#Creatures: ERROR: " .. msg)
+=======
+  core.log("error", "[Game] [Creatures]: ERROR: " .. msg)
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 end
 
 function creatures.compare_pos(pos1, pos2)

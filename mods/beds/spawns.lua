@@ -2,7 +2,10 @@ local world_path = minetest.get_worldpath()
 local org_file = world_path .. "/beds_spawns"
 local file = world_path .. "/beds_spawns"
 local bkwd = false
+<<<<<<< HEAD
 local writing = true
+=======
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 
 -- check for PA's beds mod spawns
 local cf = io.open(world_path .. "/beds_player_spawns", "r")
@@ -11,6 +14,7 @@ if cf ~= nil then
 	file = world_path .. "/beds_player_spawns"
 	bkwd = true
 end
+<<<<<<< HEAD
 writing = false
 
 
@@ -18,10 +22,15 @@ function beds.read_spawns()
 	while writing do
 		-- wait until spawns are safed
 	end
+=======
+
+function beds.read_spawns()
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 	local spawns = beds.spawn
 	local input = io.open(file, "r")
 	if input and not bkwd then
 		repeat
+<<<<<<< HEAD
 		local x = input:read("*n")
 		if x == nil then
             		break
@@ -30,6 +39,16 @@ function beds.read_spawns()
 		local z = input:read("*n")
 		local name = input:read("*l")
 		spawns[name:sub(2)] = {x = x, y = y, z = z}
+=======
+			local x = input:read("*n")
+			if x == nil then
+            			break
+            		end
+			local y = input:read("*n")
+			local z = input:read("*n")
+			local name = input:read("*l")
+			spawns[name:sub(2)] = {x = x, y = y, z = z}
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 		until input:read(0) == nil
 		io.close(input)
 	elseif input and bkwd then
@@ -47,13 +66,19 @@ function beds.save_spawns()
 	if not beds.spawn then
 		return
 	end
+<<<<<<< HEAD
 	writing = true
+=======
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 	local output = io.open(org_file, "w")
 	for i, v in pairs(beds.spawn) do
 		output:write(v.x.." "..v.y.." "..v.z.." "..i.."\n")
 	end
 	io.close(output)
+<<<<<<< HEAD
 	writing = false
+=======
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 end
 
 function beds.set_spawns()
@@ -63,4 +88,8 @@ function beds.set_spawns()
 		beds.spawn[name] = p
 	end
 	beds.save_spawns()
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379

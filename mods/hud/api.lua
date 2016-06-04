@@ -11,7 +11,11 @@ local sb_bg = {}	-- statbar background ids
 local items = hud.registered_items
 
 local function throw_error(msg)
+<<<<<<< HEAD
 	minetest.log("error", "Better HUD[error]: " .. msg)
+=======
+	core.log("error", "[Game] [hud]: " .. msg)
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 end
 
 
@@ -37,7 +41,11 @@ function hud.register(name, def)
 
 	-- actually register
 	-- add background first since draworder is based on id :\
+<<<<<<< HEAD
 	if def.hud_elem_type == "statbar" and def.background ~= nil then
+=======
+	if def.background ~= nil then
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 		sb_bg[name] = table.copy(def)
 		sb_bg[name].text = def.background
 		if not def.autohide_bg and def.max then
@@ -213,13 +221,21 @@ local function add_hud_item(player, name, def)
 		throw_error("not enough parameters given")
 		return false
 	end
+<<<<<<< HEAD
 	local i_name = player:get_player_name().."_"..name
+=======
+	local i_name = player:get_player_name() .. "_" .. name
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 	hud_id[i_name] = def
 	hud_id[i_name].id = player:hud_add(def)
 end
 
+<<<<<<< HEAD
 minetest.register_on_joinplayer(function(player)
 
+=======
+core.register_on_joinplayer(function(player)
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 	-- first: hide the default statbars
 	local hud_flags = player:hud_get_flags()
 	hud_flags.healthbar = false
@@ -234,6 +250,7 @@ minetest.register_on_joinplayer(function(player)
 	for _,item in pairs(items) do
 		add_hud_item(player, _, item)
 	end
+<<<<<<< HEAD
 
 	-- fancy hotbar (only when no crafting mod present)
 	if minetest.get_modpath("crafting") == nil then
@@ -242,4 +259,6 @@ minetest.register_on_joinplayer(function(player)
 		player:hud_set_hotbar_selected_image("hud_hotbar_selected.png")
 	    end)
 	end
+=======
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 end)

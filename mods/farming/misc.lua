@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 minetest.register_craftitem("farming:flour", {
 	description = "Flour",
 	inventory_image = "farming_flour.png",
@@ -31,6 +32,43 @@ minetest.register_craft({
 -- Wool
 minetest.register_craft({
 	output = "wool:white",
+=======
+default.register_node("farming:straw", {
+	register = {stair = true, slab = true},
+	description = "Straw",
+	tiles = {"farming_straw.png"},
+	is_ground_content = false,
+	groups = {snappy = 3, flammable = 4, fuel = 10},
+	sounds = default.node_sound_leaves_defaults(),
+	stair = {legacy_alias = "stairs:stair_straw"},
+	slab = {legacy_alias = "stairs:slab_straw"},
+})
+
+
+for i = 1, 5 do		
+	core.override_item("default:grass_"..i, {drop = {
+		max_items = 1,
+		items = {
+			{items = {'farming:seed_wheat'}, rarity = 5},
+			{items = {'default:grass_1'}},
+		}
+	}})
+end
+
+core.override_item("default:junglegrass", {
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {'farming:seed_cotton'}, rarity = 8},
+			{items = {'default:junglegrass'}},
+		}
+	}
+})
+
+-- Wool
+core.register_craft({
+	output = "default:wool_white",
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 	recipe = {
 		{"farming:cotton", "farming:cotton"},
 		{"farming:cotton", "farming:cotton"},
@@ -38,7 +76,11 @@ minetest.register_craft({
 })
 
 -- Straw
+<<<<<<< HEAD
 minetest.register_craft({
+=======
+core.register_craft({
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 	output = "farming:straw 3",
 	recipe = {
 		{"farming:wheat", "farming:wheat", "farming:wheat"},
@@ -47,13 +89,18 @@ minetest.register_craft({
 	}
 })
 
+<<<<<<< HEAD
 minetest.register_craft({
+=======
+core.register_craft({
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 	output = "farming:wheat 3",
 	recipe = {
 		{"farming:straw"},
 	}
 })
 
+<<<<<<< HEAD
 -- Grass ABMs
 minetest.register_abm({
 	nodenames = {"default:dry_dirt"},
@@ -91,4 +138,14 @@ minetest.register_abm({
 		end
 	end
 
+=======
+-- Garden Soil
+core.register_craft({
+	type = "shapeless",
+	output = "farming:garden_soil",
+	recipe = {"group:dirt", "bucket:bucket_water"},
+	replacements = {
+		{"bucket:bucket_water", "bucket:bucket_empty"}
+	},
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 })

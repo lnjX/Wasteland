@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -------------------------------------------------------------------------
 -- Wasteland
 -- Copyright (C) 2015 BlockMen <blockmen2015@gmail.de>
@@ -19,10 +20,16 @@
 -------------------------------------------------------------------------
 
 
+=======
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 hud = {}
 local modpath = minetest.get_modpath("hud")
 
 dofile(modpath .. "/api.lua")
 dofile(modpath .. "/functions.lua")
 dofile(modpath .. "/builtin.lua")
+<<<<<<< HEAD
 dofile(modpath .. "/legacy.lua")
+=======
+--dofile(modpath .. "/legacy.lua")
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379

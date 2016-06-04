@@ -70,6 +70,7 @@ core.register_craftitem(":creatures:egg", {
 		return itemstack
 	end,
 })
+<<<<<<< HEAD
 
 core.register_craftitem(":creatures:fried_egg", {
 	description = "Fried Egg",
@@ -82,3 +83,5 @@ core.register_craft({
 	output = "creatures:fried_egg",
 	recipe = "creatures:egg",
 })
+=======
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379

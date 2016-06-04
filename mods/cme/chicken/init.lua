@@ -31,13 +31,21 @@ local function dropEgg(obj)
 end
 
 -- Flesh
+<<<<<<< HEAD
 core.register_craftitem(":creatures:chicken_flesh", {
+=======
+default.register_craftitem(":creatures:chicken_flesh", {
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 	description = "Raw Chicken Flesh",
 	inventory_image = "creatures_chicken_flesh.png",
 	on_use = core.item_eat(1)
 })
 
+<<<<<<< HEAD
 core.register_craftitem(":creatures:chicken_meat", {
+=======
+default.register_craftitem(":creatures:chicken_meat", {
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 	description = "Chicken Meat",
 	inventory_image = "creatures_chicken_meat.png",
 	on_use = core.item_eat(3)
@@ -50,13 +58,18 @@ core.register_craft({
 })
 
 -- Feather
+<<<<<<< HEAD
 core.register_craftitem(":creatures:feather", {
+=======
+default.register_craftitem(":creatures:feather", {
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 	description = "Feather",
 	inventory_image = "creatures_feather.png",
 })
 
 local def = {
   -- general
+<<<<<<< HEAD
   name = "creatures:chicken",
   stats = {
     hp = 5,
@@ -132,6 +145,119 @@ local def = {
       self.modetimer = 2
     end
   end
+=======
+	name = "creatures:chicken",
+	stats = {
+		hp = 5,
+		lifetime = 300, -- 5 Minutes
+		can_jump = 1,
+		can_swim = true,
+		can_burn = true,
+		can_panic = true,
+		has_kockback = true,
+		sneaky = true,
+	},
+
+	modes = {
+		idle = {chance = 0.25, duration = 5, update_yaw = 3},
+		idle2 = {chance = 0.69, duration = 0.8},
+		pick = {chance = 0.2, duration = 2},
+		walk = {chance = 0.2, duration = 5.5, moving_speed = 0.7, update_yaw = 2},
+		panic = {moving_speed = 2.1},
+		lay_egg = {chance = 0.01, duration = 1},
+		follow = {chance = 0, duration = 20, radius = 5, timer = 4, moving_speed = 1, items = {"farming:seed_wheat"}},
+	},
+
+	model = {
+		mesh = "creatures_chicken.b3d",
+		textures = {"creatures_chicken.png"},
+		collisionbox = {-0.25, -0.01, -0.3, 0.25, 0.45, 0.3},
+		rotation = 90.0,
+		collide_with_objects = false,
+		animations = {
+			idle = {start = 0, stop = 1, speed = 10},
+			idle2 = {start = 40, stop = 50, speed = 50},
+			pick = {start = 88, stop = 134, speed = 50},
+			walk = {start = 4, stop = 36, speed = 50},
+			-- special modes
+			swim = {start = 51, stop = 87, speed = 40},
+			panic = {start = 51, stop = 87, speed = 55},
+			follow = {start = 4, stop = 36, speed = 45},
+			death = {start = 135, stop = 160, speed = 28, loop = false, duration = 2.12},
+		},
+	},
+
+	sounds = {
+		on_damage = {name = "creatures_chicken_hit", gain = 0.5, distance = 10},
+		on_death = {name = "creatures_chicken_hit", gain = 0.5, distance = 10},
+		swim = {name = "creatures_splash", gain = 1.0, distance = 10},
+		random = {
+			idle = {name = "creatures_chicken", gain = 0.9, distance = 12, time_min = 8, time_max = 50},
+		},
+	},
+
+	spawning = {
+		abm_nodes = {
+			spawn_on = {"default:dirt_with_grass", "default:dirt"},
+		},
+		abm_interval = 55,
+		abm_chance = 7800,
+		max_number = 1,
+		number = 1,
+		light = {min = 8, max = 15},
+		height_limit = {min = 0, max = 150},
+
+		spawn_egg = {
+			description = "Chicken Spawn-Egg",
+		},
+	},
+
+	drops = {
+		{"creatures:chicken_flesh"},
+		{"creatures:feather", {min = 1, max = 2}, chance = 0.45},
+	},
+	
+	on_rightclick = function(self, clicker)
+		local item = clicker:get_wielded_item()
+			if item then
+				local name = item:get_name()
+				if name == "farming:seed_wheat" then
+					self.target = clicker
+					self.mode = "follow"
+					self.modetimer = 0
+
+					if not self.tamed then
+						self.fed_cnt = (self.fed_cnt or 0) + 1
+					end
+					-- heal chicken
+					if self.hp < self.stats.hp then
+						self.hp = self.hp + 1
+					end
+
+					-- play eat sound
+					local pos = self.object:getpos()
+					core.sound_play("hunger_eat", {pos = pos, gain = 1, max_hear_distance = 10})
+					
+					item:take_item()
+					
+					core.log("action", clicker:get_player_name() .. " fed a chicken at " .. core.pos_to_string(pos))
+				end
+				if not core.setting_getbool("creative_mode") then
+					clicker:set_wielded_item(item)
+				end
+			end
+	end,
+	on_step = function(self, dtime)
+		if self.mode == "lay_egg" then
+			dropEgg(self.object)
+			self.modetimer = 2
+		end
+		if self.fed_cnt and self.fed_cnt > 4 then
+			self.tamed = true
+			self.fed_cnt = nil
+		end
+	end,
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 }
 
 creatures.register_mob(def)

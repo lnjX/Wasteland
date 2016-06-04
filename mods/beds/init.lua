@@ -3,6 +3,7 @@ beds.player = {}
 beds.pos = {}
 beds.spawn = {}
 
+<<<<<<< HEAD
 local form = 	"size[8,15;true]"..
 		"bgcolor[#080808BB; true]"..
 		"button_exit[2,12;4,0.75;leave;Leave Bed]"
@@ -194,3 +195,16 @@ end)
 -- nodes and respawn function
 dofile(minetest.get_modpath("beds").."/nodes.lua")
 dofile(minetest.get_modpath("beds").."/spawns.lua")
+=======
+beds.formspec = "size[8,15;true]"..
+		"bgcolor[#080808BB; true]"..
+		"button_exit[2,12;4,0.75;leave;Leave Bed]"
+
+local modpath = minetest.get_modpath("beds")
+
+-- load files
+dofile(modpath.."/functions.lua")
+dofile(modpath.."/api.lua")
+dofile(modpath.."/beds.lua")
+dofile(modpath.."/spawns.lua")
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379

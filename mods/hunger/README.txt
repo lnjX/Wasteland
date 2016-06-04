@@ -1,8 +1,41 @@
+<<<<<<< HEAD
 Minetest mod "Hunger"
 =====================
 Version: 1.1.3
 
 (c) Copyright BlockMen (2015)
+=======
+This mod is part of Minetest TNG
+================================
+Hunger, Version: 1.1.3 (modified)
+
+License of source code:
+-----------------------
+Copyright (C) 2015 BlockMen <blockmen2015@gmail.com>
+Copyright (C) 2016 LNJ <lnj.git@gmail.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+License of media (textures, sounds, meshes):
+--------------------------------------------
+(by Authors)
+
+BlockMen (CC BY-SA 3.0):
+  hunger_statbar_poisen.png
+  hunger_eat.ogg
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 
 
 About this mod:
@@ -24,6 +57,7 @@ For Modders:
 This mod alters the behavior of minetest.item_eat().
 All callbacks that are registered via minetest.register_on_item_eat() are called AFTER this mod actions, so the itemstack
 will have changed already when callbacks are called. You can get the original itemstack as 6th parameter of your function then.
+<<<<<<< HEAD
 
 License:
 ~~~~~~~~
@@ -95,3 +129,5 @@ Supported food/mods:
 - mush45
 - Seaplants (sea)
 - Simple mobs
+=======
+>>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379

@@ -77,3 +77,15 @@ default.register_node("default:dirt_with_snow", {
 		footstep = {name = "default_snow_footstep", gain = 0.25},
 	}),
 })
+
+default.register_node("default:dry_dirt_with_snow", {
+	description = "Dry Dirt with Snow",
+	tiles = {"default_snow.png", "default_dry_dirt.png",
+		{name = "default_dry_dirt.png^default_snow_side.png",
+			tileable_vertical = false}},
+	groups = {crumbly = 3, soil = 1, dirt = 3, snowy = 1},
+	drop = 'default:dry_dirt',
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name = "default_snow_footstep", gain = 0.25},
+	}),
+})

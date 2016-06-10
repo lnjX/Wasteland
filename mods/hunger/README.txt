@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Minetest mod "Hunger"
-=====================
-Version: 1.1.3
-
-(c) Copyright BlockMen (2015)
-=======
 This mod is part of Minetest TNG
 ================================
 Hunger, Version: 1.1.3 (modified)
@@ -35,7 +28,6 @@ License of media (textures, sounds, meshes):
 BlockMen (CC BY-SA 3.0):
   hunger_statbar_poisen.png
   hunger_eat.ogg
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 
 
 About this mod:
@@ -57,77 +49,3 @@ For Modders:
 This mod alters the behavior of minetest.item_eat().
 All callbacks that are registered via minetest.register_on_item_eat() are called AFTER this mod actions, so the itemstack
 will have changed already when callbacks are called. You can get the original itemstack as 6th parameter of your function then.
-<<<<<<< HEAD
-
-License:
-~~~~~~~~
-(c) Copyright BlockMen (2015)
-
-
-Code:
-Licensed under the GNU LGPL version 2.1 or higher.
-You can redistribute it and/or modify it under 
-the terms of the GNU Lesser General Public License 
-as published by the Free Software Foundation;
-
-You should have received a copy of the GNU Lesser General Public
-License along with this library; if not, write to the Free Software
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-
-See LICENSE.txt and http://www.gnu.org/licenses/lgpl-2.1.txt
-
-
-Textures:
-hunger_statbar_poisen.png - BlockMen (CC-BY 3.0)
-
-Sounds:
-hunger_eat.ogg - BlockMen (CC-BY 3.0)
-
-
-Github:
-~~~~~~~
-https://github.com/BlockMen/hunger
-
-Forum:
-~~~~~~
--
-
-Changelog:
-~~~~~~~~~~
-see changelog.txt
-
-
-Dependencies:
-~~~~~~~~~~~~~
-- Default
-- Farming
-- Better HUD (https://github.com/BlockMen/hud)
-
-
-Supported food/mods:
-~~~~~~~~~~~~~~~~~~~~
-- Apples (default)
-- Animalmaterials (mobf modpack)
-- Bread (default)
-- Bushes
-- bushes_classic
-- Creatures
-- Dwarves (beer and such)
-- Docfarming
-- Fishing
-- Farming plus
-- Farming (default and Tenplus1's fork)
-- Food
-- fruit
-- Glooptest
-- JKMod
-- kpgmobs
-- Mobfcooking
-- Mooretrees
-- Mtfoods
-- mushroom
-- mush45
-- Seaplants (sea)
-- Simple mobs
-=======
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379

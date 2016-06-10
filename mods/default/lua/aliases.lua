@@ -123,3 +123,6 @@ core.register_alias("dye:cyan", "default:dye_cyan")
 core.register_alias("dye:blue", "default:dye_blue")
 core.register_alias("dye:violet", "default:dye_violet")
 core.register_alias("dye:magenta", "default:dye_magenta")
+
+-- wasteland < v0.7 aliases
+core.register_alias("default:grass", "default:dirt_with_grass")

@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-WASTELAND - a game for the Minetest game engine
-===============================================
-Version 0.6.4, Status: BETA
+WASTELAND - a post-apocalyptic game for the Minetest engine
+===========================================================
+Version 0.7-dev, Status: BETA #2 (rewrote)
 
 Copyright (C) 2013-2015 BlockMen <blockmen2015@gmail.com>
 Copyright (C) 2016 LNJ <lnj.git@gmail.com>
@@ -30,53 +29,18 @@ If you die there will be a grave with your stuff, also there are very (!) rarely
 Keep in mind, you must eat or you will starve. And hunger comes faster than you think.
 
 
-
 License:
 ~~~~~~~~
 Copyright (C) 2013-2015 BlockMen <blockmen2015@gmail.com>
 Copyright (C) 2016 LNJ <lnj.git@gmail.com>
 
-Code:
-If not stated differently in a mod directory the code is licensed under
- the GNU General Public License version 3 or later.
-=======
-The NeXt Game for the Minetest Game Engine [minetest_tng]
-=========================================================
-Version 16.06
 
-To use this game with Minetest, insert this repository as
-  /games/minetest_tng
-in the Minetest Engine.
-
-The Minetest engine can be found in:
-	https://github.com/minetest/minetest/
-
-Introduction
-------------
-I decided to fork Minetest NeXt by BlockMen, because BlockMen no longer does anything about Minetest :(. I changed the title of the game to Minetest TNG - The NeXt Game.
-This game should be like Minetest NeXt a lightweight, but powerful survival game. Hunger and mobs are already added!
-
-Of course I would really like to hear your ideas and suggestions!
-
-Current Contributors:
-- LNJ [lnj2] (Code)
-- JBB [jbbgameich] (Code + Textures)
-- fridolin [fridolin2] (Textures)
-
-
-License of source code
-----------------------
-See README.txt in each mod directory for information about other authors.
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
-
+License of Code (if not stated differently in mod directory):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
-<<<<<<< HEAD
 (at your option) any later version.
-=======
-at your option) any later version.
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -87,8 +51,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-<<<<<<< HEAD
-Textures/Sounds/Models aka (Media):
+License of Media (Textures, Sounds, Meshes):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If not stated differently in a mod directory everything is licensed under CC-BY 3.0.
 See <https://creativecommons.org/licenses/by/3.0/> for more informations.
 
@@ -107,14 +71,3 @@ https://forum.minetest.net/viewtopic.php?id=14240
 Changelog:
 ~~~~~~~~~~
 See "Changelog.txt"
-=======
-License of media (textures and sounds)
---------------------------------------
-See README.txt in each mod directory for information about other authors.
-
-License of menu/header.png
-Copyright (C) 2016 LNJ CC BY-SA 3.0 (based on header by BlockMen CC BY-SA 3.0)
-
-License of menu/icon.png
-Copyright (C) 2014 BlockMen CC BY-SA 3.0 (based on icon by erlehmann CC BY-SA 3.0)
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379

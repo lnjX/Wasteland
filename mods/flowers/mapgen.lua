@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-minetest.register_on_generated(function(minp, maxp, seed)
-	
-end)
-=======
 --
 -- Mgv6
 --
@@ -176,4 +171,3 @@ if mg_params.mgname == "v6" then
 elseif mg_params.mgname ~= "singlenode" then
 	flowers.register_decorations()
 end
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379

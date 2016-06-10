@@ -1,10 +1,10 @@
-Minetest TNG - Game API
+Wasteland - Game API
 ========================
-GitHub Repo: https://github.com/gamerbude/minetest_tng
+GitHub Repo: https://github.com/gamerbude/wasteland
 
 Introduction
 ------------
-Minetest TNG offers multiple new possibilities in addition to the Minetest engine's API,
+Wasteland offers multiple new possibilities in addition to the Minetest engine's API,
 allowing you to add new plants, stairs and much more.
 For information on the Minetest API, visit https://github.com/minetest/minetest/blob/master/doc/lua_api.txt
 

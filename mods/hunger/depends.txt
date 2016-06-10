@@ -1,33 +1,3 @@
 default
 hud
-<<<<<<< HEAD
-animalmaterials?
-bucket?
-bushes?
-bushes_classic?
-cooking?
-creatures?
-docfarming?
-dwarves?
-ethereal?
-farming?
-farming_plus?
-ferns?
-fishing?
-fruit?
-glooptest?
-jkanimals?
-jkfarming?
-jkwine?
-kpgmobs?
-mobfcooking?
-mobs?
-moretrees?
-mtfoods?
-mush45?
-mushroom?
-pizza?
-seaplants?
-=======
 farming
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379

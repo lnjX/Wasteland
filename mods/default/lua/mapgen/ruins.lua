@@ -42,7 +42,7 @@ end
 local function ground(pos)
 	local p = table.copy(pos)
 	local cnt = 0
-	local mat = "dirt"
+	local mat = "dry_dirt"
 	p.y = p.y - 1
 	while can_replace(p) == true do
 		cnt = cnt + 1
@@ -167,7 +167,7 @@ local function generate_sized(pos, size)
 end
 
 function default.generate_ruins(minp, maxp, seed)
-	if not (math.random(1, 25) == 1) then
+	if not (math.random(1, 5) == 1) then
 		return
 	end
 	if maxp.y < 0 then
@@ -185,7 +185,7 @@ function default.generate_ruins(minp, maxp, seed)
 			z = math.random(minp.z, maxp.z)
 		}
 		core.after(0.1, function()
-			local point = core.find_node_near(mpos, 25, {"default:dirt_with_grass"})
+			local point = core.find_node_near(mpos, 25, {"default:dry_dirt"})
 			if not point or point == nil or point.y < 0 then
 				return
 			end

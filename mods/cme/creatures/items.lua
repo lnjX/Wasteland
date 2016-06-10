@@ -20,21 +20,13 @@
 --
 
 
-<<<<<<< HEAD
-core.register_craftitem("creatures:flesh", {
-=======
 default.register_craftitem("creatures:flesh", {
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 	description = "Flesh",
 	inventory_image = "creatures_flesh.png",
 	on_use = core.item_eat(2),
 })
 
-<<<<<<< HEAD
-core.register_craftitem("creatures:meat", {
-=======
 default.register_craftitem("creatures:meat", {
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 	description = "Cooked Meat",
 	inventory_image = "creatures_meat.png",
 	on_use = core.item_eat(4),

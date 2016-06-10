@@ -1,9 +1,6 @@
 --= Ghost for Creatures MOB-Engine (cme) =--
 -- Copyright (c) 2015-2016 BlockMen <blockmen2015@gmail.com>
-<<<<<<< HEAD
-=======
 -- Copyright (c) 2016 LNJ <lnj.git@gmail.com>
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 --
 -- init.lua
 --
@@ -28,13 +25,8 @@ local def = {
   -- general
   name = "creatures:ghost",
   stats = {
-<<<<<<< HEAD
-    hp = 20,
-    lifetime = 300, -- 5 Minutes
-=======
     hp = default.get_difficult_and_set(10, 15, 20),
     lifetime = default.get_difficult_and_set(240, 300, 420), -- 5 Minutes
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
     can_burn = true,
     can_fly = true,
     has_falldamage = false,
@@ -74,15 +66,6 @@ local def = {
   },
 
   combat = {
-<<<<<<< HEAD
-    attack_damage = 4,
-    attack_speed = 1.1,
-    attack_radius = 0.9,
-
-    search_enemy = true,
-    search_timer = 2,
-    search_radius = 12,
-=======
     attack_damage = default.get_difficult_and_set(1, 2, 3),
     attack_speed = default.get_difficult_and_set(0.9, 1.1, 1.2),
     attack_radius = 0.9,
@@ -90,18 +73,13 @@ local def = {
     search_enemy = true,
     search_timer = default.get_difficult_and_set(2.5, 2, 1.8),
     search_radius = default.get_difficult_and_set(10, 12, 16),
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
     search_type = "player",
   },
 
   spawning = {
     abm_nodes = {
       spawn_on = {"default:gravel", "default:dirt_with_grass", "default:dirt",
-<<<<<<< HEAD
-        "group:leaves", "group:sand"},
-=======
         "group:leaves", "group:sand", "group:stone"},
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
     },
     abm_interval = 40,
     abm_chance = 7300,
@@ -109,11 +87,7 @@ local def = {
     number = 1,
     time_range = {min = 18500, max = 4000},
     light = {min = 0, max = 8},
-<<<<<<< HEAD
-    height_limit = {min = 0, max = 80},
-=======
     height_limit = {min = -200, max = 80},
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 
     spawn_egg = {
       description = "Ghost Spawn-Egg",
@@ -128,15 +102,9 @@ local def = {
     }
   },
 
-<<<<<<< HEAD
-  --drops = {
-  --  {"creatures:rotten_flesh", {min = 1, max = 2}, chance = 0.7},
-  --},
-=======
   drops = {
     {"tnt:gunpowder", {min = 1, max = 3}, chance = 0.3}
   },
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 
 }
 

@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-# Blender v2.73 (sub 0) OBJ File: 'mt_torch_full_vertices3.blend'
-# www.blender.org
-mtllib mt_torch_full_vertices3.mtl
-=======
 # Blender v2.73 (sub 0) OBJ File: 'torch_floor_BlockMen.blend'
 # www.blender.org
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 o Cube_Cube.001
 v 0.061653 -0.496733 0.061674
 v 0.061653 -0.496733 -0.062460

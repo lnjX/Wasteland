@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-local register_food = hunger.register_food
-
-register_food("default:apple", 1)
-register_food("default:old_apple", 1, "", 1)
-register_food("default:old_bread", 4, "", 3)
-
-if minetest.get_modpath("farming") ~= nil then
-	register_food("farming:bread", 3)
-	register_food("farming:potato", 2)
-end
-
-if minetest.get_modpath("creatures") ~= nil then
-	register_food("creatures:meat", 5)
-	register_food("creatures:flesh", 2)
-	register_food("creatures:rotten_flesh", 3, "", 3)
-	if minetest.get_modpath("chicken") ~= nil then
-		register_food("creatures:chicken_meat", 5)
-		register_food("creatures:chicken_flesh", 2)
-		register_food("creatures:fried_egg", 4)
-=======
 -- hunger.register_food(name, saturation, replace_with_item, poisen, heal, sound)
 
 hunger.register_food("default:apple", 2)
@@ -47,6 +26,5 @@ if core.get_modpath("creatures") then
 	if core.get_modpath("chicken") then
 		hunger.register_food("creatures:chicken_flesh", 1, "default:bone")
 		hunger.register_food("creatures:chicken_meat", 3, "default:bone")
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 	end
 end

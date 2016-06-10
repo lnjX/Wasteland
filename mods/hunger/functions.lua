@@ -171,21 +171,12 @@ end
 local food = hunger.food
 
 function hunger.register_food(name, hunger_change, replace_with_item, poisen, heal, sound)
-<<<<<<< HEAD
-	food[name] = {}
-	food[name].saturation = hunger_change	-- hunger points added
-	food[name].replace = replace_with_item	-- what item is given back after eating
-	food[name].poisen = poisen				-- time its poisening
-	food[name].healing = heal				-- amount of HP
-	food[name].sound = sound				-- special sound that is played when eating
-=======
 	if not food[name] then food[name] = {} end
 	food[name].saturation = hunger_change		-- hunger points added
 	food[name].replace = replace_with_item		-- which item is given back after eating
 	food[name].poisen = poisen			-- time its poisening
 	food[name].healing = heal			-- amount of HP
 	food[name].sound = sound			-- special sound that is played when eating
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379
 end
 
 -- Poison player

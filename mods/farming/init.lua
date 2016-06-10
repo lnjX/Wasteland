@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-farming = {}
-farming.path = minetest.get_modpath("farming")
-
--- Load files
-dofile(farming.path .. "/api.lua")
-dofile(farming.path .. "/nodes.lua")
-dofile(farming.path .. "/hoes.lua")
-dofile(farming.path .. "/plants.lua")
-dofile(farming.path .. "/misc.lua")
-=======
 -- This file is part of Minetest TNG
 -- =================================
 -- mods/farming/init.lua
@@ -27,4 +16,3 @@ dofile(modpath .. "/soil.lua")
 dofile(modpath .. "/hoes.lua")
 dofile(modpath .. "/misc.lua")
 dofile(modpath .. "/aliases.lua")
->>>>>>> e27abaef044c593f710cc8520ba9fd8f0c6b3379

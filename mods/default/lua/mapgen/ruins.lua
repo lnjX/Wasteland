@@ -133,6 +133,7 @@ local function generate_sized(pos, size)
 			if xi < 1 or xi > size.x - 1 or zi < 1 or zi > size.z - 1 then
 				if math.random(1, yi) == 1 then
 					local mat = "wood"
+					local new
 					if not wood then
 						new = material[math.random(1, 2)]
 					end

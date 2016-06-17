@@ -23,7 +23,7 @@ License of media (textures, sounds, meshes):
 --------------------------------------------
 (by Authors)
 
-LNJ (CC BY-SA 4.0):
+LNJ (CC BY-SA 3.0):
   food_roll_with_fried_egg.png
 
 BlockMen (CC BY-SA 3.0):
@@ -34,3 +34,15 @@ PilzAdam (WTFPL):
 
 Gambit (WTFPL):
   food_flour.png
+
+
+Details of Licenses:
+--------------------
+
+CC BY-SA 3.0:
+  Attribution-ShareAlike 3.0 Unported
+  http://creativecommons.org/licenses/by-sa/3.0/
+
+WTFPL:
+  Do What the Fuck You Want to Public License
+  http://www.wtfpl.net/txt/copying/

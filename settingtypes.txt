@@ -38,3 +38,6 @@ item_ttl (Item time to live) int 300
 
 #   Drop items after digging a node and don't add them directly to the inventory
 enable_item_drop (Drop items of digged nodes) bool true
+
+#   General difficulty of the game (WIP: Not everything is using this setting already!)
+difficulty (General difficulty) enum normal easy,normal,hard

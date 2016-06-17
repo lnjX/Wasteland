@@ -1,3 +1,5 @@
+local ruin_probability = core.setting_get("ruin_probability") or 25
+
 local perl = {SEED = 9130, OCTA = 3, PERS = 0.5, SCAL = 250}
 local perlin = PerlinNoise(perl.SEED, perl.OCTA, perl.PERS, perl.SCAL)
 
@@ -168,7 +170,7 @@ local function generate_sized(pos, size)
 end
 
 function default.generate_ruins(minp, maxp, seed)
-	if not (math.random(1, 25) == 1) then
+	if not (math.random(1, ruin_probability) == 1) then
 		return
 	end
 	if maxp.y < 0 then

@@ -1,3 +1,5 @@
+local ruin_probability = core.setting_get("ruin_probability") or 25
+
 local perl = {SEED = 9130, OCTA = 3, PERS = 0.5, SCAL = 250}
 local perlin = PerlinNoise(perl.SEED, perl.OCTA, perl.PERS, perl.SCAL)
 
@@ -133,6 +135,7 @@ local function generate_sized(pos, size)
 			if xi < 1 or xi > size.x - 1 or zi < 1 or zi > size.z - 1 then
 				if math.random(1, yi) == 1 then
 					local mat = "wood"
+					local new
 					if not wood then
 						new = material[math.random(1, 2)]
 					end
@@ -167,7 +170,7 @@ local function generate_sized(pos, size)
 end
 
 function default.generate_ruins(minp, maxp, seed)
-	if not (math.random(1, 5) == 1) then
+	if not (math.random(1, ruin_probability) == 1) then
 		return
 	end
 	if maxp.y < 0 then

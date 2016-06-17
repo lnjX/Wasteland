@@ -198,7 +198,7 @@ farming.register_crop(name, def)
 	 ^ Conditions for growing
 		fertility = {"grassland"},
 		 ^ The fertility of the soil (wheat can't grow on desert sand soil, but on normal soil)
-		
+
 		light = {min = 13, max = default.LIGHT_MAX},
 		 ^ The minimum and maximum light level to grow
 	},
@@ -233,7 +233,7 @@ tnt.register_tnt(name, def)
 	^ def: See [#TNT definition]
  -> Register a new type of TNT
 
-tnt.boom(position, radius, damage_radius, disable_drops) 
+tnt.boom(position, radius, damage_radius, disable_drops)
 	^ position: position of explosion (center)
 	^ radius: Radius in which nodes can get removed
 	^ damage_radius: Radius in which players and mobs get damaged
@@ -328,7 +328,7 @@ default.register_slab(name, def)
 	legacy_alias = "stairs:slab_stone"
 	^ An alias will be registered for compatibility with the old API
 }
- 
+
 
 Xpanes API
 ----------
@@ -369,7 +369,7 @@ default.register_fence(itemstring, def)
 	material = "default:wood",
 	^ The material which you need to craft the fence.
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, fuel = 4},
-	^ The groups of the fence. If it isn't defined it equals {choppy = 2, 
+	^ The groups of the fence. If it isn't defined it equals {choppy = 2,
 	  oddly_breakable_by_hand = 2, flammable = 2, fuel = 4}.
 	sounds = default.node_sound_wood_defaults()
 	^ The sounds of the fence. If it isn't defined it equals default.node_sound_wood_defaults().
@@ -396,7 +396,7 @@ default.register_fencegate(itemstring, def)
 	material = "default:wood",
 	^ The material which you need to craft the fence gate.
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, fuel = 4},
-	^ The groups of the fence gate. If it isn't defined it equals {choppy = 2, 
+	^ The groups of the fence gate. If it isn't defined it equals {choppy = 2,
 	  oddly_breakable_by_hand = 2, flammable = 2, fuel = 4, gate = 1}.
 	sounds = default.node_sound_wood_defaults()
 	^ The sounds of the fence. If it isn't defined it equals default.node_sound_wood_defaults().
@@ -423,7 +423,7 @@ By the way you can use here all preferences of the normal minetest.register_node
 	material = "default:wood",
 	^ The material which you need to craft the fence.
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, fuel = 6},
-	^ The groups of the table. If it isn't defined it equals {choppy = 2, 
+	^ The groups of the table. If it isn't defined it equals {choppy = 2,
 	  oddly_breakable_by_hand = 2, flammable = 2, fuel = 6}.
 	sounds = default.node_sound_wood_defaults()
 	^ The sounds of the table. If it isn't defined it equals default.node_sound_wood_defaults().
@@ -639,23 +639,15 @@ dye.excolors
 
 Trees
 -----
-default.grow_tree(pos, is_apple_tree)
-^ Grows a mgv6 tree or apple tree at pos
+default.grow_mgv6_tree[tree_name](pos)
+^ Grows a mgv6 tree, in every mapgen
+ -> tree_name: The name of the tree. Available MGv6 Trees:
+    "default:apple", "default:jungle", "default:pine"
+ -> pos: The position, where the tree will be placed.
 
-default.grow_jungle_tree(pos)
-^ Grows a mgv6 jungletree at pos
-
-default.grow_pine_tree(pos)
-^ Grows a mgv6 pinetree at pos
-
-default.grow_new_apple_tree(pos)
-^ Grows a new design apple tree at pos
-
-default.grow_new_jungle_tree(pos)
-^ Grows a new design jungle tree at pos
-
-default.grow_new_pine_tree(pos)
-^ Grows a new design pine tree at pos
-
-default.grow_new_acacia_tree(pos)
-^ Grows a new design acacia tree at pos
+default.grow_tree[tree_name](pos)
+^ Grows a tree. In MGv6 it'll use the old variant.
+ -> tree_name: The name of the tree. Available Trees:
+    "default:apple", "default:jungle", "default:pine", "default:acacia",
+    "default:birch", "default:maple", "default:red_maple", "default:cherry"
+ -> pos: The position, where the tree will be placed.

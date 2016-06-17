@@ -9,7 +9,7 @@ function default.get_difficult_and_set(easy, normal, hard)
 	difficults["easy"] = easy
 	difficults["normal"] = normal
 	difficults["hard"] = hard
-	return difficults[core.setting_get("difficult") or "normal"]
+	return difficults[core.setting_get("difficulty") or "normal"]
 end
 
 -- Global variables

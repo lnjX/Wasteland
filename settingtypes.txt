@@ -23,18 +23,17 @@ enabled_tnt (Enable TNT) bool true
 #   The radius of a TNT explosion
 tnt_radius (Radius of a TNT explosion) int 3 1 50
 
-#   Enable the stairs mod ABM that replaces the old 'upside down'
-#   stair and slab nodes in old maps with the new param2 versions.
-enable_stairs_replace_abm (Replace stairs of old maps to new) bool false
-
 #   Whether you allow respawning in beds
 enable_beds_respawn (Enable respawning in beds) bool true
 
 #   Whether players can skip night by sleeping
 enable_beds_night_skip (Enable night skip in beds) bool true
 
-#   The time to live in seconds for dropped items
-item_ttl (Item time to live) int 300
+#   The life time in seconds for dropped items
+item_ttl (Life time of dropped items) int 300
 
 #   Drop items after digging a node and don't add them directly to the inventory
 enable_item_drop (Drop items of digged nodes) bool true
+
+#   General difficulty of the game (WIP: Not everything is using this setting already!)
+difficulty (General difficulty) enum normal easy,normal,hard

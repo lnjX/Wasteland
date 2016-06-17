@@ -1,4 +1,6 @@
 -- mods/default/lua/crafting.lua
+-- =============================
+-- See README.txt for licensing and other information.
 
 core.register_craft({
 	output = "default:stick 4",

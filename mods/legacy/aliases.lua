@@ -1,7 +1,11 @@
--- mods/default/lua/aliases.lua
+-- mods/legacy/aliases.lua
+-- =======================
+-- See README.txt for licensing anf other information.
 
--- Aliases to support loading worlds using nodes following the old naming convention
--- These can also be helpful when using chat commands, for example /giveme
+--
+-- Minetest Version < 0.4 compatibility
+--
+
 core.register_alias("stone", "default:stone")
 core.register_alias("stone_with_coal", "default:stone_with_coal")
 core.register_alias("stone_with_iron", "default:stone_with_iron")
@@ -68,58 +72,57 @@ core.register_alias("steel_ingot", "default:steel_ingot")
 core.register_alias("clay_brick", "default:clay_brick")
 core.register_alias("snow", "default:snow")
 
--- MTG river water
-core.register_alias("default:river_water_source", "default:water_source")
-core.register_alias("default:river_water_flowing", "default:water_flowing")
 
 -- 'mese_block' was used for a while for the block form of mese
 core.register_alias("default:mese_block", "default:mese")
 
--- Aliases for corrected pine node names
+
+--
+-- MTG compatibility
+--
+
+core.register_alias("default:river_water_source", "default:water_source")
+core.register_alias("default:river_water_flowing", "default:water_flowing")
+
+
+--
+-- Wrong named pine, acacia and birch wood
+--
+
+core.register_alias("default:fence_pinewood", "default:fence_pine_wood")
+core.register_alias("default:fence_acaciawood", "default:fence_acacia_wood")
+core.register_alias("default:fence_birchwood", "default:fence_birch_wood")
 core.register_alias("default:pinetree", "default:pine_tree")
 core.register_alias("default:pinewood", "default:pine_wood")
+
+core.register_alias("default:table_pinewood", "default:table_pine_wood")
+core.register_alias("default:table_acaciawood", "default:table_acacia_wood")
+core.register_alias("default:table_birchwood", "default:table_birch_wood")
+
+
+--
+-- Old Plants mod
+--
 
 core.register_alias("plants:vine", "default:vine")
 core.register_alias("plants:pear", "default:pear")
 
--- old screwdriver mod
+
+--
+-- Old Screwdriver mod
+--
+
 core.register_alias("screwdriver:screwdriver", "default:screwdriver")
 core.register_alias("screwdriver:screwdriver1", "default:screwdriver")
 core.register_alias("screwdriver:screwdriver2", "default:screwdriver")
 core.register_alias("screwdriver:screwdriver3", "default:screwdriver")
 core.register_alias("screwdriver:screwdriver4", "default:screwdriver")
 
--- old stairs
-core.register_alias("stairs:stair_wood", "default:stair_wood")
-core.register_alias("stairs:slab_wood", "default:slab_wood")
-core.register_alias("stairs:stair_junglewood", "default:stair_junglewood")
-core.register_alias("stairs:slab_junglewood", "default:slab_pine_wood")
-core.register_alias("stairs:stair_pine_wood", "default:stair_pine_wood")
-core.register_alias("stairs:slab_pine_wood", "default:slab_pine_wood")
-core.register_alias("stairs:stair_acacia_wood", "default:stair_acacia_wood")
-core.register_alias("stairs:slab_acacia_wood", "default:slab_acacia_wood")
-core.register_alias("stairs:stair_birch_wood", "default:stair_birch_wood")
-core.register_alias("stairs:slab_birch_wood", "default:slab_birch_wood")
 
--- Backwards compatibility with jordach's 16-color wool mod
+--
+-- Old Wool mod
+--
+
 core.register_alias("wool:dark_blue", "default:wool_blue")
 core.register_alias("wool:gold", "default:wool_yellow")
 
--- Wrong named fences
-core.register_alias("default:fence_pinewood", "default:fence_pine_wood")
-core.register_alias("default:fence_acaciawood", "default:fence_acacia_wood")
-core.register_alias("default:fence_birchwood", "default:fence_birch_wood")
-
--- old dye mod
-core.register_alias("dye:white", "default:dye_white")
-core.register_alias("dye:grey", "default:dye_grey")
-core.register_alias("dye:dark_grey", "default:dye_dark_grey")
-core.register_alias("dye:black", "default:dye_black")
-core.register_alias("dye:red", "default:dye_red")
-core.register_alias("dye:orange", "default:dye_orange")
-core.register_alias("dye:yellow", "default:dye_yellow")
-core.register_alias("dye:green", "default:dye_green")
-core.register_alias("dye:cyan", "default:dye_cyan")
-core.register_alias("dye:blue", "default:dye_blue")
-core.register_alias("dye:violet", "default:dye_violet")
-core.register_alias("dye:magenta", "default:dye_magenta")

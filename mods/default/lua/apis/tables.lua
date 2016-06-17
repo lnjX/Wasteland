@@ -38,11 +38,3 @@ function default.register_table(itemstring, def)
 	})
 
 end
-
-local legacy = core.setting_getbool("enable_legacy_support") or true
-if legacy then
-	-- these nodes were named wrong first
-	core.register_alias("default:table_pinewood", "default:table_pine_wood")
-	core.register_alias("default:table_acaciawood", "default:table_acacia_wood")
-	core.register_alias("default:table_birchwood", "default:table_birch_wood")
-end

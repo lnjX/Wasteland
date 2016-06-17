@@ -1,9 +1,9 @@
 -- This file is part of Minetest TNG
 -- =================================
 -- mods/default/lua/init.lua
--- 
+--
 -- See README.txt for licensing and other information.
--- 
+--
 
 -- Filepaths
 local modpath = core.get_modpath("default")
@@ -118,7 +118,7 @@ dofile(nodepath .. "unused.lua")
 
 --
 -- Items
--- 
+--
 
 dofile(itempath .. "tools.lua")
 dofile(itempath .. "weapons.lua")
@@ -155,10 +155,3 @@ dofile(luapath .. "spectator_mode.lua")
 if core.setting_getbool("creative_mode") then
 	dofile(luapath .. "creative.lua")
 end
-
---
--- Backwards-Compatibility
---
-
-dofile(luapath .. "aliases.lua")
-dofile(luapath .. "legacy.lua")

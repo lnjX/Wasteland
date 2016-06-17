@@ -56,28 +56,37 @@ farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 	if not core.setting_getbool("creative_mode") then
 		itemstack:add_wear(65535/(uses-1))
 	end
-	
+
 	return itemstack
 end
 
 -- Register new hoes
-farming.register_hoe = function(name, def)
+function farming.register_hoe(name, def)
 	-- Check for : prefix (register new hoes in your mod's namespace)
 	if name:sub(1, 1) ~= ":" then
 		name = ":" .. name
 	end
 
-	local recipe = def.recipe or {
-		{def.material or "air", def.material or "air"},
-		{"",                   "group:stick"},
-		{"",                   "group:stick"}
+	def.material = def.material or "air"
+	def.recipe = def.recipe or {
+		{def.material, def.material},
+		{"",           "group:stick"},
+		{"",           "group:stick"}
 	}
-	
+
+	-- Register the recipe
+	if def.recipe and def.no_craft ~= true then
+		core.register_craft({
+			output = name:sub(2),
+			recipe = def.recipe
+		})
+	end
+
 	-- clean up
 	def.material = nil
 	def.recipe = nil
-	
-	
+
+
 	-- Check def table
 	def.description = def.description or "Hoe"
 	def.inventory_image = def.inventory_image or "unknown_item.png"
@@ -89,13 +98,4 @@ farming.register_hoe = function(name, def)
 
 	-- Register the tool
 	core.register_tool(name, def)
-
-
-	-- Register its recipe
-	if not recipe or def.no_craft then
-		core.register_craft({
-			output = name:sub(2),
-			recipe = recipe
-		})
-	end
 end

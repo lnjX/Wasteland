@@ -1,5 +1,5 @@
--- Minetest TNG mod: default
--- =========================
+-- Wasteland mod: default
+-- ======================
 -- See README.txt for licensing and other information.
 
 default = {}
@@ -14,8 +14,9 @@ end
 
 -- Global variables
 default.NAME = "tng"
+default.FORK = "wland"
 default.LIGHT_MAX = 14
-default.STACK_MAX = core.setting_get("default_stack_max") or 100
+default.STACK_MAX = core.setting_get("default_stack_max") or 60
 default.GROW_TIME_FACTOR = default.get_difficult_and_set(0.8, 1.0, 1.4)
 
 -- default settings (for nodes, items)

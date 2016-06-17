@@ -1,13 +1,17 @@
+-- mods/default/lua/mapgen/ores.lua
+-- ================================
+-- See README.txt for licensing and other information.
+
 --
 -- Register ores
 --
 
 -- Blob ore first to avoid other ores inside blobs
 
--- Clay
-core.register_ore({ 
+-- Hardened Clay
+core.register_ore({
 	ore_type         = "blob",
-	ore              = "default:clay",
+	ore              = "default:hardened_clay",
 	wherein          = {"default:sand"},
 	clust_scarcity   = 16 * 16 * 16,
 	clust_size       = 5,
@@ -25,7 +29,7 @@ core.register_ore({
 })
 
 -- Sand
-core.register_ore({ 
+core.register_ore({
 	ore_type         = "blob",
 	ore              = "default:sand",
 	wherein          = {"default:stone"},
@@ -221,7 +225,7 @@ for _,stone in pairs(stones) do
 		y_min          = -31000,
 		y_max          = -256,
 	})
-	
+
 	-- Copper
 	core.register_ore({
 		ore_type       = "scatter",
@@ -243,7 +247,7 @@ for _,stone in pairs(stones) do
 		y_min          = -31000,
 		y_max          = -64,
 	})
-	
+
 	-- Salt
 	core.register_ore({
 		ore_type       = "scatter",

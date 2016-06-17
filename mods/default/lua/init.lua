@@ -1,9 +1,6 @@
--- This file is part of Minetest TNG
--- =================================
 -- mods/default/lua/init.lua
--- 
+-- =========================
 -- See README.txt for licensing and other information.
--- 
 
 -- Filepaths
 local modpath = core.get_modpath("default")
@@ -118,7 +115,7 @@ dofile(nodepath .. "unused.lua")
 
 --
 -- Items
--- 
+--
 
 dofile(itempath .. "tools.lua")
 dofile(itempath .. "weapons.lua")
@@ -129,6 +126,7 @@ dofile(itempath .. "books.lua")
 dofile(itempath .. "materials.lua")
 dofile(itempath .. "misc.lua")
 dofile(itempath .. "bonemeal.lua")
+dofile(itempath .. "minerals.lua")
 dofile(itempath .. "craftguide.lua")
 
 dofile(itempath .. "dyes.lua")

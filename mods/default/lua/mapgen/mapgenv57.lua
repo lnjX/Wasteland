@@ -45,7 +45,7 @@ core.register_biome({
 core.register_biome({
 	name = "snow_cap",
 	node_dust = "default:snow",
-	node_top = "default:dirt_with_snow",
+	node_top = "default:dry_dirt_with_snow",
 	depth_top = 1,
 	node_filler = "default:dry_dirt",
 	depth_filler = 2,
@@ -99,7 +99,7 @@ core.register_decoration({
 		octaves = 3,
 		persist = 0.6
 	},
-	biomes = {"wasteland", "wasteland_ocean", "snow_cap"},
+	biomes = {"wasteland", "snow_cap"},
 	y_min = 2,
 	y_max = 31000,
 	decoration = "default:dry_shrub",

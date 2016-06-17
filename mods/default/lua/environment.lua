@@ -240,3 +240,18 @@ core.register_abm({
 		end
 	end
 })
+
+--
+-- Remove Saplings without water
+--
+
+core.register_on_placenode(function(pos, newnode, placer, oldnode)
+	if placer:is_player() then
+		if core.get_item_group(newnode.name, "sapling") then
+			if not core.find_node_near(pos, 8, {"group:water"}) then
+				core.set_node(pos, oldnode)
+				core.add_item(pos, {name=newnode.name})
+			end
+		end
+	end
+end)

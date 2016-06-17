@@ -1,5 +1,5 @@
-This mod is part of Minetest TNG
-================================
+This mod is part of Wasteland TNG
+=================================
 
 License of source code (if not stated differently in lua files):
 ----------------------------------------------------------------
@@ -25,7 +25,7 @@ License of media (textures, sounds, meshes):
 --------------------------------------------
 (by Authors)
 
-Fridolin (CC BY-SA 4.0):
+fridolin (CC BY-SA 3.0):
   default_mineral_salt.png
   default_salt.png
   default_salt_block.png
@@ -33,7 +33,7 @@ Fridolin (CC BY-SA 4.0):
   default_papyrus_block_top.png
   gui_furnace_arrow_fg.png
 
-JBB (CC BY-SA 4.0):
+JBB (CC BY-SA 3.0):
   default_itemframe.png
   default_bonemeal.png
   default_cherry_blossoms.png
@@ -47,10 +47,9 @@ JBB (CC BY-SA 4.0):
   default_red_maple_leaves.png
   default_red_maple_leaves_simple.png
   default_red_maple_sapling.png
-JBB (CC BY-SA 3.0):
   default_jungleleaves.png, based on texture of BlockMen (CC BY-SA 3.0)
 
-LNJ (CC BY-SA 4.0):
+LNJ (CC BY-SA 3.0):
   default_bone.png
   default_pear.png
   default_vine.png
@@ -64,10 +63,14 @@ kilbith (WTFPL):
 
 Cisoun (WTFPL):
   default_lava.png
+  default_grass.png
+  default_grass_side.png
   default_sapling.png
   default_stone.png
   default_tree.png
   default_tree_top.png
+  default_dead_tree.png (edited by BlockMen)
+  default_dead_tree_top.png (edited by BlockMen)
   default_water.png
   default_pine_needles.png
 
@@ -143,7 +146,6 @@ brunob.santos (CC BY-SA 4.0):
 
 BlockMen (CC BY-SA 3.0):
   bubble.png
-  gui_formbg.png
   gui_furnace_arrow_bg.png
   gui_hb_bg.png
   gui_hotbar.png
@@ -159,6 +161,7 @@ BlockMen (CC BY-SA 3.0):
   default_birch_tree_top.png
   default_book.png
   default_book_written.png
+  default_cobble.png
   default_charcoal.png
   default_chest_break.*.ogg
   default_chest_old_front.png
@@ -169,13 +172,15 @@ BlockMen (CC BY-SA 3.0):
   default_chest_side.png
   default_chest_top.png
   default_clay_brick.png
+  default_clay_hardened.png
   default_diamond.png
   default_diamond_block.png
   default_dry_dirt.png
+  default_furnace_*.png
   default_gold_ingot.png
   default_grass.png
   default_grass_side.png
-  default_grass_*.png, based on texture of Gambit (WTFPL)
+  default_grass_*.png, based on texture by Gambit (WTFPL)
   default_iron_ingot.png
   default_jungletree.png
   default_jungletree_top.png
@@ -185,6 +190,7 @@ BlockMen (CC BY-SA 3.0):
   default_leaves_with_apple.png
   default_meselamp.png
   default_mineral_mese.png
+  default_sand_mineral.png
   default_pine_tree.png
   default_pine_tree_top.png
   default_pine_wood.png
@@ -211,11 +217,9 @@ sofar (CC BY-SA 3.0):
         http://www.freesound.org/people/rivernile7/sounds/249573/ (CC BY-SA 3.0)
 
 Neuromancer (CC BY-SA 2.0):
-  default_cobble.png, based on texture by Brane praefect
   default_mossycobble.png, based on texture by Brane praefect
 Neuromancer (CC BY-SA 3.0):
   default_dirt.png
-  default_furnace_*.png
 
 Gambit (WTFPL):
   default_bronze_ingot.png
@@ -300,3 +304,6 @@ Tonyka (New BSD License):
 rui914 (WTFPL):
   default_cherry_tree.png
   default_cherry_tree_top.png
+
+LemonLake (WTFPL):
+  gui_formbg.png

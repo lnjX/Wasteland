@@ -71,3 +71,10 @@ default.register_craftitem("default:gold_ingot", {
 	description = "Gold Ingot",
 	inventory_image = "default_gold_ingot.png"
 })
+
+-- Misc
+default.register_craftitem("default:scorched_stuff", {
+	description = "Scorched Stuff",
+	inventory_image = "default_scorched_stuff.png",
+	stack_max = 60,
+})

@@ -10,6 +10,13 @@ default.register_node("default:clay", {
 
 
 -- Dry
+default.register_node("default:hardened_clay", {
+	description = "Hardened Clay",
+	tiles = {"default_clay_hardened.png"},
+	is_ground_content = true,
+	groups = {crumbly = 2, cracky = 3},
+	sounds = default.node_sound_dirt_defaults(),
+})
 
 default.register_node("default:dirt", {
 	description = "Dirt",

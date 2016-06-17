@@ -1,4 +1,4 @@
-This mod is part of Minetest TNG
+This mod is part of Wasteland TNG
 ================================
 Zombie for Creatures MOB-Engine, Version 2.0 beta (modified)
 

@@ -8,6 +8,13 @@ core.register_craft({
 })
 
 core.register_craft({
+	output = "default:wood",
+	recipe = {
+		{"default:dead_tree"},
+	}
+})
+
+core.register_craft({
 	output = "default:workbench",
 	recipe = {
 		{"group:wood", "group:wood"},
@@ -320,7 +327,7 @@ core.register_craft({
 })
 
 core.register_craft({
-	output = "default:rail 24",
+	output = "default:rail 15",
 	recipe = {
 		{"default:steel_ingot", "", "default:steel_ingot"},
 		{"default:steel_ingot", "group:stick", "default:steel_ingot"},
@@ -688,7 +695,7 @@ core.register_craft({
 	}
 })
 
-core.register_craft({ 
+core.register_craft({
 	output = "default:craft_guide",
 	type = "shapeless",
 	recipe = {"default:book"}

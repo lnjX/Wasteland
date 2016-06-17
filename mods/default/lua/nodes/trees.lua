@@ -1,4 +1,4 @@
-default.register_tree("default:apple", { 
+default.register_tree("default:apple", {
 	-- name can be used for default.grow_tree["<tree name>"](pos)
 	register = {leaves = true, sapling = true, log = true, planks = true, mapgen = true},
 	log = {
@@ -24,7 +24,7 @@ default.register_tree("default:apple", {
 			if not default.can_grow(pos) then
 				return false
 			end
-			
+
 			return default.grow_apple_tree(pos, math.random(1, 4) == 1) --  see mods/default/lua/apis/tree_growing.lua
 		end
 	},
@@ -71,7 +71,7 @@ default.register_tree("default:jungle", {
 			if not default.can_grow(pos) then
 				return false
 			end
-			
+
 			return default.grow_jungle_tree(pos)
 		end,
 		schematic = default.get_schematic_path("default", "jungle_tree_from_sapling.mts"),
@@ -257,4 +257,9 @@ default.register_tree("default:cherry", {
 		biomes = {"cherry_tree_forest"},
 		schematic = default.get_schematic_path("default", "cherry_tree.mts"),
 	},
+})
+
+default.register_log("default:dead_tree", {
+	description = "Dead Tree",
+	tiles = {"default_dead_tree_top.png", "default_dead_tree_top.png", "default_dead_tree.png"}
 })

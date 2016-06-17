@@ -1,6 +1,6 @@
 WASTELAND - a post-apocalyptic game for the Minetest engine
 ===========================================================
-Version 0.7-dev, Status: BETA #2 (rewrote)
+Version 0.7-dev, Status: BETA II (rewrite)
 
 Copyright (C) 2013-2015 BlockMen <blockmen2015@gmail.com>
 Copyright (C) 2016 LNJ <lnj.git@gmail.com>
@@ -53,7 +53,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 License of Media (Textures, Sounds, Meshes):
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If not stated differently in a mod directory everything is licensed under CC-BY 3.0.
+If not stated differently in a mod directory everything is licensed under CC BY-SA 3.0.
 See <https://creativecommons.org/licenses/by/3.0/> for more informations.
 
 

@@ -1,5 +1,5 @@
-WASTELAND - a post-apocalyptic game for the Minetest engine
-===========================================================
+Wasteland - a post-apocalyptic game for Minetest
+================================================
 Version 0.7-dev, Status: BETA II (rewrite)
 
 Copyright (C) 2013-2015 BlockMen <blockmen2015@gmail.com>
@@ -71,3 +71,4 @@ https://forum.minetest.net/viewtopic.php?id=14240
 Changelog:
 ~~~~~~~~~~
 See "Changelog.txt"
+

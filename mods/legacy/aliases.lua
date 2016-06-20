@@ -145,6 +145,14 @@ core.register_alias("dye:blue", "default:dye_blue")
 core.register_alias("dye:violet", "default:dye_violet")
 core.register_alias("dye:magenta", "default:dye_magenta")
 
--- wasteland < v0.7 aliases
+--
+-- Wasteland < v0.7 aliases
+--
+
 core.register_alias("default:grass", "default:dirt_with_grass")
+core.register_alias("default:pick_iron", "default:pick_steel")
+core.register_alias("default:shovel_iron", "default:shovel_steel")
+core.register_alias("default:axe_iron", "default:axe_steel")
+core.register_alias("default:sword_iron", "default:sword_steel")
+
 

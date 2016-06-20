@@ -149,14 +149,8 @@ dofile(luapath .. "item_pickup.lua")
 dofile(luapath .. "item_physics.lua")
 dofile(luapath .. "sethome.lua")
 dofile(luapath .. "spectator_mode.lua")
+dofile(luapath .. "no_sneak_glitch.lua")
 
 if core.setting_getbool("creative_mode") then
 	dofile(luapath .. "creative.lua")
 end
-
---
--- Backwards-Compatibility
---
-
-dofile(luapath .. "aliases.lua")
-dofile(luapath .. "legacy.lua")

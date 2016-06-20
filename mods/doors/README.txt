@@ -3,13 +3,13 @@ This mod is part of Wasteland TNG
 
 License of source code:
 -----------------------
-Copyright (c) 2012 PilzAdam
-Copyright (c) 2013-2014 BlockMen
+Copyright (c) 2012 PilzAdam <pilzadam@minetest.net>
+Copyright (c) 2013-2014 BlockMen <blockmen2015@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
-at your option) any later version.
+(at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -52,12 +52,32 @@ PilzAdam (WTFPL):
   doors_obsidian_glass_a.png
   doors_obsidian_glass_b.png
 
-sofar (CC-BY-SA-3.0):
+sofar (CC BY-SA 3.0):
   doors_trapdoor_steel.png
   doors_trapdoor_steel_side.png
 
-CGEffex (CC BY 3.0)
+CGEffex (CC BY 3.0):
   doors_wooden_open.ogg
 
-bennstir (CC BY 3.0)
+bennstir (CC BY 3.0):
   doors_wooden_close.ogg
+
+
+Details of Licenses:
+--------------------
+
+CC BY 3.0:
+  Attribution 3.0 Unported
+  http://creativecommons.org/licenses/by/3.0/
+
+CC BY-SA 3.0:
+  Attribution-ShareAlike 3.0 Unported
+  http://creativecommons.org/licenses/by-sa/3.0/
+
+CC BY-SA 4.0:
+  Attribution-ShareAlike 4.0 International
+  http://creativecommons.org/licenses/by-sa/4.0/
+
+WTFPL:
+  Do What the Fuck You Want to Public License
+  http://www.wtfpl.net/txt/copying/

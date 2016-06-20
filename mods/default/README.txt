@@ -95,7 +95,7 @@ RealBadAngel (WTFPL):
   default_water_source_animated.png
   default_water_flowing_animated.png
 
-Calinou (CC BY-SA):
+Calinou (CC BY-SA 3.0):
   default_brick.png
   default_papyrus.png
   default_mineral_copper.png
@@ -307,3 +307,32 @@ rui914 (WTFPL):
 
 LemonLake (WTFPL):
   gui_formbg.png
+
+
+Details of Licenses:
+--------------------
+
+CC BY 3.0:
+  Attribution 3.0 Unported
+  http://creativecommons.org/licenses/by/3.0/
+
+CC BY-SA 2.0:
+  Attribution-ShareAlike 2.0 Generic
+  http://creativecommons.org/licenses/by-sa/2.0/
+
+CC BY-SA 3.0:
+  Attribution-ShareAlike 3.0 Unported
+  http://creativecommons.org/licenses/by-sa/3.0/
+
+CC BY-SA 4.0:
+  Attribution-ShareAlike 4.0 International
+  http://creativecommons.org/licenses/by-sa/4.0/
+
+CC 0:
+  CC0 1.0 Universal
+  http://creativecommons.org/publicdomain/zero/1.0/
+
+WTFPL:
+  Do What the Fuck You Want to Public License
+  http://www.wtfpl.net/txt/copying/
+

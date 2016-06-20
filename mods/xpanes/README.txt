@@ -39,3 +39,11 @@ Gambit (WTFPL):
 LNJ (WTFPL):
   xpanes_pane_half_black.png, based on texture of PilzAdam (WTFPL)
   xpanes_black.png
+
+
+Details of Licenses:
+--------------------
+
+WTFPL:
+  Do What the Fuck You Want to Public License
+  http://www.wtfpl.net/txt/copying/

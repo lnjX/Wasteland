@@ -7,15 +7,13 @@ default.register_node("default:brick", {
 	register = {stair = true, slab = true, wall = true},
 	stair = {
 		description = "Brick Stair",
-		legacy_alias = "stairs:stair_brick"
 	},
 	slab = {
 		description = "Brick Slab",
-		legacy_alias = "stairs:slab_brick"
 	},
 	wall = {
 		description = "Brick Wall"
-	},
+	}
 })
 
 
@@ -27,9 +25,7 @@ default.register_node("default:stonebrick", {
 	tiles = {"default_stone_brick.png"},
 	is_ground_content = false,
 	groups = {cracky = 2, stone = 1},
-	sounds = default.node_sound_stone_defaults(),
-	stair = {legacy_alias = "stairs:stair_stonebrick"},
-	slab = {legacy_alias = "stairs:slab_stonebrick"},
+	sounds = default.node_sound_stone_defaults()
 })
 
 default.register_node("default:desert_stonebrick", {
@@ -38,9 +34,7 @@ default.register_node("default:desert_stonebrick", {
 	tiles = {"default_desert_stone_brick.png"},
 	is_ground_content = false,
 	groups = {cracky = 2, stone = 1},
-	sounds = default.node_sound_stone_defaults(),
-	stair = {legacy_alias = "stairs:stair_desert_stonebrick"},
-	slab = {legacy_alias = "stairs:slab_desert_stonebrick"},
+	sounds = default.node_sound_stone_defaults()
 })
 
 default.register_node("default:sandstonebrick", {
@@ -49,9 +43,7 @@ default.register_node("default:sandstonebrick", {
 	tiles = {"default_sandstone_brick.png"},
 	is_ground_content = false,
 	groups = {cracky = 2},
-	sounds = default.node_sound_stone_defaults(),
-	stair = {legacy_alias = "stairs:stair_sandstonebrick"},
-	slab = {legacy_alias = "stairs:slab_sandstonebrick"},
+	sounds = default.node_sound_stone_defaults()
 })
 
 default.register_node("default:obsidianbrick", {
@@ -60,7 +52,5 @@ default.register_node("default:obsidianbrick", {
 	tiles = {"default_obsidian_brick.png"},
 	is_ground_content = false,
 	sounds = default.node_sound_stone_defaults(),
-	groups = {cracky = 1, level = 2},
-	stair = {legacy_alias = "stairs:stair_obsidianbrick"},
-	slab = {legacy_alias = "stairs:slab_obsidianbrick"},
+	groups = {cracky = 1, level = 2}
 })

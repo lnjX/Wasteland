@@ -24,11 +24,19 @@ License of media (textures, sounds, meshes):
 (by Authors)
 
 RHRhino (WTFPL):
-   flowers_*.png
+ flowers_*.png
 
 Gambit (WTFPL):
-   flowers_mushroom_*.png
-   flowers_waterlily.png
+ flowers_mushroom_*.png
+ flowers_waterlily.png
 
 DanDuncombe (WTFPL):
-   flowers_spores_*.png
+ flowers_spores_*.png
+
+
+Details of Licenses:
+--------------------
+
+WTFPL:
+  Do What the Fuck You Want to Public License
+  http://www.wtfpl.net/txt/copying/

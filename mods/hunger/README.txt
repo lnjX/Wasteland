@@ -30,6 +30,14 @@ BlockMen (CC BY-SA 3.0):
   hunger_eat.ogg
 
 
+Details of Licenses:
+--------------------
+
+CC BY-SA 3.0:
+  Attribution-ShareAlike 3.0 Unported
+  http://creativecommons.org/licenses/by-sa/3.0/
+
+
 About this mod:
 ~~~~~~~~~~~~~~~
 This mod adds hunger mechanics to Minetest, which are based on player actions and on time.

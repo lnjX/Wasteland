@@ -25,3 +25,11 @@ License of media (textures, sounds, meshes):
 
 Bad_Command_ (CC BY-SA 3.0):
   bones_*.png
+
+
+Details of Licenses:
+--------------------
+
+CC BY-SA 3.0:
+  Attribution-ShareAlike 3.0 Unported
+  http://creativecommons.org/licenses/by-sa/3.0/

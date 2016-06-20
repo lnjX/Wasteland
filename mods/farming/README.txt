@@ -25,7 +25,7 @@ License of media (textures, sounds, meshes):
 --------------------------------------------
 (by Authors)
 
-PilzAdam (WTFPL):
+PilzAdam <pilzadam@minetest.net> (WTFPL):
   farming_soil.png
   farming_soil_wet.png
   farming_soil_wet_side.png
@@ -59,4 +59,17 @@ cd2 <cdqwertz@gmail.com> (CC BY-SA 3.0):
 fridolin (CC BY-SA 3.0):
   farming_strawberry.png
   farming_strawberry_*.png
+
+
+Details of Licenses:
+--------------------
+
+CC BY-SA 3.0:
+  Attribution-ShareAlike 3.0 Unported
+  http://creativecommons.org/licenses/by-sa/3.0/
+
+WTFPL:
+  Do What the Fuck You Want to Public License
+  http://www.wtfpl.net/txt/copying/
+
 

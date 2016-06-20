@@ -25,11 +25,20 @@ License of media (textures, sounds, meshes):
 (by Authors)
 
 PilzAdam (WTFPL):
-   tnt_gunpowder_*.png
-   tnt_top_*.png
-   tnt_bottom.png
-   tnt_side.png
+  tnt_gunpowder_*.png
+  tnt_top_*.png
+  tnt_bottom.png
+  tnt_side.png
  
 ShadowNinja (WTFPL):
-   tnt_smoke.png
-   tnt_boom.png
+  tnt_smoke.png
+  tnt_boom.png
+
+
+Details of Licenses:
+--------------------
+
+WTFPL:
+  Do What the Fuck You Want to Public License
+  http://www.wtfpl.net/txt/copying/
+   

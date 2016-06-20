@@ -33,6 +33,14 @@ BlockMen (CC BY-SA 3.0):
   hud_air_fg.png, based on texture by kaeza (WTFPL)
 
 
+Details of Licenses:
+--------------------
+
+CC BY-SA 3.0:
+  Attribution-ShareAlike 3.0 Unported
+  http://creativecommons.org/licenses/by-sa/3.0/
+
+
 About this mod:
 ~~~~~~~~~~~~~~~
 This mod improves the HUD of Minetest and adds (hidden by default) statbars for Hunger and Armor.

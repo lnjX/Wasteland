@@ -2,8 +2,11 @@
 -- ====================
 -- See README.txt for licensing anf other information.
 
+legacy = {}
+
 local modpath = core.get_modpath("legacy") .. "/"
 
+dofile(modpath .. "functions.lua")
 dofile(modpath .. "aliases.lua")
 dofile(modpath .. "dyes.lua")
 dofile(modpath .. "falling_nodes.lua")

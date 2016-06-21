@@ -154,5 +154,4 @@ core.register_alias("default:pick_iron", "default:pick_steel")
 core.register_alias("default:shovel_iron", "default:shovel_steel")
 core.register_alias("default:axe_iron", "default:axe_steel")
 core.register_alias("default:sword_iron", "default:sword_steel")
-
-
+core.register_alias("default:iron_ingot", "default:steel_ingot")

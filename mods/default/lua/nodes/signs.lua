@@ -45,10 +45,10 @@ end
 
 register_sign("wood", "Wooden", {
 	sounds = default.node_sound_wood_defaults(),
-	groups = {choppy = 2, attached_node = 1, flammable = 2}
+	groups = {choppy = 2, attached_node = 1, flammable = 2, fences_connect = 1}
 })
 
 register_sign("steel", "Steel", {
 	sounds = default.node_sound_defaults(),
-	groups = {cracky = 2, attached_node = 1}
+	groups = {cracky = 2, attached_node = 1, fences_connect = 1}
 })

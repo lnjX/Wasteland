@@ -32,7 +32,7 @@ function default.register_fence(itemstring, def)
 			{1/8, -1/8, -1/16, 1/2, 1/16, 1/16}
 		},
 	}
-	def.connects_to = def.connects_to or {"group:fence", "group:fencegate", "group:wood", "group:tree", def.material}
+	def.connects_to = def.connects_to or {"group:fence", "group:fencegate", "group:wood", "group:tree", "group:fences_connect", def.material}
 	def.collision_box = {
 		type = "connected",
 		fixed = {

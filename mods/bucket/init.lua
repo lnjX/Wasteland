@@ -183,3 +183,51 @@ minetest.register_craft({
 minetest.register_alias("bucket", "bucket:bucket_empty")
 minetest.register_alias("bucket_water", "bucket:bucket_water")
 minetest.register_alias("bucket_lava", "bucket:bucket_lava")
+
+minetest.register_craftitem("bucket:bucket_snow", {
+	description = "Bucket with Snow",
+	inventory_image = "bucket_snow.png",
+	stack_max = 1,
+	liquids_pointable = false,
+	on_use = function(itemstack, user, pointed_thing)
+		-- Must be pointing to node
+		if pointed_thing.type ~= "node" then
+			return
+		end
+		-- Check if is buildable to
+		local p = pointed_thing.above
+		node = minetest.get_node(p)
+		local def = minetest.registered_items[node.name]
+		if def ~= nil and def.buildable_to then
+			local cnt = 0
+			for iz = -1,1,1 do
+			for ix = -1,1,1 do
+				local np = {x=p.x+ix,y=p.y,z=p.z+iz}
+				local n = minetest.get_node(np)
+				local n_def = minetest.registered_items[n.name]
+				if n_def ~= nil and n_def.buildable_to and cnt < 8 then
+					minetest.set_node(np, {name="default:snow"})
+					cnt = cnt+1
+					--nodeupdate(np)
+				end
+			end
+			end
+			return {name = "bucket:bucket_empty"}
+		end
+	end,
+})
+
+minetest.register_craft({
+        output = 'bucket:bucket_snow',
+        recipe = {
+                {'default:snow', 'default:snow', 'default:snow'},
+                {'default:snow', 'bucket:bucket_empty', 'default:snow'},
+                {'default:snow', 'default:snow', 'default:snow'},
+        }
+})
+
+minetest.register_craft({
+        type = "cooking",
+        output = "bucket:bucket_water",
+        recipe = "bucket:bucket_snow",
+})

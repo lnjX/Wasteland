@@ -9,9 +9,9 @@ core.clear_registered_biomes()
 core.register_biome({
 	name = "wasteland",
 -- 	node_dust = "",
-	node_top = "default:dry_dirt",
+	node_top = "default:dirt",
 	depth_top = 5,
-	node_filler = "default:dry_dirt",
+	node_filler = "default:dirt",
 	depth_filler = 0,
 -- 	node_stone = "",
 	node_water_top = "air",
@@ -30,7 +30,7 @@ core.register_biome({
 	node_top = "default:sand",
 	depth_top = 5,
 	node_filler = "default:sandstone",
-	depth_filler = 0,
+	depth_filler = 6,
 -- 	node_stone = "",
 	node_water_top = "air",
 	depth_water_top = 0,
@@ -45,9 +45,9 @@ core.register_biome({
 core.register_biome({
 	name = "snow_cap",
 	node_dust = "default:snow",
-	node_top = "default:dry_dirt_with_snow",
+	node_top = "default:dirt_with_snow",
 	depth_top = 1,
-	node_filler = "default:dry_dirt",
+	node_filler = "default:dirt",
 	depth_filler = 2,
 -- 	node_stone = "",
 	node_water_top = "air",
@@ -89,7 +89,7 @@ core.clear_registered_decorations()
 -- Dry shrub
 core.register_decoration({
 	deco_type = "simple",
-	place_on = {"default:dry_dirt", "default:dirt_with_snow"},
+	place_on = {"default:dirt", "default:dirt_with_snow"},
 	sidelen = 16,
 	noise_params = {
 		offset = 0,

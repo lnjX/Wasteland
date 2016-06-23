@@ -28,7 +28,7 @@ function make_dead_tree(pos, size)
 end
 
 local dirt_snow = core.get_content_id("default:dirt_with_snow")
-local dirt_dry = core.get_content_id("default:dry_dirt")
+local dirt_dry = core.get_content_id("default:dirt")
 local leaves = core.get_content_id("default:leaves")
 local snow = core.get_content_id("default:snow")
 local ms = core.get_content_id("default:mineralsand")

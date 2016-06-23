@@ -175,7 +175,7 @@ BlockMen (CC BY-SA 3.0):
   default_clay_hardened.png
   default_diamond.png
   default_diamond_block.png
-  default_dry_dirt.png
+  default_dirt.png
   default_furnace_*.png
   default_gold_ingot.png
   default_grass.png
@@ -190,6 +190,8 @@ BlockMen (CC BY-SA 3.0):
   default_leaves_with_apple.png
   default_meselamp.png
   default_mineral_mese.png
+  default_old_apple.png
+  default_old_bread.png
   default_sand_mineral.png
   default_pine_tree.png
   default_pine_tree_top.png
@@ -218,8 +220,6 @@ sofar (CC BY-SA 3.0):
 
 Neuromancer (CC BY-SA 2.0):
   default_mossycobble.png, based on texture by Brane praefect
-Neuromancer (CC BY-SA 3.0):
-  default_dirt.png
 
 Gambit (WTFPL):
   default_bronze_ingot.png
@@ -335,4 +335,3 @@ CC 0:
 WTFPL:
   Do What the Fuck You Want to Public License
   http://www.wtfpl.net/txt/copying/
-

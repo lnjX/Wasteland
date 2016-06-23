@@ -55,7 +55,7 @@ core.register_abm({
 				(core.get_node_light(above) or 0) >= 13 then
 			if name == "default:snow" or name == "default:snowblock" then
 				core.set_node(pos, {name = "default:dirt_with_snow"})
-			else
+			elseif core.find_node_near(pos, 12, {"group:water"}) then
 				core.set_node(pos, {name = "default:dirt_with_grass"})
 			end
 		end

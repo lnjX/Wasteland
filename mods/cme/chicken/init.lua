@@ -76,7 +76,7 @@ local def = {
 		walk = {chance = 0.2, duration = 5.5, moving_speed = 0.7, update_yaw = 2},
 		panic = {moving_speed = 2.1},
 		lay_egg = {chance = 0.01, duration = 1},
-		follow = {chance = 0, duration = 20, radius = 5, timer = 4, moving_speed = 1, items = {"farming:seed_wheat"}},
+		follow = {chance = 0, duration = 20, radius = 5, timer = 4, moving_speed = 1, items = {"farming:wheat_seed"}},
 	},
 
 	model = {
@@ -132,7 +132,7 @@ local def = {
 		local item = clicker:get_wielded_item()
 			if item then
 				local name = item:get_name()
-				if name == "farming:seed_wheat" then
+				if name == "farming:wheat_seed" then
 					self.target = clicker
 					self.mode = "follow"
 					self.modetimer = 0

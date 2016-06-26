@@ -6,6 +6,8 @@
 -- Register decorations
 --
 
+default.MINERAL_MAX = -20
+
 -- y?
 core.clear_registered_decorations()
 
@@ -69,7 +71,7 @@ local function make_minerals(min, max, data, va)
 	local z1 = min.z
 	local x2 = max.x
 	local z2 = max.z
-	for yi = min.y, MINERAL_MAX do
+	for yi = min.y, default.MINERAL_MAX do
 	 	for xi = x1, x2 do
 	  	for zi = z1, z2 do
 			local pi = va:index(xi, yi, zi)

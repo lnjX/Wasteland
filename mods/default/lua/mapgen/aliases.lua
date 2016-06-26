@@ -1,8 +1,8 @@
--- This file is part of Minetest TNG
--- =================================
 -- mods/default/lua/mapgen/aliases.lua
---
+-- ===================================
 -- Aliases for map generator outputs
+--
+-- See README.txt for licensing and other information.
 --
 
 core.register_alias("mapgen_air", "air")

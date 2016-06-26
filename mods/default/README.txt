@@ -190,6 +190,7 @@ BlockMen (CC BY-SA 3.0):
   default_leaves_with_apple.png
   default_meselamp.png
   default_mineral_mese.png
+  default_mineralsand.png
   default_old_apple.png
   default_old_bread.png
   default_sand_mineral.png

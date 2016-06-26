@@ -64,7 +64,6 @@ kilbith (WTFPL):
 
 Cisoun (WTFPL):
   default_lava.png
-  default_sapling.png
   default_stone.png
   default_tree.png
   default_tree_top.png
@@ -190,6 +189,7 @@ BlockMen (CC BY-SA 3.0):
   default_pine_wood.png
   default_pine_sapling.png
   default_sand.png
+  default_sapling.png
   default_snow.png, based on texture of Splizard (CC BY-SA 3.0)
   default_snow_side.png
   default_snowball.png

@@ -7,6 +7,7 @@
 --
 
 default.MINERAL_MAX = -20
+default.SNOW_START = 24
 
 -- y?
 core.clear_registered_decorations()
@@ -43,7 +44,7 @@ local function make_snow(min, max, data, va, rnd)
 	local z1 = min.z
 	local x2 = max.x
 	local z2 = max.z
-	local y_max = SNOW_START + rnd
+	local y_max = default.SNOW_START + rnd
 	if y1 == 48 then
 		y_max = y1
 	end
@@ -114,7 +115,7 @@ core.register_on_generated(function(minp, maxp, seed)
 				local ground_n = nil
 				for y = 20, 0, -1 do
 					ground_n = core.get_node_or_nil({x = x, y = y, z = z})
-					if ground_n and ground_n.name== "default:dry_dirt" then
+					if ground_n and ground_n.name == "default:dirt" then
 						ground_y = y
 						break
 					end
@@ -163,7 +164,7 @@ core.register_on_generated(function(minp, maxp, seed)
 						core.registered_nodes[nn].buildable_to then
 						nn = core.get_node({x=x,y=ground_y,z=z}).name
 						-- If desert sand, add dry shrub
-						if nn == "default:dry_dirt" then
+						if nn == "default:dirt" then
 							core.swap_node(p,{name="default:dry_shrub"})
 						end
 					end

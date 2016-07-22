@@ -9,11 +9,19 @@ local function register_node_stair(name, def)
 	local stair_name = stair_def.name or name:split(":")[1] .. ":stair_" .. name:split(":")[2]
 
 	stair_def.description = stair_def.description	or def.description .. " Stair"
-	stair_def.groups = 	stair_def.groups	or def.groups
 	stair_def.sounds = 	stair_def.sounds	or def.sounds
 	stair_def.material = 	stair_def.material	or name
 	stair_def.tiles = 	stair_def.tiles		or def.tiles
-	
+
+	if not stair_def.groups then
+		stair_def.groups = def.groups
+
+		-- prevent that stairs are in full node groups (wood, stone),
+		-- so you can't craft with them like with a full block
+		stair_def.groups.stone = nil
+		stair_def.groups.wood = nil
+	end
+
 	-- clean up
 	stair_def.name = nil
 
@@ -35,10 +43,19 @@ local function register_node_slab(name, def)
 	slab_def.sounds = 	slab_def.sounds		or def.sounds
 	slab_def.material = 	slab_def.material	or name
 	slab_def.tiles = 	slab_def.tiles		or def.tiles
-	
+
+	if not slab_def.groups then
+		slab_def.groups = def.groups
+
+		-- prevent that slabs are in full node groups (wood, stone),
+		-- so you can't craft with them like with a full block
+		slab_def.groups.stone = nil
+		slab_def.groups.wood = nil
+	end
+
 	-- clean up
 	slab_def.name = nil
-	
+
 	default.register_slab(slab_name, slab_def)
 end
 
@@ -77,10 +94,10 @@ local function register_node_fencegate(name, def)
 	fencegate_def.sounds = 		fencegate_def.sounds		or def.sounds
 	fencegate_def.material = 	fencegate_def.material		or name
 	fencegate_def.texture =		fencegate_def.texture		or def.tiles[1]
-	
+
 	-- clean up
 	fencegate_def.name = nil
-	
+
 	default.register_fencegate(fencegate_name, fencegate_def)
 end
 
@@ -119,10 +136,10 @@ local function register_node_wall(name, def)
 	wall_def.sounds =	wall_def.sounds		or def.sounds
 	wall_def.material =	wall_def.material	or name
 	wall_def.tiles =	wall_def.tiles		or def.tiles
-	
+
 	-- clean up
 	wall_def.name = nil
-	
+
 	default.register_wall(wall_name, wall_def)
 end
 
@@ -140,10 +157,10 @@ local function register_node_carpet(name, def)
 	carpet_def.sounds =		carpet_def.sounds	or default.node_sound_defaults()
 	carpet_def.material =		carpet_def.material	or name
 	carpet_def.texture =		carpet_def.texture	or def.tiles[1]
-	
+
 	-- clean up
 	carpet_def.name = nil
-	
+
 	default.register_carpet(carpet_name, carpet_def)
 end
 
@@ -152,7 +169,7 @@ function default.register_node(name, def)
 	if def.alias then
 		core.register_alias(def.alias, name)
 	end
-	
+
 	--
 	-- Register other types of the node (stair, slab, fence, ...)
 	--

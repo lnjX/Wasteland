@@ -11,8 +11,10 @@ The Minetest engine can be found in:
 
 Introduction
 ------------
-I decided to fork Minetest NeXt by BlockMen, because BlockMen no longer does anything about Minetest :(. I changed the title of the game to Minetest TNG - The NeXt Game.
-This game should be like Minetest NeXt a lightweight, but powerful survival game. Hunger and mobs are already added!
+I decided to fork Minetest NeXt by BlockMen, because BlockMen no longer does
+anything about Minetest :(. I changed the title of the game to
+Minetest TNG - The NeXt Game. This game should be like Minetest NeXt a
+lightweight, but powerful survival game. Hunger and mobs are already added!
 
 Of course I would really like to hear your ideas and suggestions!
 

@@ -40,11 +40,10 @@ function default.register_sign(name, def)
 	def.groups = def.groups or {}
 	def.groups.attached_node = 1
 	def.groups.sign = 1
-	
+
 	-- clean up vars
 	def.texture_wall = nil
 	def.texture = nil
-	
+
 	core.register_node(name, def)
 end
-

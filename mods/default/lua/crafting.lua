@@ -636,7 +636,7 @@ core.register_craft({
 })
 
 core.register_craft({
-	output = "default:bonemeal 4",
+	output = "default:bonemeal 2",
 	recipe = {
 		{"default:bone"}
 	}

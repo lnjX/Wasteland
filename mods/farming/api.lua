@@ -173,7 +173,7 @@ function farming.register_crop(name, def)
 
 
 	for i = 1, def.steps do
-		local percent = 100 / def.steps * i
+		local percent = tostring(default.round_number(100 / def.steps * i, 1))
 
 		-- properties (different from step to step)
 		plantdef[i] = table.copy(plantdef[0])
@@ -186,7 +186,9 @@ function farming.register_crop(name, def)
 		-- growing
 		if def.steps == i then -- if already fully grown, do not grow
 			plantdef[i].on_timer = nil
-			plantdef[i].on_construct = nil
+			plantdef[i].on_construct = function(pos)
+				core.get_meta(pos):set_string("infotext", plantdef[i].description)
+			end
 
 			-- harvest on rightclick, and reinplant
 			plantdef[i].on_rightclick = function(pos, node, player, itemstack, pointed_thing)
@@ -198,6 +200,7 @@ function farming.register_crop(name, def)
 		else
 			plantdef[i].on_construct = function(pos)
 				start_timer(pos, def.growtime / def.steps)
+				core.get_meta(pos):set_string("infotext", plantdef[i].description)
 			end
 
 			plantdef[i].on_timer = function(pos, elapsed)

@@ -18,7 +18,7 @@ disable_fire (Disable Fire) bool false
 
 #   Whether the TNT mod should be enabled
 #   Normally TNT is enabled in singleplayer and disabled in multiplayer
-enabled_tnt (Enable TNT) bool true
+enable_tnt (Enable TNT) bool true
 
 #   The radius of a TNT explosion
 tnt_radius (Radius of a TNT explosion) int 3 1 50

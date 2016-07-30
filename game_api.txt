@@ -20,11 +20,12 @@ Overview:
 	- Farming API, #Hoe Definition, #Plant definition
 	- TNT API, #TNT definition
 	- Screwdriver API
-	- Stairs API, #Stair definition, #Slab definition
+	- Stairs/Slabs API, #Stair definition, #Slab definition
 	- Xpanes API, #Pane definition
 	- Fence API, #Fence definition
 	- Fence Gate API, #Fence Gate definition
 	- Table API, #Table definition
+	- Sign API, #Sign definition
 	- Player API, #Model definition
 	- Achievement API, #Achievement definition
 	- Raillike definitions
@@ -429,6 +430,32 @@ By the way you can use here all preferences of the normal minetest.register_node
 	^ The sounds of the table. If it isn't defined it equals default.node_sound_wood_defaults().
 }
 
+Sign API
+--------
+Is a simple API to register signs.
+
+default.register_sign(name, def)
+ -> name: itemstring for the sign, that'll be registered
+ -> def: See [#Sign definition]
+
+#Sign definition
+----------------
+{
+	description = "Wooden Sign",
+	 ^ The description of the sign/node
+	texture_wall = "default_sign_wall_wood.png",
+	 ^ The texture for the sign (placed in the world)
+	texture = "default_sign_wood.png",
+	 ^ The texture for the inventory_image and wield_image
+	sounds = default.node_sound_wood_defaults(),
+	 ^ The sounds for the sign
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, fences_connect = 1}
+	 ^ The groups of the sign
+	
+	-- Everything else in here will be sent to core.register_node,
+	-- see [Node definition] for details.
+}
+
 Player API
 ----------
 The player API can register player models and update the player's appearence
@@ -651,3 +678,4 @@ default.grow_tree[tree_name](pos)
     "default:apple", "default:jungle", "default:pine", "default:acacia",
     "default:birch", "default:maple", "default:red_maple", "default:cherry"
  -> pos: The position, where the tree will be placed.
+

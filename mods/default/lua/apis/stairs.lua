@@ -61,7 +61,7 @@ function default.register_stair(name, def)
 	
 	if not def.no_craft then
 		core.register_craft({
-			output = name .. " 6",
+			output = name .. " 8",
 			recipe = {
 				{def.material,      "",          ""      },
 				{def.material, def.material,     ""      },
@@ -71,7 +71,7 @@ function default.register_stair(name, def)
 		
 		-- flipped recipe for the silly minecrafters
 		core.register_craft({
-			output = name .. " 6",
+			output = name .. " 8",
 			recipe = {
 				{     "",          "",       def.material},
 				{     "",      def.material, def.material},

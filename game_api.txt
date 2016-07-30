@@ -188,6 +188,10 @@ farming.register_crop(name, def)
 	steps = 8,
 	 ^ How many steps the plant has to grow, until it can be harvested. Required!
 
+	step_after_harvest = 4,
+	 ^ The step that appears, after the plant was harvested (by a rightclick)
+	   (default value: 1)
+
 	growtime = 500,
 	 ^ The average time that is needed to grow the plant (all steps). Required!
 
@@ -451,7 +455,7 @@ default.register_sign(name, def)
 	 ^ The sounds for the sign
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, fences_connect = 1}
 	 ^ The groups of the sign
-	
+
 	-- Everything else in here will be sent to core.register_node,
 	-- see [Node definition] for details.
 }

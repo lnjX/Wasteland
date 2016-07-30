@@ -682,3 +682,11 @@ default.grow_tree[tree_name](pos)
     "default:apple", "default:jungle", "default:pine", "default:acacia",
     "default:birch", "default:maple", "default:red_maple", "default:cherry"
  -> pos: The position, where the tree will be placed.
+
+Default Functions
+-----------------
+default.round_number(num, idp)
+^ Rounds a number to the given number of decimal places.
+ -> num: the number that'll be rounded
+ -> idp: number of decimal places to round to
+^ Returns the rounded number.

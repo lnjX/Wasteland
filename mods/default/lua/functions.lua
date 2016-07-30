@@ -26,3 +26,10 @@ function default.get_schematic_path(modname, name)
 	
 	return core.get_modpath(modname) .. "/schematics/" .. name
 end
+
+-- round
+function default.round_number(num, idp)
+	local mult = 10^(idp or 0)
+	return math.floor(num * mult + 0.5) / mult
+end
+

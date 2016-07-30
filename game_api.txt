@@ -34,6 +34,7 @@ Overview:
 	- Leafdecay
 	- Dyes, #Color groups, #Color groups
 	- Trees
+	- Default Functions
 
 
 Bucket API
@@ -690,3 +691,18 @@ default.round_number(num, idp)
  -> num: the number that'll be rounded
  -> idp: number of decimal places to round to
 ^ Returns the rounded number.
+
+default.is_day()
+^ Returns true, if it is daytime (04:48 to 19:19)
+  and false, if not.
+
+default.get_schematic_path(modname, schemname)
+^ Returns the path to a given schematic and mod name.
+ -> modname: needed for the mod directory
+ -> schemname: name of the schematic
+
+default.dig_up(pos, node, digger)
+^ If the node above 'pos' equals the given 'node', it removes the node above 'pos'.
+ -> pos: the position under the node that should be digged
+ -> node: for comparing the node above 'pos' with
+ -> digger: the identity for digging the node above 'pos'

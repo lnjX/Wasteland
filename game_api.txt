@@ -1,4 +1,4 @@
-Wasteland - Game API
+Wasteland TNG - Game API
 ========================
 GitHub Repo: https://github.com/gamerbude/wasteland
 
@@ -34,6 +34,7 @@ Overview:
 	- Leafdecay
 	- Dyes, #Color groups, #Color groups
 	- Trees
+	- Default Functions
 
 
 Bucket API
@@ -187,6 +188,10 @@ farming.register_crop(name, def)
 
 	steps = 8,
 	 ^ How many steps the plant has to grow, until it can be harvested. Required!
+
+	step_after_harvest = 4,
+	 ^ The step that appears, after the plant was harvested (by a rightclick)
+	   (default value: 1)
 
 	growtime = 500,
 	 ^ The average time that is needed to grow the plant (all steps). Required!
@@ -451,7 +456,7 @@ default.register_sign(name, def)
 	 ^ The sounds for the sign
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, fences_connect = 1}
 	 ^ The groups of the sign
-	
+
 	-- Everything else in here will be sent to core.register_node,
 	-- see [Node definition] for details.
 }
@@ -678,4 +683,27 @@ default.grow_tree[tree_name](pos)
     "default:apple", "default:jungle", "default:pine", "default:acacia",
     "default:birch", "default:maple", "default:red_maple", "default:cherry"
  -> pos: The position, where the tree will be placed.
+
+Default Functions
+-----------------
+default.round_number(num, idp)
+^ Rounds a number to the given number of decimal places.
+ -> num: the number that'll be rounded
+ -> idp: number of decimal places to round to
+^ Returns the rounded number.
+
+default.is_day()
+^ Returns true, if it is daytime (04:48 to 19:19)
+  and false, if not.
+
+default.get_schematic_path(modname, schemname)
+^ Returns the path to a given schematic and mod name.
+ -> modname: needed for the mod directory
+ -> schemname: name of the schematic
+
+default.dig_up(pos, node, digger)
+^ If the node above 'pos' equals the given 'node', it removes the node above 'pos'.
+ -> pos: the position under the node that should be digged
+ -> node: for comparing the node above 'pos' with
+ -> digger: the identity for digging the node above 'pos'
 

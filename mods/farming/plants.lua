@@ -38,7 +38,10 @@ farming.register_crop("potato", {
 farming.register_crop("strawberry", {
 	description = "Strawberries",
 	steps = 7,
-	growtime = 480,
+	step_after_harvest = 4,
+	-- after the plant has been harvested,
+	-- it only needs ~380 s to get mature again
+	growtime = 900,
 	has_seed = false,
 	cond = {
 		fertility = {"grassland"},

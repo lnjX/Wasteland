@@ -144,6 +144,8 @@ function farming.register_crop(name, def)
 		seedname = def.harvest.name or def.modname .. ":" .. name
 	end
 
+	def.step_after_harvest = tostring(def.step_after_harvest or "1")
+
 	-- +-----------------------------------------------------------------------------+
 	-- |                                Plant Steps                                  |
 	-- +-----------------------------------------------------------------------------+
@@ -171,7 +173,7 @@ function farming.register_crop(name, def)
 
 
 	for i = 1, def.steps do
-		local percent = 100 / def.steps * i
+		local percent = tostring(default.round_number(100 / def.steps * i, 1))
 
 		-- properties (different from step to step)
 		plantdef[i] = table.copy(plantdef[0])
@@ -184,10 +186,21 @@ function farming.register_crop(name, def)
 		-- growing
 		if def.steps == i then -- if already fully grown, do not grow
 			plantdef[i].on_timer = nil
-			plantdef[i].on_construct = nil
+			plantdef[i].on_construct = function(pos)
+				core.get_meta(pos):set_string("infotext", plantdef[i].description)
+			end
+
+			-- harvest on rightclick, and reinplant
+			plantdef[i].on_rightclick = function(pos, node, player, itemstack, pointed_thing)
+				if not pos or not node or not player then return end
+
+				core.node_dig(pos, node, player)
+				core.set_node(pos, {name = def.modname .. ":" .. name .. "_" .. def.step_after_harvest})
+			end
 		else
 			plantdef[i].on_construct = function(pos)
 				start_timer(pos, def.growtime / def.steps)
+				core.get_meta(pos):set_string("infotext", plantdef[i].description)
 			end
 
 			plantdef[i].on_timer = function(pos, elapsed)
@@ -202,16 +215,18 @@ function farming.register_crop(name, def)
 		plantdef[i].drop = {max_items = 4, items = {}}
 
 
-		-- ever drop a seed
-		table.insert(plantdef[i].drop.items, {items = {seedname}, rarity = 1})
+		-- random drop 1-2 seeds
+		table.insert(plantdef[i].drop.items, {items = {seedname}, rarity = 2})
+		table.insert(plantdef[i].drop.items, {items = {seedname}, rarity = 3})
 		-- if fully grown
 		if def.steps == i then
-			-- random a second seed
-			table.insert(plantdef[i].drop.items, {items = {seedname}, rarity = 2})
+			-- very rarely drop another 2 seeds
+			table.insert(plantdef[i].drop.items, {items = {seedname}, rarity = 6})
+			table.insert(plantdef[i].drop.items, {items = {seedname}, rarity = 10})
 
 			-- harvest
 			table.insert(plantdef[i].drop.items, {items = {harvestname}, rarity = 1})
-			table.insert(plantdef[i].drop.items, {items = {harvestname}, rarity = 2})
+			table.insert(plantdef[i].drop.items, {items = {harvestname}, rarity = 3})
 		end
 
 

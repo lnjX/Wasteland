@@ -14,7 +14,7 @@ local function register_node_stair(name, def)
 	stair_def.tiles = 	stair_def.tiles		or def.tiles
 
 	if not stair_def.groups then
-		stair_def.groups = def.groups
+		stair_def.groups = table.copy(def.groups)
 
 		-- prevent that stairs are in full node groups (wood, stone),
 		-- so you can't craft with them like with a full block
@@ -45,7 +45,7 @@ local function register_node_slab(name, def)
 	slab_def.tiles = 	slab_def.tiles		or def.tiles
 
 	if not slab_def.groups then
-		slab_def.groups = def.groups
+		slab_def.groups = table.copy(def.groups)
 
 		-- prevent that slabs are in full node groups (wood, stone),
 		-- so you can't craft with them like with a full block

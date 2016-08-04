@@ -1,6 +1,6 @@
 -- mods/default/lua/environment/leafdecay.lua
 -- ==========================================
--- See README.txt for licensing and other information. 
+-- See README.txt for licensing and other information.
 
 default.leafdecay_trunk_cache = {}
 default.leafdecay_enable_cache = true
@@ -23,8 +23,8 @@ core.register_abm({
 	nodenames = {"group:leafdecay"},
 	neighbors = {"air", "group:liquid"},
 	-- A low interval and a high inverse chance spreads the load
-	interval = 2,
-	chance = 5,
+	interval = 3,
+	chance = 11,
 
 	action = function(p0, node, _, _)
 		local do_preserve = false

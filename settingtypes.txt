@@ -37,3 +37,12 @@ enable_item_drop (Drop items of digged nodes) bool true
 
 #   General difficulty of the game (WIP: Not everything is using this setting already!)
 difficulty (General difficulty) enum normal easy,normal,hard
+
+[Beta Features]
+
+#   This lights you up if you hold a torch in your hand.
+#   This will make your server slower.
+enable_torches_wieldlight (Enable torches wield light) bool false
+
+#   This is the interval for updating the wield light of torches.
+torches_wieldlight_interval (Wield light interval) float 2.5

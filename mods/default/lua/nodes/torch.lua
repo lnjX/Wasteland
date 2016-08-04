@@ -110,6 +110,19 @@ minetest.register_abm({
 	end
 })
 
+-- for torch wield light
+core.register_node("default:torchlight", {
+	drawtype = "airlike",
+	groups = {not_in_creative_inventory = 1},
+	walkable = false,
+	paramtype = "light",
+	sunlight_propagates = true,
+	light_source = 11,
+	pointable = false,
+	buildable_to = true,
+	drops = {},
+})
+
 -- Crafting
 
 core.register_craft({

@@ -78,6 +78,10 @@ dofile(envpath .. "leafdecay.lua")
 dofile(envpath .. "no_sneak_glitch.lua")
 dofile(envpath .. "sethome.lua")
 dofile(envpath .. "sounds.lua")
+-- torch wield light (optional)
+if core.is_yes(core.setting_get("enable_torches_wieldlight") or false) then
+	dofile(envpath .. "torch_wield_light.lua")
+end
 
 
 --

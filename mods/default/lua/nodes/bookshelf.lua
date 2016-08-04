@@ -1,3 +1,7 @@
+-- mods/default/lua/nodes/bookshelf.lua
+-- ====================================
+-- See README.txt for licensing and other information.
+
 -- Formspec
 
 local bookshelf_formspec =
@@ -77,4 +81,15 @@ default.register_node("default:bookshelf", {
 		minetest.log("action", player:get_player_name() ..
 			" takes stuff from bookshelf at " .. minetest.pos_to_string(pos))
 	end,
+})
+
+-- Crafting
+
+core.register_craft({
+	output = "default:bookshelf",
+	recipe = {
+		{"group:wood", "group:wood", "group:wood"},
+		{"default:book", "default:book", "default:book"},
+		{"group:wood", "group:wood", "group:wood"},
+	}
 })

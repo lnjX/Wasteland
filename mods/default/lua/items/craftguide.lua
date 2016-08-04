@@ -1,4 +1,6 @@
 --[[
+mods/default/lua/items/craftguide.lua
+=====================================
 This file is from the "Crafting Guide" mod by kilbith; modified by LNJ2.
 See https://github.com/minetest-mods/craftguide for details!
 
@@ -18,7 +20,7 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
---]]
+]]
 
 local craftguide, datas, npp = {}, {}, 8*3
 
@@ -101,7 +103,7 @@ function craftguide:get_formspec(player_name, pagenum, recipe_num)
 
 		local output = recipes[recipe_num].output
 		formspec = formspec..[[ image[3.5,6;1,1;gui_furnace_arrow_bg.png^[transformR90]
-				        item_image_button[2.5,6;1,1;]]..output..";"..data.item..";]"		     
+				        item_image_button[2.5,6;1,1;]]..output..";"..data.item..";]"
 	end
 
 	data.formspec = formspec
@@ -177,4 +179,13 @@ core.register_craftitem("default:craft_guide", {
 			core.show_formspec(player_name, "craft_guide", datas[player_name].formspec)
 		end
 	end
+})
+
+
+-- Crafting
+
+core.register_craft({
+	output = "default:craft_guide",
+	type = "shapeless",
+	recipe = {"default:book"}
 })

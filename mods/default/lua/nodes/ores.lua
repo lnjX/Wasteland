@@ -1,3 +1,7 @@
+-- mods/default/lua/nodes/ores.lua
+-- ===============================
+-- See README.txt for licensing and other information.
+
 -- Minerals
 
 local stones = {
@@ -15,7 +19,7 @@ for _,stone in pairs(stones) do
 		drop = 'default:coal_lump',
 		sounds = default.node_sound_stone_defaults(),
 	})
-	
+
 	default.register_node("default:" .. stone .. "_with_iron", {
 		description = "Iron Ore",
 		tiles = {"default_" .. stone .. ".png^default_mineral_iron.png"},
@@ -57,7 +61,7 @@ for _,stone in pairs(stones) do
 		groups = {cracky = 2, not_in_creative_inventory = 1},
 		sounds = default.node_sound_stone_defaults(),
 	})
-	
+
 	default.register_node("default:" .. stone .. "_with_salt", {
 		description = "Salt Ore",
 		tiles = {"default_" .. stone .. ".png^default_mineral_salt.png"},
@@ -159,4 +163,72 @@ default.register_node("default:saltblock", {
 	is_ground_content = false,
 	groups = {cracky = 2},
 	sounds = default.node_sound_stone_defaults(),
+})
+
+
+--
+-- Crafting
+--
+
+core.register_craft({
+	output = "default:mese",
+	recipe = {
+		{"default:mese_crystal", "default:mese_crystal", "default:mese_crystal"},
+		{"default:mese_crystal", "default:mese_crystal", "default:mese_crystal"},
+		{"default:mese_crystal", "default:mese_crystal", "default:mese_crystal"},
+	}
+})
+
+core.register_craft({
+	output = "default:coalblock",
+	recipe = {
+		{"default:coal_lump", "default:coal_lump", "default:coal_lump"},
+		{"default:coal_lump", "default:coal_lump", "default:coal_lump"},
+		{"default:coal_lump", "default:coal_lump", "default:coal_lump"},
+	}
+})
+
+core.register_craft({
+	output = "default:steelblock",
+	recipe = {
+		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
+		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
+		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
+	}
+})
+
+core.register_craft({
+	output = "default:copperblock",
+	recipe = {
+		{"default:copper_ingot", "default:copper_ingot", "default:copper_ingot"},
+		{"default:copper_ingot", "default:copper_ingot", "default:copper_ingot"},
+		{"default:copper_ingot", "default:copper_ingot", "default:copper_ingot"},
+	}
+})
+
+core.register_craft({
+	output = "default:bronzeblock",
+	recipe = {
+		{"default:bronze_ingot", "default:bronze_ingot", "default:bronze_ingot"},
+		{"default:bronze_ingot", "default:bronze_ingot", "default:bronze_ingot"},
+		{"default:bronze_ingot", "default:bronze_ingot", "default:bronze_ingot"},
+	}
+})
+
+core.register_craft({
+	output = "default:goldblock",
+	recipe = {
+		{"default:gold_ingot", "default:gold_ingot", "default:gold_ingot"},
+		{"default:gold_ingot", "default:gold_ingot", "default:gold_ingot"},
+		{"default:gold_ingot", "default:gold_ingot", "default:gold_ingot"},
+	}
+})
+
+core.register_craft({
+	output = "default:diamondblock",
+	recipe = {
+		{"default:diamond", "default:diamond", "default:diamond"},
+		{"default:diamond", "default:diamond", "default:diamond"},
+		{"default:diamond", "default:diamond", "default:diamond"},
+	}
 })

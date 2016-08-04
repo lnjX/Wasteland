@@ -1,6 +1,10 @@
+-- mods/default/lua/items/books.lua
+-- ================================
+-- See README.txt for licensing and other information.
+
 local function book_on_use(itemstack, user, pointed_thing)
 	local player_name = user:get_player_name()
-	local data = minetest.deserialize(itemstack:get_metadata())
+	local data = core.deserialize(itemstack:get_metadata())
 	local title, text, owner = "", "", player_name
 	if data then
 		title, text, owner = data.title, data.text, data.owner
@@ -9,20 +13,20 @@ local function book_on_use(itemstack, user, pointed_thing)
 	if owner == player_name then
 		formspec = "size[8,8]"..default.gui_bg..
 			"field[0.5,1;7.5,0;title;Title:;"..
-				minetest.formspec_escape(title).."]"..
+				core.formspec_escape(title).."]"..
 			"textarea[0.5,1.5;7.5,7;text;Contents:;"..
-				minetest.formspec_escape(text).."]"..
+				core.formspec_escape(text).."]"..
 			"button_exit[2.5,7.5;3,1;save;Save]"
 	else
 		formspec = "size[8,8]"..default.gui_bg..
 			"label[0.5,0.5;by "..owner.."]"..
-			"label[0.5,0;"..minetest.formspec_escape(title).."]"..
-			"textarea[0.5,1.5;7.5,7;;"..minetest.formspec_escape(text)..";]"
+			"label[0.5,0;"..core.formspec_escape(title).."]"..
+			"textarea[0.5,1.5;7.5,7;;"..core.formspec_escape(text)..";]"
 	end
-	minetest.show_formspec(user:get_player_name(), "default:book", formspec)
+	core.show_formspec(user:get_player_name(), "default:book", formspec)
 end
 
-minetest.register_on_player_receive_fields(function(player, form_name, fields)
+core.register_on_player_receive_fields(function(player, form_name, fields)
 	if form_name ~= "default:book" or not fields.save or
 			fields.title == "" or fields.text == "" then
 		return
@@ -39,19 +43,19 @@ minetest.register_on_player_receive_fields(function(player, form_name, fields)
 			new_stack = ItemStack("default:book_written")
 		end
 	else
-		data = minetest.deserialize(stack:get_metadata())
+		data = core.deserialize(stack:get_metadata())
 	end
 	if not data then data = {} end
 	data.title = fields.title
 	data.text = fields.text
 	data.owner = player:get_player_name()
-	local data_str = minetest.serialize(data)
+	local data_str = core.serialize(data)
 	if new_stack then
 		new_stack:set_metadata(data_str)
 		if inv:room_for_item("main", new_stack) then
 			inv:add_item("main", new_stack)
 		else
-			minetest.add_item(player:getpos(), new_stack)
+			core.add_item(player:getpos(), new_stack)
 		end
 	else
 		stack:set_metadata(data_str)
@@ -77,13 +81,13 @@ default.register_craftitem("default:book_written", {
 
 -- Copy books
 
-minetest.register_craft({
+core.register_craft({
 	type = "shapeless",
 	output = "default:book_written",
 	recipe = { "default:book", "default:book_written" }
 })
 
-minetest.register_on_craft(function(itemstack, player, old_craft_grid, craft_inv)
+core.register_on_craft(function(itemstack, player, old_craft_grid, craft_inv)
 	if itemstack:get_name() ~= "default:book_written" then
 		return
 	end
@@ -106,3 +110,14 @@ minetest.register_on_craft(function(itemstack, player, old_craft_grid, craft_inv
 	-- put the book with metadata back in the craft grid
 	craft_inv:set_stack("craft", index, original)
 end)
+
+-- Crafting
+
+core.register_craft({
+	output = "default:book",
+	recipe = {
+		{"default:paper"},
+		{"default:paper"},
+		{"default:paper"},
+	}
+})

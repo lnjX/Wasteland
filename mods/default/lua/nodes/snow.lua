@@ -1,3 +1,7 @@
+-- mods/default/lua/nodes/snow.lua
+-- ===============================
+-- See README.txt for licensing and other information.
+
 default.register_node("default:snow", {
 	description = "Snow",
 	tiles = {"default_snow.png"},
@@ -28,4 +32,23 @@ default.register_node("default:snowblock", {
 	tiles = {"default_snow.png"},
 	groups = {crumbly = 3, puts_out_fire = 1, snowy = 1},
 	sounds = default.node_sound_snow_defaults(),
+})
+
+
+-- Crafting
+
+core.register_craft({
+	output = "default:snowblock",
+	recipe = {
+		{"default:snow", "default:snow", "default:snow"},
+		{"default:snow", "default:snow", "default:snow"},
+		{"default:snow", "default:snow", "default:snow"},
+	}
+})
+
+core.register_craft({
+	output = "default:snow 9",
+	recipe = {
+		{"default:snowblock"},
+	}
 })

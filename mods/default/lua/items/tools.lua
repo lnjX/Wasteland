@@ -1,3 +1,7 @@
+-- mods/default/lua/items/tools.lua
+-- ================================
+-- See README.txt for licensing and other information.
+
 -- The hand
 if not core.setting_getbool("creative_mode") then
 	core.register_item(":", {
@@ -328,4 +332,250 @@ core.register_tool("default:screwdriver", {
 		screwdriver.screwdriver_handler(itemstack, user, pointed_thing, screwdriver.ROTATE_AXIS)
 		return itemstack
 	end,
+})
+
+
+--
+-- Crafting
+--
+
+core.register_craft({
+	output = "default:pick_wood",
+	recipe = {
+		{"group:wood", "group:wood", "group:wood"},
+		{"", "group:stick", ""},
+		{"", "group:stick", ""},
+	}
+})
+
+core.register_craft({
+	output = "default:pick_stone",
+	recipe = {
+		{"group:stone", "group:stone", "group:stone"},
+		{"", "group:stick", ""},
+		{"", "group:stick", ""},
+	}
+})
+
+core.register_craft({
+	output = "default:pick_steel",
+	recipe = {
+		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
+		{"", "group:stick", ""},
+		{"", "group:stick", ""},
+	}
+})
+
+core.register_craft({
+	output = "default:pick_bronze",
+	recipe = {
+		{"default:bronze_ingot", "default:bronze_ingot", "default:bronze_ingot"},
+		{"", "group:stick", ""},
+		{"", "group:stick", ""},
+	}
+})
+
+core.register_craft({
+	output = "default:pick_mese",
+	recipe = {
+		{"default:mese_crystal", "default:mese_crystal", "default:mese_crystal"},
+		{"", "group:stick", ""},
+		{"", "group:stick", ""},
+	}
+})
+
+core.register_craft({
+	output = "default:pick_diamond",
+	recipe = {
+		{"default:diamond", "default:diamond", "default:diamond"},
+		{"", "group:stick", ""},
+		{"", "group:stick", ""},
+	}
+})
+
+core.register_craft({
+	output = "default:shovel_wood",
+	recipe = {
+		{"group:wood"},
+		{"group:stick"},
+		{"group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:shovel_stone",
+	recipe = {
+		{"group:stone"},
+		{"group:stick"},
+		{"group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:shovel_steel",
+	recipe = {
+		{"default:steel_ingot"},
+		{"group:stick"},
+		{"group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:shovel_bronze",
+	recipe = {
+		{"default:bronze_ingot"},
+		{"group:stick"},
+		{"group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:shovel_mese",
+	recipe = {
+		{"default:mese_crystal"},
+		{"group:stick"},
+		{"group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:shovel_diamond",
+	recipe = {
+		{"default:diamond"},
+		{"group:stick"},
+		{"group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:axe_wood",
+	recipe = {
+		{"group:wood", "group:wood"},
+		{"group:wood", "group:stick"},
+		{"", "group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:axe_stone",
+	recipe = {
+		{"group:stone", "group:stone"},
+		{"group:stone", "group:stick"},
+		{"", "group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:axe_steel",
+	recipe = {
+		{"default:steel_ingot", "default:steel_ingot"},
+		{"default:steel_ingot", "group:stick"},
+		{"", "group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:axe_bronze",
+	recipe = {
+		{"default:bronze_ingot", "default:bronze_ingot"},
+		{"default:bronze_ingot", "group:stick"},
+		{"", "group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:axe_mese",
+	recipe = {
+		{"default:mese_crystal", "default:mese_crystal"},
+		{"default:mese_crystal", "group:stick"},
+		{"", "group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:axe_diamond",
+	recipe = {
+		{"default:diamond", "default:diamond"},
+		{"default:diamond", "group:stick"},
+		{"", "group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:axe_wood",
+	recipe = {
+		{"group:wood", "group:wood"},
+		{"group:stick", "group:wood"},
+		{"group:stick",""},
+	}
+})
+
+core.register_craft({
+	output = "default:axe_stone",
+	recipe = {
+		{"group:stone", "group:stone"},
+		{"group:stick", "group:stone"},
+		{"group:stick", ""},
+	}
+})
+
+core.register_craft({
+	output = "default:axe_steel",
+	recipe = {
+		{"default:steel_ingot", "default:steel_ingot"},
+		{"group:stick", "default:steel_ingot"},
+		{"group:stick", ""},
+	}
+})
+
+core.register_craft({
+	output = "default:axe_bronze",
+	recipe = {
+		{"default:bronze_ingot", "default:bronze_ingot"},
+		{"group:stick", "default:bronze_ingot"},
+		{"group:stick", ""},
+	}
+})
+
+core.register_craft({
+	output = "default:axe_mese",
+	recipe = {
+		{"default:mese_crystal", "default:mese_crystal"},
+		{"group:stick", "default:mese_crystal"},
+		{"group:stick", ""},
+	}
+})
+
+core.register_craft({
+	output = "default:axe_diamond",
+	recipe = {
+		{"default:diamond", "default:diamond"},
+		{"group:stick", "default:diamond"},
+		{"group:stick", ""},
+	}
+})
+
+core.register_craft({
+	output = "default:shears",
+	recipe = {
+		{""                   , "default:steel_ingot"},
+		{"default:steel_ingot", "group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:screwdriver",
+	recipe = {
+		{"default:steel_ingot"},
+		{"group:stick"}
+	}
+})
+
+--
+-- Crafting (tool repair)
+--
+
+core.register_craft({
+	type = "toolrepair",
+	additional_wear = -0.02,
 })

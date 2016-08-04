@@ -1,5 +1,8 @@
--- Formspecs
+-- mods/default/nodes/chests.lua
+-- =============================
+-- See README.txt for licensing and other information.
 
+-- Formspecs
 default.gui_chest_formspec = "size[8,10.6]" ..
 	default.gui_bg ..
 	default.gui_bg_img ..
@@ -11,12 +14,12 @@ default.gui_chest_formspec = "size[8,10.6]" ..
 	-- Chest inventory
 	"list[current_name;main;0,1.2;8,4;]" ..
 	"listring[current_name;main]" ..
-	
+
 	-- Inventory icon
 	"image[0,5.4;1,1;default_inventory_icon.png]" ..
 	-- label (Inventory)
 	"label[1,5.65;Inventory]" ..
-	-- inventory 
+	-- inventory
 	"list[current_player;main;0,6.5;8,1;]" ..
 	"list[current_player;main;0,7.7;8,3;8]" ..
 	"listring[current_player;main]" ..
@@ -32,12 +35,12 @@ default.gui_chest_teleport_formspec = "size[8,10.6]" ..
 	"image[0,0;1,1;" .. core.inventorycube("default_chest_teleport_top.png", "default_chest_teleport_front.png", "default_chest_teleport_side.png") .. "]" ..
 	-- Chest inventory
 	"list[current_player;teleport;0,1.2;8,4;]" ..
-	
+
 	-- Inventory icon
 	"image[0,5.4;1,1;default_inventory_icon.png]" ..
 	-- label (Inventory)
 	"label[1,5.65;Inventory]" ..
-	-- inventory 
+	-- inventory
 	"list[current_player;main;0,6.5;8,1;]" ..
 	"list[current_player;main;0,7.7;8,3;8]" ..
 	default.get_hotbar_bg(0, 4.85)
@@ -239,4 +242,35 @@ core.register_node("default:chest_teleport", {
 		player:get_inventory():set_size("main", 8*4)
 		core.show_formspec(player:get_player_name(), "main", default.gui_chest_teleport_formspec)
 	end
+})
+
+--
+-- Crafting
+--
+
+core.register_craft({
+	output = "default:chest",
+	recipe = {
+		{"group:wood", "group:wood", "group:wood"},
+		{"group:wood", "", "group:wood"},
+		{"group:wood", "group:wood", "group:wood"},
+	}
+})
+
+core.register_craft({
+	output = "default:chest_locked",
+	recipe = {
+		{"group:wood", "group:wood", "group:wood"},
+		{"group:wood", "default:steel_ingot", "group:wood"},
+		{"group:wood", "group:wood", "group:wood"},
+	}
+})
+
+core.register_craft({
+	output = "default:chest_teleport",
+	recipe = {
+		{"default:mese_crystal", "default:obsidian", "default:mese_crystal"},
+		{   "default:obsidian",    "default:chest",    "default:obsidian"  },
+		{"default:mese_crystal", "default:obsidian", "default:mese_crystal"}
+	}
 })

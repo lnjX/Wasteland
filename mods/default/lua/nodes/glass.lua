@@ -1,3 +1,7 @@
+-- mods/default/lua/nodes/glass.lua
+-- ================================
+-- See README.txt for licensing and other information.
+
 default.register_node("default:glass", {
 	description = "Glass",
 	drawtype = "glasslike_framed_optional",
@@ -20,4 +24,19 @@ default.register_node("default:obsidian_glass", {
 	sunlight_propagates = true,
 	sounds = default.node_sound_glass_defaults(),
 	groups = {cracky = 3, oddly_breakable_by_hand = 3},
+})
+
+
+-- Crafting
+
+core.register_craft({
+	type = "cooking",
+	output = "default:glass",
+	recipe = "group:sand",
+})
+
+core.register_craft({
+	type = "cooking",
+	output = "default:obsidian_glass",
+	recipe = "default:obsidian_shard",
 })

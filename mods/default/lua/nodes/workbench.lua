@@ -1,4 +1,8 @@
-default.workbench_formspec = 
+-- mods/default/lua/nodes/workbench.lua
+-- ====================================
+-- See README.txt for licensing and other information.
+
+default.workbench_formspec =
 	"size[8,9]" ..
 	default.gui_bg ..
 	default.gui_bg_img ..
@@ -19,13 +23,13 @@ default.workbench_formspec =
 	"label[2.75,0.25;Workbench]" ..
 	-- Workbench image
 	"image[1.75,0;1,1;" .. core.inventorycube("default_workbench_top.png", "default_workbench_front.png", "default_workbench_side.png") .. "]"
-	
+
 
 
 function default.open_workbench(player)
 	player:get_inventory():set_size("craft", 3*3)
 	player:get_inventory():set_size("main", 8*4)
-	
+
 	core.show_formspec(player:get_player_name(), "main", default.workbench_formspec)
 end
 
@@ -39,4 +43,13 @@ default.register_node("default:workbench", {
 	on_rightclick = function(pos, node, clicker)
 		default.open_workbench(clicker)
 	end
+})
+
+-- Crafting
+core.register_craft({
+	output = "default:workbench",
+	recipe = {
+		{"group:wood", "group:wood"},
+		{"group:wood", "group:wood"}
+	}
 })

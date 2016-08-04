@@ -102,7 +102,7 @@ dofile(apipath .. "trees.lua")
 
 
 --
--- Nodes
+-- Nodes (inculdes crafting recipies)
 --
 
 -- Full/Natural/Terrain
@@ -159,7 +159,7 @@ dofile(nodepath .. "unused.lua")
 
 
 --
--- Items
+-- Items (inculdes crafting recipies)
 --
 
 dofile(itempath .. "tools.lua")
@@ -174,13 +174,6 @@ dofile(itempath .. "bonemeal.lua")
 dofile(itempath .. "craftguide.lua")
 
 dofile(itempath .. "dyes.lua")
-
-
---
--- Crafting
---
-
-dofile(luapath .. "crafting.lua")
 
 
 --

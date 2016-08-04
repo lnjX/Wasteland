@@ -1,3 +1,7 @@
+-- mods/default/lua/nodes/papyrus.lua
+-- ==================================
+-- See README.txt for licensing and other information.
+
 default.register_node("default:papyrus", {
 	description = "Papyrus",
 	drawtype = "plantlike",
@@ -35,12 +39,40 @@ default.register_node("default:papyrus_block", {
 	},
 	fence = {
 		name = "default:fence_papyrus",
-		no_craft = true, -- the crafting recipe is in mods/default/lua/crafting.lua
+		no_craft = true,
 		groups = {choppy = 3, oddly_breakable_by_hand = 3, flammable = 2, fuel = 3},
 	},
 	fencegate = {
 		name = "default:fencegate_papyrus",
-		no_craft = true, -- the crafting recipe is in mods/default/lua/crafting.lua
+		no_craft = true,
 		groups = {choppy = 3, oddly_breakable_by_hand = 3, flammable = 2, fuel = 10},
+	}
+})
+
+
+-- Crafting
+
+core.register_craft({
+	output = "default:papyrus_block 2",
+	recipe = {
+		{"default:papyrus", "default:papyrus", "default:papyrus"},
+		{"default:papyrus", "default:papyrus", "default:papyrus"},
+		{"default:papyrus", "default:papyrus", "default:papyrus"}
+	}
+})
+
+core.register_craft({
+	output = "default:fence_papyrus 2",
+	recipe = {
+		{"default:papyrus", "default:papyrus", "default:papyrus"},
+		{"default:papyrus", "default:papyrus", "default:papyrus"}
+	}
+})
+
+core.register_craft({
+	output = "default:fencegate_papyrus",
+	recipe = {
+		{"default:papyrus", "default:papyrus_block", "default:papyrus"},
+		{"default:papyrus", "default:papyrus_block", "default:papyrus"}
 	}
 })

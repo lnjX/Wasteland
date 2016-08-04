@@ -1,3 +1,7 @@
+-- mods/default/lua/nodes/bricks.lua
+-- =================================
+-- See README.txt for licensing and other information.
+
 default.register_node("default:brick", {
 	description = "Brick Block",
 	tiles = {"default_brick.png"},
@@ -53,4 +57,47 @@ default.register_node("default:obsidianbrick", {
 	is_ground_content = false,
 	sounds = default.node_sound_stone_defaults(),
 	groups = {cracky = 1, level = 2}
+})
+
+
+-- Crafting
+
+core.register_craft({
+	output = "default:brick",
+	recipe = {
+		{"default:clay_brick", "default:clay_brick"},
+		{"default:clay_brick", "default:clay_brick"},
+	}
+})
+
+core.register_craft({
+	output = "default:stonebrick 4",
+	recipe = {
+		{"default:stone", "default:stone"},
+		{"default:stone", "default:stone"},
+	}
+})
+
+core.register_craft({
+	output = "default:sandstonebrick 4",
+	recipe = {
+		{"default:sandstone", "default:sandstone"},
+		{"default:sandstone", "default:sandstone"},
+	}
+})
+
+core.register_craft({
+	output = "default:obsidianbrick 4",
+	recipe = {
+		{"default:obsidian", "default:obsidian"},
+		{"default:obsidian", "default:obsidian"}
+	}
+})
+
+core.register_craft({
+	output = "default:desert_stonebrick 4",
+	recipe = {
+		{"default:desert_stone", "default:desert_stone"},
+		{"default:desert_stone", "default:desert_stone"},
+	}
 })

@@ -1,3 +1,7 @@
+-- mods/default/lua/nodes/dirt.lua
+-- ===============================
+-- See README.txt for licensing and other information.
+
 -- Wet
 
 default.register_node("default:clay", {
@@ -76,4 +80,27 @@ default.register_node("default:dirt_with_snow", {
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name = "default_snow_footstep", gain = 0.25},
 	}),
+})
+
+
+-- Crafting
+
+core.register_craft({
+	output = "default:clay",
+	recipe = {
+		{"default:clay_lump", "default:clay_lump"},
+		{"default:clay_lump", "default:clay_lump"},
+	}
+})
+
+core.register_craft({
+	type = "shapeless",
+	output = "default:dirt_with_snow",
+	recipe = {"default:dirt", "default:snow"}
+})
+
+core.register_craft({
+	type = "cooking",
+	output = "default:dry_dirt",
+	recipe = "default:dirt",
 })

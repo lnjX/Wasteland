@@ -1,3 +1,7 @@
+-- mods/default/lua/nodes/torch.lua
+-- ================================
+-- See README.txt for licensing and other information.
+
 default.register_craftitem("default:torch", {
 	description = "Torch",
 	inventory_image = "default_torch.png",
@@ -104,4 +108,14 @@ minetest.register_abm({
 			minetest.set_node(pos, {name = node_name, param2 = wdir})
 		end
 	end
+})
+
+-- Crafting
+
+core.register_craft({
+	output = "default:torch 4",
+	recipe = {
+		{"group:coal"},
+		{"group:stick"},
+	}
 })

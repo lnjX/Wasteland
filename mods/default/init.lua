@@ -147,7 +147,7 @@ dofile(nodepath .. "workbench.lua")
 
 -- Functional Nodes
 dofile(nodepath .. "signs.lua")
-dofile(nodepath .. "latter.lua")
+dofile(nodepath .. "ladder.lua")
 dofile(nodepath .. "rails.lua")
 dofile(nodepath .. "itemframes.lua")
 

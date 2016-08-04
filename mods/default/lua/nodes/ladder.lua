@@ -1,4 +1,4 @@
--- mods/default/lua/nodes/latter.lua
+-- mods/default/lua/nodes/ladder.lua
 -- =================================
 -- See README.txt for licensing and other information.
 
@@ -28,7 +28,7 @@ default.register_node("default:ladder", {
 -- Crafting
 
 core.register_craft({
-	output = "default:ladder",
+	output = "default:ladder 2",
 	recipe = {
 		{"group:stick", "", "group:stick"},
 		{"group:stick", "group:stick", "group:stick"},

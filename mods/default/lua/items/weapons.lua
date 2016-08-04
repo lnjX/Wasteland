@@ -1,5 +1,9 @@
+-- mods/default/items/weapons.lua
+-- ==============================
+-- See README.txt for licensing and other information.
+
 -- Swords
-minetest.register_tool("default:sword_wood", {
+core.register_tool("default:sword_wood", {
 	description = "Wooden Sword",
 	inventory_image = "default_tool_woodsword.png",
 	wield_scale = {x = 1.25, y = 1.25, z = 1},
@@ -13,7 +17,7 @@ minetest.register_tool("default:sword_wood", {
 	}
 })
 
-minetest.register_tool("default:sword_stone", {
+core.register_tool("default:sword_stone", {
 	description = "Stone Sword",
 	inventory_image = "default_tool_stonesword.png",
 	wield_scale = {x = 1.3, y = 1.3, z = 1},
@@ -27,7 +31,7 @@ minetest.register_tool("default:sword_stone", {
 	}
 })
 
-minetest.register_tool("default:sword_steel", {
+core.register_tool("default:sword_steel", {
 	description = "Steel Sword",
 	inventory_image = "default_tool_steelsword.png",
 	wield_scale = {x = 1.5, y = 1.5, z = 1},
@@ -41,7 +45,7 @@ minetest.register_tool("default:sword_steel", {
 	}
 })
 
-minetest.register_tool("default:sword_bronze", {
+core.register_tool("default:sword_bronze", {
 	description = "Bronze Sword",
 	inventory_image = "default_tool_bronzesword.png",
 	wield_scale = {x = 1.5, y = 1.5, z = 1},
@@ -55,7 +59,7 @@ minetest.register_tool("default:sword_bronze", {
 	}
 })
 
-minetest.register_tool("default:sword_mese", {
+core.register_tool("default:sword_mese", {
 	description = "Mese Sword",
 	inventory_image = "default_tool_mesesword.png",
 	wield_scale = {x = 1.5, y = 1.5, z = 1},
@@ -69,7 +73,7 @@ minetest.register_tool("default:sword_mese", {
 	}
 })
 
-minetest.register_tool("default:sword_diamond", {
+core.register_tool("default:sword_diamond", {
 	description = "Diamond Sword",
 	inventory_image = "default_tool_diamondsword.png",
 	wield_scale = {x = 1.5, y = 1.5, z = 1},
@@ -80,5 +84,63 @@ minetest.register_tool("default:sword_diamond", {
 			snappy={times={[1]=1.90, [2]=0.90, [3]=0.30}, uses=40, maxlevel=3},
 		},
 		damage_groups = {fleshy=8},
+	}
+})
+
+--
+-- Crafting
+--
+
+core.register_craft({
+	output = "default:sword_wood",
+	recipe = {
+		{"group:wood"},
+		{"group:wood"},
+		{"group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:sword_stone",
+	recipe = {
+		{"group:stone"},
+		{"group:stone"},
+		{"group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:sword_steel",
+	recipe = {
+		{"default:steel_ingot"},
+		{"default:steel_ingot"},
+		{"group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:sword_bronze",
+	recipe = {
+		{"default:bronze_ingot"},
+		{"default:bronze_ingot"},
+		{"group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:sword_mese",
+	recipe = {
+		{"default:mese_crystal"},
+		{"default:mese_crystal"},
+		{"group:stick"},
+	}
+})
+
+core.register_craft({
+	output = "default:sword_diamond",
+	recipe = {
+		{"default:diamond"},
+		{"default:diamond"},
+		{"group:stick"},
 	}
 })

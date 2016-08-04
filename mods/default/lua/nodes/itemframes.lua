@@ -1,6 +1,10 @@
+-- mods/default/lua/nodes/itemframes.lua
+-- =====================================
+-- See README.txt for licensing and other information.
+
 local itemframe = {}
 
-minetest.register_entity("default:itemframe_item",{
+core.register_entity("default:itemframe_item",{
 	hp_max = 1,
 	visual = "wielditem",
 	visual_size = {x = 0.33, y = 0.33},
@@ -44,7 +48,7 @@ facedir[3] = {x = -1, y = 0, z= 0}
 local remove_item = function(pos, node)
 	local objs = nil
 	if node.name == "default:itemframe" then
-		objs = minetest.get_objects_inside_radius(pos, .5)
+		objs = core.get_objects_inside_radius(pos, .5)
 	end
 	if objs then
 		for _, obj in ipairs(objs) do
@@ -57,7 +61,7 @@ end
 
 local update_item = function(pos, node)
 	remove_item(pos, node)
-	local meta = minetest.env:get_meta(pos)
+	local meta = core.env:get_meta(pos)
 	if meta:get_string("item") ~= "" then
 		if node.name == "default:itemframe" then
 			local posad = facedir[node.param2]
@@ -70,7 +74,7 @@ local update_item = function(pos, node)
 		end
 		itemframe.nodename = node.name
 		itemframe.texture = ItemStack(meta:get_string("item")):get_name()
-		local e = minetest.env:add_entity(pos,"default:itemframe_item")
+		local e = core.env:add_entity(pos,"default:itemframe_item")
 		if node.name == "default:itemframe" then
 			local yaw = math.pi*2 - node.param2 * math.pi/2
 			e:setyaw(yaw)
@@ -79,10 +83,10 @@ local update_item = function(pos, node)
 end
 
 local drop_item = function(pos, node)
-	local meta = minetest.get_meta(pos)
+	local meta = core.get_meta(pos)
 	if meta:get_string("item") ~= "" then
 		if node.name == "default:itemframe" then
-			minetest.add_item(pos, meta:get_string("item"))
+			core.add_item(pos, meta:get_string("item"))
 		end
 		meta:set_string("item", "")
 	end
@@ -105,19 +109,19 @@ default.register_node("default:itemframe",{
 	sounds = default.node_sound_defaults(),
 	on_rightclick = function(pos, node, clicker, itemstack)
 		if not itemstack then return end
-		
-		local meta = minetest.get_meta(pos)
+
+		local meta = core.get_meta(pos)
 		drop_item(pos,node)
-		
+
 		local name = itemstack
 		meta:set_string("item", name:to_string())
-		
+
 		update_item(pos,node)
-		
+
 		if not core.setting_getbool("creative_mode") then
 			itemstack:take_item()
 		end
-		
+
 		return itemstack
 	end,
 	on_punch = function(pos, node)
@@ -129,13 +133,24 @@ default.register_node("default:itemframe",{
 -- automatically restore entities lost from frames
 -- due to /clearobjects or similar
 
-minetest.register_abm({
+core.register_abm({
 	nodenames = { "default:itemframe" },
 	interval = 15,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
-		if #minetest.get_objects_inside_radius(pos, 0.5) > 0 then return end
+		if #core.get_objects_inside_radius(pos, 0.5) > 0 then return end
 		update_item(pos, node)
 	end
 })
 --]]
+
+-- Crafting
+
+core.register_craft({
+	output = "default:itemframe",
+	recipe = {
+		{"default:stick", "default:stick", "default:stick"},
+		{"default:stick", "default:paper", "default:stick"},
+		{"default:stick", "default:stick", "default:stick"},
+	}
+})

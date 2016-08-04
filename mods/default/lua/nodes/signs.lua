@@ -18,3 +18,22 @@ default.register_sign("default:sign_wall_steel", {
 	groups = {cracky = 2, fences_connect = 1}
 })
 
+-- Crafting
+
+core.register_craft({
+	output = "default:sign_wall_wood",
+	recipe = {
+		{"group:wood", "group:wood", "group:wood"},
+		{"group:wood", "group:wood", "group:wood"},
+		{"", "group:stick", ""},
+	}
+})
+
+core.register_craft({
+	output = "default:sign_wall_steel",
+	recipe = {
+		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
+		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
+		{"", "group:stick", ""},
+	}
+})

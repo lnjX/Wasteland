@@ -1,3 +1,7 @@
+-- mods/default/lua/items/bonemeal.lua
+-- ===================================
+-- See README.txt for licensing and other information.
+
 local function place_grass(pos)
 	local grassNum
 	-- higher chance that the grass is tall
@@ -13,7 +17,7 @@ local function grow_plants(pointed_thing)
 	if not core.get_modpath("flowers") then
 		return false
 	end
-	
+
 	local growed = false
 	local flowers = {}
 	flowers[0] = "flowers:rose"
@@ -22,7 +26,7 @@ local function grow_plants(pointed_thing)
 	flowers[3] = "flowers:geranium"
 	flowers[4] = "flowers:viola"
 	flowers[5] = "flowers:dandelion_white"
-	
+
 	for i = -2, 3, 1 do
 		for j = -3, 2, 1 do
 			local pos = pointed_thing.above
@@ -45,11 +49,11 @@ local function grow_plants(pointed_thing)
 						growed = true
 					end
 				end
-				
+
 			end
 		end
 	end
-	
+
 	return growed
 end
 
@@ -74,26 +78,26 @@ local function bonemeal_on_use(itemstack, player, pointed_thing)
 		core.chat_send_player(player:get_player_name(), "Plants don't grow at night!")
 		return
 	end
-	
+
 	if pointed_thing.type == "node" then
 		local growed = true
 		local take_item = true
-		
+
 		--if core.get_node_group(pointed_thing.name, "sapling") then
 				-- if its a sapling then grow it
 		--	growed = grow_sapling(pointed_thing)
 		--else
-		
+
 		--end
-		
+
 		-- grow some flowers and grasses
 		growed = grow_plants(pointed_thing)
-		
+
 		-- if nothing growed or in creative_mode dont take the item away
 		if not core.setting_getbool("creative_mode") and growed == true then
 			itemstack:take_item()
 		end
-		
+
 		-- give the changed itemstack back
 		return itemstack
 	end
@@ -106,4 +110,13 @@ default.register_craftitem("default:bonemeal", {
 	on_place = function(itemstack, placer, pointed_thing)
 		return bonemeal_on_use(itemstack, placer, pointed_thing)
 	end
+})
+
+-- Crafting
+
+core.register_craft({
+	output = "default:bonemeal 2",
+	recipe = {
+		{"default:bone"}
+	}
 })

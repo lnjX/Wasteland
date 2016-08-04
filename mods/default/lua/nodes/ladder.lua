@@ -1,3 +1,7 @@
+-- mods/default/lua/nodes/ladder.lua
+-- =================================
+-- See README.txt for licensing and other information.
+
 default.register_node("default:ladder", {
 	description = "Ladder",
 	drawtype = "signlike",
@@ -19,4 +23,15 @@ default.register_node("default:ladder", {
 	groups = {choppy = 2, oddly_breakable_by_hand = 3, flammable = 2, fuel = 5},
 	legacy_wallmounted = true,
 	sounds = default.node_sound_wood_defaults(),
+})
+
+-- Crafting
+
+core.register_craft({
+	output = "default:ladder 2",
+	recipe = {
+		{"group:stick", "", "group:stick"},
+		{"group:stick", "group:stick", "group:stick"},
+		{"group:stick", "", "group:stick"},
+	}
 })

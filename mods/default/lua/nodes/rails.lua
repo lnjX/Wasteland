@@ -1,3 +1,7 @@
+-- mods/default/nodes/rails.lua
+-- ============================
+-- See README.txt for licensing and other information.
+
 default.register_node("default:rail", {
 	description = "Rail",
 	drawtype = "raillike",
@@ -16,4 +20,14 @@ default.register_node("default:rail", {
 	},
 	groups = {bendy = 2, dig_immediate = 2, attached_node = 1,
 		connect_to_raillike = minetest.raillike_group("rail")},
+})
+
+-- Crafting
+core.register_craft({
+	output = "default:rail 24",
+	recipe = {
+		{"default:steel_ingot", "", "default:steel_ingot"},
+		{"default:steel_ingot", "group:stick", "default:steel_ingot"},
+		{"default:steel_ingot", "", "default:steel_ingot"},
+	}
 })

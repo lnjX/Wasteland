@@ -1,3 +1,7 @@
+-- mods/default/lua/nodes/stone.lua
+-- ================================
+-- See README.txt for licensing and other information.
+
 default.register_node("default:stone", {
 	description = "Stone",
 	tiles = {"default_stone.png"},
@@ -35,4 +39,42 @@ default.register_node("default:obsidian", {
 	tiles = {"default_obsidian.png"},
 	sounds = default.node_sound_stone_defaults(),
 	groups = {cracky = 1, level = 2},
+})
+
+
+-- Crafting
+
+core.register_craft({
+	type = "cooking",
+	output = "default:stone",
+	recipe = "default:cobble",
+})
+
+core.register_craft({
+	type = "cooking",
+	output = "default:stone",
+	recipe = "default:mossycobble",
+})
+
+core.register_craft({
+	type = "cooking",
+	output = "default:desert_stone",
+	recipe = "default:desert_cobble",
+})
+
+core.register_craft({
+	output = "default:sandstone",
+	recipe = {
+		{"group:sand", "group:sand"},
+		{"group:sand", "group:sand"},
+	}
+})
+
+core.register_craft({
+	output = "default:obsidian",
+	recipe = {
+		{"default:obsidian_shard", "default:obsidian_shard", "default:obsidian_shard"},
+		{"default:obsidian_shard", "default:obsidian_shard", "default:obsidian_shard"},
+		{"default:obsidian_shard", "default:obsidian_shard", "default:obsidian_shard"},
+	}
 })

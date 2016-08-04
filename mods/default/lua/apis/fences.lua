@@ -1,3 +1,7 @@
+-- mods/default/apis/fences.lua
+-- ============================
+-- See README.txt for licensing and other information.
+
 function default.register_fence(itemstring, def)
 	local fence_texture_1 = "default_fence_overlay.png^"
 	local fence_texture_2 = "^default_fence_overlay.png^[makealpha:255,126,126"
@@ -74,3 +78,13 @@ function default.register_fence(itemstring, def)
 		})
 	end
 end
+
+-- Old crafting for normal fence
+
+core.register_craft({
+	output = "default:fence_wood 2",
+	recipe = {
+		{"group:stick", "group:stick", "group:stick"},
+		{"group:stick", "group:stick", "group:stick"},
+	}
+})

@@ -1,3 +1,7 @@
+-- mods/default/lua/nodes/sand.lua
+-- ===============================
+-- See README.txt for licensing and other information.
+
 default.register_node("default:sand", {
 	description = "Sand",
 	tiles = {"default_sand.png"},
@@ -30,5 +34,12 @@ default.register_node("default:mineralsand", {
 			}
 		}
 	},
-	stack_max = 40,
+})
+
+-- Crafting
+core.register_craft({
+	output = "default:sand 4",
+	recipe = {
+		{"default:sandstone"},
+	}
 })

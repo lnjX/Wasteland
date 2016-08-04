@@ -18,9 +18,9 @@ default.register_node("default:meselamp", {
 -- Crafting
 
 core.register_craft({
-	output = "default:meselamp",
+	output = "default:meselamp 2",
 	recipe = {
 		{"", "default:mese_crystal",""},
-		{"default:mese_crystal", "default:glass", "default:mese_crystal"},
+		{"default:mese_crystal", "default:obsidian_glass", "default:mese_crystal"},
 	}
 })

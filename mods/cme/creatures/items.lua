@@ -24,12 +24,14 @@ default.register_craftitem("creatures:flesh", {
 	description = "Flesh",
 	inventory_image = "creatures_flesh.png",
 	on_use = core.item_eat(2),
+	groups = {food = 3}
 })
 
 default.register_craftitem("creatures:meat", {
 	description = "Cooked Meat",
 	inventory_image = "creatures_meat.png",
 	on_use = core.item_eat(4),
+	groups = {food = 4, meat = 1}
 })
 
 core.register_craft({

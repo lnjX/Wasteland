@@ -69,4 +69,5 @@ core.register_craftitem(":creatures:egg", {
 		end
 		return itemstack
 	end,
+	groups = {food = 2}
 })

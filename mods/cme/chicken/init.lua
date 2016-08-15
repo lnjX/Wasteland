@@ -34,13 +34,15 @@ end
 default.register_craftitem(":creatures:chicken_flesh", {
 	description = "Raw Chicken Flesh",
 	inventory_image = "creatures_chicken_flesh.png",
-	on_use = core.item_eat(1)
+	on_use = core.item_eat(1),
+	groups = {flesh = 1, food = 3}
 })
 
 default.register_craftitem(":creatures:chicken_meat", {
 	description = "Chicken Meat",
 	inventory_image = "creatures_chicken_meat.png",
-	on_use = core.item_eat(3)
+	on_use = core.item_eat(3),
+	groups = {meat = 1, food = 4}
 })
 
 core.register_craft({
@@ -127,7 +129,7 @@ local def = {
 		{"creatures:chicken_flesh"},
 		{"creatures:feather", {min = 1, max = 2}, chance = 0.45},
 	},
-	
+
 	on_rightclick = function(self, clicker)
 		local item = clicker:get_wielded_item()
 			if item then
@@ -148,9 +150,9 @@ local def = {
 					-- play eat sound
 					local pos = self.object:getpos()
 					core.sound_play("hunger_eat", {pos = pos, gain = 1, max_hear_distance = 10})
-					
+
 					item:take_item()
-					
+
 					core.log("action", clicker:get_player_name() .. " fed a chicken at " .. core.pos_to_string(pos))
 				end
 				if not core.setting_getbool("creative_mode") then

@@ -25,6 +25,7 @@ default.register_craftitem(":creatures:rotten_flesh", {
 	description = "Rotten Flesh",
 	inventory_image = "creatures_rotten_flesh.png",
 	on_use = core.item_eat(1),
+	groups = {food = 1}
 })
 
 local snowSkins = {"jacket", "frozen"}
@@ -119,19 +120,19 @@ local def = {
       light = {min = 0, max = 8},
     }
   },
-  
+
   get_staticdata = function(self)
     return {
       skin = self.skin
     }
   end,
-  
+
   on_activate = function(self, staticdata)
     if self.skin == nil then
       local pos = self.object:getpos()
       pos = {x = pos.x, y = pos.y - 2, z = pos.z}
       local nodename = core.get_node(pos).name
-      
+
       -- snowy = 1 are nodes with snow, snowy = 2 is ice
       if core.get_item_group(nodename, "snowy") == 1 or core.get_item_group(nodename, "snowy") == 2 then
         self.skin = snowSkins[math.random(1, #snowSkins)]
@@ -139,7 +140,7 @@ local def = {
         self.skin = "normal"
       end
     end
-    
+
     setSkin(self)
   end,
 

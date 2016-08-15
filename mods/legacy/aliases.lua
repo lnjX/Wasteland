@@ -126,6 +126,7 @@ core.register_alias("screwdriver:screwdriver4", "default:screwdriver")
 core.register_alias("wool:dark_blue", "default:wool_blue")
 core.register_alias("wool:gold", "default:wool_yellow")
 
+
 -- Wrong named fences
 core.register_alias("default:fence_pinewood", "default:fence_pine_wood")
 core.register_alias("default:fence_acaciawood", "default:fence_acacia_wood")
@@ -157,3 +158,13 @@ core.register_alias("default:sword_iron", "default:sword_steel")
 core.register_alias("default:iron_ingot", "default:steel_ingot")
 core.register_alias("default:sign_wall", "default:sign_wall_wood")
 core.register_alias("default:dry_dirt", "default:dirt")
+
+
+--
+-- Moved food
+--
+
+core.register_alias("creatures:fried_egg", "food:fried_egg")
+core.register_alias("farming:bread", "food:roll")
+core.register_alias("farming:flour", "food:flour")
+

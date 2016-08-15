@@ -126,3 +126,11 @@ core.register_alias("screwdriver:screwdriver4", "default:screwdriver")
 core.register_alias("wool:dark_blue", "default:wool_blue")
 core.register_alias("wool:gold", "default:wool_yellow")
 
+
+--
+-- Moved food
+--
+
+core.register_alias("creatures:fried_egg", "food:fried_egg")
+core.register_alias("farming:bread", "food:roll")
+core.register_alias("farming:flour", "food:flour")

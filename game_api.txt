@@ -33,6 +33,7 @@ Overview:
 	- Default constants
 	- Leafdecay
 	- Dyes, #Color groups, #Color groups
+	- Food
 	- Trees
 	- Default Functions
 
@@ -668,6 +669,25 @@ dye.basecolors
 
 dye.excolors
 ^ Array containing the names of the available extended colors
+
+Food
+----
+Item groups:
+
+There are five different types of food:
+  1: toxic food ('Rotten Flesh', 'Red Mushroom')
+  2: uneatable food / ingredients ('Flour', 'Egg')
+  3: raw, but eatable food ('Flesh', 'Potato', 'Brown Mushroom', 'Apple')
+  4: cooked food, level 1 ('Roll', 'Meat', 'Fried Egg')
+  5: cooked food, level 2 ('Roll with Fried Egg', 'Hamburger')
+
+All of them are in 'group:food' and have their food type number (see above).
+
+
+Global variables:
+
+food.STACK_MAX
+ ^ The normal maximal stack size for food items (equals 24)
 
 Trees
 -----

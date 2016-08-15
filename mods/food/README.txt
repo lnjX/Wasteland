@@ -3,7 +3,7 @@ This mod is part of Minetest TNG
 
 License of source code:
 -----------------------
-Copyright (C) 2016 LNJ <lnj.git@gmail.com>
+Copyright (C) 2016 LNJ <git@lnj.li>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -25,6 +25,7 @@ License of media (textures, sounds, meshes):
 
 LNJ (CC BY-SA 3.0):
   food_roll_with_fried_egg.png
+  food_hamburger.png
 
 BlockMen (CC BY-SA 3.0):
   food_fried_egg.png

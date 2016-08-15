@@ -1,12 +1,14 @@
 -- hunger.register_food(name, saturation, replace_with_item, poisen, heal, sound)
 
+
 hunger.register_food("default:apple", 2)
 hunger.register_food("default:pear", 2)
 
 if core.get_modpath("food") then
 	hunger.register_food("food:roll", 3)
-	hunger.register_food("food:roll_with_fried_egg", 5, nil, nil, 1) -- heals one heart
-	hunger.register_food("food:fried_egg")
+	hunger.register_food("food:roll_with_fried_egg", 5, nil, nil, 1) -- heals a half heart
+	hunger.register_food("food:fried_egg", 2, nil, nil)
+	hunger.register_food("food:hamburger", 8, nil, nil, 1)
 end
 
 if core.get_modpath("farming") then
@@ -22,7 +24,7 @@ if core.get_modpath("creatures") then
 	hunger.register_food("creatures:meat", 6, "default:bone")
 	hunger.register_food("creatures:flesh", 3, "default:bone")
 	hunger.register_food("creatures:rotten_flesh", 2, "default:bone", 4)
-	
+
 	if core.get_modpath("chicken") then
 		hunger.register_food("creatures:chicken_flesh", 1, "default:bone")
 		hunger.register_food("creatures:chicken_meat", 3, "default:bone")

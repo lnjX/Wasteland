@@ -1,10 +1,10 @@
 This mod is part of Minetest TNG
 ================================
-Farming++
+TNG Farming
 
 License of source code:
 -----------------------
-Copyright (C) 2016 LNJ <lnj.git@gmail.com>
+Copyright (C) 2016 LNJ <git@lnj.li>
 Copyright (C) 2014 webdesigner97
 
 This program is free software: you can redistribute it and/or modify
@@ -50,8 +50,12 @@ Gambit (WTFPL):
   farming_cotton_seed.png
   farming_wheat_seed.png
 
-LNJ <lnj.git@gmail.com> (CC BY-SA 3.0):
+LNJ <git@lnj.li> (CC BY-SA 3.0):
   farming_potato.png
+
+JBB (CC BY-SA 3.0):
+  farming_lettuce.png
+  farming_lettuce_*.png
 
 cd2 <cdqwertz@gmail.com> (CC BY-SA 3.0):
   farming_garden_soil.png
@@ -71,5 +75,3 @@ CC BY-SA 3.0:
 WTFPL:
   Do What the Fuck You Want to Public License
   http://www.wtfpl.net/txt/copying/
-
-

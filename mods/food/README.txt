@@ -1,5 +1,6 @@
 This mod is part of Minetest TNG
 ================================
+TNG Food
 
 License of source code:
 -----------------------

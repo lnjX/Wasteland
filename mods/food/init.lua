@@ -66,7 +66,7 @@ core.register_craft({
 core.register_craft({
 	type = "shapeless",
 	output = "food:hamburger",
-	recipe = {"food:roll", "group:meat"}
+	recipe = {"food:roll", "group:meat", "farming:lettuce"}
 })
 
 core.register_craft({

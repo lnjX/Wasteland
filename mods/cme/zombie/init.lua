@@ -1,6 +1,6 @@
 --= Zombie for Creatures MOB-Engine (cme) =--
 -- Copyright (c) 2015-2016 BlockMen <blockmen2015@gmail.com>
--- Copyright (c) 2016 LNJ <lnj.git@gmail.com>
+-- Copyright (c) 2016 LNJ <git@lnj.li>
 --
 -- init.lua
 --
@@ -24,8 +24,8 @@
 default.register_craftitem(":creatures:rotten_flesh", {
 	description = "Rotten Flesh",
 	inventory_image = "creatures_rotten_flesh.png",
-	on_use = core.item_eat(1),
-	groups = {food = 1}
+	on_use = core.item_eat(1, "default:bone"),
+	groups = {food = 1, on_eat_saturation = 2, on_eat_poisen = 4}
 })
 
 local snowSkins = {"jacket", "frozen"}

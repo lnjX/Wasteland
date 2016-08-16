@@ -5,7 +5,7 @@ Hunger, Version: 1.1.3 (modified)
 License of source code:
 -----------------------
 Copyright (C) 2015 BlockMen <blockmen2015@gmail.com>
-Copyright (C) 2016 LNJ <lnj.git@gmail.com>
+Copyright (C) 2016 LNJ <git@lnj.li>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -27,7 +27,6 @@ License of media (textures, sounds, meshes):
 
 BlockMen (CC BY-SA 3.0):
   hunger_statbar_poisen.png
-  hunger_eat.ogg
 
 
 Details of Licenses:

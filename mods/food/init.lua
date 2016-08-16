@@ -37,7 +37,7 @@ default.register_craftitem("food:roll", {
 default.register_craftitem("food:roll_with_fried_egg", {
 	description = "Roll with Fried Egg",
 	inventory_image = "food_roll_with_fried_egg.png",
-	groups = {roll = 2, food = 5},
+	groups = {roll = 2, food = 5, on_eat_heal = 1},
 	on_use = core.item_eat(6),
 	stack_max = food.STACK_MAX / 2
 })
@@ -45,8 +45,8 @@ default.register_craftitem("food:roll_with_fried_egg", {
 default.register_craftitem("food:hamburger", {
 	description = "Hamburger",
 	inventory_image = "food_hamburger.png",
-	groups = {roll = 2, food = 5},
-	on_use =  core.item_eat(8),
+	groups = {roll = 2, food = 5, on_eat_heal = 1},
+	on_use = core.item_eat(8),
 	stack_max = food.STACK_MAX / 2
 })
 

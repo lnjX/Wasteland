@@ -34,14 +34,14 @@ end
 default.register_craftitem(":creatures:chicken_flesh", {
 	description = "Raw Chicken Flesh",
 	inventory_image = "creatures_chicken_flesh.png",
-	on_use = core.item_eat(1),
+	on_use = core.item_eat(1, "default:bone"),
 	groups = {flesh = 1, food = 3}
 })
 
 default.register_craftitem(":creatures:chicken_meat", {
 	description = "Chicken Meat",
 	inventory_image = "creatures_chicken_meat.png",
-	on_use = core.item_eat(3),
+	on_use = core.item_eat(3, "default:bone"),
 	groups = {meat = 1, food = 4}
 })
 

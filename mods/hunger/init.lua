@@ -1,6 +1,9 @@
+-- mods/hunger/init.lua
+-- ====================
+-- See README.txt for licensing and other information.
+
 hunger = {}
 hunger.players = {}
-hunger.food = {}
 
 HUNGER_TICK = 600		-- time in seconds after that 1 hunger point is taken
 HUNGER_HEALTH_TICK = 20		-- time in seconds after player gets healed/damaged
@@ -21,7 +24,6 @@ HUNGER_MAX = 30			-- maximum level of saturation
 
 local modpath = core.get_modpath("hunger")
 dofile(modpath .. "/functions.lua")
-dofile(modpath .. "/food.lua")
 
 
 -- Callbacks

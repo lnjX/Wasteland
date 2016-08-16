@@ -1,5 +1,6 @@
 This mod is part of Wasteland TNG
 ================================
+TNG Food
 
 License of source code:
 -----------------------

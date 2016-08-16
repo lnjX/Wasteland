@@ -176,6 +176,7 @@ BlockMen (CC BY-SA 3.0):
   default_diamond_block.png
   default_dirt.png
   default_furnace_*.png
+  default_eat.ogg
   default_gold_ingot.png
   default_grass.png
   default_grass_side.png

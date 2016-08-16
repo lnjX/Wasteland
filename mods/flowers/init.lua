@@ -125,13 +125,13 @@ minetest.register_abm({
 --
 
 local mushrooms = {
-	{"brown", 2},
-	{"red", -6}
+	{"brown", 2, 0},
+	{"red", -6, 7}
 }
 
 -- Register mushrooms
 for k, v in pairs(mushrooms) do
-	local name, eat_value = v[1], v[2]
+	local name, eat_value, poisen = v[1], v[2], v[3]
 
 
 	default.register_node("flowers:mushroom_" .. name, {
@@ -145,7 +145,8 @@ for k, v in pairs(mushrooms) do
 		sunlight_propagates = true,
 		walkable = false,
 		buildable_to = true,
-		groups = {snappy = 3, flammable = 3, attached_node = 1, mushroom = 1},
+		groups = {snappy = 3, flammable = 3, attached_node = 1,
+			on_eat_poisen = poisen, mushroom = 1},
 		sounds = default.node_sound_leaves_defaults(),
 		on_use = minetest.item_eat(eat_value),
 		selection_box = {

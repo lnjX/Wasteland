@@ -51,3 +51,17 @@ farming.register_crop("strawberry", {
 		on_use = core.item_eat(1),
 	},
 })
+
+farming.register_crop("lettuce", {
+	description = "Lettuce",
+	steps = 7,
+	growtime = 380,
+	has_seed = false,
+	cond = {
+		fertility = {"grassland"},
+		light = {min = 13, max = default.LIGHT_MAX},
+	},
+	harvest = {
+		on_use = core.item_eat(0.7)
+	}
+})

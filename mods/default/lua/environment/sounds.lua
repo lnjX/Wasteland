@@ -1,3 +1,7 @@
+-- mods/default/lua/environment/sounds.lua
+-- =======================================
+-- See README.txt for licensing and other information.
+
 function default.node_sound_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
@@ -6,6 +10,8 @@ function default.node_sound_defaults(table)
 			{name = "default_dug_node", gain = 0.25}
 	table.place = table.place or
 			{name = "default_place_node_hard", gain = 1.0}
+	table.eat = table.eat or
+			{name = "default_eat", gain = 0.7}
 	return table
 end
 

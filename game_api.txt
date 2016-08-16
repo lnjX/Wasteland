@@ -34,6 +34,7 @@ Overview:
 	- Leafdecay
 	- Dyes, #Color groups, #Color groups
 	- Food
+	- Hunger
 	- Trees
 	- Default Functions
 
@@ -704,13 +705,50 @@ default.grow_tree[tree_name](pos)
     "default:birch", "default:maple", "default:red_maple", "default:cherry"
  -> pos: The position, where the tree will be placed.
 
+Hunger
+------
+The hunger mechanics are based on player actions and on time. Eg. if the player
+digs some nodes, he'll get faster hungry, than he had been standing around the
+whole time.
+
+Also eg. an 'Apple' does not gives the player hp back, it'll give the player
+more saturation.
+
+If you use 'core.item_eat' for your eating function of an item or node, your
+item will give the player (as much as hp before) saturation back now, too.
+But here is the new way to specify saturation, heal and poisen (via. groups):
+
+groups = {
+	on_eat_saturation = 6,
+	^ specifies the number of hunger points that are added to the player,
+	  when eaten.
+	on_eat_heal = 2,
+	^ the number of health points added to player, when eaten
+	on_eat_poisen = 4
+	^ the number of health points that are removed, when eaten
+}
+
+You can also specify an replace as usual in core.item_eat. (eg. an bone as
+replace for Meat):
+on_use = core.item_eat(4, "default:bone"),
+^ A line in the itemdef; makes the item eatable, gives the player 4 hunger
+  points back and is replaced with 'default:bone', when eaten (leftclick).
+
+And sounds are also settable via. the itemdef:
+sounds = default.node_sound_wood_default({eat = {name = "default_eat_apple", gain = 0.7}})
+^ Uses the normal sounds for wooden nodes (can also be any other type of mateial)
+  and a special eat sound.
+
+sounds = {eat = {name = "default_eat_apple", gain = 0.7}}
+^ An alternative one for craftitems.
+
 Default Functions
 -----------------
 default.round_number(num, idp)
 ^ Rounds a number to the given number of decimal places.
+  Returns the rounded number.
  -> num: the number that'll be rounded
  -> idp: number of decimal places to round to
-^ Returns the rounded number.
 
 default.is_day()
 ^ Returns true, if it is daytime (04:48 to 19:19)

@@ -60,6 +60,21 @@ celeron55 (WTFPL):
   dye_*.png
 
 kilbith (WTFPL):
+  default_chess_bg.png
+  default_chess_bishop_black.png
+  default_chess_bishop_white.png
+  default_chess_king_black.png
+  default_chess_king_white.png
+  default_chess_knight_black.png
+  default_chess_knight_white.png
+  default_chess_pawn_black.png
+  default_chess_pawn_white.png
+  default_chess_queen_black.png
+  default_chess_queen_white.png
+  default_chess_rook_black.png
+  default_chess_rook_white.png
+  default_chessboard_sides.png
+  default_chessboard_top.png
   default_trash_icon.png
 
 Cisoun (WTFPL):

@@ -156,6 +156,7 @@ dofile(nodepath .. "rails.lua")
 dofile(nodepath .. "itemframes.lua")
 
 -- Misc
+dofile(nodepath .. "chessboard.lua")
 dofile(nodepath .. "food.lua")
 dofile(nodepath .. "nyancat.lua")
 

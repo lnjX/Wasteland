@@ -28,6 +28,7 @@ Overview:
 	- Sign API, #Sign definition
 	- Player API, #Model definition
 	- Achievement API, #Achievement definition
+	- Give Initial Stuff API
 	- Raillike definitions
 	- Default sounds
 	- Default constants
@@ -551,6 +552,38 @@ awards.give_achievement(name, award)
 	secret = false
 	^ If true the player has to unlock it to find out what it is.
 }
+
+
+Give Initial Stuff API
+----------------------
+
+`give_initial_stuff.give(player)`
+
+^ Give initial stuff to "player"
+
+`give_initial_stuff.add(stack)`
+
+^ Add item to the initial stuff
+^ Stack can be an ItemStack or a item name eg: "default:dirt 99"
+^ Can be called after the game has loaded
+
+`give_initial_stuff.clear()`
+
+^ Removes all items from the initial stuff
+^ Can be called after the game has loaded
+
+`give_initial_stuff.get_list()`
+
+^ returns list of item stacks
+
+`give_initial_stuff.set_list(list)`
+
+^ List of initial items with numeric indices.
+
+`give_initial_stuff.add_from_csv(str)`
+
+^ str is a comma separated list of initial stuff
+^ Adds items to the list of items to be given
 
 
 Raillike definitions

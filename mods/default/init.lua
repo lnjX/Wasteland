@@ -108,7 +108,7 @@ dofile(apipath .. "trees.lua")
 
 
 --
--- Nodes (inculdes crafting recipies)
+-- Nodes (inculdes crafting recipes)
 --
 
 -- Full/Natural/Terrain
@@ -166,7 +166,7 @@ dofile(nodepath .. "unused.lua")
 
 
 --
--- Items (inculdes crafting recipies)
+-- Items (inculdes crafting recipes)
 --
 
 dofile(itempath .. "tools.lua")
@@ -190,6 +190,7 @@ dofile(itempath .. "dyes.lua")
 dofile(miscpath .. "chat_cmds.lua")
 dofile(miscpath .. "death_msgs.lua")
 dofile(miscpath .. "spectator_mode.lua")
+dofile(miscpath .. "give_initial_stuff.lua")
 
 if core.setting_getbool("creative_mode") then
 	dofile(miscpath .. "creative.lua")

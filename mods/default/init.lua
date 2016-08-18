@@ -88,6 +88,10 @@ end
 -- APIs
 --
 
+-- Misc
+dofile(apipath .. "player.lua")
+dofile(apipath .. "screwdriver.lua")
+
 -- Nodes
 dofile(apipath .. "carpets.lua")
 dofile(apipath .. "fences.lua")
@@ -95,12 +99,10 @@ dofile(apipath .. "fencegates.lua")
 dofile(apipath .. "signs.lua")
 dofile(apipath .. "slabs.lua")
 dofile(apipath .. "stairs.lua")
-dofile(apipath .. "tables.lua")
+dofile(apipath .. "furniture.lua") -- for chairs and tables
 dofile(apipath .. "walls.lua")
 
--- Misc
-dofile(apipath .. "player.lua")
-dofile(apipath .. "screwdriver.lua")
+-- tree api growing + nodes
 dofile(apipath .. "tree_growing.lua")
 dofile(apipath .. "trees.lua")
 

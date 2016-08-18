@@ -1,8 +1,8 @@
 This mod is part of Minetest TNG
 ================================
 
-License of source code (if not stated differently in lua files):
-----------------------------------------------------------------
+License of source code (authors may differ from file to file):
+--------------------------------------------------------------
 Copyright (C) 2011-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 Copyright (C) 2014-2015 BlockMen <blockmen2015@gmail.com>
 Copyright (C) 2016 LNJ <lnj.git@gmail.com>

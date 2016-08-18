@@ -122,6 +122,27 @@ local function register_node_table(name, def)
 	default.register_table(table_name, table_def)
 end
 
+local function register_node_chair(name, def)
+	local chair_def
+	if not def.chair then
+		chair_def = {}
+	else
+		chair_def = table.copy(def.chair)
+	end
+
+	local chair_name = chair_def.name or name:split(":")[1] .. ":chair_" .. name:split(":")[2]
+
+	chair_def.description =	chair_def.description	or def.description .. " Chair"
+	chair_def.sounds =	chair_def.sounds	or def.sounds
+	chair_def.material =	chair_def.material	or name
+	chair_def.tiles =	chair_def.tiles		or def.tiles
+
+	-- clean up
+	chair_def.name = nil
+
+	default.register_chair(chair_name, chair_def)
+end
+
 local function register_node_wall(name, def)
 	local wall_def
 	if not def.wall then
@@ -189,6 +210,9 @@ function default.register_node(name, def)
 		if def.register.table then
 			register_node_table(name, def)
 		end
+		if def.register.chair then
+			register_node_chair(name, def)
+		end
 		if def.register.wall then
 			register_node_wall(name, def)
 		end
@@ -203,6 +227,7 @@ function default.register_node(name, def)
 	def.fence = nil
 	def.fencegate = nil
 	def.table = nil
+	def.chair = nil
 	def.wall = nil
 	def.carpet = nil
 

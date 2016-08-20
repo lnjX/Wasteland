@@ -56,6 +56,7 @@ LNJ <git@lnj.li> (CC BY-SA 3.0):
 JBB (CC BY-SA 3.0):
   farming_lettuce.png
   farming_lettuce_*.png
+  farming_garden.png
 
 cd2 <cdqwertz@gmail.com> (CC BY-SA 3.0):
   farming_garden_soil.png

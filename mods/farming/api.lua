@@ -1,3 +1,9 @@
+-- mods/farming/api.lua
+-- ====================
+-- See README.txt for licensing and other information.
+
+farming.registered_seeds = {}
+
 -- Seed placement
 farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	local pt = pointed_thing
@@ -288,4 +294,7 @@ function farming.register_crop(name, def)
 			}
 		})
 	end
+
+	-- Add items to lists
+	table.insert(farming.registered_seeds, seedname)
 end

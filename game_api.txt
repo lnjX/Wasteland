@@ -140,7 +140,7 @@ doors.register_trapdoor(name, def)
 
 Farming API
 -----------
-The farming API allows you to easily register plants and hoes.
+The farming API allows you to easily register plants, hoes and gardens.
 
 farming.register_hoe(name, def)
  -> name: The name/itemstring of the hoe (e.g. "farming:hoe_diamond")
@@ -149,6 +149,10 @@ farming.register_hoe(name, def)
 farming.register_crop(name, def)
  -> name: The name of the crop (e.g. "wheat")
  -> def: See [#Plant definition]
+
+farming.register_garden(name, def)
+ -> name: itemstring for the garden (eg. "farming:garden_berry" or "farming:garden")
+ -> def: See [#Garden definition]
 
 #Hoe Definition
 ---------------
@@ -234,6 +238,26 @@ farming.register_crop(name, def)
 	},
 }
 
+#Garden definition
+------------------
+{
+	description = "Berry Garden",
+	 ^ the displayed name of the Garden
+	   (default: "Garden")
+
+	texture = "farming_garden_berry.png",
+	 ^ texture for the garden
+
+	items = {"farming:blackberry", "farming:blueberry", "farming:strawberry"},
+	 ^ A list of items that can be dropped, when the garden is digged.
+
+	number_of_drops = 3,
+	 ^ The average number of items that'll be dropped.
+	   (default: 3)
+
+	-- It's possible to add additional properties here.
+	-- See [Node definition]
+}
 
 TNT API
 -------

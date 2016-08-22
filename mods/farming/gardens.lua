@@ -29,6 +29,7 @@ function farming.register_garden(name, def)
 			drop_rnd(pos, item)
 		end
 	end
+	def.sunlight_propagates = true
 	def.walkable = false
 	def.groups = def.groups or {}
 	def.groups.garden = 1

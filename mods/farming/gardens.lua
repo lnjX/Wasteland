@@ -70,6 +70,10 @@ local function register_garden_decoration(name, biomes, fill_ratio)
 	})
 end
 
-register_garden_decoration("farming:garden", {"stone_grassland", "sandstone_grassland"}, 0.0009)
-register_garden_decoration("farming:garden", {"maple_forest", "red_maple_forest", "mixed_maple_forest",
-	"cherry_tree_forest", "deciduous_forest"}, 0.0006)
+if core.get_mapgen_params().mgname ~= "v6" then
+	register_garden_decoration("farming:garden", {"stone_grassland", "sandstone_grassland"}, 0.00008)
+	register_garden_decoration("farming:garden", {"maple_forest", "red_maple_forest", "mixed_maple_forest",
+		"cherry_tree_forest", "deciduous_forest"}, 0.00004)
+else
+	register_garden_decoration("farming:garden", nil, 0.00008)
+end

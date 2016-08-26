@@ -251,9 +251,9 @@ farming.register_garden(name, def)
 	items = {"farming:blackberry", "farming:blueberry", "farming:strawberry"},
 	 ^ A list of items that can be dropped, when the garden is digged.
 
-	number_of_drops = 3,
+	number_of_drops = 2,
 	 ^ The average number of items that'll be dropped.
-	   (default: 3)
+	   (default: 2)
 
 	-- It's possible to add additional properties here.
 	-- See [Node definition]

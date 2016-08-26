@@ -13,7 +13,7 @@ end
 
 function farming.register_garden(name, def)
 	local items = def.items
-	local number_of_drops = def.number_of_drops or 3
+	local number_of_drops = def.number_of_drops or 2
 
 	def.description = def.description or "Garden"
 	def.paramtype = "light"

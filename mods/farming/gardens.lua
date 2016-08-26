@@ -36,6 +36,7 @@ function farming.register_garden(name, def)
 	def.groups.attached_node = 1
 	def.groups.snappy = 3
 	def.groups.flora = 1
+	def.drop = ""
 
 	-- clean up
 	def.items = nil

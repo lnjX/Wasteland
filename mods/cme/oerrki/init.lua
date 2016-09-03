@@ -1,6 +1,6 @@
 --= Oerrki for Creatures MOB-Engine (cme) =--
 -- Copyright (c) 2016 BlockMen <blockmen2015@gmail.com>
--- Copyright (c) 2016 LNJ <lnj@gmx.de>
+-- Copyright (c) 2016 LNJ <git@lnj.li>
 --
 -- init.lua
 --
@@ -107,11 +107,11 @@ local def = {
     }
   },
   drops = {
-      {"default:bone", {min = 0, max = 1}, chance = 0.125},
-      {"default:obsidian_shard", {min = 0, max = 3}, chance = 0.03},
-      {"default:iron_lump", {min = 0, max = 3}, chance = 0.012},
-      {"default:coal_lump", {min = 0, max = 3}, chance = 0.017},
-      {"default:mese_crystal_fragment", {min = 0, max = 2}, chance = 0.015}
+      {"default:bone", {min = 1, max = 1}, chance = 0.125},
+      {"default:obsidian_shard", {min = 1, max = 3}, chance = 0.03},
+      {"default:iron_lump", {min = 1, max = 3}, chance = 0.012},
+      {"default:coal_lump", {min = 1, max = 3}, chance = 0.017},
+      {"default:mese_crystal_fragment", {min = 1, max = 2}, chance = 0.015}
   }
 }
 

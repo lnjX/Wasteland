@@ -124,7 +124,7 @@ minetest.register_abm({
 --
 
 local mushrooms = {
-	{"brown", 2, 0},
+	{"brown", 1, 0},
 	{"red", -6, 7}
 }
 

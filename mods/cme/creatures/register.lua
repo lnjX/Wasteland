@@ -1,5 +1,6 @@
---= Creatures MOB-Engine (cme) =--
--- Copyright (c) 2015-2016 BlockMen <blockmen2015@gmail.com>
+--= Creatures MOB-Engine (cme) TNG-Version =--
+-- Copyright (C) 2015-2016 BlockMen <blockmen2015@gmail.com>
+-- Copyright (C) 2016 LNJ <git@lnj.li>
 --
 -- register.lua
 --
@@ -186,6 +187,11 @@ local function translate_def(def)
     -- immortal is needed to disable clientside smokepuff shit
     self.object:set_armor_groups({fleshy = 100, immortal = 1})
 
+    -- if in peaceful mode and the mob is hostile remove it!
+    if self.hostile and not allow_hostile then
+      self.object:remove()
+    end
+
     -- call custom on_activate if defined
     if def.on_activate then
       def.on_activate(self, staticdata)
@@ -230,18 +236,22 @@ function creatures.register_mob(def) -- returns true if sucessfull
   core.register_entity(":" .. def.name, mob_def)
 
   -- register spawn
-  if def.spawning and not (def.stats.hostile and not allow_hostile) then
+  --if def.spawning and not (def.stats.hostile and not allow_hostile) then
+  if def.spawning then
     local spawn_def = def.spawning
     spawn_def.mob_name = def.name
     spawn_def.mob_size = def.model.collisionbox
-    if creatures.register_spawn(spawn_def) ~= true then
-      throw_error("Couldn't register spawning for '" .. def.name .. "'")
+    if not (def.stats.hostile and not allow_hostile) then
+      if creatures.register_spawn(spawn_def) ~= true then
+        throw_error("Couldn't register spawning for '" .. def.name .. "'")
+      end
     end
 
     if spawn_def.spawn_egg then
       local egg_def = def.spawning.spawn_egg
       egg_def.mob_name = def.name
       egg_def.box = def.model.collisionbox
+      egg_def.hostile = mob_def.hostile or false
       creatures.register_egg(egg_def)
     end
 
@@ -426,13 +436,21 @@ function creatures.register_egg(egg_def)
     return false
   end
 
+  local function on_rightclick() return end
+
+  -- check if mob is hostile and if these are allowed
+  -- if the mob is not hostile or hostile mobs are allowed, add the spawn function
+  if not (egg_def.hostile and not allow_hostile) then
+    on_rightclick = function(itemstack, placer, pointed_thing)
+      return eggSpawn(itemstack, placer, pointed_thing, egg_def)
+    end
+  end
+
   core.register_craftitem(":" .. egg_def.mob_name .. "_spawn_egg", {
     description = egg_def.description or egg_def.mob_name .. " Spawn Egg",
     inventory_image = egg_def.texture or "creatures_spawn_egg.png",
     liquids_pointable = false,
-    on_place = function(itemstack, placer, pointed_thing)
-      return eggSpawn(itemstack, placer, pointed_thing, egg_def)
-    end,
+    on_place = on_rightclick
   })
   return true
 end
@@ -544,7 +562,8 @@ function creatures.register_spawner(spawner_def)
   local height = (box[5] or 2) - (box[2] or 0)
   spawner_def.height = height
 
-  if spawner_def.player_range and type(spawner_def.player_range) == "number" then
+  if spawner_def.player_range and type(spawner_def.player_range) == "number" and
+    allow_hostile then
     core.register_abm({
       nodenames = {spawner_def.mob_name .. "_spawner"},
 		  interval = 2,

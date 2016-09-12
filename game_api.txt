@@ -38,6 +38,7 @@ Overview:
 	- Hunger
 	- Trees
 	- Default Functions
+	- Legacy
 
 
 Bucket API
@@ -821,3 +822,16 @@ default.dig_up(pos, node, digger)
  -> pos: the position under the node that should be digged
  -> node: for comparing the node above 'pos' with
  -> digger: the identity for digging the node above 'pos'
+
+Legacy
+------
+
+legacy.register_entity_remove(entityname)
+^ Registers an entity that will directly removed when loaded.
+^ Useful for removed or renamed entitys.
+ -> `entityname`: the name of the entity
+
+legacy.register_replace(oldname, newname)
+^ Registers a lbm that will replace `oldname`-nodes with `newname`-nodes.
+ -> `oldname`: the old node name (these nodes will be replaced with `newname`)
+ -> `newname`: the new name for all oldname-nodes

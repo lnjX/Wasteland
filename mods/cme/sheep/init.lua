@@ -1,6 +1,6 @@
---= Sheep for Creatures MOB-Engine (cme) =--
+--= Sheep for Creatures MOB-Engine (cme) - TNG-Version =--
 -- Copyright (C) 2015-2016 BlockMen <blockmen2015@gmail.com>
--- Copyright (C) 2016 LNJ <lnj.git@gmail.com>
+-- Copyright (C) 2016 LNJ <git@lnj.li>
 --
 -- init.lua
 --
@@ -128,12 +128,14 @@ local def = {
 			texture = "creatures_egg_sheep.png",
 		},
 
+		--[[
 		spawner = {
 			description = "Sheep Spawner",
 			range = 8,
 			player_range = 20,
 			number = 6,
 		}
+		]]
 	},
 
 	on_punch = function(self, puncher)
@@ -181,7 +183,7 @@ local def = {
 					core.sound_play("hunger_eat", {pos = pos, gain = 1, max_hear_distance = 10})
 
 					item:take_item()
-					
+
 					core.log("action", clicker:get_player_name() .. " fed a sheep at " .. core.pos_to_string(pos))
 				elseif name == "default:shears" and self.has_wool then
 					shear(self, math.random(2, 3), true)

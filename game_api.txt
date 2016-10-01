@@ -28,6 +28,7 @@ Overview:
 	- Sign API, #Sign definition
 	- Player API, #Model definition
 	- Achievement API, #Achievement definition
+	- Give Initial Stuff API
 	- Raillike definitions
 	- Default sounds
 	- Default constants
@@ -37,6 +38,7 @@ Overview:
 	- Hunger
 	- Trees
 	- Default Functions
+	- Legacy
 
 
 Bucket API
@@ -139,7 +141,7 @@ doors.register_trapdoor(name, def)
 
 Farming API
 -----------
-The farming API allows you to easily register plants and hoes.
+The farming API allows you to easily register plants, hoes and gardens.
 
 farming.register_hoe(name, def)
  -> name: The name/itemstring of the hoe (e.g. "farming:hoe_diamond")
@@ -148,6 +150,10 @@ farming.register_hoe(name, def)
 farming.register_crop(name, def)
  -> name: The name of the crop (e.g. "wheat")
  -> def: See [#Plant definition]
+
+farming.register_garden(name, def)
+ -> name: itemstring for the garden (eg. "farming:garden_berry" or "farming:garden")
+ -> def: See [#Garden definition]
 
 #Hoe Definition
 ---------------
@@ -233,6 +239,26 @@ farming.register_crop(name, def)
 	},
 }
 
+#Garden definition
+------------------
+{
+	description = "Berry Garden",
+	 ^ the displayed name of the Garden
+	   (default: "Garden")
+
+	texture = "farming_garden_berry.png",
+	 ^ texture for the garden
+
+	items = {"farming:blackberry", "farming:blueberry", "farming:strawberry"},
+	 ^ A list of items that can be dropped, when the garden is digged.
+
+	number_of_drops = 2,
+	 ^ The average number of items that'll be dropped.
+	   (default: 2)
+
+	-- It's possible to add additional properties here.
+	-- See [Node definition]
+}
 
 TNT API
 -------
@@ -553,6 +579,38 @@ awards.give_achievement(name, award)
 }
 
 
+Give Initial Stuff API
+----------------------
+
+`give_initial_stuff.give(player)`
+
+^ Give initial stuff to "player"
+
+`give_initial_stuff.add(stack)`
+
+^ Add item to the initial stuff
+^ Stack can be an ItemStack or a item name eg: "default:dirt 99"
+^ Can be called after the game has loaded
+
+`give_initial_stuff.clear()`
+
+^ Removes all items from the initial stuff
+^ Can be called after the game has loaded
+
+`give_initial_stuff.get_list()`
+
+^ returns list of item stacks
+
+`give_initial_stuff.set_list(list)`
+
+^ List of initial items with numeric indices.
+
+`give_initial_stuff.add_from_csv(str)`
+
+^ str is a comma separated list of initial stuff
+^ Adds items to the list of items to be given
+
+
 Raillike definitions
 --------------------
 The following nodes use the group `connect_to_raillike` and will only connect to
@@ -764,4 +822,17 @@ default.dig_up(pos, node, digger)
  -> pos: the position under the node that should be digged
  -> node: for comparing the node above 'pos' with
  -> digger: the identity for digging the node above 'pos'
+
+Legacy
+------
+
+legacy.register_entity_remove(entityname)
+^ Registers an entity that will directly removed when loaded.
+^ Useful for removed or renamed entitys.
+ -> `entityname`: the name of the entity
+
+legacy.register_replace(oldname, newname)
+^ Registers a lbm that will replace `oldname`-nodes with `newname`-nodes.
+ -> `oldname`: the old node name (these nodes will be replaced with `newname`)
+ -> `newname`: the new name for all oldname-nodes
 

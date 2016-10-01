@@ -89,6 +89,10 @@ end
 -- APIs
 --
 
+-- Misc
+dofile(apipath .. "player.lua")
+dofile(apipath .. "screwdriver.lua")
+
 -- Nodes
 dofile(apipath .. "carpets.lua")
 dofile(apipath .. "fences.lua")
@@ -96,18 +100,16 @@ dofile(apipath .. "fencegates.lua")
 dofile(apipath .. "signs.lua")
 dofile(apipath .. "slabs.lua")
 dofile(apipath .. "stairs.lua")
-dofile(apipath .. "tables.lua")
+dofile(apipath .. "furniture.lua") -- for chairs and tables
 dofile(apipath .. "walls.lua")
 
--- Misc
-dofile(apipath .. "player.lua")
-dofile(apipath .. "screwdriver.lua")
+-- tree api growing + nodes
 dofile(apipath .. "tree_growing.lua")
 dofile(apipath .. "trees.lua")
 
 
 --
--- Nodes (inculdes crafting recipies)
+-- Nodes (inculdes crafting recipes)
 --
 
 -- Full/Natural/Terrain
@@ -157,6 +159,7 @@ dofile(nodepath .. "rails.lua")
 dofile(nodepath .. "itemframes.lua")
 
 -- Misc
+dofile(nodepath .. "chessboard.lua")
 dofile(nodepath .. "food.lua")
 dofile(nodepath .. "nyancat.lua")
 
@@ -164,7 +167,7 @@ dofile(nodepath .. "unused.lua")
 
 
 --
--- Items (inculdes crafting recipies)
+-- Items (inculdes crafting recipes)
 --
 
 dofile(itempath .. "tools.lua")
@@ -188,6 +191,7 @@ dofile(itempath .. "dyes.lua")
 dofile(miscpath .. "chat_cmds.lua")
 dofile(miscpath .. "death_msgs.lua")
 dofile(miscpath .. "spectator_mode.lua")
+dofile(miscpath .. "give_initial_stuff.lua")
 
 if core.setting_getbool("creative_mode") then
 	dofile(miscpath .. "creative.lua")

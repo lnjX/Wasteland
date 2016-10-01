@@ -168,3 +168,11 @@ core.register_alias("creatures:fried_egg", "food:fried_egg")
 core.register_alias("farming:bread", "food:roll")
 core.register_alias("farming:flour", "food:flour")
 
+
+--
+-- CME - removed sheep spawner
+--
+
+core.register_alias("creatures:sheep_spawner", "default:stone")
+legacy.register_entity_remove("creatures:sheep_spawner_dummy")
+

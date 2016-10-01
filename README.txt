@@ -1,6 +1,6 @@
 Wasteland TNG - a post-apocalyptic game for the MGE
 ===================================================
-Version 0.7.dev-1607, Status: BETA II (rewrite)
+Version 0.7.dev-1609, Status: BETA II (rewrite)
 
 Copyright (C) 2013-2015 BlockMen <blockmen2015@gmail.com>
 Copyright (C) 2016 LNJ <git@lnj.li>

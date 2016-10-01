@@ -74,8 +74,8 @@ core.register_globalstep(function(dtime)
 	end
 end)
 
-local item_drop = core.setting_getbool("enable_item_drop") or true
-if item_drop then
+local item_drop = core.setting_getbool("enable_item_drop")
+if item_drop == true then
 	function core.handle_node_drops(pos, drops, digger)
 		local inv
 		if core.setting_getbool("creative_mode") and digger and digger:is_player() then

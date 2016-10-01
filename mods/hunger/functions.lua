@@ -258,13 +258,13 @@ function hunger.eat_item(hp_change, replace_with_item, itemstack, user, pointed_
 	end
 
 	-- eating sound
-	local sound
+	local soundspec
 	if not itemdef.sounds or not itemdef.sounds.eat then
-		sound = {name = "default_eat", gain = 0.7}
+		soundspec = {name = "default_eat", gain = 0.7}
 	else
-		sound = itemdef.sounds.eat
+		soundspec = itemdef.sounds.eat
 	end
-	core.sound_play(sound.name, sound)
+	core.sound_play(soundspec, {pos = user:getpos(), max_hear_distance = 8})
 
 	-- remove the item
 	itemstack:take_item()

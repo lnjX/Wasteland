@@ -29,3 +29,11 @@ function legacy.register_stair_replace(oldname, newname)
 		end
 	})
 end
+
+function legacy.register_entity_remove(entityname)
+	core.register_entity(":"..entityname, {
+		on_activate = function(self, staticdata)
+			self.object:remove()
+		end
+	})
+end

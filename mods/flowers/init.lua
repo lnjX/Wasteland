@@ -47,7 +47,6 @@ local function add_simple_flower(name, desc, box, f_groups)
 		paramtype = "light",
 		walkable = false,
 		buildable_to = true,
-		stack_max = 99,
 		groups = f_groups,
 		sounds = default.node_sound_leaves_defaults(),
 		selection_box = {
@@ -125,7 +124,7 @@ minetest.register_abm({
 --
 
 local mushrooms = {
-	{"brown", 2, 0},
+	{"brown", 1, 0},
 	{"red", -6, 7}
 }
 

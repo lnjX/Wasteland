@@ -1,5 +1,6 @@
---= Sheep for Creatures MOB-Engine (cme) =--
--- Copyright (c) 2015-2016 BlockMen <blockmen2015@gmail.com>
+--= Sheep for Creatures MOB-Engine (cme) - TNG-Version =--
+-- Copyright (C) 2015-2016 BlockMen <blockmen2015@gmail.com>
+-- Copyright (C) 2016 LNJ <git@lnj.li>
 --
 -- init.lua
 --
@@ -21,19 +22,7 @@
 
 
 -- shears
-core.register_tool(":creatures:shears", {
-	description = "Shears",
-	inventory_image = "creatures_shears.png",
-})
-
-core.register_craft({
-	output = 'creatures:shears',
-	recipe = {
-		{'', 'default:steel_ingot'},
-		{'default:steel_ingot', 'default:stick'},
-	}
-})
-
+core.register_alias("creatures:shears", "default:shears")
 
 local function setColor(self)
 	if self and self.object then
@@ -54,7 +43,7 @@ local function shear(self, drop_count, sound)
 		end
 
 		setColor(self)
-		creatures.dropItems(pos, {{"wool:" .. self.wool_color, drop_count}})
+		creatures.dropItems(pos, {{"default:wool_" .. self.wool_color, drop_count}})
 	end
 end
 
@@ -104,12 +93,12 @@ local def = {
 		walk = {chance = 0.14, duration = 4.5, moving_speed = 1.3},
 		walk_long = {chance = 0.11, duration = 8, moving_speed = 1.3, update_yaw = 5},
 		-- special modes
-		follow = {chance = 0, duration = 20, radius = 4, timer = 5, moving_speed = 1, items = {"farming:wheat"}},
+		follow = {chance = 0, duration = 20, radius = 5, timer = 4, moving_speed = 1, items = {"farming:wheat"}},
 		eat = {	chance = 0.25,
 			duration = 4,
 			nodes = {
 				"default:grass_1", "default:grass_2", "default:grass_3",
-				"default:grass_4", "default:grass_5", "default:dirt_with_grass", "default:grass"
+				"default:grass_4", "default:grass_5", "default:dirt_with_grass"
 			}
 		},
 	},
@@ -117,7 +106,7 @@ local def = {
 	drops = function(self)
 		local items = {{"creatures:flesh"}}
 		if self.has_wool then
-			table.insert(items, {"wool:" .. self.wool_color, {min = 1, max = 2}})
+			table.insert(items, {"default:wool_" .. self.wool_color, {min = 1, max = 2}})
 		end
 		creatures.dropItems(self.object:getpos(), items)
 	end,
@@ -126,8 +115,8 @@ local def = {
 		abm_nodes = {
 			spawn_on = {"default:dirt_with_grass"},
 		},
-		abm_interval = 65,
-		abm_chance = 65535,
+		abm_interval = 55,
+		abm_chance = 7800,
 		max_number = 1,
 		number = {min = 1, max = 3},
 		time_range = {min = 5100, max = 18300},
@@ -139,12 +128,14 @@ local def = {
 			texture = "creatures_egg_sheep.png",
 		},
 
+		--[[
 		spawner = {
 			description = "Sheep Spawner",
 			range = 8,
 			player_range = 20,
 			number = 6,
 		}
+		]]
 	},
 
 	on_punch = function(self, puncher)
@@ -182,10 +173,19 @@ local def = {
 					if not self.tamed then
 						self.fed_cnt = (self.fed_cnt or 0) + 1
 					end
+					-- heal sheep
+					if self.hp < self.stats.hp then
+						self.hp = self.hp + 1
+					end
 
-					-- play eat sound?
+					-- play eat sound
+					local pos = self.object:getpos()
+					core.sound_play("hunger_eat", {pos = pos, gain = 1, max_hear_distance = 10})
+
 					item:take_item()
-				elseif name == "creatures:shears" and self.has_wool then
+
+					core.log("action", clicker:get_player_name() .. " fed a sheep at " .. core.pos_to_string(pos))
+				elseif name == "default:shears" and self.has_wool then
 					shear(self, math.random(2, 3), true)
 					item:add_wear(65535/100)
 				end

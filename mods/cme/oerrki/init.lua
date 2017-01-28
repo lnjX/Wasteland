@@ -1,5 +1,6 @@
 --= Oerrki for Creatures MOB-Engine (cme) =--
 -- Copyright (c) 2016 BlockMen <blockmen2015@gmail.com>
+-- Copyright (c) 2016 LNJ <git@lnj.li>
 --
 -- init.lua
 --
@@ -23,8 +24,8 @@
 local def = {
   name = "creatures:oerrki",
   stats = {
-    hp = 27,
-    lifetime = 540, -- 9 Minutes
+    hp = default.get_difficult_and_set(16, 23, 32),
+    lifetime = default.get_difficult_and_set(480, 540, 660), -- 8/9/11 Minutes
     can_jump = 1,
     can_swim = true,
     can_burn = true,
@@ -70,13 +71,13 @@ local def = {
   },
 
   combat = {
-    attack_damage = 4,
-    attack_speed = 0.7,
+    attack_damage = default.get_difficult_and_set(2, 3, 4),
+    attack_speed = default.get_difficult_and_set(0.5, 0.6, 0.8),
     attack_radius = 1.2,
 
     search_enemy = true,
-    search_timer = 1.6,
-    search_radius = 15,
+    search_timer = default.get_difficult_and_set(2.0, 1.6, 1.0),
+    search_radius = default.get_difficult_and_set(12, 14, 18),
     search_type = "player",
   },
 
@@ -90,7 +91,7 @@ local def = {
     number = {min = 1, max = 3},
     time_range = {min = 18500, max = 5100},
     light = {min = 0, max = 8},
-    height_limit = {min = -200, max = 50},
+    height_limit = {min = default.get_difficult_and_set(-180, -220, -370), max = 50},
 
     spawn_egg = {
       description = "Oerrki Spawn-Egg",
@@ -105,10 +106,12 @@ local def = {
       light = {min = 0, max = 8},
     }
   },
-  
   drops = {
-    {"farming:seed_cotton", {min = 1, max = 2}, chance = 0.03},
-    {"default:coal_lump", {min = 1, max = 3}, chance = 0.02}
+      {"default:bone", {min = 1, max = 1}, chance = 0.125},
+      {"default:obsidian_shard", {min = 1, max = 3}, chance = 0.03},
+      {"default:iron_lump", {min = 1, max = 3}, chance = 0.012},
+      {"default:coal_lump", {min = 1, max = 3}, chance = 0.017},
+      {"default:mese_crystal_fragment", {min = 1, max = 2}, chance = 0.015}
   }
 }
 

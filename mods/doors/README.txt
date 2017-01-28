@@ -1,41 +1,83 @@
-Minetest 0.4 mod: doors
-=======================
-version: 1.2.6
+This mod is part of Wasteland TNG
+================================
 
 License of source code:
 -----------------------
-Copyright (C) 2012 PilzAdam
-modified by BlockMen (added sounds, glassdoor, trapdoor)
+Copyright (c) 2012 PilzAdam <pilzadam@minetest.net>
+Copyright (c) 2013-2014 BlockMen <blockmen2015@gmail.com>
 
-This program is free software. It comes without any warranty, to
-the extent permitted by applicable law. You can redistribute it
-and/or modify it under the terms of the Do What The Fuck You Want
-To Public License, Version 2, as published by Sam Hocevar. See
-http://sam.zoy.org/wtfpl/COPYING for more details.
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-License of textures
---------------------------------------
-following Textures created by Fernando Zapata (CC BY-SA 3.0):
-  door_wood.png
-  door_wood_a.png
-  door_wood_a_r.png
-  door_wood_b.png
-  door_wood_b_r.png
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-following Textures created by BlockMen (WTFPL):
-  door_glass.png
-  door_glass_a.png
-  door_glass_b.png
-  door_glass_side.png
-  door_trapdoor.png
-  door_trapdoor_side.png
-
-All other textures (created by PilzAdam): WTFPL
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-License of sounds
---------------------------------------
-Opening-Sound created by CGEffex (CC BY 3.0), modified by BlockMen
-  door_open.ogg
-Closing-Sound created by bennstir (CC BY 3.0)
-  door_close.ogg
+License of media (textures, sounds, meshes):
+--------------------------------------------
+(by Authors)
+
+Fernando Zapata (CC BY-SA 3.0):
+  doors_wood.png
+
+Esteban (CC BY-SA 3.0):
+  doors_brown.png
+  doors_grey.png
+
+BlockMen (CC BY-SA 3.0):
+  doors_trapdoor.png
+  doors_obsidian_glass_side.png
+  doors_wood_a.png
+  doors_wood_b.png
+  doors_steel_a.png
+  doors_steel_b.png
+
+celeron55 (CC BY-SA 3.0):
+  doors_trapdoor_side.png
+  doors_glass_a.png
+  doors_glass_b.png
+  
+PenguinDad (CC BY-SA 4.0):
+  doors_glass.png
+  doors_obsidian_glass.png
+
+PilzAdam (WTFPL):
+  doors_obsidian_glass_a.png
+  doors_obsidian_glass_b.png
+
+sofar (CC BY-SA 3.0):
+  doors_trapdoor_steel.png
+  doors_trapdoor_steel_side.png
+
+CGEffex (CC BY 3.0):
+  doors_wooden_open.ogg
+
+bennstir (CC BY 3.0):
+  doors_wooden_close.ogg
+
+
+Details of Licenses:
+--------------------
+
+CC BY 3.0:
+  Attribution 3.0 Unported
+  http://creativecommons.org/licenses/by/3.0/
+
+CC BY-SA 3.0:
+  Attribution-ShareAlike 3.0 Unported
+  http://creativecommons.org/licenses/by-sa/3.0/
+
+CC BY-SA 4.0:
+  Attribution-ShareAlike 4.0 International
+  http://creativecommons.org/licenses/by-sa/4.0/
+
+WTFPL:
+  Do What the Fuck You Want to Public License
+  http://www.wtfpl.net/txt/copying/

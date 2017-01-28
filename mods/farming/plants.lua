@@ -1,31 +1,67 @@
--- Wheat
-farming.register_plant("farming:wheat", {
-	description = "Wheat seed",
-	inventory_image = "farming_wheat_seed.png",
+farming.register_crop("wheat", {
+	description = "Wheat",
 	steps = 8,
-	minlight = 13,
-	maxlight = default.LIGHT_MAX,
-	fertility = {"grassland"}
+	growtime = 1000,
+	has_seed = true,
+	craft_seed_by_harvest = true,
+	cond = {
+		fertility = {"grassland"},
+		light = {min = 13, max = default.LIGHT_MAX},
+	},
 })
 
--- Cotton
-farming.register_plant("farming:cotton", {
-	description = "Cotton seed",
-	inventory_image = "farming_cotton_seed.png",
+farming.register_crop("cotton", {
+	description = "Cotton",
 	steps = 8,
-	minlight = 13,
-	maxlight = default.LIGHT_MAX,
-	fertility = {"grassland", "desert"}
+	growtime = 1040,
+	has_seed = true,
+	cond = {
+		fertility = {"grassland", "desert"},
+		light = {min = 13, max = default.LIGHT_MAX},
+	},
 })
 
--- Potato
-farming.register_plant("farming:potato", {
+farming.register_crop("potato", {
 	description = "Potato",
-	inventory_image = "farming_potato.png",
 	steps = 3,
+	growtime = 900,
 	has_seed = false,
-	minlight = 13,
-	maxlight = default.LIGHT_MAX,
-	fertility = {"grassland"},
-  on_use = minetest.item_eat(1)
+	cond = {
+		fertility = {"grassland"},
+		light = {min = 13, max = default.LIGHT_MAX},
+	},
+	harvest = {
+		on_use = core.item_eat(1),
+	},
+})
+
+farming.register_crop("strawberry", {
+	description = "Strawberries",
+	steps = 7,
+	step_after_harvest = 4,
+	-- after the plant has been harvested,
+	-- it only needs ~760 s to get mature again
+	growtime = 1800,
+	has_seed = false,
+	cond = {
+		fertility = {"grassland"},
+		light = {min = 13, max = default.LIGHT_MAX},
+	},
+	harvest = {
+		on_use = core.item_eat(1),
+	},
+})
+
+farming.register_crop("lettuce", {
+	description = "Lettuce",
+	steps = 7,
+	growtime = 760,
+	has_seed = false,
+	cond = {
+		fertility = {"grassland"},
+		light = {min = 13, max = default.LIGHT_MAX},
+	},
+	harvest = {
+		on_use = core.item_eat(0.7)
+	}
 })

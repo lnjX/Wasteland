@@ -1,114 +1,198 @@
--- Minetest 0.4 mod: default
+-- mods/default/init.lua
+-- =====================
 -- See README.txt for licensing and other information.
 
--- The API documentation in here was moved into doc/lua_api.txt
-
-WATER_ALPHA = 160
-WATER_VISC = 1
-LAVA_VISC = 7
-LIGHT_MAX = 14
-SNOW_START = 24
-MINERAL_MAX = -20
-
--- Definitions made by this mod that other mods can use too
 default = {}
 
-default.dig = {
-	-- Cracky (pick)
-	stone = 1,
-	cobble = 2,
-	coal = 3,
-	iron = 4,
-	gold = 5,
-	diamond = 6,
-	sandstone = 7,
-	furnace = 8,
-	ironblock = 9,
-	goldblock = 10,
-	diamondblock = 11,
-	obsidian = 12,
-	ice = 13,
-	rail = 14,
-	iron_door = 15,
-	netherrack = 16,
-	netherbrick = 17,
-	redstone_ore = 18,
-	brick = 19,
-	pressure_plate_stone = 20,
-	stonebrick = 20,
-
-	-- Crumbly (shovel)
-	dirt_with_grass = 1,
-	dirt = 2,
-	sand = 3,
-	gravel = 4,
-	clay = 5,
-	snow = 6,
-	snowblock = 7,
-	nethersand = 8,
-	hardclay = 9,
-
-	-- Choppy (axe)
-	tree = 1,
-	wood = 2,
-	bookshelf = 3,
-	fence = 4,
-	sign = 5,
-	chest = 6,
-	wooden_door = 7,
-	workbench = 8,
-	pressure_plate_wood=9,
-	deadtree = 10,
-	old_chest = 11,
-
-	-- Snappy (shears)
-	leaves = 1,
-	wool = 2,
-
-	-- Dig (tool doesnt matter but count as a use)
-	bed = 1,
-	cactus = 2,
-	glass = 3,
-	ladder = 4,
-	glowstone = 5,
-	lever = 6,
-	button = 7,
-	instant = 8,
-}
-
--- GUI related stuff
-default.gui_bg = "bgcolor[#080808BB;true]"
-default.gui_bg_img = "background[5,5;1,1;gui_formbg.png;true]"
-default.gui_slots = "listcolors[#00000069;#5A5A5A;#141318;#30434C;#FFF]"
-
-function default.get_hotbar_bg(x,y)
-	local out = ""
-	for i=0,7,1 do
-		out = out .."image["..x+i..","..y..";1,1;gui_hb_bg.png]"
-	end
-	return out
+function default.get_difficult_and_set(easy, normal, hard)
+	local difficults = {}
+	difficults["easy"] = easy
+	difficults["normal"] = normal
+	difficults["hard"] = hard
+	return difficults[core.setting_get("difficulty") or "normal"]
 end
 
-default.gui_suvival_form = "size[8,8.5]"..
-			default.gui_bg..
-			default.gui_bg_img..
-			default.gui_slots..
-			"list[current_player;main;0,4.25;8,1;]"..
-			"list[current_player;main;0,5.5;8,3;8]"..
-			"list[current_player;craft;1.75,0.5;3,3;]"..
-			"list[current_player;craftpreview;5.75,1.5;1,1;]"..
-			"image[4.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
-			default.get_hotbar_bg(0,4.25)
+-- Global variables
+default.NAME = "tng"
+default.FORK = "wland"
+default.LIGHT_MAX = 14
+default.STACK_MAX = core.setting_get("default_stack_max") or 60
+default.GROW_TIME_FACTOR = default.get_difficult_and_set(0.8, 1.0, 1.4)
 
--- Load files
-dofile(minetest.get_modpath("default").."/functions.lua")
-dofile(minetest.get_modpath("default").."/nodes.lua")
-dofile(minetest.get_modpath("default").."/tools.lua")
-dofile(minetest.get_modpath("default").."/craftitems.lua")
-dofile(minetest.get_modpath("default").."/crafting.lua")
-dofile(minetest.get_modpath("default").."/mapgen.lua")
-dofile(minetest.get_modpath("default").."/minerals.lua")
-dofile(minetest.get_modpath("default").."/player.lua")
-dofile(minetest.get_modpath("default").."/trees.lua")
-dofile(minetest.get_modpath("default").."/aliases.lua")
+-- default settings (for nodes, items)
+core.craftitemdef_default.stack_max =  default.STACK_MAX
+core.nodedef_default.stack_max =       default.STACK_MAX
+core.noneitemdef_default.stack_max =   default.STACK_MAX
 
+
+-- Filepaths
+local modpath = core.get_modpath("default")
+local luapath = modpath .. "/lua/"
+local nodepath = modpath .. "/lua/nodes/"
+local itempath = modpath .. "/lua/items/"
+local mapgenpath = modpath .. "/lua/mapgen/"
+local apipath = modpath .. "/lua/apis/"
+local envpath = modpath .. "/lua/environment/"
+local miscpath = modpath .. "/lua/misc/"
+
+local mg_name = core.get_mapgen_params().mgname or ""
+
+--
+-- Global Functions
+--
+
+dofile(miscpath .. "gui.lua")
+dofile(luapath .. "functions.lua")
+dofile(luapath .. "register.lua")
+
+
+--
+-- Map Generation
+--
+
+dofile(mapgenpath .. "aliases.lua")
+dofile(mapgenpath .. "ores.lua")
+dofile(mapgenpath .. "nyancats.lua")
+dofile(mapgenpath .. "ruins.lua")
+if mg_name == "v6" then
+	dofile(mapgenpath .. "mapgenv6.lua")
+else
+	dofile(mapgenpath .. "mapgenv57.lua")
+end
+
+--
+-- Environment
+--
+
+-- Growing
+dofile(envpath .. "grow_cactus.lua")
+dofile(envpath .. "grow_grass.lua")
+dofile(envpath .. "grow_papyrus.lua")
+
+-- Items
+dofile(envpath .. "item_physics.lua")
+dofile(envpath .. "item_pickup.lua")
+
+-- Misc
+dofile(envpath .. "lava_cooling.lua")
+dofile(envpath .. "leafdecay.lua")
+dofile(envpath .. "no_sneak_glitch.lua")
+dofile(envpath .. "sethome.lua")
+dofile(envpath .. "sounds.lua")
+-- torch wield light (optional)
+if core.is_yes(core.setting_get("enable_torches_wieldlight") or false) then
+	dofile(envpath .. "torch_wield_light.lua")
+end
+
+
+--
+-- APIs
+--
+
+-- Misc
+dofile(apipath .. "player.lua")
+dofile(apipath .. "screwdriver.lua")
+
+-- Nodes
+dofile(apipath .. "carpets.lua")
+dofile(apipath .. "fences.lua")
+dofile(apipath .. "fencegates.lua")
+dofile(apipath .. "signs.lua")
+dofile(apipath .. "slabs.lua")
+dofile(apipath .. "stairs.lua")
+dofile(apipath .. "furniture.lua") -- for chairs and tables
+dofile(apipath .. "walls.lua")
+
+-- tree api growing + nodes
+dofile(apipath .. "tree_growing.lua")
+dofile(apipath .. "trees.lua")
+
+
+--
+-- Nodes (inculdes crafting recipes)
+--
+
+-- Full/Natural/Terrain
+dofile(nodepath .. "ores.lua")
+dofile(nodepath .. "trees.lua") -- registers logs, leaves, saplings, planks (stair, salb, fences, ...)
+
+dofile(nodepath .. "dirt.lua")
+dofile(nodepath .. "sand.lua")
+dofile(nodepath .. "gravel.lua")
+dofile(nodepath .. "stone.lua")
+dofile(nodepath .. "cobble.lua")
+
+dofile(nodepath .. "ice.lua")
+dofile(nodepath .. "snow.lua")
+
+dofile(nodepath .. "wool.lua") -- also registers carpets
+
+-- Plants
+dofile(nodepath .. "grass.lua")
+dofile(nodepath .. "papyrus.lua")
+
+dofile(nodepath .. "cactus.lua")
+dofile(nodepath .. "vines.lua")
+
+-- Liquids
+dofile(nodepath .. "water.lua")
+dofile(nodepath .. "lava.lua")
+
+-- Crafted
+dofile(nodepath .. "glass.lua")
+dofile(nodepath .. "bricks.lua")
+
+-- Light
+dofile(nodepath .. "torch.lua")
+dofile(nodepath .. "lamps.lua")
+
+-- Inventory Nodes
+dofile(nodepath .. "chests.lua")
+dofile(nodepath .. "furnace.lua")
+dofile(nodepath .. "bookshelf.lua")
+dofile(nodepath .. "workbench.lua")
+
+-- Functional Nodes
+dofile(nodepath .. "signs.lua")
+dofile(nodepath .. "ladder.lua")
+dofile(nodepath .. "rails.lua")
+dofile(nodepath .. "itemframes.lua")
+
+-- Misc
+dofile(nodepath .. "chessboard.lua")
+dofile(nodepath .. "food.lua")
+dofile(nodepath .. "nyancat.lua")
+
+dofile(nodepath .. "unused.lua")
+
+
+--
+-- Items (inculdes crafting recipes)
+--
+
+dofile(itempath .. "tools.lua")
+dofile(itempath .. "weapons.lua")
+
+dofile(itempath .. "food.lua")
+
+dofile(itempath .. "books.lua")
+dofile(itempath .. "materials.lua")
+dofile(itempath .. "misc.lua")
+dofile(itempath .. "bonemeal.lua")
+dofile(itempath .. "craftguide.lua")
+
+dofile(itempath .. "dyes.lua")
+
+
+--
+-- Misc
+--
+
+dofile(miscpath .. "chat_cmds.lua")
+dofile(miscpath .. "death_msgs.lua")
+dofile(miscpath .. "spectator_mode.lua")
+dofile(miscpath .. "give_initial_stuff.lua")
+
+if core.setting_getbool("creative_mode") then
+	dofile(miscpath .. "creative.lua")
+end

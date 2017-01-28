@@ -43,13 +43,13 @@ minetest.register_on_dieplayer(function(player)
 	if minetest.setting_getbool("creative_mode") then
 		return
 	end
-	
+
 	local pos = player:getpos()
 	pos.x = math.floor(pos.x+0.5)
 	pos.y = math.floor(pos.y-0.5)
 	pos.z = math.floor(pos.z+0.5)
 	local param2 = minetest.dir_to_facedir(player:get_look_dir())
-	
+
 	local nn = minetest.get_node(pos).name
 	if minetest.registered_nodes[nn].can_dig and
 		not minetest.registered_nodes[nn].can_dig(pos, player) then
@@ -70,16 +70,16 @@ minetest.register_on_dieplayer(function(player)
 	local meta = minetest.get_meta(pos)
 	meta:set_string("infotext", "RIP "..player:get_player_name())
 	pos.y = pos.y-1
-	
+
 	meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
 	local player_inv = player:get_inventory()
 	inv:set_size("main", 8*4)
-	
+
 	local empty_list = inv:get_list("main")
 	inv:set_list("main", player_inv:get_list("main"))
 	player_inv:set_list("main", empty_list)
-	
+
 	for i=1,player_inv:get_size("craft") do
 		inv:add_item("main", player_inv:get_stack("craft", i))
 		player_inv:set_stack("craft", i, nil)

@@ -1,7 +1,7 @@
 farming.register_crop("wheat", {
 	description = "Wheat",
 	steps = 8,
-	growtime = 500,
+	growtime = 1000,
 	has_seed = true,
 	craft_seed_by_harvest = true,
 	cond = {
@@ -13,7 +13,7 @@ farming.register_crop("wheat", {
 farming.register_crop("cotton", {
 	description = "Cotton",
 	steps = 8,
-	growtime = 520,
+	growtime = 1040,
 	has_seed = true,
 	cond = {
 		fertility = {"grassland", "desert"},
@@ -24,7 +24,7 @@ farming.register_crop("cotton", {
 farming.register_crop("potato", {
 	description = "Potato",
 	steps = 3,
-	growtime = 450,
+	growtime = 900,
 	has_seed = false,
 	cond = {
 		fertility = {"grassland"},
@@ -40,8 +40,8 @@ farming.register_crop("strawberry", {
 	steps = 7,
 	step_after_harvest = 4,
 	-- after the plant has been harvested,
-	-- it only needs ~380 s to get mature again
-	growtime = 900,
+	-- it only needs ~760 s to get mature again
+	growtime = 1800,
 	has_seed = false,
 	cond = {
 		fertility = {"grassland"},
@@ -55,7 +55,7 @@ farming.register_crop("strawberry", {
 farming.register_crop("lettuce", {
 	description = "Lettuce",
 	steps = 7,
-	growtime = 380,
+	growtime = 760,
 	has_seed = false,
 	cond = {
 		fertility = {"grassland"},
